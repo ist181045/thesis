@@ -1,0 +1,151 @@
+% !TEX root = ../main.tex
+\fancychapter{Introduction}
+\cleardoublepage
+\label{chap:intro}
+
+\noindent
+Modern \ac{CAD} applications include substantial support for parametric
+operations and \ac{GCS}.  These mechanisms have been developed over the past few
+decades \cite{Bettig:2011:GCSPC:1.3593408} and are heavily and ubiquitously used
+across the \ac{AEC} industry.
+
+Parametric modeling is used to design with constraints, whereby users express a
+set of parameters and interdependent operations, establishing restrictions
+between geometric entities.  The resulting geometry can be controlled from input
+parameters using two computational mechanisms:
+\begin{enumerate*}[label=(\arabic*)]
+  \item parametric operations, which build geometry that implicitly abides by
+  constraints imposed when the user selects the operation and its inputs, and
+  \item \ac{GCS}, which manipulates geometry in sketches and models to satisfy
+  constraints explicitly imposed on objects by the user.
+\end{enumerate*}
+
+Nowadays, Parametric operations in \ac{CAD} software are mostly accessible
+through intuitive, robust, and easy to use direct-manipulation interfaces,
+offering a wide variety of different operations.  These operations are created
+when a designer uses solid modeling operations, such as face extrusions or shape
+unions; and recorded into a user-controlled sequential history of construction
+steps that can be replayed in the face of changes, updating the modeled
+geometry.  Alas, dependency propagation direction is fixed, forcing users to
+plan their model's features beforehand.  Contrastingly, in constraint solving,
+dependency propagation direction isn't fixed.  Instead, users introduce a set of
+parameters and geometric entities followed by specifying the constraints that
+relate these objects.  Naturally, \ac{GCS} fits in \ac{CAD} software, having
+been target of considerable research and development to implement efficient
+approaches and methodologies capable of solving \ac{GC} problems.  So much so
+that it has become standard in major \ac{CAD} software, such as AutoCAD
+\cite{Autodesk:1982:AutoCAD}, which supports the ability to constrain objects in
+a variety of ways, e.g., point coincidence, line perpendicularity, tangencies,
+among other kinds of constraints.
+
+However, traditional interactive methods for parametric modeling suffer from the
+disadvantage that they do not scale properly when designing more complex ideas.
+In recent years, a novel approach to design named \ac{AD} has emerged,
+introducing the algorithmic methodology also present in the \ac{CS} field,
+allowing the specification of sketches and models through algorithms
+\cite{McCormack:2004:GDPDR}, leading to the creation and integration of several
+\ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL}, others
+\acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental issue
+with \acp{VPL} which is the frequently disproportionate complexity between the
+program and the respective resulting model.
+
+\acp{TPL} come with some advantages over \acp{VPL}, among which are
+\begin{enumerate*}[label=(\arabic*)]
+  \item abstraction mechanisms, enabling the encapsulation of behavior that can
+  be changed and reused in a different context at a later time,
+  \item the ability of specifying recursive definitions,
+  \item resulting source code can be put under a version control system, and
+  \item multiple developers can work on the same codebase.
+\end{enumerate*}
+In spite of these, dealing with \acp{GC} remains a arduous task.  Take as an
+example the sketch of a chair seat's outer frame, as seen in
+\cref{fig:intro.chair}, from a multi-purpose chair generation tool
+\cite{Garcia:2012:ChairDNA} where the chair's overall shape is controllable by
+specifying the values for a set of input parameters.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{fig/chair-seat-outer-frame}\par
+  {\scriptsize Source: Project source code, publicly unavailable (Jan 2019)}
+  \caption[Sketch of a chair seat's outer frame]{
+    Sketch of a chair seat's outer frame, defined by 5 input parameters:
+    \begin{enumerate*}[label=(\arabic*)]
+      \item Width ($g-w$),
+      \item depth ($g-d$),
+      \item taper width ($g-\Delta wt$),
+      \item front radius ($g-rf$), and
+      \item rear radius ($g-rr$).
+    \end{enumerate*}}
+  \label{fig:intro.chair}
+\end{figure}
+
+The seat's corners are defined by circles whose respective front and rear
+radius' length, $g-rf,g-rr$, is obtained by computing distances, from which the
+circles' centers, $GFC$ and $GBC$, can be obtained.  The circles are then
+connected through outer tangent lines, $gsl$, forming the outer frame of the
+chair's seat.  Some of these operations, such as the radius computation,
+\textit{tangency}, and \textit{circumcenter}, depend on operations that query if
+a point is at a certain distance from an object, or if two points are
+coincident.  Such operations must be handled carefully due to numerical
+robustness issues that may arise when performing fixed-precision arithmetic.  As
+such, on top of the design process itself, the user must identify these kinds of
+\acp{GC}, resorting to trigonometry analysis, perform tolerance-based
+comparisons to determine point distance or if two points are coincident, among
+other techniques the user most likely is not aware he must rely upon to
+circumvent these issues, particularly, when we take into consideration that most
+designers using \ac{AD} are architects and designers without an extensive
+background in \ac{CS}.
+
+To overcome the limitations exposed above, this report proposes the
+implementation of a wide variety of \ac{GC} primitives with
+specialized efficient solutions for different combinations of input objects.  In
+this manner, the user won't have to be aware of numerical robustness issues and
+have to investigate techniques for solving such issues to accurately generate a
+model riddled with \acp{GC}.
+
+\section{Document Structure}
+\label{sec:intro.structure}
+
+The present document is structured in ? different chapters, namely:
+\begin{description}
+  \item[\nameref{chap:intro}] Broken into several sections, including this
+  one, presents:
+  \begin{enumerate*}[label=(\arabic*)]
+    \item A brief historical overview of the development of parametric
+    operations in \ac{CAD} software in \cref{sec:intro.parametric},
+    \item the main approaches to \ac{GCS} in \ac{CAD}, in
+    \cref{sec:intro.constraints},
+    \item two simple algebraically formulated examples of \ac{GC} problems and
+    respective solutions along with code examples, in \cref{sec:intro.examples},
+    and
+    \item a section dedicated to further elaborating on \ac{AD} and the benefits
+    and drawbacks it introduces to the design process, in \cref{sec:intro.ad}.
+  \end{enumerate*}
+  
+  \item[\nameref{chap:related}] An exposition of the related work in the form of
+  \begin{enumerate*}[label=(\arabic*)]
+    \item a comprehensive discussion about numerical robustness in computational
+    processes, showcasing a set of software tools capable of handling these
+    issues in the context of geometric computation, in
+    \cref{sec:related.robustness},
+    \item an overview of some \ac{GC} tools, presenting some of their benefits
+    and drawbacks, in \cref{sec:related.constraints}, and
+    \item an overview of algorithmic design tools, similarly comparing them and
+    addressing positive and negative points, in \cref{sec:related.ad}.
+  \end{enumerate*}
+
+  \item[\nameref{chap:solution}] A detailed solution proposal, including an
+  explanation of how its implementation can be capable of efficiently handling
+  the specification of \ac{GC} problems, in \cref{chap:solution}.
+
+  \item[\nameref{chap:evaluation}] A brief plan of the methodology used to evaluate
+  the proposed solution in \cref{chap:evaluation}.
+  
+  \item[\nameref{chap:conclusion}] Concluding remarks that summarize the
+  document, in \cref{chap:conclusion}.
+\end{description}
+
+\input{tex/intro/parametric-operations}
+\input{tex/intro/constraints}
+\input{tex/intro/examples}
+\input{tex/intro/algorithmic-design}

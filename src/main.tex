@@ -1,0 +1,103 @@
+% !TEX root = ./main.tex
+% #############################################################################
+% Thesis-MSc
+% Version 3.1, February 2021
+% BY: Prof. Rui Santos Cruz, rui.s.cruz@tecnico.ulisboa.pt
+% #############################################################################
+
+%\documentclass[defaultstyle,10pt,Helvetica,oneside]{istulthesis}
+\documentclass[defaultstyle,10pt,twoside,openright]{istulthesis}
+\usepackage{main}
+
+\begin{document}
+
+\pdfbookmark[0]{Titlepage}{titlepage}
+\input{cover}
+
+% PAGE NUMBERING FOR INDEXING MATTER in ROMAN
+\setcounter{page}{1}\pagenumbering{roman}
+\onehalfspacing
+
+\pdfbookmark[0]{Acknowledgments}{acknowledgments}
+\input{tex/acknowledgments}
+
+\pdfbookmark[0]{Abstract}{abstract}
+\input{tex/abstract/en}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\pdfbookmark[0]{Resumo}{resumo}
+\input{tex/abstract/pt}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+% This is required for the Fancy Chapters with minitoc
+\dominitoc
+\dominilof
+\dominilot
+
+\renewcommand{\baselinestretch}{1}
+\pdfbookmark[0]{Contents}{toc}
+\tableofcontents
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\renewcommand{\baselinestretch}{1.5} % reposition baseline
+
+\pdfbookmark[1]{List of Figures}{lof}
+\listoffigures
+\cleardoublepage
+
+\pdfbookmark[1]{List of Tables}{lot}
+\listoftables
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+% \pdfbookmark[1]{List of Algorithms}{loa}
+% \listofalgorithms
+% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\pdfbookmark[1]{Listings}{lol}
+\listoflistings
+\cleardoublepage
+
+\pdfbookmark[1]{Acronyms}{loac}
+\chapter*{\tlangAcronyms}
+\input{tex/acronyms}
+\clearpage
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\setcounter{page}{1}\pagenumbering{arabic}
+\onehalfspacing
+
+\acresetall
+
+\input{tex/intro}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\input{tex/related}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\input{tex/solution}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\input{tex/evaluation}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\input{tex/conclusion}
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\pdfbookmark[0]{Bibliography}{bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtranN}
+\normalem % resets 'emphasis' style for bib entries
+\bibliography{main} % Put here your own filename
+\ULforem % modifies 'emphasis' style for bib entries
+\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+% \appendix
+
+% \pdfbookmark[1]{Appendix A}{appendix}
+% \input{tex/appendix-a}
+% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+% \pdfbookmark[1]{Appendix B}{appendix}
+% \input{tex/appendix-b}
+% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+
+\end{document}

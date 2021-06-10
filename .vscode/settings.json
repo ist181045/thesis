@@ -1,0 +1,93 @@
+{
+  "files.exclude": {
+    "src/main.pdf":true,
+
+    "**/*.aux": true,
+    "**/*.bbl": true,
+    "**/*.blg": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.fls": true,
+    "**/*.lo[acfglt]": true,
+    "**/*.maf": true,
+    "**/*.mlf[0-9]*": true,
+    "**/*.mlt[0-9]*": true,
+    "**/*.mtc": true,
+    "**/*.mtc[0-9]*": true,
+    "**/*.out": true,
+    "**/*.out.pyg": true,
+    "**/*.pyg": true,
+    "**/*.soc": true,
+    "**/*.synctex": true,
+    "**/*.synctex(busy)": true,
+    "**/*.synctex.gz": true,
+    "**/*.synctex.gz(busy)": true,
+    "**/*.toc": true,
+  },
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.idx",
+    "*.ind",
+    "*.loa",
+    "*.loc",
+    "*.lof",
+    "*.lol",
+    "*.lot",
+    "*.maf",
+    "*.mlf[0-9]*",
+    "*.mlt[0-9]*",
+    "*.mtc[0-9]*",
+    "*.out",
+    "*.out.pyg",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.fls",
+    "*.log",
+    "*.fdb_latexmk",
+    "*.pyg",
+    "*.snm",
+    "*.soc",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.nav",
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (thesis)",
+      "tools": [
+        "lualatexmk",
+        "copy"
+      ]
+    },
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-shell-escape",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    },
+    {
+      "name": "copy",
+      "command": "cp",
+      "args": [
+        "%DOCFILE%.pdf",
+        "%DIR%/../thesis.pdf"
+      ]
+    }
+  ],
+}

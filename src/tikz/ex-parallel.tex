@@ -1,0 +1,7 @@
+\begin{tikzpicture}[rotate=20]
+  \tkzDefPoints{0/0/A,3/0/B,1/1/C}
+  \tkzDefLine[parallel=through C](A,B) \tkzGetPoint{D}
+  \tkzDrawLines[add=.1 and .1](A,B C,D)
+  \tkzDrawPoints(A,B,C)
+  \tkzLabelPoints(A,B,C)
+\end{tikzpicture}

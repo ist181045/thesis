@@ -1,0 +1,298 @@
+% !TEX root = ./main.tex
+
+% The 'babel' package may correct some hyphenation issues of LaTeX. 
+% Select your MAIN LANGUAGE for the Thesis with the 'main=' option.
+\usepackage[main=english,portuguese]{babel}
+\usepackage[numbers]{natbib}
+\usepackage{fontspec}
+\setmainfont{arial}
+\usepackage{pifont}
+\newcommand{\xmark}{\ding{55}}
+
+% The 'iflang' package is used to help determine the language being used. 
+\usepackage{iflang}
+
+% The 'scrbase' package is used to help redefining document structure.
+\usepackage{scrbase}
+
+% These packages are typically required. 
+% Among many other things they add the possibility to put symbols in bold
+% by using \boldsymbol (not \mathbf); defines additional fonts and symbols;
+% adds the \eqref command for citing equations.
+\usepackage{mathtools, amsmath, amsthm, amssymb, amsfonts}
+\usepackage{nicefrac}
+
+% TikZ for creating graphics programmatically.
+\usepackage{tkz-euclide}
+
+% These packages are most useful for advanced tables. 
+% 'multirow' allows to join rows throuhg the command \multirow which works
+% similarly with the command \multicolumn.
+% The 'colortbl' package allows to color the table (foreground and background)
+% The package 'booktabs' provide some additional commands to enhance
+% the quality of tables
+% The 'longtable' package is only required when tables extend beyond the length
+% of one page, which typically does not happen and should be avoided
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{spreadtab}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{pdflscape}
+\usepackage{float}
+
+% The package 'graphicx' supports formats PNG and JPG.
+\usepackage{graphicx}
+
+% The 'caption' package offers customization of captions in floating 
+% environments such figure and table
+% Package 'subfig' allows to place figures within figures with own caption. 
+% For each of the subfigures use the command \subfloat.
+% \usepackage[hang,small,bf]{caption}
+\usepackage[format=hang,labelfont=bf,font=small]{caption,subfig} 
+% the following customization adds vertical space between caption and the table
+\captionsetup[table]{skip=10pt}
+
+% These packages are required if you need to describe an algorithm.
+% The preference is for using 'algorithm2e'
+%\usepackage{algorithmic}
+%\usepackage[chapter]{algorithm}
+\usepackage[ruled,vlined,algochapter,norelsize,\languagename]{algorithm2e}
+\usepackage[cache=false]{minted}
+\usemintedstyle{friendly}
+\renewcommand{\theFancyVerbLine}{\scriptsize\arabic{FancyVerbLine}}
+\setminted{
+  autogobble,
+  fontsize=\small,
+  frame=lines,
+  framesep=1ex,
+  linenos,
+  numbersep=4pt
+}
+
+% Quotation helper package
+\usepackage{csquotes}
+
+% Create TODO Notes in text
+% The notes can be made invisible by just using the 'disable' option:
+\usepackage[textwidth=2cm, textsize=small]{todonotes}
+%\usepackage[textwidth=2cm, textsize=small, disable]{todonotes}
+\setlength{\marginparwidth}{2cm}
+
+% Track changes in document (changes in pdf preview).
+%% Use "final" option to make all tracking markups invisible.
+%\usepackage[authormarkup=superscript,authormarkuptext=id,markup=underlined,ulem={ULforem,normalbf},final]{changes}
+\usepackage[%
+  authormarkup=superscript,%
+  authormarkuptext=id,%
+  markup=underlined,%
+  ulem={ULforem,normalbf}]{changes}
+% commands:
+% \added[id=xx]{text}
+% \deleted[id=xx]{text}
+% \replaced[id=xx]{deleted text}{added text}
+
+% These packages are required for list code snippets.
+\usepackage{xcolor}
+\usepackage{color}
+% The following special color definitions are used in the IST Thesis
+\definecolor{forestgreen}{RGB}{34,139,34}
+\definecolor{orangered}{RGB}{239,134,64}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\definecolor{orange}{rgb}{1,0.45,0.13}  
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{chaptergrey}{rgb}{0.6,0.6,0.6}
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+
+% Provides support for setting the spacing between lines in a document. 
+% Package options include single spacing, one half spacing, and double spacing. 
+% Alternatively the spacing can be changed as required with:
+% \singlespacing, \onehalfspacing, and \doublespacing commands
+\usepackage{setspace}
+
+% The package 'acronym' garantees that all acronyms definitions are 
+% given at the first usage. 
+% IMPORTANT: do not use acronyms in titles/captions; otherwise the definition 
+% will appear on the table of contents.
+\usepackage[printonlyused]{acronym}
+
+% Set links for references and citations in document
+\usepackage{hyperref}
+% pre-configuration of hyperref
+\hypersetup{ colorlinks=true,
+             citecolor=cyan,
+             linkcolor=darkgray,
+             urlcolor=teal,
+             breaklinks=true,
+             bookmarksnumbered=true,
+             bookmarksopen=true,
+}
+
+% Provides better support for handling and breaking URLs.
+\usepackage{url} 
+
+% Clever Referencing of document parts
+% use \Cref[], or \cref[] for referencing items (Figures, Tables, Algorythms, 
+% Equations, Chapters, Sections, etc. No need to write the Name of the item. 
+% Note: portuguese is supported through "brazilian" option
+\usepackage[\IfLanguageName{english}{english}{brazilian}]{cleveref}
+
+%For enhanced enumeration of lists
+%\usepackage{enumitem}
+\usepackage[shortlabels,inline]{enumitem}
+\setlist[description]{%
+  leftmargin=\parindent,%
+  labelindent=\parindent,%
+  itemsep=1pt,%
+  parsep=0pt,%
+  topsep=0pt}
+
+% GLOBAL FORMATTING OF THE THESIS DOCUMENT before using FANCY stuff
+% Load Titlepage definition
+\usepackage{cover}
+
+% Set paragraph counter to alphanumeric mode
+% DO NOT CHANGE these lines, otherwise the document will not respect the Guide
+\renewcommand{\theparagraph}{\Alph{paragraph}~--}
+\hoffset 0in
+\voffset 0in
+\oddsidemargin 0 cm
+\evensidemargin 0 cm
+\marginparsep 0in
+\topmargin -0.25cm
+\textwidth 16 cm
+\textheight 22.4 cm
+\makeatletter
+% package indentfirst says \let\@afterindentfalse\@afterindenttrue
+% and we revert this modification, reinstating the original definitio
+% of \@afterindentfalse
+\def\@afterindentfalse{\let\if@afterindent\iffalse}
+\makeatother
+
+% The fancyhdr macro package allows to customize page headers and footers.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+% Choose the positioning of the Page Number
+% Only on the Center side [C]
+\fancyfoot[C]{\bfseries\thepage}
+% Only on the Right side [R]
+%\fancyfoot[R]{\bfseries\thepage}
+% In case of Double sided printing 
+%\fancyfoot[LE,RO]{\bfseries\thepage}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\addtolength{\headheight}{2pt} % make space for the rule
+
+\fancypagestyle{plain}{%
+   \renewcommand{\headrulewidth}{0pt} % and the line
+   \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{blank}{%
+   \renewcommand{\headrulewidth}{0pt} % and the line
+   \renewcommand{\footrulewidth}{0pt}
+}
+\fancypagestyle{abstract}{%
+   \renewcommand{\headrulewidth}{0pt}
+   \renewcommand{\footrulewidth}{0.0pt}
+}
+\fancypagestyle{document}{%
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+  \addtolength{\headheight}{2pt} % make space for the rule
+}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
+\captionsetup[subfloat]{%
+  farskip=0.3cm,%
+  nearskip=0.2cm,%
+  captionskip=0.3cm,%
+  margin=0.2cm}
+% \renewcommand{\subfigtopskip}{0.3 cm}
+% \renewcommand{\subfigbottomskip}{0.2 cm}
+% \renewcommand{\subfigcapskip}{0.3 cm}
+% \renewcommand{\subfigcapmargin}{0.2 cm}
+
+% Package 'minitoc' creates a mini-table of contents (a “minitoc”) at 
+% the beginning of each chapter of a document.
+% This packages are required for the \fancychapter configuration
+\usepackage{minitoc}
+\setcounter{minitocdepth}{1}
+\setlength{\mtcindent}{24pt}
+\renewcommand{\mtcfont}{\small\rm}
+\renewcommand{\mtcSfont}{\small\bf}
+\renewcommand*{\kernafterminitoc}{\kern0.\baselineskip\kern0.ex}
+\mtcselectlanguage{\languagename} 
+% Now prepare the MINITOC
+\def\boxedverbatim{%
+  \def\verbatim@processline{%
+    {\setbox0=\hbox{\the\verbatim@line}%
+    \hsize=\wd0 \the\verbatim@line\par}}%
+  \@minipagetrue%%%DPC%%%
+  \@tempswatrue%%%DPC%%%
+  \setbox0=\vbox\bgroup\vspace*{0.2cm}\footnotesize\verbatim
+}
+\def\endboxedverbatim{%
+  \endverbatim
+  \unskip\setbox0=\lastbox %%%DPC%%%
+  \hspace*{0.2cm}
+  \vspace*{-0.2cm}
+  \egroup
+  \fbox{\box0}% <<<=== change here for centering,...
+}
+% Now prepare the CHAPTER Number
+\newcommand*{\chapnumfont}{%
+%   \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{100}{130}\selectfont%
+  \usefont{T1}{pbk}{b}{n}
+  \fontsize{150}{130}
+  \selectfont
+  \color{chaptergrey}
+}
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    {\chapnumfont\ifnum \c@secnumdepth >\m@ne
+%         \huge\bfseries \@chapapp\space \thechapter
+        \raggedleft\bfseries \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi}
+    \interlinepenalty\@M
+    {\raggedleft\Huge \bfseries #1\par\nobreak}
+    \vskip 40\p@
+  }}
+\makeatother
+% Now put it all together as a command \fancychapter
+\newcommand{\fancychapter}[1]{\chapter{#1}\vfill\minitoc\pagebreak}
+
+% #############################################################################
+% ADDITIONAL COMMANDS AND CONFIGURATIONS
+% #############################################################################
+% This commmand allows to place horizontal lines with a custom width... 
+% replaces the standard hline command
+\newcommand{\hlinew}[1]{%
+  \noalign{\ifnum0=`}\fi\hrule \@height #1 \futurelet
+   \reserved@a\@xhline}
+  
+% This command defines some marks... USEFUL FOR TABLES.
+\def\Mark#1{\raisebox{0pt}[0pt][0pt]{\textsuperscript{\footnotesize\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or%
+    \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger%
+    \or \ddagger\ddagger \else\textsuperscript{\expandafter\romannumeral#1}\fi}}}}
+
+% listings, much like figures, for parity sake, should contain the chapter number
+\numberwithin{listing}{chapter}

@@ -1,0 +1,34 @@
+% !TEX root = ../main.tex
+\fancychapter{Conclusion}
+\cleardoublepage
+\label{chap:conclusion}
+
+\todo[inline]{{\bfseries TODO}: Review this after all is said and done.}
+
+The generation of highly constrained sophisticated designs is not viable through
+usage of interactive interfaces due to rigidity in the manipulation of existing
+models in order to generate multiple variants, or through \acp{VPL} because of
+the disproportionate relation between the resulting workflow and respective
+design complexity.  However, working with geometric constraints in \acp{TPL}
+imposes a set of challenges, which can be overcome through the usage of \ac{GCS}
+approaches to solve complex systems of constraints.  To achieve that end,
+several different methods can be employed, but they mostly resort to generic
+\acs{GCS} algorithms, but solvers, in general, have difficulty in identifying
+specific underlying subproblems for which efficiently computable and robust
+solutions might be available.
+
+The prior analysis of the set of geometric constraints that must be dealt with,
+nonetheless, requires certain background knowledge on numerical robustness to
+mitigate fixed-precision arithmetic issues, such as \textit{roundoff} error
+accumulation throughout calculation, as well as investigation on how to solve
+these specific constraint problems.  The user will end up having to spend more
+time and effort in this process than in the design process itself.
+
+Thus, in order to overcome these obstacles, an alternative approach is proposed
+in the form of the implementation of geometric constraint primitives in an
+expressive \ac{TPL} supported by an exact geometric computation library.  The
+latter provides a series of optimized geometrical algorithms and exact data
+structures that allow transparent handling of robustness issues, lifting this
+concern from the user's shoulders with the goal of improving constrained
+geometry specification efficiency as well as consequently facilitating the
+design process.

@@ -1,0 +1,360 @@
+% !TEX root = ../../main.tex
+\section{Geometric Constraint Problem Examples}
+\label{sec:intro.examples}
+
+This section presents two simple examples of geometric models that are defined
+through the specification of \acp{GC}, and the respective solutions using
+intuitive algebraic formulation, accompanied by programmatic solutions using
+\acs{TikZ} \cite{Tantau:2015:tikz-manual} and Eukleides \cite{Obrecht:2010:EM}.
+Depictions of the aforementioned models can be seen in \Cref{fig:intro.example}.
+The examples are limited to the two-dimensional Euclidean plane over real
+numbers, $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
+Euclidean space, $\mathbb{R}^3$, exist as well.
+
+The first problem is that of a parallelism constraint: specifying a line that
+goes through a given point while also being strictly parallel to another already
+defined line.  The second problem is a circumscription constraint: defining a
+circle that tightly wraps around a triangle, i.e., the circle's circumference
+goes through three given non-collinear points.
+
+\begin{figure}[htbp]
+  \centering%
+  \subfloat[Line that goes through $C$, strictly parallel to
+      $\protect\overleftrightarrow{AB}$]{%
+    \label{fig:intro.example.parallel}%
+    \resizebox{.4\textwidth}{!}{\input{tikz/ex-parallel}}}%
+  \hspace{\fill}%
+  \subfloat[$\odot O_r$ circumscribed about $\triangle ABC$]{%
+    \label{fig:intro.example.circumcenter}%
+    \resizebox{.4\textwidth}{!}{\input{tikz/ex-circumcenter}}}%
+  \caption[Geometric models defined using \acsp{GC}]{
+    Geometric models defined using \ac{GC} relations:
+    \subref{fig:intro.example.parallel} showcases line parallelism, and
+    \subref{fig:intro.example.circumcenter} showcases a circle circumscription
+    about a triangle.}%
+  \label{fig:intro.example}
+\end{figure}
+
+\subsection{Parallel lines}
+\label{sec:intro.examples.parallel}
+Let $A,\,B,\,C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
+strictly parallel to the line $\overleftrightarrow{AB}$ (see
+\Cref{fig:intro.example.parallel}).
+
+A line in $\mathbb{R}^2$ can be described by the parametric equation
+%
+\begin{equation}\label{eq:line.vector.2}
+  P_Q = Q + \lambda \vec{u} \Rightarrow \begin{cases}
+    x = x_Q + \lambda u_x\\
+    y = y_Q + \lambda u_y
+  \end{cases}{\hskip -2.5ex}
+  ,\,\lambda \in \mathbb{R}
+\end{equation}
+%
+where $Q = (x_Q, y_Q)$ is a point on the line that goes through $P_Q = (x, y)$,
+and $\vec{u} = (u_x, u_y)$ is the vector that drives the line.  To then describe
+the line that goes through $C$ and is parallel to $\overleftrightarrow{AB}$, one
+must compute the base point $Q$, trivially $C$, and the directional vector
+$\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.  Let $Q = C$,
+and $\vec{u} = B - A$, such that
+\[
+  P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}.
+\]
+
+\Cref{lst:intro.example.parallel.tikz} shows the code used to produce the
+example shown in \Cref{fig:intro.example.parallel} using TikZ with the
+\texttt{tkz-euclide} \LaTeX{} package, using \texttt{tkzDefLine}, which takes
+two points $A,\,B$, with the \texttt{parallel} transformation option.  This
+option takes the point $C$ the resulting line goes through.  The result is a
+point $D = C + \vec{u}$, which can be obtained using \texttt{tkzGetPoint} to
+later draw the line. 
+
+\begin{listing}[htbp]
+  \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tex}
+  \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
+    using \texttt{tkz-euclide}]{%
+      Parallel lines example from \Cref{fig:intro.example.parallel} using
+      \texttt{tkz-euclide}.  The highlighted line shows how to define the line
+      $L_C$ parallel to $\overleftrightarrow{AB}$.}
+  \label{lst:intro.example.parallel.tikz}
+\end{listing}
+
+\Cref{lst:intro.example.parallel.euk} shows the code used to produce an
+identical figure using Eukleides.  In Eukleides, the parallel line $L_C$ can be
+obtained through the \texttt{parallel} function, which takes the line
+$\overleftrightarrow{AB}$ it is parallel to and the point $C$ it goes through.
+
+\begin{listing}[htbp]
+  \inputminted[highlightlines=3]{text}{euk/ex-parallel.euk}
+  \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
+    using Eukleides]{%
+      Parallel lines example from \Cref{fig:intro.example.parallel} using
+      Eukleides.  The highlighted line shows how to define the line $L_C$
+      parallel to $\overleftrightarrow{AB}$.}
+  \label{lst:intro.example.parallel.euk}
+\end{listing}
+
+{\color{cyan}
+\begin{comment}{}
+We can determine if two lines are parallel by determining the angle $\theta$
+between them, and verifying it is equal to $0$.
+%
+\begin{equation}\label{eq:angle.vectors.2}
+  \theta = \arccos \frac{\vec{u} \cdot \vec{v}}%
+                        {||\vec{u}|| \cdot ||\vec{v}||},~%
+  \theta \in \mathbb{R}.
+\end{equation}
+%
+Having $\vec{v} = \lambda \vec{u}, \lambda \in \mathbb{R}$, and knowing
+%
+\begin{equation}\label{eq:dot.vector.2.same}
+  \vec{u} \cdot \vec{u} = ||\vec{u}||^2,
+\end{equation}
+%
+then \eqref{eq:angle.vectors.2} becomes
+%
+\[
+  \begin{split}
+    \theta & = \arccos \frac{\vec{u} \cdot \lambda\vec{u}}%
+                            {||\vec{u}|| \cdot ||\lambda\vec{u}||}\\%
+           & = \arccos \frac{\lambda\vec{u} \cdot \vec{u}}%
+                            {\lambda||\vec{u}||^2}\\%
+           & = 0.
+  \end{split}
+\]
+%
+This means that we can compute a directional vector for $CS$ from the line $AB$,
+where $\vec{u} = B - A$.  Finally, we can obtain the equation for the parallel
+line $CS$
+\end{comment}
+}
+
+\subsection{Circumcenter}
+\label{sec:intro.examples.circumcenter}
+
+Let $A,\,B,\,C,\,O \in \mathbb{R}^2$ be points such that $O$ is the center point
+of a circle of radius $r$, $\odot O_r$, that is circumscribed about the triangle
+$\triangle ABC$ (see \Cref{fig:intro.example.circumcenter}).
+
+A pre-condition for this computation is that $\triangle ABC$ is not degenerate,
+i.e., its vertices are non-collinear.  That can be verified by computing the
+cross product of any two distinct vectors that drive $\triangle ABC$'s edges and
+verifying it does not equate to $0$, a computation which in turn can be done by
+computing the determinant of the matrix whose columns are the aforementioned
+vectors.
+%
+{\color{cyan}
+\begin{comment}{}
+The Laplace expansion for the determinant of a generic matrix $A \in
+\mathbb{R}^{n \times n}$ is given by
+%
+\begin{align}
+  \det(A) = \begin{vmatrix}
+              a_{11} & \cdots & a_{1n} \\
+              \vdots & \ddots & \vdots \\
+              a_{n1} & \cdots & a_{nn}
+            \end{vmatrix}
+          &= a_{1j} C_{1j} + \cdots + a_{nj} C_{nj}%
+            = a_{i1} C_{i1} + \cdots + a_{in} C_{in} \nonumber \\
+          &= \sum_{i'=1}^n a_{i'j}C_{i'j}%
+            \label{eq:matrix.det.laplace.nxn.col} \\
+          &= \sum_{j'=1}^n a_{ij'}C_{ij'}%
+            \label{eq:matrix.det.laplace.nxn.row},
+\end{align}
+%
+where $i,j \in [1,n] \subset \mathbb{N}$,
+%
+\begin{equation}\label{eq:matrix.cofactor}
+  C_{ij} = (-1)^{i+j} \det(A_{ij})
+\end{equation}
+%
+is the $i,j$ cofactor of $A$, and
+%
+\begin{equation}\label{eq:matrix.minor}
+  A_{ij} = \begin{bmatrix}
+    a_{11}     & \cdots & a_{1j-1}     & a_{1j+1}     & \cdots & a_{1n}     \\%
+    \vdots     & \ddots & \vdots       & \vdots       & \ddots & \vdots     \\%
+    a_{i-1\,1} & \cdots & a_{i-1\,j-1} & a_{i-1\,j+1} & \cdots & a_{i-1\,1} \\%
+    a_{i+1\,1} & \cdots & a_{i+1\,j-1} & a_{i+1\,j+1} & \cdots & a_{i+1\,1} \\%
+    \vdots     & \ddots & \vdots       & \vdots       & \ddots & \vdots     \\%
+    a_{n1}     & \cdots & a_{nj-1}     & a_{nj+1}     & \cdots & a_{nn}     \\
+  \end{bmatrix}_{(n - 1) \times (n - 1)}
+\end{equation}
+%
+is the minor of matrix $A$ without the $i$-th row and $j$-th column.  This can
+be further simplified for a $2\times 2$ matrix. Let $B\in\mathbb{R}^{2\times 2}$
+be the matrix whose columns are the vectors $\vec{AB} = (a, b)$ and $\vec{AC} =
+(c, d)$, and $i' = 1$, for instance, such that, from
+\eqref{eq:matrix.det.laplace.nxn.col},
+%
+\begin{equation}\label{eq:matrix.det.laplace.2x2.col}
+  \det(B) = \begin{vmatrix}
+              a & c\\
+              b & d
+            \end{vmatrix}%
+          = \sum_{j=1}^2 a_{1j} C_{1j}%
+          = (-1)^{1+1}a \cdot d + (-1)^{1+2}c \cdot b%
+          = ad - cb
+\end{equation}
+\end{comment}
+}
+%
+{\color{cyan}
+\begin{comment}{}
+Let $A \in \mathbb{R}^{2 \times 2}$ be the matrix whose columns are the vectors
+$\vec{AB} = (a, b)$ and $\vec{AC} = (c, d)$, for instance, such that
+%
+\begin{equation}\label{eq:matrix.det.2x2}
+  \det(A) = \begin{vmatrix}
+              a & c\\
+              b & d
+            \end{vmatrix}%
+          = ad - cb
+\end{equation}
+% 
+If the determinant is found to be $0$, then there is no possible solution.
+Otherwise, one can proceed to draw $\odot O_r$.
+\end{comment}
+}
+%
+
+To draw $\odot O_r$, we must compute both its center and radius.  Its radius $r$
+can be trivially defined as the distance of the center $O$ to any of the
+$\triangle ABC$'s vertices, i.e., $r = \overline{OA} = \overline{OB} =
+\overline{OC}$.  To determine $O$, one must compute the intersection of the
+perpendicular bisectors of the triangle's edges.  Said bisectors are the
+mediators between an edge's vertices, which can be described by
+\eqref{eq:line.vector.2}, where $P$ is the midpoint between the vertices, and
+$\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
+points $P_1, P_2 \in \mathbb{R}$ is given by
+%
+\begin{equation}\label{eq:midpoint.points.2}
+  M_{P_1P_2} = \frac{P_1 + P_2}{2}%
+             = (\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}).
+\end{equation}
+%
+Further, the scalar product of two vectors $\vec{u}, \vec{v} \in \mathbb{R}^2$
+is given by
+%
+\begin{equation}\label{eq:vector.dot.2}
+  \vec{u} \cdot \vec{v} = (u_x, u_y) \cdot (v_x, v_y) = u_x v_x + u_y v_y.
+\end{equation}
+%
+The normal vector $\vec{n}$ is such that, for some vector $\vec{u}$,
+%
+\[
+  \vec{u} \cdot \vec{n} = 0.
+\]
+%
+We can easily obtain a normal vector $\vec{n} \in \mathbb{R}^2$ by swapping its
+components while negating one of them.
+%
+\textcolor{cyan}{
+\begin{comment}{}
+This comes as a direct result from applying a rotation transformation of 90
+degrees, or $\pi/2$ radians, to $\vec{u}$, like so
+%
+\[
+  \vec{n} = R(\pi/2)\vec{u}%
+  = \begin{bmatrix}
+      \cos(\pi/2) & -\sin(\pi/2) \\
+      \sin(\pi/2) & \cos(\pi/2)
+    \end{bmatrix}
+    \begin{bmatrix}
+      u_1 \\ u_2
+    \end{bmatrix}
+  = \begin{bmatrix}
+      0 & -1 \\
+      1 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      u_1 \\ u_2
+    \end{bmatrix}
+  = \begin{bmatrix}
+      -u_2 \\ u_1
+    \end{bmatrix}.
+\]
+\end{comment}
+}
+%
+Let $\vec{u},\,\vec{n} \in \mathbb{R}^2$, such that $\vec{u} = (u_x,
+u_y),\,\vec{n} = (-u_y, u_x)$.  From \eqref{eq:vector.dot.2}, we have
+\[ \vec{u} \cdot \vec{n} = u_x u_y - u_y u_x = 0.  \]
+%
+Computing the edges' midpoints and respective normal vectors, we can then
+describe the mediators.  Let $M_{AB},\,M_{AC},\,M_{BC} \in \mathbb{R}^2$ be the
+midpoints of the respective edges, and $\vec{u_1},\,\vec{u_2},\,\vec{u_3}$ the
+edges' normal vectors, such that
+\[
+  \begin{split}
+    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u_1}\\
+    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u_2}\\
+    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u_3}
+  \end{split}
+  ,\,\lambda_i \in \mathbb{R}.
+\]
+This problem can be further simplified by eliminating one of the redundant
+bisectors.  Since the intersection of two lines already yields a single point,
+we can eliminate one of the equations.  Say we discard the mediator of line
+$\overleftrightarrow{BC}$.  We then require that
+\[
+  P_{M_{AB}} = P_{M_{AC}} \Rightarrow \begin{cases}
+    x_{M_{AB}} + \lambda_1 u_{1x} = x_{M_{AC}} + \lambda_2 u_{2x} \\
+    y_{M_{AB}} + \lambda_1 u_{1y} = y_{M_{AC}} + \lambda_2 u_{2y}
+  \end{cases}{\hskip -2ex}.
+\]
+Every variable is known except for $\lambda_1$ and $\lambda_2$, but the equation
+system can be solved in order to assign values to both of them since we have
+exactly two equations that relate them.  Finally, we can define $O$ using one of
+the equations with the respectively found $\lambda$, i.e., using $L_{M_{AB}}$,
+for instance, we have
+\[
+  O = M_{AB} + \lambda_1 \vec{u}.
+\]
+
+\Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
+example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the
+\texttt{tkz-euclide} \LaTeX{} package.  To compute the center point of $\odot
+O_r$, one can use \texttt{tkzCircumCenter}, which takes three points
+$A,\,B,\,C$, and generates the result $O$, obtainable using
+\texttt{tkzGetPoint}.
+
+\begin{listing}[htbp]
+  \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tex}
+  \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
+      using \acs{TikZ}]{%
+    Circumcenter example from \Cref{fig:intro.example.circumcenter} using
+    \acs{TikZ} alongside \texttt{tkz-euclide}.  The highlighted line shows how
+    to obtain the center of $\odot O_r$ via the non-degenerate triangle
+    $\triangle ABC$.}
+  \label{lst:intro.example.circumcenter.tikz}
+\end{listing}
+
+\Cref{lst:intro.example.circumcenter.euk} shows the code
+that produces an identical figure using Eukleides.  In Eukleides, one can use
+the \texttt{circle} function, which similarly takes three points $A,\,B,\,C$,
+and generates the circle $\odot O_r$ circumscribed about $\triangle ABC$, while
+$O$ can be obtained using the \texttt{center} function.
+
+\begin{listing}[htbp]
+  \inputminted[highlightlines=2]{text}{euk/ex-circumcenter.euk}
+  \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
+      using Eukleides]{%
+    Circumcenter example from \Cref{fig:intro.example.circumcenter} using
+    Eukleides.  The highlighted line shows how to obtain the center of $\odot
+    O_r$ via the non-degenerate triangle $\triangle ABC$.}
+  \label{lst:intro.example.circumcenter.euk}
+\end{listing}
+
+Both languages used to produce the examples' solutions provide a sensible set of
+constraint primitives.  However, in the particular case of \texttt{tkz-euclide},
+the syntax required for describing the models is outdated, rigid, and may cause
+confusion.  For example, in
+\cref{lst:intro.example.parallel.tikz,lst:intro.example.circumcenter.tikz},
+command results can not be used directly in other commands as inputs and must
+instead be obtained using another command to create a permanent symbol
+associated with the resulting value.  Contrastingly, in modern languages,
+functions and expressions' results can be used directly as well as stored by
+using a far friendlier assignment syntax.  Nonetheless, the underlying ideas can
+be repurposed and adapted, implementing them in a modern and more expressive
+language.

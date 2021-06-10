@@ -1,0 +1,27 @@
+% !TEX root = ../main.tex
+\fancychapter{Related Work}
+\cleardoublepage
+\label{chap:related}
+
+\noindent
+In this chapter, we start by exposing and discussing numerical accuracy issues
+that arise when performing computations with fixed-precision arithmetic in
+\cref{sec:related.robustness}.  We then proceed to naming some precautions and
+steps in order to obtain practical solutions, followed by a brief mention of
+some software libraries dedicated to overcoming these issues.  To that end, said
+libraries provide a series of exact algorithms and data structures.
+
+Secondly, we comparatively analyze a set of \ac{GCS}-capable programming tools'
+qualities, such as supported language paradigm, native \ac{GCS} capabilities, 2D
+and 3D support; summarized in \cref{tab:related.constraints.summary}.  Of those
+tools, Eukleides, GeoSolver, and \acs{TikZ} \& \acs{PGF} are extensively
+discussed.
+
+Finally, we similarly analyze \ac{AD} tools.  Some of them are integrated within
+\ac{CAD} applications while a few of them are standalone applications.  These
+tools and their capabilities are summarized in \cref{tab:related.ad.summary}.
+Furthermore, Dynamo and Grasshopper are expanded upon.
+
+\input{tex/related/robustness}
+\input{tex/related/constraints}
+\input{tex/related/algorithmic-design}

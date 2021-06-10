@@ -1,0 +1,12 @@
+A B C triangle 3, pi/4 rad, pi/6 rad, 20 deg
+AB = line(A, B)
+lC = parallel(AB, C)
+draw
+  AB; lC
+  A; B; C
+end
+label
+  A -pi/4 rad
+  B -pi/4 rad
+  C -pi/4 rad
+end
