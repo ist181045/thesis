@@ -14,9 +14,10 @@
 \pdfbookmark[0]{Titlepage}{titlepage}
 \input{cover}
 
-% PAGE NUMBERING FOR INDEXING MATTER in ROMAN
 \setcounter{page}{1}\pagenumbering{roman}
-\onehalfspacing
+\baselineskip 18pt % line spacing: -12pt for single spacing
+                   %               -18pt for 1 1/2 spacing
+                   %               -24pt for double spacing
 
 \pdfbookmark[0]{Acknowledgments}{acknowledgments}
 \input{tex/acknowledgments}
@@ -63,7 +64,7 @@
 \cleardoublepage % comment if NOT printing DOUBLE SIDED.
 
 \setcounter{page}{1}\pagenumbering{arabic}
-\onehalfspacing
+\baselineskip 18pt
 
 \acresetall
 
