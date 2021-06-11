@@ -2,6 +2,7 @@
   "files.exclude": {
     "src/main.pdf":true,
 
+    "**/_minted*": true,
     "**/*.aux": true,
     "**/*.bbl": true,
     "**/*.blg": true,
