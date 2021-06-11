@@ -148,19 +148,20 @@
 \usemintedstyle{friendly}
 \renewcommand{\theFancyVerbLine}{\small\arabic{FancyVerbLine}}
 \newlength{\mintednumbersep}
-\AtBeginDocument{%
-  \sbox0{\tiny00}%
-  \setlength\mintednumbersep{\parindent}%
-  \addtolength\mintednumbersep{-\wd0}%
+\setlength{\mintednumbersep}{12pt}
+\newlength{\mintedxlmar}
+\AtBeginDocument{
+  \sbox0{\small00}
+  \setlength{\mintedxlmar}{\mintednumbersep}
+  \addtolength{\mintedxlmar}{\wd0}
 }
 \setminted{
   autogobble,
-  % fontsize=\small,
   frame=lines,
   framesep=1ex,
   linenos,
   numbersep=\mintednumbersep,
-  xleftmargin=\parindent
+  xleftmargin=\mintedxlmar,
 }
 
 % pifont
