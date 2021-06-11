@@ -316,9 +316,6 @@
 
 \newcommand{\tblc}[1]{\makebox[\linewidth][c]{#1}}
 %
-\let\@afterindentfalse\@afterindenttrue
-\@afterindenttrue
-%
 \endinput
 %%
 %% End of file `istulthesis.cls'.
