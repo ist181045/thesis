@@ -6,7 +6,13 @@
 % #############################################################################
 
 %\documentclass[defaultstyle,10pt,Helvetica,oneside]{istulthesis}
-\documentclass[defaultstyle,10pt,twoside,openright]{istulthesis}
+\documentclass[%
+  english,%
+  defaultstyle,%
+  10pt,%
+  twoside,%
+  openright%
+]{istulthesis}
 \usepackage{main}
 
 \begin{document}
@@ -86,9 +92,7 @@
 \pdfbookmark[0]{Bibliography}{bibliography}
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{IEEEtranN}
-\normalem % resets 'emphasis' style for bib entries
 \bibliography{main} % Put here your own filename
-\ULforem % modifies 'emphasis' style for bib entries
 \cleardoublepage % comment if NOT printing DOUBLE SIDED.
 
 % \appendix

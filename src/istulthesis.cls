@@ -48,6 +48,7 @@
 \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
 \DeclareOption{executivepaper}{\PassOptionsToClass{executivepaper}{report}}
 \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
+\DeclareOption{english}       {\PassOptionsToClass{english}{report}}
 % \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
 % \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
 % -----------------------------------------------------------------------------
