@@ -11,7 +11,8 @@
   defaultstyle,%
   10pt,%
   twoside,%
-  openright%
+  openright,%
+  % draft,%
 ]{istulthesis}
 \usepackage{main}
 
@@ -21,7 +22,7 @@
 \input{cover}
 
 \setcounter{page}{1}\pagenumbering{roman}
-\baselineskip 18pt % line spacing: -12pt for single spacing
+\baselineskip=18pt % line spacing: -12pt for single spacing
                    %               -18pt for 1 1/2 spacing
                    %               -24pt for double spacing
 
@@ -30,79 +31,79 @@
 
 \pdfbookmark[0]{Abstract}{abstract}
 \input{tex/abstract/en}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \pdfbookmark[0]{Resumo}{resumo}
 \input{tex/abstract/pt}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 % This is required for the Fancy Chapters with minitoc
-\dominitoc
-\dominilof
-\dominilot
+\dominitoc{}
+\dominilof{}
+\dominilot{}
 
 \renewcommand{\baselinestretch}{1}
 \pdfbookmark[0]{Contents}{toc}
 \tableofcontents
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 \renewcommand{\baselinestretch}{1.5} % reposition baseline
 
 \pdfbookmark[1]{List of Figures}{lof}
 \listoffigures
-\cleardoublepage
+\cleardoublepage{}
 
 \pdfbookmark[1]{List of Tables}{lot}
 \listoftables
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 % \pdfbookmark[1]{List of Algorithms}{loa}
 % \listofalgorithms
-% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+% \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \pdfbookmark[1]{Listings}{lol}
-\listoflistings
-\cleardoublepage
+\listoflistings{}
+\cleardoublepage{}
 
 \pdfbookmark[1]{Acronyms}{loac}
 \chapter*{\tlangAcronyms}
 \input{tex/acronyms}
 \clearpage
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \setcounter{page}{1}\pagenumbering{arabic}
-\baselineskip 18pt
+\baselineskip=18pt
 
-\acresetall
+\acresetall{}
 
 \input{tex/intro}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \input{tex/related}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \input{tex/solution}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \input{tex/evaluation}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \input{tex/conclusion}
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \pdfbookmark[0]{Bibliography}{bibliography}
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{IEEEtranN}
 \bibliography{main} % Put here your own filename
-\cleardoublepage % comment if NOT printing DOUBLE SIDED.
+\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 % \appendix
 
 % \pdfbookmark[1]{Appendix A}{appendix}
 % \input{tex/appendix-a}
-% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+% \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 % \pdfbookmark[1]{Appendix B}{appendix}
 % \input{tex/appendix-b}
-% \cleardoublepage % comment if NOT printing DOUBLE SIDED.
+% \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
 \end{document}

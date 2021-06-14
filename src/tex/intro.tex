@@ -1,19 +1,19 @@
 % !TEX root = ../main.tex
-\fancychapter{Introduction}
-\cleardoublepage
+\fancychapter{Introduction}%
 \label{chap:intro}
+\cleardoublepage{}
 
 \noindent
 Modern \ac{CAD} applications include substantial support for parametric
 operations and \ac{GCS}.  These mechanisms have been developed over the past few
-decades \cite{Bettig:2011:GCSPC:1.3593408} and are heavily and ubiquitously used
+decades~\cite{Bettig:2011:GCSPC:1.3593408} and are heavily and ubiquitously used
 across the \ac{AEC} industry.
 
 Parametric modeling is used to design with constraints, whereby users express a
 set of parameters and interdependent operations, establishing restrictions
 between geometric entities.  The resulting geometry can be controlled from input
 parameters using two computational mechanisms:
-\begin{enumerate*}[label=(\arabic*)]
+\begin{enumerate*}[label= (\arabic*)]
   \item parametric operations, which build geometry that implicitly abides by
   constraints imposed when the user selects the operation and its inputs, and
   \item \ac{GCS}, which manipulates geometry in sketches and models to satisfy
@@ -33,24 +33,24 @@ parameters and geometric entities followed by specifying the constraints that
 relate these objects.  Naturally, \ac{GCS} fits in \ac{CAD} software, having
 been target of considerable research and development to implement efficient
 approaches and methodologies capable of solving \ac{GC} problems.  So much so
-that it has become standard in major \ac{CAD} software, such as AutoCAD
-\cite{Autodesk:1982:AutoCAD}, which supports the ability to constrain objects in
-a variety of ways, e.g., point coincidence, line perpendicularity, tangencies,
-among other kinds of constraints.
+that it has become standard in major \ac{CAD} software, such as
+AutoCAD~\cite{Autodesk:1982:AutoCAD}, which supports the ability to constrain
+objects in a variety of ways, e.g., point coincidence, line perpendicularity,
+tangencies, among other kinds of constraints.
 
 However, traditional interactive methods for parametric modeling suffer from the
 disadvantage that they do not scale properly when designing more complex ideas.
 In recent years, a novel approach to design named \ac{AD} has emerged,
 introducing the algorithmic methodology also present in the \ac{CS} field,
-allowing the specification of sketches and models through algorithms
-\cite{McCormack:2004:GDPDR}, leading to the creation and integration of several
-\ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL}, others
-\acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental issue
-with \acp{VPL} which is the frequently disproportionate complexity between the
-program and the respective resulting model.
+allowing the specification of sketches and models through
+algorithms~\cite{McCormack:2004:GDPDR}, leading to the creation and integration
+of several \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL},
+others \acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental
+issue with \acp{VPL} which is the frequently disproportionate complexity between
+the program and the respective resulting model.
 
 \acp{TPL} come with some advantages over \acp{VPL}, among which are
-\begin{enumerate*}[label=(\arabic*)]
+\begin{enumerate*}[label= (\arabic*)]
   \item abstraction mechanisms, enabling the encapsulation of behavior that can
   be changed and reused in a different context at a later time,
   \item the ability of specifying recursive definitions,
@@ -59,9 +59,9 @@ program and the respective resulting model.
 \end{enumerate*}
 In spite of these, dealing with \acp{GC} remains a arduous task.  Take as an
 example the sketch of a chair seat's outer frame, as seen in
-\cref{fig:intro.chair}, from a multi-purpose chair generation tool
-\cite{Garcia:2012:ChairDNA} where the chair's overall shape is controllable by
-specifying the values for a set of input parameters.
+\cref{fig:intro.chair}, from a multi-purpose chair generation
+tool~\cite{Garcia:2012:ChairDNA} where the chair's overall shape is controllable
+by specifying the values for a set of input parameters.
 
 \begin{figure}[htbp]
   \centering
@@ -69,13 +69,13 @@ specifying the values for a set of input parameters.
   {\scriptsize Source: Project source code, publicly unavailable (Jan 2019)}
   \caption[Sketch of a chair seat's outer frame]{
     Sketch of a chair seat's outer frame, defined by 5 input parameters:
-    \begin{enumerate*}[label=(\arabic*)]
+    \begin{enumerate*}[label= (\arabic*)]
       \item Width ($g-w$),
       \item depth ($g-d$),
       \item taper width ($g-\Delta wt$),
       \item front radius ($g-rf$), and
       \item rear radius ($g-rr$).
-    \end{enumerate*}}
+    \end{enumerate*}}%
   \label{fig:intro.chair}
 \end{figure}
 
@@ -103,7 +103,7 @@ this manner, the user won't have to be aware of numerical robustness issues and
 have to investigate techniques for solving such issues to accurately generate a
 model riddled with \acp{GC}.
 
-\section{Document Structure}
+\section{Document Structure}%
 \label{sec:intro.structure}
 
 The present document is structured in \total{chapter} different chapters,
@@ -111,7 +111,7 @@ namely:
 \begin{description}
   \item[\nameref{chap:intro}] Broken into several sections, including this
   one, presents:
-  \begin{enumerate*}[label=(\arabic*)]
+  \begin{enumerate*}[label= (\arabic*)]
     \item A brief historical overview of the development of parametric
     operations in \ac{CAD} software in \cref{sec:intro.parametric},
     \item the main approaches to \ac{GCS} in \ac{CAD}, in
@@ -124,7 +124,7 @@ namely:
   \end{enumerate*}
   
   \item[\nameref{chap:related}] An exposition of the related work in the form of
-  \begin{enumerate*}[label=(\arabic*)]
+  \begin{enumerate*}[label= (\arabic*)]
     \item a comprehensive discussion about numerical robustness in computational
     processes, showcasing a set of software tools capable of handling these
     issues in the context of geometric computation, in

@@ -1,11 +1,11 @@
 % !TEX root = ../../main.tex
-\section{Geometric Constraint Problem Examples}
+\section{Geometric Constraint Problem Examples}%
 \label{sec:intro.examples}
 
 This section presents two simple examples of geometric models that are defined
 through the specification of \acp{GC}, and the respective solutions using
 intuitive algebraic formulation, accompanied by programmatic solutions using
-\acs{TikZ} \cite{Tantau:2015:tikz-manual} and Eukleides \cite{Obrecht:2010:EM}.
+\acs{TikZ}~\cite{Tantau:2015:tikz-manual} and Eukleides~\cite{Obrecht:2010:EM}.
 Depictions of the aforementioned models can be seen in \Cref{fig:intro.example}.
 The examples are limited to the two-dimensional Euclidean plane over real
 numbers, $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
@@ -18,15 +18,15 @@ circle that tightly wraps around a triangle, i.e., the circle's circumference
 goes through three given non-collinear points.
 
 \begin{figure}[htbp]
-  \centering%
+  \centering
   \subfloat[Line that goes through $C$, strictly parallel to
-      $\protect\overleftrightarrow{AB}$]{%
-    \label{fig:intro.example.parallel}%
-    \resizebox{.4\textwidth}{!}{\input{tikz/ex-parallel}}}%
-  \hspace{\fill}%
-  \subfloat[$\odot O_r$ circumscribed about $\triangle ABC$]{%
-    \label{fig:intro.example.circumcenter}%
-    \resizebox{.4\textwidth}{!}{\input{tikz/ex-circumcenter}}}%
+      $\protect\overleftrightarrow{AB}$]{
+    \label{fig:intro.example.parallel}
+    \resizebox{.4\textwidth}{!}{\input{tikz/ex-parallel}}}
+  \hspace{\fill}
+  \subfloat[$\odot O_r$ circumscribed about $\triangle ABC$]{
+    \label{fig:intro.example.circumcenter}
+    \resizebox{.4\textwidth}{!}{\input{tikz/ex-circumcenter}}}
   \caption[Geometric models defined using \acsp{GC}]{
     Geometric models defined using \ac{GC} relations:
     \subref{fig:intro.example.parallel} showcases line parallelism, and
@@ -35,8 +35,9 @@ goes through three given non-collinear points.
   \label{fig:intro.example}
 \end{figure}
 
-\subsection{Parallel lines}
+\subsection{Parallel lines}%
 \label{sec:intro.examples.parallel}
+
 Let $A,\,B,\,C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
 strictly parallel to the line $\overleftrightarrow{AB}$ (see
 \Cref{fig:intro.example.parallel}).
@@ -72,7 +73,7 @@ later draw the line.
 \begin{listing}[htbp]
   \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tex}
   \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
-    using \texttt{tkz-euclide}]{%
+    using \texttt{tkz-euclide}]{
       Parallel lines example from \Cref{fig:intro.example.parallel} using
       \texttt{tkz-euclide}.  The highlighted line shows how to define the line
       $L_C$ parallel to $\overleftrightarrow{AB}$.}
@@ -87,7 +88,7 @@ $\overleftrightarrow{AB}$ it is parallel to and the point $C$ it goes through.
 \begin{listing}[htbp]
   \inputminted[highlightlines=3]{text}{euk/ex-parallel.euk}
   \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
-    using Eukleides]{%
+    using Eukleides]{
       Parallel lines example from \Cref{fig:intro.example.parallel} using
       Eukleides.  The highlighted line shows how to define the line $L_C$
       parallel to $\overleftrightarrow{AB}$.}
@@ -127,7 +128,7 @@ where $\vec{u} = B - A$.  Finally, we can obtain the equation for the parallel
 line $CS$
 \end{comment}
 
-\subsection{Circumcenter}
+\subsection{Circumcenter}%
 \label{sec:intro.examples.circumcenter}
 
 Let $A,\,B,\,C,\,O \in \mathbb{R}^2$ be points such that $O$ is the center point
@@ -179,18 +180,18 @@ is the $i,j$ cofactor of $A$, and
 \end{equation}
 %
 is the minor of matrix $A$ without the $i$-th row and $j$-th column.  This can
-be further simplified for a $2\times 2$ matrix. Let $B\in\mathbb{R}^{2\times 2}$
-be the matrix whose columns are the vectors $\vec{AB} = (a, b)$ and $\vec{AC} =
-(c, d)$, and $i' = 1$, for instance, such that, from
-\eqref{eq:matrix.det.laplace.nxn.col},
+be further simplified for a $2\times 2$ matrix.  Let $B\in\mathbb{R}^{2\times
+2}$ be the matrix whose columns are the vectors $\vec{AB} = (a, b)$ and
+$\vec{AC} = (c, d)$, and $i' = 1$, for instance, such that,
+from~\eqref{eq:matrix.det.laplace.nxn.col},
 %
 \begin{equation}\label{eq:matrix.det.laplace.2x2.col}
   \det(B) = \begin{vmatrix}
               a & c\\
               b & d
-            \end{vmatrix}%
-          = \sum_{j=1}^2 a_{1j} C_{1j}%
-          = (-1)^{1+1}a \cdot d + (-1)^{1+2}c \cdot b%
+            \end{vmatrix}
+          = \sum_{j=1}^2 a_{1j} C_{1j}
+          = (-1)^{1+1}a \cdot d + (-1)^{1+2}c \cdot b
           = ad - cb
 \end{equation}
 \end{comment}
@@ -217,8 +218,8 @@ can be trivially defined as the distance of the center $O$ to any of the
 $\triangle ABC$'s vertices, i.e., $r = \overline{OA} = \overline{OB} =
 \overline{OC}$.  To determine $O$, one must compute the intersection of the
 perpendicular bisectors of the triangle's edges.  Said bisectors are the
-mediators between an edge's vertices, which can be described by
-\eqref{eq:line.vector.2}, where $P$ is the midpoint between the vertices, and
+mediators between an edge's vertices, which can be described
+by~\eqref{eq:line.vector.2}, where $P$ is the midpoint between the vertices, and
 $\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
 points $P_1, P_2 \in \mathbb{R}$ is given by
 %
@@ -270,7 +271,7 @@ degrees, or $\pi/2$ radians, to $\vec{u}$, like so
 \end{comment}
 %
 Let $\vec{u},\,\vec{n} \in \mathbb{R}^2$, such that $\vec{u} = (u_x,
-u_y),\,\vec{n} = (-u_y, u_x)$.  From \eqref{eq:vector.dot.2}, we have
+u_y),\,\vec{n} = (-u_y, u_x)$.  From~\eqref{eq:vector.dot.2}, we have
 \[ \vec{u} \cdot \vec{n} = u_x u_y - u_y u_x = 0.  \]
 %
 Computing the edges' midpoints and respective normal vectors, we can then
@@ -314,7 +315,7 @@ $A,\,B,\,C$, and generates the result $O$, obtainable using
 \begin{listing}[htbp]
   \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tex}
   \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
-      using \acs{TikZ}]{%
+      using \acs{TikZ}]{
     Circumcenter example from \Cref{fig:intro.example.circumcenter} using
     \acs{TikZ} alongside \texttt{tkz-euclide}.  The highlighted line shows how
     to obtain the center of $\odot O_r$ via the non-degenerate triangle
@@ -331,7 +332,7 @@ $O$ can be obtained using the \texttt{center} function.
 \begin{listing}[htbp]
   \inputminted[highlightlines=2]{text}{euk/ex-circumcenter.euk}
   \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
-      using Eukleides]{%
+      using Eukleides]{
     Circumcenter example from \Cref{fig:intro.example.circumcenter} using
     Eukleides.  The highlighted line shows how to obtain the center of $\odot
     O_r$ via the non-degenerate triangle $\triangle ABC$.}

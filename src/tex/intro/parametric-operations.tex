@@ -1,29 +1,29 @@
 % !TEX root = ../../main.tex
-\section{Parametric Operations in \acs{CAD}}
+\section{Parametric Operations in \acs{CAD}}%
 \label{sec:intro.parametric}
 
 Despite never using the word \textit{parametric} in writing, Ivan Sutherland
-introduced the world to Sketchpad \cite{Sutherland:1964:Sketchpad} in 1963, an
+introduced the world to Sketchpad~\cite{Sutherland:1964:Sketchpad} in 1963, an
 interactive 2D \ac{CAD} program capable of establishing atomic constraints
 between objects which had all the essential properties of a parametric equation,
 being the first of its kind and the prime ancestor of modern \ac{CAD} programs.
-The earliest 3D parametric system \cite{Requicha:1980:RRS:356827.356833} dates
-from the 1970s.  It used a \ac{CSG} \cite{Foley:1996:CGPP,Requicha:1977:CSG}
-binary tree, and \ac{B-Rep} \cite{Stroud:2006:BRMT} for representing solid
+The earliest 3D parametric system~\cite{Requicha:1980:RRS:356827.356833} dates
+from the 1970s.  It used a \ac{CSG}~\cite{Foley:1996:CGPP,Requicha:1977:CSG}
+binary tree, and \ac{B-Rep}~\cite{Stroud:2006:BRMT} for representing solid
 objects.  This system's parametric nature rested in the \ac{CSG} tree, which
 acted as a rudimentary construction step history.  The user could make
 modifications to the controlling parameters' values of a certain operation in
 the tree, reapply the modified history, and generate the newly updated model.
-Nearly a decade later, the first parametric system as it is understood today
-\cite{Jabi:2013:PDA,PTC:1980:ProENGINEER} surfaced, enabling the establishment
-of relations between the objects' sizes and positions such that a change in a
-dimension between objects would automatically move or change affected objects
-accordingly.  Unlike Sketchpad, it supported 3D geometry and changes would
-propagate over different drawings made by different users.  This lead to the
-appearance of dimensions and \acp{GC} in parametric operations, having \ac{GCS}
-in drawings become standard by the early 1990s
-\cite{Bouma:1995:GCS,Chung:1990:TEVPD,Owen:1991:ASGDC}.  Efforts to expand the
-benefits of constraint solving beyond simple sketches were made, having the
+Nearly a decade later, the first parametric system as it is understood
+today~\cite{Jabi:2013:PDA,PTC:1980:ProENGINEER} surfaced, enabling the
+establishment of relations between the objects' sizes and positions such that a
+change in a dimension between objects would automatically move or change
+affected objects accordingly.  Unlike Sketchpad, it supported 3D geometry and
+changes would propagate over different drawings made by different users.  This
+lead to the appearance of dimensions and \acp{GC} in parametric operations,
+having \ac{GCS} in drawings become standard by the early
+1990s~\cite{Bouma:1995:GCS,Chung:1990:TEVPD,Owen:1991:ASGDC}.  Efforts to expand
+the benefits of constraint solving beyond simple sketches were made, having the
 majority of some systems implemented constraint solving in 3D.  Improvements
 from then on focused mostly on robustness and operation variety.
 
@@ -34,11 +34,11 @@ construction history in attempts to locate a specific operation, and hopefully
 changing the correct controlling parameter's value within that operation.  This
 in itself is a tedious and error-prone process that can lead to undesired
 side-effects instead of producing the intended changes.  A variety of systems
-have been developed to mitigate this rigidity
-\cite{Clarke:2009:SM,Samuel:2006:CPPUP,Wu:2007:MSMSM}, but not without
+have been developed to mitigate this
+rigidity~\cite{Clarke:2009:SM,Samuel:2006:CPPUP,Wu:2007:MSMSM}, but not without
 drawbacks, since direct-manipulation operations were just added to the
 construction history as transformation operations, oblivious to parent
-operations the new ones might depend on.  Further limitations are discussed in
-\cite{Bettig:2005:LPOSSD}, along with a proposal for future design software
+operations the new ones might depend on.  Further limitations are discussed
+in~\cite{Bettig:2005:LPOSSD}, along with a proposal for future design software
 exempt of parametric operations.  Nonetheless, parametric operations will still
 see continued usage for the foreseeable future.
