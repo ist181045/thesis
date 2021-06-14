@@ -47,6 +47,7 @@
 \usepackage{subfig}       % nested sub-figures
 \usepackage{tabularx}     % adjustable-width column tabulars
 \usepackage{tkz-euclide}  % drawing geometrical constructs
+\usepackage{totcount}     % find last value of counter
 \usepackage{url}          % verbatim with URL-sensitive line breaks
 \usepackage{xcolor}       % color extensions
 
@@ -166,6 +167,9 @@
 
 % pifont
 \newcommand{\xmark}{\ding{55}}
+
+% totcount
+\regtotcounter{chapter}
 
 %% additional config
 % load titlepage definitions
