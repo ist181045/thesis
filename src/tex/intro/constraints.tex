@@ -15,7 +15,7 @@ repositioning and scaling of geometric objects so that they satisfy constraints
 a computational geometry setting.  Over the past few years, several approaches to
 \ac{GCS} have been researched and developed, significantly expanding the scope
 of constraint solvers.  The abstract problem of \ac{GCS} is often described as
-follows~\cite{Bettig:2011:GCSPC:1.3593408}:
+follows~\cite{Bettig:2011:GCSPC}:
 
 \begin{quote}
   Given a set of geometric objects, such as points, lines, and circles; a set of
@@ -50,7 +50,7 @@ themselves.  This approach is split into three main branches:
   subsequent phase elaborates on this, employing algebraic and/or numerical
   methods.  This has become the dominant approach to \ac{GCS}, also becoming the
   target of considerable research and
-  development~\cite{Bettig:2011:GCSPC:1.3593408}.
+  development~\cite{Bettig:2011:GCSPC}.
   
   \item[] \textbf{Degrees of Freedom Analysis} The graph's vertices are labeled
   with represented object's degrees of freedom.  Each edge is labeled by the
@@ -118,7 +118,7 @@ tend to appear in the other approaches and are routinely solved.
 \label{sec:intro.constraints.symbolic}
 
 General equation solvers employ symbolic techniques to triangularize the
-equation system~\cite{Buchberger:1985:Grobner,Chou:1988:IWMMTPG}.  A solver
+equation system~\cite{Buchberger:1995:Grobner,Chou:1988:IWMMTPG}.  A solver
 built on top of the Buchberger's algorithm is described
 in~\cite{Buchanan:1993:CDS}; \Citet{Kondo:1992:AMMDRGM} further reports a
 symbolic algebraic method.
@@ -179,7 +179,7 @@ field of research with many applications beyond \ac{CAD}.
 \begin{itemize}
   \item[] \textbf{Deformations} When restrictions are placed on the type of
   deformation, these problems can be seen as constraint solving.  For
-  example, \citet{Ahn:2011:LEQBCA,Bao:2010:BIVCMSE,Moll:2006:PPDLO} consider
+  example, \citet{Ahn:2014:GCQBCUML,Bao:2010:BIVCMSE,Moll:2006:PPDLO} consider
   deformations that minimize strain energy; \Citet{Xu:2009:SDUAC} entails
   surface deformation under area constraints.  However, such techniques are
   rarely integrated with other \acp{GC} such as point distance or
