@@ -48,9 +48,12 @@
 \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
 \DeclareOption{executivepaper}{\PassOptionsToClass{executivepaper}{report}}
 \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
-\DeclareOption{english}       {\PassOptionsToClass{english}{report}}
-% \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
-% \DeclareOption{letterpaper}   {\PassOptionsToClass{letterpaper}{report}}
+
+\DeclareOption{english}       {\PassOptionsToClass{english}{report}
+                               \PassOptionsToPackage{main=english,portuguese}{babel}}
+\DeclareOption{portuguese}    {\PassOptionsToClass{portuguese}{report}
+                               \PassOptionsToPackage{english,main=portuguese}{babel}
+                               \PassOptionsToPackage{brazilian}{cleveref}}
 % -----------------------------------------------------------------------------
 % Invalid options - normally used in report.cls and others, but not here:
 %
