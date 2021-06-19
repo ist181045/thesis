@@ -5,17 +5,6 @@
 \usepackage{hyperref} % hypertext support
 \usepackage{iflang}   % lang dispatch conditionals
 
-\usepackage[printonlyused]{acronym} % acronym management
-\usepackage[nohints]{minitoc}       % mini toc for chapters
-\usepackage[numbers]{natbib}        % natural references
-
-\usepackage{amsmath}   % math
-\usepackage{amsthm}    % typesetting theorems
-\usepackage{amssymb}   % symbol fonts
-\usepackage{amsfonts}  % other math fonts
-\usepackage{mathtools} % math tools that complement amsmath
-\usepackage{nicefrac}  % typeset inline fractions "nicely"
-
 \usepackage[%
   shortlabels,%
   inline,%
@@ -26,31 +15,42 @@
   textsize=small,%
 ]{todonotes} % TODO notes
 
-\usepackage{array}        % array and tabular extensions
-\usepackage{booktabs}     % to enhance table quality
-\usepackage{caption}      % caption customization
-\usepackage{cleveref}     % intelligent cross-referencing
-\usepackage{color}        % color control
-\usepackage{colortbl}     % table cell coloring
-\usepackage{comment}      % selectively in/exclude parts of text
-\usepackage{fancyhdr}     % extensive control over page headers/footers
-\usepackage{float}        % improved interface for floating objs
-\usepackage{graphicx}     % enchanced support for graphics
-\usepackage{minted}       % highlighted code
-\usepackage{multirow}     % for multirow/col tables
-\usepackage{longtable}    % for tables that exceed a page in length
-\usepackage{pdflscape}    % display landscape pages
-\usepackage{pifont}       % ps symbols and dingbats
-\usepackage{scrbase}      % aid in doc structure redefiniton
-\usepackage{setspace}     % set space between lines
-\usepackage{spreadtab}    % spreadsheet features
-\usepackage{subfig}       % nested sub-figures
-\usepackage{tabularx}     % adjustable-width column tabulars
-\usepackage{tkz-euclide}  % drawing geometrical constructs
-\usepackage{totcount}     % find last value of counter
-\usepackage{url}          % verbatim with URL-sensitive line breaks
-\usepackage{xcolor}       % color extensions
+\usepackage[printonlyused]{acronym} % acronym management
+\usepackage[nohints]{minitoc}       % mini toc for chapters
+\usepackage[numbers]{natbib}        % natural references
 
+\usepackage{amsfonts}       % other math fonts
+\usepackage{amsmath}        % math
+\usepackage{amsthm}         % typesetting theorems
+\usepackage{amssymb}        % symbol fonts
+\usepackage{array}          % array and tabular extensions
+\usepackage{booktabs}       % to enhance table quality
+\usepackage{caption}        % caption customization
+\usepackage{cleveref} % intelligent cross-referencing
+\usepackage{color}          % color control
+\usepackage{colortbl}       % table cell coloring
+\usepackage{comment}        % selectively in/exclude parts of text
+\usepackage{datetime2}      % formats for dates, times, and Tzs
+\usepackage{datetime2-calc} % datetime2 module: week day computation
+\usepackage{fancyhdr}       % extensive control over page headers/footers
+\usepackage{float}          % improved interface for floating objs
+\usepackage{graphicx}       % enchanced support for graphics
+\usepackage{mathtools}      % math tools that complement amsmath
+\usepackage{minted}         % highlighted code
+\usepackage{multirow}       % for multirow/col tables
+\usepackage{nicefrac}       % typeset inline fractions "nicely"
+\usepackage{longtable}      % for tables that exceed a page in length
+\usepackage{pdflscape}      % display landscape pages
+\usepackage{pifont}         % ps symbols and dingbats
+\usepackage{scrbase}        % aid in doc structure redefiniton
+\usepackage{setspace}       % set space between lines
+\usepackage{spreadtab}      % spreadsheet features
+\usepackage{subfig}         % nested sub-figures
+\usepackage{tabularx}       % adjustable-width column tabulars
+\usepackage{tkz-euclide}    % drawing geometrical constructs
+\usepackage{totcount}       % find last value of counter
+\usepackage{url}            % verbatim with URL-sensitive line breaks
+\usepackage{xcolor}         % color extensions
 
 %% configuration
 \setlength{\marginparwidth}{2cm}
@@ -86,6 +86,9 @@
 \definecolor{olive}{rgb}{0.17,0.59,0.20}
 \definecolor{brown}{rgb}{0.69,0.31,0.31}
 \definecolor{purple}{rgb}{0.38,0.18,0.81}
+
+% datetime2
+\DTMsavenow{now}
 
 % enumitem
 \setlist[description]{
