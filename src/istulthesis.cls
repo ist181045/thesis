@@ -15,7 +15,7 @@
 \typeout{}
 \typeout{--------------------------------------------------------------}
 \typeout{ +---+ Thesis Style (istulthesis.cls)                         }
-\typeout{ +---+ Version 3.1, February 2021                               }
+\typeout{ +---+ Version 3.1, February 2021                             }
 \typeout{ +---+  for Instituto Superior Tecnico (IST)                  }
 \typeout{ +---+  Universidade de Lisboa                                }
 \typeout{ * Modified from 'report.cls'                                 }
@@ -109,22 +109,22 @@
 \DeclareOption{numberchapteronly}{
   \@PerChptrNumberingfalse\@NumberStdHeadingsfalse\@AllHeadingsfalse
   \@centerChaptertrue\@centerSectiontrue
-  \@inlineSubSubSectiontrue\@numberSubSubSectionfalse }
+  \@inlineSubSubSectiontrue\@numberSubSubSectionfalse}
 \DeclareOption{allheadings}{
   \@PerChptrNumberingtrue\@NumberStdHeadingstrue\@AllHeadingstrue
   \@centerChaptertrue\@centerSectionfalse
   \@inlineSubSubSectionfalse\@numberSubSubSectiontrue}
-\DeclareOption{typewriterstyle}{ \@emphisboldfalse
+\DeclareOption{typewriterstyle}{\@emphisboldfalse
   \@PerChptrNumberingfalse\@NumberStdHeadingsfalse\@AllHeadingsfalse
   \@centerChaptertrue\@centerSectiontrue\@chapterCapstrue
   \@inlineSubSubSectiontrue\@numberSubSubSectionfalse
   \@boldheadfalse\@fixedHeadSztrue}
-\DeclareOption{modernstyle}{ \@emphisboldtrue
+\DeclareOption{modernstyle}{\@emphisboldtrue
   \@PerChptrNumberingtrue\@NumberStdHeadingstrue\@AllHeadingsfalse
   \@centerChaptertrue\@centerSectionfalse\@chapterCapsfalse
   \@inlineSubSubSectiontrue\@numberSubSubSectionfalse
   \@boldheadtrue\@fixedHeadSzfalse}
-\DeclareOption{defaultstyle}{ \@emphisboldtrue
+\DeclareOption{defaultstyle}{\@emphisboldtrue
   \@PerChptrNumberingtrue\@NumberStdHeadingstrue\@AllHeadingsfalse
   \@centerChaptertrue\@centerSectionfalse\@chapterCapsfalse
   \@inlineSubSubSectionfalse\@numberSubSubSectiontrue
@@ -176,18 +176,23 @@
 % TITLEPAGE COMMANDS
 %
 % DEFINE COMMAND FOR: univlogo -> UNIVERISTY LOGO
-\newcommand*{\univlogo}[3]{\th@StoreIn{\th@univlogo}{#3} \th@StoreIn{\th@univlogopsx}{#1} \th@StoreIn{\th@univlogopsy}{#2}}
+\newcommand*{\univlogo}[3]{
+  \th@StoreIn{\th@univlogo}{#3}
+  \th@StoreIn{\th@univlogopsx}{#1}
+  \th@StoreIn{\th@univlogopsy}{#2}}
 \newcommand*{\th@univlogo}{
-  \ClassError{istulthesis}{
-    You must specify the university image logo}
-  {Use the \protect\univlogo{} command in the preamble.}
-}
+  \ClassError{istulthesis}
+    {You must specify the university image logo}
+    {Use the \protect\univlogo{} command in the preamble.}}
 % position coordinates of the university image logo
 \newcommand*{\th@univlogopsx}{2}
 \newcommand*{\th@univlogopsy}{2}
 %
 % DEFINE COMMAND FOR: thesislogo -> THESIS IMAGE
-\newcommand*{\thesislogo}[3]{\th@StoreIn{\th@thesislogo}{#3} \th@StoreIn{\th@thesislogopsx}{#1} \th@StoreIn{\th@thesislogopsy}{#2}}
+\newcommand*{\thesislogo}[3]{
+  \th@StoreIn{\th@thesislogo}{#3}
+  \th@StoreIn{\th@thesislogopsx}{#1}
+  \th@StoreIn{\th@thesislogopsy}{#2}}
 \newcommand*{\th@thesislogo}{\relax}
 \newcommand*{\th@thesislogopsx}{2}
 \newcommand*{\th@thesislogopsy}{2}
@@ -196,18 +201,16 @@
 % DEFINE COMMAND FOR: degree -> DEGREE the AUTHOR is applying
 \newcommand*{\degree}[1]{\th@StoreIn{\th@degree}{#1}}
 \newcommand*{\th@degree}{ % command is required
-  \ClassError{istulthesis}{
-    You must specify the degree you are applying}
-  {Use the \protect\degree{} command in the preamble.}
-}
+  \ClassError{istulthesis}
+    {You must specify the degree you are applying}
+    {Use the \protect\degree{} command in the preamble.}}
 %
 % DEFINE COMMAND FOR: supervisor -> NAME OF THESIS SCIENTIFIC SUPERVISOR
 \newcommand*{\supervisor}[1]{\th@StoreIn{\th@supervisor}{#1}}
 \newcommand*{\th@supervisor}{ % command is required
-  \ClassError{istulthesis}{
-    You must specify the scientific supervisor}
-  {Use the \protect\supervisor{} command in the preamble.}
-}
+  \ClassError{istulthesis}
+    {You must specify the scientific supervisor}
+    {Use the \protect\supervisor{} command in the preamble.}}
 %
 % DEFINE COMMAND FOR: othersupervisor -> NAME OF THESIS SCIENTIFIC CO-SUPERVISOR
 \newcommand*{\othersupervisor}[1]{\th@StoreIn{\th@othersupervisor}{#1}}
@@ -232,45 +235,70 @@
 \newcommand*{\th@finalthesis}{true}
 %
 % DEFINE COMMAND FOR: Thesis type, depending on language
-\newcommand{\thesistypelang}{\IfLanguageName{english}
-    {Thesis to obtain the Master of Science Degree in}
-    {Disserta\c{c}\~ao para obten\c{c}\~ao do Grau de Mestre em}}
+\newcommand{\thesistypelang}{
+  \IfLanguageName{portuguese}
+    {Dissertação para obtenção do Grau de Mestre em}
+    {Thesis to obtain the Master of Science Degree in}}
 %
 % DEFINE COMMAND FOR: subtitle (optional)
 \newcommand*{\subtitle}[1]{\th@StoreIn{\th@subtitle}{#1}}
 \newcommand*{\th@subtitle}{\relax} % command is optional
 %
 % DEFINE COMMAND FOR: Supervisors prefix depending on language
-\newcommand{\tlangSupervisors}{\IfLanguageName{english}{Supervisors: }{Orientadores: }}
+\newcommand{\tlangSupervisors}{{
+  \IfLanguageName{portuguese}
+    {Orientadores}
+    {Supervisors}}: }
 %
 % DEFINE COMMAND FOR: the only Supervisor prefix depending on language
-\newcommand{\tlangComSupervisor}{\IfLanguageName{english}{Supervisor: }{Orientador: }}
+\newcommand{\tlangComSupervisor}{{
+  \IfLanguageName{portuguese}
+    {Orientador}
+    {Supervisor}}: }
 %
 % DEFINE COMMAND FOR: Examination Committee, depending on language
-\newcommand{\tlangCommittee}{\IfLanguageName{english}{Examination Committee}{J\'uri}}
+\newcommand{\tlangCommittee}{
+  \IfLanguageName{portuguese}
+    {Júri}
+    {Examination Committee}}
 %
 % DEFINE COMMAND FOR: Chairperson prefix depending on language
-\newcommand{\tlangChairperson}{\IfLanguageName{english}{Chairperson: }{Presidente: }}
+\newcommand{\tlangChairperson}{{
+  \IfLanguageName{portuguese}
+    {Presidente}
+    {Chairperson}}: }
 %
 % DEFINE COMMAND FOR: Committee members prefix depending on language
-\newcommand{\tlangMembers}{\IfLanguageName{english}{Members of the Committee: }{Vogais: }}
+\newcommand{\tlangMembers}{{
+  \IfLanguageName{portuguese}
+    {Vogais}
+    {Members of the Committee}}: }
 
 % DEFINE COMMAND FOR: Single Committee member prefix depending on language
-\newcommand{\tlangMember}{\IfLanguageName{english}{Member of the Committee: }{Vogal: }}
+\newcommand{\tlangMember}{{
+  \IfLanguageName{portuguese}
+    {Vogal}
+    {Member of the Committee}}: }
 %
 % DEFINE COMMAND FOR: Acknowledgwments depending on language
-\newcommand{\tlangAcknowledgments}{\IfLanguageName{english}{Acknowledgments}{Agradecimentos}}
+\newcommand{\tlangAcknowledgments}{
+  \IfLanguageName{portuguese}
+    {Agradecimentos}
+    {Acknowledgments}}
 %
 % DEFINE COMMAND FOR: Acronyms listing Title depending on language
-\newcommand{\tlangAcronyms}{\IfLanguageName{english}{Acronyms}{Acr\'onimos}}
+\newcommand{\tlangAcronyms}{
+  \IfLanguageName{portuguese}
+    {Acrónimos e Abreviações}
+    {Acronyms and Abbreviations}}
 %
 % #############################################################################
 % CREATING THE TITLE PAGE (FRONTCOVER)
 % #############################################################################
 %
 \setlength{\headheight}{14.5pt}
-\setlength\oddsidemargin{2.5 cm}
-\setlength\evensidemargin{2.5 cm}
+\setlength{\oddsidemargin}{2.5 cm}
+\setlength{\evensidemargin}{2.5 cm}
 %
 
 % #############################################################################
@@ -278,41 +306,41 @@
 % #############################################################################
 %
 % English version
-\renewenvironment{abstract}{
-  \chapter*{Abstract}}
+\renewenvironment{abstract}
+  {\chapter*{Abstract}}
+  {}
   
-\newenvironment{keywords}{\vspace*{3cm}
-  {\parindent \z@ \raggedright \normalfont
-  \hspace*{0\p@}\huge\bfseries Keywords
-  \par\nobreak
-  \vspace*{1cm}
-  }
-}
+\newenvironment{keywords}
+  { \vspace*{3cm}
+    { \parindent \z@ \raggedright \normalfont
+      \hspace*{0\p@}\huge\bfseries Keywords
+      \par\nobreak
+      \vspace*{1cm}}}
+  {}
 
 % Portuguese version
-\newenvironment{resumo}{
-  \chapter*{Resumo}}
+\newenvironment{resumo}
+  {\chapter*{Resumo}}
+  {}
 
-\newenvironment{palavraschave}{\vspace*{3cm}
-    {\parindent \z@ \raggedright \normalfont
-        \hspace*{0\p@}\huge\bfseries Palavras Chave
-        \par\nobreak
-        \vspace*{1cm}
-    }
-}
+\newenvironment{palavraschave}
+  { \vspace*{3cm}
+    { \parindent \z@ \raggedright \normalfont
+      \hspace*{0\p@}\huge\bfseries Palavras Chave
+      \par\nobreak
+      \vspace*{1cm}}}
+  {}
 
 % The Acknowledgments
-\newenvironment{acknowledgments}{\vspace*{3cm}
-    {\parindent \z@ \raggedright \normalfont
-        \hspace*{0\p@}\huge\bfseries \tlangAcknowledgments
-        \par\nobreak
-        \vspace*{1cm}
-    }
-}{
-  \clearpage
-  \thispagestyle{empty}
-  \cleardoublepage
-}
+\newenvironment{acknowledgments}
+  { \vspace*{3cm}
+    { \parindent \z@ \raggedright \normalfont
+      \hspace*{0\p@}\huge\bfseries \tlangAcknowledgments
+      \par\nobreak
+      \vspace*{1cm}}}
+  { \clearpage
+    \thispagestyle{empty}
+    \cleardoublepage}
 
 \newcommand{\tblc}[1]{\makebox[\linewidth][c]{#1}}
 %
