@@ -51,23 +51,23 @@ themselves.  This approach is split into three main branches:
   methods.  This has become the dominant approach to \ac{GCS}, also becoming the
   target of considerable research and
   development~\cite{Bettig:2011:GCSPC}.
-  
+
   \item[] \textbf{Degrees of Freedom Analysis} The graph's vertices are labeled
   with represented object's degrees of freedom.  Each edge is labeled by the
   degrees of freedom the constraint cancels out.  This graph is then analyzed
   for a solution strategy.
-  
+
   A symbolic solution method is derived using rules with geometric meaning, a
   method proved to be correct in~\cite{Kramer:1990:SGCS}.  It is further
   extended by using it along with numerical methods as a fallback if geometric
   reasoning fails~\cite{Hsu:1997:HCSEIGC}.
-  
+
   \Citet{Latham:1996:CA} decompose the graph into minimal connected components
   they call \textit{balanced sets} that are solved by a geometric construction,
   falling back to a numerical solution attempt.  This method can deal with
   symbolic constraints and identifies under- and overconstrained problems, where
   the latter kind is approached by prioritizing the given constraints.
-  
+
   \item[] \textbf{Propagation Approaches} The graph's vertices represent
   variables and equations, and the edges are labeled with occurrences of the
   variables in equations.  The goal is to orient the graph such that all
@@ -96,7 +96,7 @@ geometry~\cite{Aldefeld:1988:VGBGRM,Bruderlin:1993:USGRRSGSS,Sohrt:1991:IC3DM}.
 Two different types of constraints are further
 considered~\cite{Sunde:1987:CADSDSS,Verroust:1992:RMPCAD}:
 \begin{enumerate*}[label= (\arabic*)]
-  \item sets of points placed with respect to a local coordinate frame, and 
+  \item sets of points placed with respect to a local coordinate frame, and
   \item sets of straight line segments whose directions are fixed.
 \end{enumerate*}
 The reasoning is performed by applying a rewriting system on the sets of
