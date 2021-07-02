@@ -24,6 +24,15 @@
     "**/*.synctex.gz(busy)": true,
     "**/*.toc": true,
   },
+  "ltex.latex.commands": {
+    "\\Citet{}": "dummy",
+    "\\DTMfetchmonth{}": "dummy",
+    "\\DTMfetchyear{}": "dummy",
+    "\\IfLanguageName{}": "ignore",
+    "\\inputminted[]{}{}": "ignore",
+    "\\texttt{}": "dummy",
+    "\\univlogo{}{}{}": "ignore",
+  },
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
     "*.bbl",
@@ -58,6 +67,7 @@
     "*.synctex.gz(busy)",
     "*.nav",
   ],
+  "latex-workshop.latex.recipe.default": "first",
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk (thesis)",

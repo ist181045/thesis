@@ -13,15 +13,15 @@ approaches employ efficient methods to find a solution, they resort to solving
 potentially well-known problems generically when computationally lighter
 solutions exist.  Instead of delegating the problem to a solver, a more
 efficient approach would be to pinpoint the type of geometric constraint itself,
-specializing a solution for several different applicable entities.  Take the
-tangency constraint as an example: positioning two circles tangent to each other
-or a line tangent to an ellipse.  Depending on the inputs, these constraints
-might have particularly efficient solutions for each case, in kind making the
+specializing a solution for several applicable entities.  Take the tangency
+constraint as an example: positioning two circles tangent to each other or a
+line tangent to an ellipse.  Depending on the inputs, these constraints might
+have particularly efficient solutions for each case, in kind making the
 computation more efficient.
 
-Classical numerical methods present alluring alternatives to the predominant
+Classical numerical methods constitute alluring alternatives to the predominant
 graph-based approaches.  Having been studied for several decades, even if the
-provided solution does not encompass all of the possible values within the
+provided solution does not encompass all the possible values within the
 problem's domain, they can be used to target specific problems efficiently.
 Nonetheless, these suffer from robustness issues discussed in
 \cref{sec:related.robustness}, effectively yielding inaccurate solutions if
