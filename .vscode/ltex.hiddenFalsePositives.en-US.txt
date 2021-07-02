@@ -1,0 +1,20 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QShoCK\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QActa Numerica\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QSapienza\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QPRICAI\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QSIGGRAPH\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QSIGraDi\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QDepartamento de Arquitectura de la Universidad Técnica Federico Santa María, Valparaíso, Chile\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QMFCS\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QICMS\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QSCG\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QNATO ASI F\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QCumInCAD\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QSome of the subjects approached here are briefed in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"HE_VERB_AGR","sentence":"^\\QLatham:1996:CA decompose the graph into minimal connected components they call balanced sets that are solved by a geometric construction, falling back to a numerical solution attempt.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe main approaches to constraint solving are graph-based, logic-based, algebraic, and theorem prover-based, of which the first is the predominant one.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE","sentence":"^\\QOrientation algorithms include degree-of-freedom propagation and propagation of known values \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q which can fail in the presence of orientation loops, but such situations are addressed \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and they may resort to numerical solvers.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QA solver built on top of the Buchberger's algorithm is described in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q; Kondo:1992:AMMDRGM further reports a symbolic algebraic method.\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QFrom this table, Eukleides, GeoSolver, and the \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q & \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q system are further discussed: Eukleides for its elegant declarative language, similar to some of the languages outlined in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q; GeoSolver for its helpful analysis \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, along with the fact it is implemented in Python, a well established and easy to use language, already used in some competence in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q software (see \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q); and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q for its wide support, development, usage, and collection of packages that extend it, enabling the specification of graphics and geometry in a variety of simple distinct ways.\\E$"}
+{"rule":"PROBLEM_SOLVE_HYPHEN","sentence":"^\\QConstraint-based programming comes in a wide variety of ways, following a diverse set of programming paradigms, using different approaches to problem solving briefly detailed in \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"SOME_OF_THE","sentence":"^\\QIn its visual form, Dynamo offers a wide variety of functions, called nodes, most of them capable of generating an even wider variety of geometry through node combination, wiring one's outputs to another's inputs, and resorting to predefined mutable parameters which can serve as some of the nodes' initial inputs.\\E$"}
