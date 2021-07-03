@@ -36,6 +36,7 @@
 \usepackage{fancyhdr}       % extensive control over page headers/footers
 \usepackage{float}          % improved interface for floating objs
 \usepackage{graphicx}       % enchanced support for graphics
+\usepackage{listing}        % produce formatted program listings
 \usepackage{mathtools}      % math tools that complement amsmath
 \usepackage{minted}         % highlighted code
 \usepackage{multirow}       % for multirow/col tables
@@ -144,6 +145,15 @@
   bookmarksopen=true,
 }
 
+% listing
+\makeatletter
+\let\main@listlistingname\listlistingname
+\renewcommand*\listlistingname{%
+  \IfLanguageName{portuguese}%
+    {Lista de Listagens}%
+    {\main@listlistingname}}
+\makeatother
+
 % minitoc
 \setcounter{minitocdepth}{1}
 \setlength{\mtcindent}{24pt}
@@ -193,27 +203,27 @@
 }
 \let\latex@outputpage\@outputpage
 \def\@outputpage{
-    \ifx\within@landscape\@true%
-        \if@twoside%
-            \ifodd\c@page%
-                \gdef\LS@rot{\setbox\@outputbox\vbox{%
-                    \pdf@landscape@rotate{-90}%
-                    \hbox{\rotatebox{90}{\hbox{\rotatebox{180}{\box\@outputbox}}}}}%
-                }%
-            \else%
-                \gdef\LS@rot{\setbox\@outputbox\vbox{%
-                    \pdf@landscape@rotate{+90}%
-                    \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
-                }%
-            \fi%
-        \else%
-            \gdef\LS@rot{\setbox\@outputbox\vbox{%
-                \pdf@landscape@rotate{+90}%
-                \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
-            }%
-        \fi%
+  \ifx\within@landscape\@true%
+    \if@twoside%
+      \ifodd\c@page%
+        \gdef\LS@rot{\setbox\@outputbox\vbox{%
+          \pdf@landscape@rotate{-90}%
+          \hbox{\rotatebox{90}{\hbox{\rotatebox{180}{\box\@outputbox}}}}}%
+        }%
+      \else%
+        \gdef\LS@rot{\setbox\@outputbox\vbox{%
+          \pdf@landscape@rotate{+90}%
+          \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
+        }%
+      \fi%
+    \else%
+      \gdef\LS@rot{\setbox\@outputbox\vbox{%
+        \pdf@landscape@rotate{+90}%
+        \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
+      }%
     \fi%
-    \latex@outputpage%
+  \fi%
+  \latex@outputpage%
 }
 \makeatother
 

@@ -1,5 +1,4 @@
 % !TEX root = ./main.tex
-% !TEX program = lualatex
 % #############################################################################
 % Thesis-MSc
 % Version 3.1, February 2021
@@ -17,7 +16,7 @@
 
 \begin{document}
 
-\pdfbookmark[0]{Titlepage}{titlepage}
+\pdfbookmark[0]{\tlangTitlepage}{titlepage}
 \input{cover}
 
 \setcounter{page}{1}\pagenumbering{roman}
@@ -25,7 +24,7 @@
                    %               -18pt for 1 1/2 spacing
                    %               -24pt for double spacing
 
-\pdfbookmark[0]{Acknowledgments}{acknowledgments}
+\pdfbookmark[0]{\tlangAcknowledgments}{acknowledgments}
 \input{tex/acknowledgments}
 
 \pdfbookmark[0]{Abstract}{abstract}
@@ -42,16 +41,16 @@
 \dominilot{}
 
 \renewcommand{\baselinestretch}{1}
-\pdfbookmark[0]{Contents}{toc}
+\pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents
 \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 \renewcommand{\baselinestretch}{1.5} % reposition baseline
 
-\pdfbookmark[1]{List of Figures}{lof}
+\pdfbookmark[1]{\listfigurename}{lof}
 \listoffigures
 \cleardoublepage{}
 
-\pdfbookmark[1]{List of Tables}{lot}
+\pdfbookmark[1]{\listtablename}{lot}
 \listoftables
 \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
@@ -59,11 +58,11 @@
 % \listofalgorithms
 % \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
-\pdfbookmark[1]{Listings}{lol}
+\pdfbookmark[1]{\listlistingname}{lol}
 \listoflistings{}
 \cleardoublepage{}
 
-\pdfbookmark[1]{Acronyms}{loac}
+\pdfbookmark[1]{\tlangAcronyms}{loac}
 \chapter*{\tlangAcronyms}
 \input{tex/acronyms}
 \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.

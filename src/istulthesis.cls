@@ -237,6 +237,12 @@
 \newcommand*{\finalthesis}[1]{\th@StoreIn{\th@finalthesis}{#1}}
 \newcommand*{\th@finalthesis}{true}
 %
+% DEFINE COMMAND FOR: Cover, depending on language
+\newcommand{\tlangTitlepage}{
+  \IfLanguageName{portuguese}
+    {Folha de Rosto}
+    {Title Page}}
+%
 % DEFINE COMMAND FOR: Thesis type, depending on language
 \newcommand{\thesistypelang}{
   \IfLanguageName{portuguese}
