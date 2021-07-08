@@ -32,19 +32,19 @@ This work aims to implement a series of geometric constraint primitives in an
 already expressive \ac{TPL} to overcome the need for the specification of
 unnecessary details when modeling geometrically constrained entities, promoting
 an easier and more efficient usage.  Choosing to implement these in a \ac{TPL}
-further avoids the code complexity that arises from what could be analogous
-specifications in a \ac{VPL}, a subject previously discussed in
-\cref{sec:intro.ad}.
+further avoids the poor scalability with increasing code complexity that arises
+from what could be analogous specifications in a \ac{VPL}, a subject previously
+discussed in \cref{sec:intro.ad}.
 
 Moreover, by relying on an exact geometry computation library, one of the core
 features of this solution lies in the capability of transparently dealing with
-the previously addressed robustness issues.  The user can then resort to these
-primitives, and, by composing them, elegantly specify the set of geometric
-constraints necessary in order to produce the idealized model.  Since the
-available primitives will implement specialized solutions for a finite set of
-shapes the user can utilize in whichever combination possible during the design
-process, the solution will be exempt of a generic solver component, potentially
-boosting performance of design generation.
+plenty of the previously addressed robustness issues.  The user can then resort
+to these primitives, and, by composing them, elegantly specify the set of
+geometric constraints necessary in order to produce the idealized model.  Since
+the available primitives will implement specialized solutions for a finite set
+of shapes the user can utilize in whichever combination possible during the
+design process, the solution will be exempt of a generic solver component,
+potentially boosting performance of design generation.
 
 \Cref{fig:solution.arch} shows the typical \ac{AD} workflow and how the proposed
 solution could be integrated with the \ac{AD} tool.  The encapsulated modules in
@@ -59,3 +59,6 @@ wrapping the computation library.
     blue colored box beneath a depiction of the typical \ac{AD} workflow.}%
   \label{fig:solution.arch}
 \end{figure}
+
+\todo[]{Add foreword describing the following section(s)}
+\input{tex/solution/implementation}
