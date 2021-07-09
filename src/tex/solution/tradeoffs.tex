@@ -1,0 +1,19 @@
+\section{Trade-offs}%
+\label{sec:solution.tradeoffs}
+
+\todo[inline]{Still not sure what to include here, but a section going over a
+couple of issues circling the monstruous complexities of wrapping a gargantuan
+library that CGAL proves to be a daunting task which, for simplicity's sake,
+required hiding and pre-setting a lot of things on the C++ side of things.
+Contrast this with the yet maturing Julia geometry ecosystem, which is proving
+to be going somewhere, but it is still relatively young compared to things like
+CGAL.  However, also illustrate that there are geometric Julia packages that
+would be good candidates for replacing CGAL.
+
+Additionally, explain why an approach using CxxWrap.jl was chosen, requiring an
+explicit C++ wrapper library to hook into, which requires manual-ish compilation
+and production, instead of using Cxx.jl, which can be used to inline C++ code
+within Julia.  The former was chosen vs. the latter for what seemed like
+stability reasons at the time.  The CxxWrap.jl approach seemed less complicated
+despite the extra step of producing a C++ code shim that can then be fed into
+CxxWrap.jl.}
