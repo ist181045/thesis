@@ -48,11 +48,36 @@ foreign language interoperation at \url{https://github.com/JuliaInterop} (July
 8, 2021)}
 
 Overcoming the language interoperability hurdle, we can now start focusing on
-the implementation of the \textit{Geometric Constraint Primitives}.
-\todo[inline]{Elaborate a little bit more. Consider referring examples in
-related work}
+the implementation of the \textit{Geometric Constraint Primitives}.  These
+primitives build on top of the functionality available in \ac{CGAL}, some of
+which is directly inherited from it, substantially helping us in the process,
+e.g., intersections.  We further enriched the pool with a few more functions,
+illustrating a constructive approach to \ac{GCS}, similar and inspired by the
+approach of \textit{tkz-euclide}.  By providing this abstraction over more
+primitive functionality, we aimed to provide an easy to understand and utilize
+set of tools so users can avoid reimplementing it themselves, which is and
+error-prone process, as well as levelling the playing field by working at a
+conceptual level which is more familiar and comprehensive than opting by the
+natural more analytical approach programming languages typically naturally
+gravitate towards.
 
-Adopting a bottom-up approach, we'll start by describing the underlying 
-\textit{Exact Computation Geometry Library}, followed by the \textit{Wrapper
-Code} layer, topped off by the \textit{Geometric Constraint Primitives} block.
-The reason a wrapper code layer exists 
+The following sections will elaborate further on the components emphasized in
+the previous paragraphs, adopting a bottom-up-like approach.  We'll discuss
+\ac{CGAL} and what constructs and functionality it can provide to aid our goal,
+as well as some added benefits of building on top of a very mature and
+comprehensive library.  That will be followed by a section detailing how it was
+possible to map said functionality to the Julia language, of which the result
+was a Julia package aptly named \texttt{CGAL.jl}\footnote{Packages in the Julia
+ecosystem are conventionally terminated with a \texttt{.jl} suffix, the
+extension used for Julia files.  This is reminiscent of a familiar convention
+followed in the Java ecosystem where libraries and tools are usually prefixed
+with the letter \texttt{J}, e.g., \texttt{JUnit}, \texttt{JMeter},
+\texttt{JDeveloper}, among others.}~\cite{Ventura:2019:CGAL.jl}.  Finally, we
+showcase how we leveraged \texttt{CGAL.jl} to build the aforementioned
+\textit{Geometric Constraint Primitives}, a set of functionality that implements
+specialized yet comprehensible constructive approach solutions to \ac{GC}
+problems.
+
+% \input{tex/solution/cgal}
+% \input{tex/solution/cgal.jl}
+% \input{tex/solution/gcps}
