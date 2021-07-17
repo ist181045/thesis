@@ -1,6 +1,50 @@
 % !TEX root = ../main.tex
 \fancychapter{Evaluation}%
-\label{chap:evaluation}
+\label{chap:eval}
 \cleardoublepage{}
 
-\todo[inline]{{\bfseries TODO}: Write this.}
+\section{Performance \& Correctness}%
+\label{sec:eval.perf}
+\todo{Working title}
+
+\subsection{ConstraintGM}%
+\label{sec:eval.perf.cgm}
+\todo[inline]{Introduce Fábio's work with ConstraintGM, point out the mishap of
+feeling overconfident about maxima and how that prompted him, per suggestion, to
+implement specific/contextual solutions for geometric constraint problems, i.e.,
+what we did, instead of solely relying on a generic algebraic solver.  Recall
+his benchmarks and compare them with identical benchmarks with our solutions.
+Discuss the possibility that language differences might be the reason behind
+performance differences alone.}
+
+\subsection{VoronoiDelaunay.jl}%
+\label{sec:eval.perf.vdjl}
+\todo[inline]{Maybe leave the "how easy it is to leverage our approach to get
+more, both in quantity and complexity, algorithsm from CGAL" discussion for this
+part and evaluate the potential time it takes to use Voronoi Diagrams from CGAL
+and either get more information on how long it took to implement
+VoronoiDelaunay.jl and compare its "correctness" vs. CGAL's version of the
+algorithm, assuming CGAL's results as a source of truth for correctness.
+Testing revealed diagrams differed slightly when it came to some edges.  My
+suspicion was the Julia algorithm "gobble" some very very very small triangles,
+i.e., where the edges are very close together, but it only happens near the
+outside of the diagram, and, again, a more drastic diagram can be manufactured
+to showcase this.  Maybe read up more on the underlying algorithm that was
+implemented in VoronoiDelaunay.jl}
+
+\section{Case Studies}%
+\label{sec:eval.studies}
+\todo[inline]{Nexus article evaluation, mostly.  Maybe a bit more elaborate,
+maybe a bit less.}
+
+\subsection{Egg}%
+\label{sec:eval.studies.egg}
+
+\subsection{Rounded Trapezoid}%
+\label{sec:eval.studies.rtrapezoid}
+
+\subsection{Star with Semicircles}%
+\label{sec:eval.studies.star}
+
+\subsection{Voronoi Diagram}%
+\label{sec:eval.studies.voronoi}
