@@ -40,13 +40,11 @@ evolve by avoiding reimplementing several facilities and software libraries in,
 but not limited to, scientific and numerical computing areas.  Arguably, it may
 be one of \textit{the} fundamental features that made the language as popular as
 it is and kept it afloat, unlike other similar historical examples that might've
-lacked such a mechanism.  \todo[inline]{Maybe expand on this with a concrete
-example or so.  Could also be removed altogether}} This mechanism can also in
-turn be leveraged and built upon to interface with other programming languages,
-e.g., Java, Python, MATLAB, and, the one needed for our particular use-case,
-C++.\footnote{There is an entire GitHub organization with projects dedicated to
-foreign language interoperation at \url{https://github.com/JuliaInterop} (July
-8, 2021)}
+lacked such a mechanism.} This mechanism can also in turn be leveraged and built
+upon to interface with other programming languages, e.g., Java, Python, MATLAB,
+and, the one needed for our particular use-case, C++.\footnote{There is an
+entire GitHub organization with projects dedicated to foreign language
+interoperation at \url{https://github.com/JuliaInterop} (July 8, 2021)}
 
 Overcoming the language interoperability hurdle, we can now start focusing on
 the implementation of the \textit{Geometric Constraint Primitives}.  These
@@ -80,9 +78,38 @@ showcase how we leveraged \texttt{CGAL.jl} to build the aforementioned
 specialized yet comprehensible constructive approach solutions to \ac{GC}
 problems.
 
-\todo[inline]{Write said sections.}
+\subsection{\acl{CGAL}}%
+\label{sec:solution.impl.cgal}
+\todo{Might just use the names on the solution diagram for the section headings.
+But "Wrapper Code" looks ugly.}
+\todo[inline]{Introduce CGAL to the masses.  Showcase example program using
+basic CGAL constructs and functionality.  Not sure where to put notes about the
+library's complexity, but maybe include explanation of why it made sense to
+choose CGAL as our library of choice (mature library, tons of research resulting
+from several PhDs, open source ⇒ open to contributions, lots of contributors,
+active development, \textit{et cetera}).}
 
-% \input{tex/solution/cgal}
-% \input{tex/solution/cgal.jl}
+\subsection{From C++ to Julia}%
+\label{sec:solution.impl.jlcgal}
+\todo[inline]{Reiterate the language interoperability hurdle, maybe mention
+briefly there are complications especially when memory management models differ.
+Showcase Julia's native capabilities of invoking native C++ libraries coupled w/
+an example using CGAL.  Introduce a library that helps with C++ wrapping and
+showcase a slightly more complex example, maybe involving classes and the like.
+Consider demonstrating the ease with which it is possible to wrap things
+incrementally as, on demand, requests for new features may require algorithms
+from the library that weren't wrapped.  Just like following a recipe, it's
+as simple as (1) looking at the docs, (2) mapping necessary types and functions,
+and (3) run Julia (Carefully not mapping \textit{everything}, thought that is
+what I strived to do with CGAL.jl, but that's another discussion).}
+
+\subsection{Geometric Constraint Primitives}%
+\label{sec:solution.impl.gcps}
+\todo[inline]{With functionality available on the Julia side of things, call
+back to the previously formulated examples, potentially elaborating with yet
+another slightly more complex example.  Showcase that some of the functionality
+that can be implemented with very little effort relying only on functionality
+already present in mature library alone like CGAL is.  I confess I do not know
+what to discuss in this section, despite feeling like it is the most important
+one in some regard\ldots}
 % direct impls in constraintGM are due to overconfidence in maxima
-% \input{tex/solution/gcps}
