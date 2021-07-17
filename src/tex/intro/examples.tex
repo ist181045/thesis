@@ -10,13 +10,7 @@ The examples are limited to the two-dimensional Euclidean plane over real
 numbers, $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
 Euclidean space, $\mathbb{R}^3$, exist as well.
 
-The first problem is that of a parallelism constraint: specifying a line that
-goes through a given point while also being strictly parallel to another already
-defined line.  The second problem is a circumscription constraint: defining a
-circle that tightly wraps around a triangle, i.e., the circle's circumference
-goes through three given non-collinear points.
-
-\begin{figure}[htbp]
+\begin{figure}[htpb]
   \centering
   \subfloat[Line that goes through $C$, strictly parallel to
       $\protect\overleftrightarrow{AB}$]{
@@ -34,13 +28,18 @@ goes through three given non-collinear points.
   \label{fig:intro.example}
 \end{figure}
 
-\clearpage
+The first problem is that of a parallelism constraint: specifying a line that
+goes through a given point while also being strictly parallel to another already
+defined line.  The second problem is a circumscription constraint: defining a
+circle that tightly wraps around a triangle, i.e., the circle's circumference
+goes through three given non-collinear points.
+
 \subsection{Parallel lines}%
 \label{sec:intro.examples.parallel}
 
 Let $A,\,B,\,C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
 strictly parallel to the line $\overleftrightarrow{AB}$ (see
-\Cref{fig:intro.example.parallel}).
+\cref{fig:intro.example.parallel}).
 
 A line in $\mathbb{R}^2$ can be described by the parametric equation
 %
@@ -70,7 +69,7 @@ package, using \texttt{tkzDefLine}, which takes two points $A,\,B$, with the
 resulting line goes through.  The result is a point $D = C + \vec{u}$, which can
 be obtained using \texttt{tkzGetPoint} to later draw the line. 
 
-\begin{listing}[htbp]
+\begin{listing}[htb]
   \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tex}
   \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
     using \texttt{tkz-euclide}]{
@@ -86,7 +85,7 @@ parallel line $L_C$ can be obtained through the \texttt{parallel} function,
 which takes the line $\overleftrightarrow{AB}$ it is parallel to and the point
 $C$ it goes through.
 
-\begin{listing}[htbp]
+\begin{listing}[htb]
   \inputminted[highlightlines=3]{text}{euk/ex-parallel.euk}
   \caption[Parallel lines example from \Cref{fig:intro.example.parallel}
     using Eukleides]{
@@ -134,7 +133,7 @@ line $CS$
 
 Let $A,\,B,\,C,\,O \in \mathbb{R}^2$ be points such that $O$ is the center point
 of a circle of radius $r$, $\odot O_r$, that is circumscribed about the triangle
-$\triangle ABC$ (see \Cref{fig:intro.example.circumcenter}).
+$\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
 
 A precondition for this computation is that $\triangle ABC$ is not degenerate,
 i.e., its vertices are non-collinear.  That can be verified by computing the
@@ -305,7 +304,7 @@ O_r$, one can use \texttt{tkzCircumCenter}, which takes three points
 $A,\,B,\,C$, and generates the result $O$, obtainable using
 \texttt{tkzGetPoint}.
 
-\begin{listing}[htbp]
+\begin{listing}[htb]
   \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tex}
   \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
       using \acs{TikZ}]{
@@ -322,7 +321,7 @@ the \texttt{circle} function, which similarly takes three points $A,\,B,\,C$,
 and generates the circle $\odot O_r$ circumscribed about $\triangle ABC$, while
 $O$ can be obtained using the \texttt{center} function.
 
-\begin{listing}[htbp]
+\begin{listing}[htb]
   \inputminted[highlightlines=2]{text}{euk/ex-circumcenter.euk}
   \caption[Circumcenter example from \Cref{fig:intro.example.circumcenter}
       using Eukleides]{
