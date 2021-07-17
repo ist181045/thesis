@@ -4,8 +4,8 @@
 \cleardoublepage{}
 
 \noindent
-Modern \ac{CAD} applications include substantial support for parametric
-operations and \ac{GCS}.  These mechanisms have been developed over the past few
+Modern \ac{CAD} tools include substantial support for parametric operations and
+\ac{GCS}.  These mechanisms have been developed over the past few
 decades~\cite{Bettig:2011:GCSPC} and are heavily and ubiquitously used across
 the \ac{AEC} industry.
 
@@ -16,50 +16,41 @@ parameters using two computational mechanisms:
 \begin{enumerate*}[label= (\arabic*)]
   \item parametric operations, which build geometry that implicitly abides by
   constraints imposed when the user selects the operation and its inputs, and
-  \item \ac{GCS}, which manipulates geometry in sketches and models to satisfy
-  constraints explicitly imposed on objects by the user.
+  \item \ac{GCS}, which finds the positions of geometric entities that satisfy a
+  set of constraints explicitly imposed by the user.
 \end{enumerate*}
 
 Nowadays, Parametric operations in \ac{CAD} software are mostly accessible
-through intuitive, robust, and easy to use direct-manipulation interfaces,
+through intuitive, robust, and easy-to-use direct-manipulation interfaces,
 offering a wide variety of different operations.  These operations are created
 when a designer uses solid modeling operations, such as face extrusions or shape
 unions; and recorded into a user-controlled sequential history of construction
-steps that can be replayed in the face of changes, updating the modeled
+steps that can be replayed in the event of changes, updating the modeled
 geometry.  Alas, dependency propagation direction is fixed, forcing users to
 plan their model's features beforehand.  In constraint solving, by contrast,
 dependency propagation direction isn't fixed.  Instead, users introduce a set of
 parameters and geometric entities followed by specifying the constraints that
 relate these objects.  Naturally, \ac{GCS} fits in \ac{CAD} software, having
-been target of considerable research and development to implement efficient
+been the target of considerable research and development to implement efficient
 approaches and methodologies capable of solving \ac{GC} problems.  So much so
 that it has become standard in major \ac{CAD} software, such as
 AutoCAD~\cite{Autodesk:1982:AutoCAD}, which supports the ability to constrain
 objects in a variety of ways, e.g., point coincidence, line perpendicularity,
-tangencies, among other kinds of constraints.
+and tangencies, among other kinds of constraints.
 
 However, traditional interactive methods for parametric modeling suffer from the
 disadvantage that they do not scale properly when designing more complex ideas.
-In recent years, a novel approach to design named \ac{AD} has emerged,
-introducing the algorithmic methodology also present in the \ac{CS} field,
-allowing the specification of sketches and models through
+In recent years, a novel approach to design named \ac{AD} has emerged, allowing
+the specification of sketches and models through
 algorithms~\cite{McCormack:2004:GDPDR}, leading to the creation and integration
-of several \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL},
+of \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL},
 others \acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental
 issue with \acp{VPL} which is the frequently disproportionate complexity between
 the program and the respective resulting model.
 
-\acp{TPL} come with some advantages over \acp{VPL}, among which are
-\begin{enumerate*}[label= (\arabic*)]
-  \item abstraction mechanisms, enabling the encapsulation of behavior that can
-  be changed and reused in a different context at a later time,
-  \item the ability of specifying recursive definitions,
-  \item resulting source code can be put under a version control system, and
-  \item multiple developers can work on the same codebase.
-\end{enumerate*}
-In spite of these, dealing with \acp{GC} remains an arduous task.  Take as an
-example the sketch of a chair seat's outer frame, as seen in
-\cref{fig:intro.chair}, from a multi-purpose chair generation
+Dealing with \acp{GC}, regardless of the approach, can still prove to be an
+arduous task.  Take as an example the sketch of a chair seat's outer frame, as
+seen in \cref{fig:intro.chair}, from a multi-purpose chair generation
 tool~\cite{Garcia:2012:ChairDNA} where the chair's overall shape is controllable
 by specifying the values for a set of input parameters.
 
@@ -88,20 +79,18 @@ chair's seat.  Some of these operations, such as the radius computation,
 a point is at a certain distance from an object, or if two points are
 coincident.  Such operations must be handled carefully due to numerical
 robustness issues that may arise when performing fixed-precision arithmetic.  As
-such, on top of the design process itself, the user must identify these kinds of
-\acp{GC}, resorting to trigonometry analysis, perform tolerance-based
-comparisons to determine point distance or if two points are coincident, among
-other techniques the user most likely is not aware he must rely upon to
-circumvent these issues, particularly, when we take into consideration that most
-designers using \ac{AD} are architects and designers without an extensive
-background in \ac{CS}.
+such, on top of the design process itself, the user must identify the \acp{GC},
+resorting to trigonometry analysis, perform tolerance-based comparisons to
+determine point distance or if two points are coincident, among other techniques
+the user most likely is not aware he must rely upon to circumvent these issues,
+particularly, when we take into consideration that most \ac{AD} practitioners
+are architects and designers without an extensive background in \ac{CS}.
 
 To overcome the limitations exposed above, this report proposes the
-implementation of a wide variety of \ac{GC} primitives with
-specialized efficient solutions for different combinations of input objects.  In
-this manner, the user won't have to be aware of numerical robustness issues and
-have to investigate techniques for solving such issues to accurately generate a
-model riddled with \acp{GC}.
+implementation of \ac{GC} primitives with specialized efficient solutions for
+different combinations of input objects.  We additionally focus our work around
+\acp{TPL} approach, further making \ac{TPL}-based approaches more attractive,
+and easier to both adopt and use.
 
 \section{Document Structure}%
 \label{sec:intro.structure}
