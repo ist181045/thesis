@@ -132,7 +132,11 @@
 
 % fontspec
 \setmainfont{Arial}
-\setmonofont{Julia Mono}[Scale=MatchLowercase]
+\setmonofont{JuliaMono}[
+  UprightFont = *-Regular,
+  BoldFont    = *-Bold,
+  Scale       = MatchLowercase
+]
 
 % hyperref
 \hypersetup{
