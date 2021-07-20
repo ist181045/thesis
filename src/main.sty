@@ -17,6 +17,7 @@
 
 \usepackage[printonlyused]{acronym} % acronym management
 \usepackage[nohints]{minitoc}       % mini toc for chapters
+\usepackage[newfloat]{minted}       % highlighted code
 \usepackage[numbers]{natbib}        % natural references
 
 \usepackage{amsfonts}       % other math fonts
@@ -36,9 +37,7 @@
 \usepackage{fancyhdr}       % extensive control over page headers/footers
 \usepackage{float}          % improved interface for floating objs
 \usepackage{graphicx}       % enchanced support for graphics
-\usepackage{listing}        % produce formatted program listings
 \usepackage{mathtools}      % math tools that complement amsmath
-\usepackage{minted}         % highlighted code
 \usepackage{multirow}       % for multirow/col tables
 \usepackage{nicefrac}       % typeset inline fractions "nicely"
 \usepackage{longtable}      % for tables that exceed a page in length
@@ -170,21 +169,11 @@
 % minted
 \usemintedstyle{friendly}
 \renewcommand{\theFancyVerbLine}{\small\arabic{FancyVerbLine}}
-\newlength{\mintednumbersep}
-\setlength{\mintednumbersep}{12pt}
-\newlength{\mintedxlmar}
-\AtBeginDocument{
-  \sbox0{\small00}
-  \setlength{\mintedxlmar}{\mintednumbersep}
-  \addtolength{\mintedxlmar}{\wd0}
-}
 \setminted{
   autogobble,
   frame=lines,
   framesep=1ex,
   linenos,
-  numbersep=\mintednumbersep,
-  xleftmargin=\mintedxlmar,
 }
 
 % pdflscape
