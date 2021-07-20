@@ -157,6 +157,13 @@
     {Lista de Listagens}%
     {\main@listlistingname}}
 \makeatother
+\newenvironment{listingx}
+  {\begingroup\medskip
+   \let\oldbaselinestretch\baselinestretch
+   \renewcommand{\baselinestretch}{1}
+   \captionsetup{type=listing}}
+  {\let\baselinestretch\oldbaselinestretch
+   \medskip\endgroup}
 
 % minitoc
 \setcounter{minitocdepth}{1}
