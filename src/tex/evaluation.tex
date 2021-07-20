@@ -3,9 +3,39 @@
 \label{chap:eval}
 \cleardoublepage{}
 
-\section{Performance \& Correctness}%
-\label{sec:eval.perf}
-\todo{Working title}
+\section{Benchmarks}%
+\label{sec:eval.perf}\todo{Working title}
+\todo[inline]{Proper introduction + actual text}
+Benchmarks were performed on a Lenovo ThinkPad E595 laptop computer running an
+Arch Linux\footnote{\url{https://archlinux.org}} environment using the
+Linux\textsuperscript{\textregistered} 5.12.15-zen1
+kernel\footnote{\url{https://github.com/zen-kernel/zen-kernel/tree/v5.12.15-zen1}}
+with the following hardware specifications:
+%
+\begin{itemize}
+  \acused{AMD}\label{acro:AMD}
+  \acused{CPU}\label{acro:CPU}
+  \item \ac{AMD} Ryzen\textsuperscript{\texttrademark} 5 3500U \ac{CPU} @
+  2.1GHz;
+  \acused{SO-DIMM}\label{acro:SO-DIMM}
+  \acused{DDR}\label{acro:DDR}
+  \acused{RAM}\label{acro:RAM}
+  \item 1x16GB \ac{SO-DIMM} of \ac{DDR}4 \ac{RAM} @ 2400MT/s\footnote{The
+  disparity between \textbf{T}ransfers per \textbf{s}econd (T/s) and
+  \textbf{H}ert\textbf{z} (Hz) depends on the memory's transfer rate.  \acf{DDR}
+  memory can perform two operations per clock cycle, which means its transfer
+  rate is double its clock frequency, i.e., 1Hz = 2T/s.  At 2400MT/s, the
+  respective \ac{DDR} memory's clock frequency would be 1200MHz.}.
+\end{itemize}
+%
+Additionally, the following software versions were configured, installed, and
+used:
+%
+\begin{itemize}
+  \item Julia 1.6.2;
+  \item Maxima 5.45.1;
+  \item Racket 8.2.
+\end{itemize}
 
 \subsection{ConstraintGM}%
 \label{sec:eval.perf.cgm}
