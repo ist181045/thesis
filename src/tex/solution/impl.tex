@@ -150,6 +150,24 @@ what I strived to do with CGAL.jl, but that's another discussion).}
 \end{listing}
 
 \begin{listing}[htb]
+  \caption[Wrapper JlCxx code for Three points and one segment]{
+    C++ wrapper code powered by JlCxx that maps the types and functions needed
+    from \acs{CGAL} to reproduce the example shown in
+    \cref{lst:solution.impl.cgal.pas} in Julia.}%
+  \label{lst:solution.impl.jlcgal.jlcxx}
+  \inputminted[fontsize=\small]{cpp}{cpp/cgal_julia.cpp}
+\end{listing}
+
+\begin{listing}[htb]
+  \inputminted{julia}{jl/CGAL.jl} 
+  \caption[Bare-bones Julia module wrapping some of CGAL]{
+    An example Julia module that mimics \texttt{CGAL.jl}, wrapping the library
+    produced from \cref{lst:solution.impl.jlcgal.jlcxx}.  It initializes the
+    library and exports the mapped functionality.}%
+  \label{lst:solution.impl.jlcgal.cgal}
+\end{listing}
+
+\begin{listing}[htb]
   \inputminted{julia}{jl/points_and_segments.jl}
   \caption[CGAL.jl: Three points and one segment]{
     The example program as seen in \cref{lst:solution.impl.cgal.pas} written in
