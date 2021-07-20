@@ -29,6 +29,7 @@
     "\\DTMfetchmonth{}": "dummy",
     "\\DTMfetchyear{}": "dummy",
     "\\IfLanguageName{}": "ignore",
+    "\\inputminted{}{}": "ignore",
     "\\inputminted[]{}{}": "ignore",
     "\\texttt{}": "dummy",
     "\\univlogo{}{}{}": "ignore",
