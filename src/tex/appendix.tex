@@ -1,0 +1,27 @@
+\pdfbookmark[1]{Benchmark Code}{benchmark-code}
+\chapter{Benchmark Code}%
+\label{chap:appendix.bench}
+\cleardoublepage
+
+\begin{listing}
+  \caption[ConstraintGM Racket benchmark code]{
+    Source code from ConstraintGM's benchmarks for thirteen different scenarios
+    involving the intersection of differently arranged geometric
+    entities.}%
+  \label{lst:appendix.bench.cgm.rkt}
+  \smallskip
+  {\scriptsize Adapted from:
+  \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
+  (July 2021)}
+  \vspace{-12pt}
+  \inputminted[breaklines]{racket}{rkt/bench-cgm.rkt}
+\end{listing}
+
+\begin{listing}
+  \caption[\texttt{CGAL.jl} Julia benchmark code]{
+    Benchmark code testing the same scenarios benchmarked by ConstraintGM using
+    our solution's supporting library,
+    \texttt{CGAL.jl}.}%
+  \label{lst:appendix.bench.cgm.jl}
+  \inputminted{julia}{jl/bench_cgm.jl}
+\end{listing}
