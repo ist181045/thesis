@@ -12,7 +12,9 @@ CAADRIA
 CGAL
 ChairDNA
 circumcenter
+ConstraintGM
 DesignScript
+DrRacket
 Esmaeil
 Eukleides
 EurographicSeminars
