@@ -3,22 +3,22 @@
 \label{sec:related.ad}
 
 As discussed in \cref{sec:intro.ad}, \ac{AD} tools have been integrated into
-several modern \ac{CAD} and \ac{BIM} applications; tools that use \acp{TPL},
-\acp{VPL}, or even a mixture of both approaches.
+several modern \ac{CAD} and \ac{BIM} applications, using \acp{TPL}, \acp{VPL},
+or even a mixture of both approaches.
 
 Other tools, like OpenJSCAD and ImplicitCAD, are standalone \ac{CAD} software
 hosted on the web.  Being cloud-based is advantageous in many fronts: it is
-inherently portable, removes the additional typical installation steps required
-for desktop applications.  Alas, being relatively new, they are lacking features
-in comparison to the immense feature-set of applications such as AutoCAD\@.
+inherently portable and removes the additional typical installation steps
+required for desktop applications.  Alas, being relatively new, they lack
+features in comparison to the immense feature-set of applications such as
+AutoCAD\@.
 
 \Cref{tab:related.ad.summary} succinctly summarizes a list of \ac{CAD} software
-that includes the capability of designing resorting to the usage of a
-programming language, as well as other \ac{AD} software and tools that live
-detached from existing software.  From there, Dynamo and Grasshopper are further
-comparatively discussed, being relatively similar tools, however integrated
-within \ac{CAD}/\ac{BIM} software designed for performing different specific
-tasks.  Moreover, both include \ac{TPL} and \ac{VPL} support in different forms.
+that supports the usage of a programming language, as well as other \ac{AD}
+tools that live detached from existing \ac{CAD} software.  From there, Dynamo
+and Grasshopper are further comparatively discussed, being relatively similar
+tools integrated within \ac{CAD}/\ac{BIM} software.  Moreover, both include
+\ac{TPL} and \ac{VPL} support in different forms.
 
 \begin{table}[htb]
   \caption[Table of programmatic CAD/BIM and AD software]{%
@@ -141,7 +141,7 @@ designed to execute a specific task.  Dynamo further allows extension through th
 creation of custom nodes which can be shared as packages.
 
 One of the nodes in Dynamo, aptly named code block, allows the usage of a
-\ac{TPL}; a language called DesignScript.  Originally developed my Robert
+\ac{TPL}; a language called DesignScript.  Originally developed by Robert
 Aish~\cite{Aish:2011:DesignScript}, DesignScript is a multi-paradigm
 domain-specific language and is the programming language at the core of Dynamo
 itself.  So much so that entire workflows can be reduced to one code block (see
@@ -185,17 +185,15 @@ of a Grasshopper workflow.
 \end{figure}
 
 It is a closed-source product, designed by David Rutten and developed by McNeel
-and Associates, Rhino's developers.  Its \ac{VPL} is as simple to use as
-Dynamo's, which is crucial for users who are not familiar with programming using
-a \ac{TPL}.  Nonetheless, it offers a \ac{TPL} alternative by way of custom
-programmatic components.  Using C\# or VB.NET, the user can create custom code
-components with access to Rhino's \ac{SDK} and
-openNURBS~\cite{Lear:2018:openNURBS} within Rhino.  Alternatively, through
-GhPython~\cite{Giulio:2017:GhPython}, the user can also write Python code.
-Unlike DesignScript, Python and the~.NET languages don't support an associative
-programming model.
+and Associates, Rhino's developers.  Its \ac{VPL} is simple to use, which is
+crucial for users who are not familiar with programming using a \ac{TPL}.
+Nonetheless, it offers a \ac{TPL} alternative by way of custom programmatic
+components.  Using C\# or VB.NET, the user can create custom code components
+with access to Rhino's \ac{SDK} and openNURBS~\cite{Lear:2018:openNURBS} within
+Rhino.  Alternatively, through GhPython~\cite{Giulio:2017:GhPython}, the user
+can also write Python code.  Unlike Dynamo's DesignScript, Python and the~.NET
+languages don't support an associative programming model.
 
 Functions in Grasshopper are called components and work just like Dynamo's
 nodes; a wide variety of them exist, most of them capable of producing geometry,
-and they are composable, generating a workflow destined to accomplish a specific
-task.
+and are composable.

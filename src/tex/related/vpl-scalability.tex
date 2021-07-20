@@ -4,14 +4,13 @@
 Both Dynamo and Grasshopper's visual approach suffer from the disproportionate
 scalability between the code and the respective model's
 complexity~\cite{Leitao:2013:PESLGD}.  Sophisticated modeling workflows tend to
-become difficult to properly represent, and harder for a human to efficiently
-interpret when compared to a textual approach.
+become difficult to create, and harder for a human to understand when compared
+to a textual approach.
 
 As an example, consider the Irina Viner-Usmanova \ac{RGC}, a project developed
-by TPO Pride\footnote{\url{http://prideproject.pro} (July 2, 2021)} over the
-span of three years, from 2016 to 2019.  The \ac{RGC}, built in Moscow's
-Luzhniki Stadium, is an arena that houses training sessions and competitions
-while also comprising several other premises.
+by TPO Pride\footnote{\url{http://prideproject.pro} (July 2, 2021)}.  The
+\ac{RGC}, built in Moscow's Luzhniki Stadium, is an arena that houses training
+sessions and competitions while also comprising several other premises.
 \Cref{fig:related.ad.vpl-scalability.rgc} depicts an outside view of the
 \ac{RGC} and its prominent overarching roof covering.  The roof covering was
 designed using a combination of Rhino3D and Grasshopper.  Grasshopper was used
@@ -36,19 +35,20 @@ the length of the building.  Such a shape can be easily described through a
 relatively simple mathematical function to obtain the general wave's shape.
 With parametrization in mind, one could then easily fluctuate input variables in
 order to achieve different variations of the roof covering's shape, e.g.,
-varying the underlying wave's frequency, amplitude, or dampening rate.
+varying the wave's frequency, amplitude, or dampening rate.
 
-Such complex \ac{AD} projects hide equally, if not more, complex corresponding
-programs.  The final Grasshopper definition of the \ac{RGC} roof's covering can
-be seen in \cref{fig:related.ad.vpl-scalability.rgc-gh}.  This further
-reinforces the statement that complex workflows become exponentially difficult
-to comprehend due to the added dimensionality of the constructs used in
-\acp{VPL}.  This disadvantage, however, is mitigated with their respective
-\ac{TPL} alternatives which, despite project complexity, scale relatively better
-than \acp{VPL} as the former rely on text, which is one-dimensional, while the
-latter rely on boxes and interconnecting wires, which are two-dimensional.
+Such complex \ac{AD} projects tend to require complex \ac{AD} programs that
+become overly difficult to develop and understand with \acp{VPL}.  The final
+Grasshopper definition of the \ac{RGC} roof's covering can be seen in
+\cref{fig:related.ad.vpl-scalability.rgc-gh}.  This further reinforces the
+statement that complex workflows become exponentially difficult to comprehend
+due to the added dimensionality of the constructs used in \acp{VPL}.  This
+disadvantage, however, is mitigated with their respective \ac{TPL} alternatives
+which, despite project complexity, scale relatively better than \acp{VPL} due to
+the abstraction mechanisms supported by \acp{TPL}.
 
-\begin{figure}[htb]
+\begin{landscape}
+\begin{figure}
   \includegraphics[width=\linewidth]{fig/rgc-gh}\\
   {\scriptsize
   Source: \url{https://www.grasshopper3d.com/photo/final-definition} (Jul 2021)
@@ -58,3 +58,4 @@ latter rely on boxes and interconnecting wires, which are two-dimensional.
     covering.}%
   \label{fig:related.ad.vpl-scalability.rgc-gh}
 \end{figure}
+\end{landscape}

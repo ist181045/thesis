@@ -132,12 +132,12 @@ using multiple Kernels simultaneously.
 \subsection{Eukleides}%
 \label{sec:related.constraints.eukleides}
 
-A computer language devoted to elementary plane geometry~\cite{Obrecht:2010:EM},
-Eukleides is a simple, full featured, and mainly declarative programming
-language, capable of handling basic data types, such as numbers and strings, and
-most importantly, geometric data types, such as points, vectors, lines, and
-circles.  Like most languages, it provides control flow structures, allows user
-functions and module definitions, proving for easy extensibility.
+Devoted to elementary plane geometry~\cite{Obrecht:2010:EM}, Eukleides is a
+simple, full featured, and mainly declarative programming language, capable of
+handling basic data types, such as numbers and strings, and most importantly,
+geometric data types, such as points, vectors, lines, and circles.  Like most
+languages, it provides control flow structures, allows user functions and module
+definitions, proving for easy extensibility.
 
 Eukleides provides a wide variety of functions and constructions that easily
 allow the user to specify geometric constraints between objects, as demonstrated
@@ -145,21 +145,20 @@ by \cref{lst:intro.example.parallel.euk,lst:intro.example.circumcenter.euk}.
 Among the listed ones, it includes functions to build parallel and perpendicular
 lines with respect to another line or segment, determine a line's bisector,
 tangent lines to a circle, shape intersection, and so on~\cite{Obrecht:2010:EM}.
-Mainly provisioned with two interpreters with the capability of generating
-\ac{EPS} files or produce macros, enabling the embedding of Eukleides figures in
-\LaTeX{} documents.
+It can generate \ac{EPS} files or produce macros, enabling the embedding of
+Eukleides figures in \LaTeX{} documents.
 
-Despite heavy support for 2D geometric constructs, as mentioned, it is a tool
-that focuses on 2D geometry alone, which arguably leads to its primary
-disadvantage: the lack of 3D geometry support.  It is also a \ac{TPL}, which
-means that, although being a very simple language, it is less intuitive than a
-\ac{VPL}.  The first version of Eukleides included a \ac{GUI},
-\texttt{xeukleides}, but one is not yet available for the current version.
+Alas, the lack of 3D geometry support arguably constitutes Eukleides' primary
+disadvantage.  It is also a \ac{TPL}, which means that, while being a very
+simple language, it is less intuitive than a \ac{VPL}.  The first version of
+Eukleides included a \ac{GUI}, \texttt{xeukleides}, but one is not yet available
+for the current version.
 
-Eukleides has not been actively developed for a couple of years, while
-\acs{TikZ} still is.  The latter still dominates diagram and graphic production
-in \LaTeX{} documents, some people going as far as suggesting opting for it
-instead of using the former~\cite{Christian:2014:TEXE:Eukleides}.
+Additionally, it has not seen any development for the last decade, while
+\acs{TikZ} is still being actively maintained.  The latter still dominates
+diagram and graphic production in \LaTeX{} documents, some people going as far
+as suggesting opting for it instead of using the
+former~\cite{Christian:2014:TEXE:Eukleides}.
 
 \subsection{GeoSolver}% 
 \label{sec:related.constraints.geosolver}
@@ -171,23 +170,23 @@ constraint problems consisting of point variables, two-point distance and
 three-point angle constraints.  Problems with other geometric variables can be
 mapped to these basic constraints on point variables.
 
-The solution found by GeoSolver is generic and parametric.  It can be used to
-derive a specific solution.  Since generic solutions are exponentially hard to
-find, GeoSolver also allows two different ways of selecting a solution, reducing
-the number of solutions that would be generated, consequently reducing
-computation time.  In order to efficiently find a solution, GeoSolver employs a
-cluster rewriting-based approach described in~\cite{Van:2009:NRCRASSGC}, capable
-of handling non-rigid clusters contrasting with typical graph constructive-based
-approaches.
+The solutions found by GeoSolver are generic and parametric, and can be used to
+derive specific solutions.  Since generic solutions are exponentially hard to
+find, GeoSolver also allows different ways of  reducing the number of solutions
+that would be generated, consequently reducing computation time.  In order to
+efficiently find a solution, GeoSolver employs a cluster rewriting-based
+approach described in~\cite{Van:2009:NRCRASSGC}, capable of handling non-rigid
+clusters contrasting with typical graph constructive-based approaches.
 
 A \ac{GUI} interactive tool called \ac{GCS} Workbench~\cite{DeRegt:2008:WGCS}
 (see \cref{fig:related.constraints.geosolver.gcs}) is distributed along with the
 GeoSolver package.  The user can easily edit, analyze and solve geometric
 constraint problems.  The latter features are obviously supported by GeoSolver,
-and 3D interactivity support comes in the form of pyQt and pyOpenGL\@.  An
-excellent tool for understanding how a geometric constraint problem is
-decomposed in GeoSolver, but not efficient for complex design tasks when
-compared with its programmatic supporting package.
+and 3D interactivity is supported via additional libraries, such as pyQt and
+pyOpenGL\@.  Although an excellent tool for understanding how a geometric
+constraint problem is decomposed in GeoSolver, \ac{GCS} Workbench is not
+efficient for complex design tasks when compared with its programmatic
+supporting package.
 
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{fig/gcs-workbench}\\
@@ -216,8 +215,8 @@ programmatically describes their drawings.
 On its own, \acs{TikZ} already includes a series of commands capable of handling
 geometric constraints, such as tangency, perpendicularity, intersection; but may
 appear daunting to the user in its raw form.  Several packages have been built
-on top of it to facilitate the generation of drawings using a simpler syntax
-such as \texttt{tkz-2d}, a package superseded by
+on top of it to facilitate the generation of drawings using a simpler syntax,
+such as \texttt{tkz-2d} and its successor
 \texttt{tkz-euclide}~\cite{Matthes:2011:tkz-euclide-manual}.  The package
 \texttt{tkz-euclide} was designed for easy access to the programming of
 Euclidean geometry using a Cartesian coordinate system with TikZ.  It was used
@@ -229,7 +228,7 @@ support.  Unlike it, a plethora of resources and usage examples exist, along
 with an immense amount of packages that layer on top of it for a panoply of
 diverse use cases.  It still undoubtedly remains the go-to graphics system
 within the \TeX{} typesetting community.  However, again comparing it to
-Eukleides, for example, even using something as \texttt{tkz-euclide}, it can
-look syntactically appalling, even for the adept \TeX{} user, instead of
-following a simpler and established familiar syntax akin to other declarative or
-imperative programming languages.
+Eukleides, even using something as \texttt{tkz-euclide}, it can look
+syntactically appalling, even for the adept \TeX{} user, instead of following a
+simpler and established familiar syntax akin to other declarative or imperative
+programming languages.

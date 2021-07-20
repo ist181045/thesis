@@ -14,31 +14,31 @@ relying on tolerances, i.e., if $a$ and $b$ are two floating-point numbers, they
 are considered \textit{the same} if $|a - b| \le \epsilon$ for a given tolerance
 $\epsilon$.
 
-As an example, consider the problem of, given two points $P,Q \in \mathbb{R}^2$,
-finding the closest point to the origin.  The distance between two points can be
+As an example, consider the problem of finding the closest of two points
+to the origin.  The distance between two points $P,Q \in \mathbb{R}^2$ can be
 expressed by
 %
-\begin{equation}
+\[ 
   d(P, Q) = \sqrt{(x_Q - x_P)^2 + (y_Q - y_P)^2}.
-\end{equation}
-%
-To determine the closest point, we compare both points' distance to the origin
-$O$.  That is, if
-%
-\[
-  d(P, O) < d(Q, O)
 \]
 %
-holds, $P$ is the closest to the origin.  Otherwise, they are either equidistant
-or $Q$ is closer.  However, applying the square root operation is a step that
-will further introduce errors in the computation process.  Given that we are
-only interested in comparing distances, and not use their actual value, we can,
+Let $A,B \in \mathbb{R}^2$ be two arbitrary points, and $O \in \mathbb{R}^2$ the
+origin.  To determine which point, $A$ or $B$, is closest to the origin $O$, we
+compare the former's distances to the latter's.  That is, if
+%
+\[ 
+  d(A, O) < d(B, O) 
+\]
+%
+holds, $A$ is the closest to the origin.  Otherwise, they are either equidistant
+or $B$ is closer.  However, applying the square root operation in the distance
+computation is a step that will introduce errors.  Given that we are only
+interested in comparing distances, and not use their actual value, we can,
 instead, compare the squared distances.  As such, we avoid the square root, thus
-improving robustness, despite the limitations with fixed precision arithmetic,
-and speeding up the process because the square root is a computationally heavy
-operation.  \Citet{Mei:2014:NRGC} further discuss the issues with numerical
-robustness in geometric computation, namely how they arise, and propose
-practical solutions.
+improving robustness, and speeding up the process because the square root is a
+computationally heavy operation.  \Citet{Mei:2014:NRGC} further discuss the
+issues with numerical robustness in geometric computation, namely how they
+arise, and propose practical solutions.
 
 When used without care, fixed-precision arithmetic almost always leads to
 unwanted results due to marginal error accumulation caused by rounding
