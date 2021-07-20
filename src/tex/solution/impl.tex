@@ -92,8 +92,7 @@ contributors, active development, \textit{et cetera}).}
   \caption[CGAL: Three points and one segment]{
     An example CGAL program illustrating how to construct some points and a line
     segment, and perform some basic operations on them.  It uses \texttt{double}
-    precision floating point numbers for cartesian coordinates.
-  }
+    precision floating point numbers for cartesian coordinates.}%
   \label{lst:solution.impl.cgal.pas}
 \end{listing}
 
@@ -117,7 +116,7 @@ what I strived to do with CGAL.jl, but that's another discussion).}
     Example C library code that wraps \ac{CGAL}'s \texttt{squared\_distance}
     global function.  The original function takes in instances of
     \texttt{Point\_3} classes so we instantiate them from our \texttt{double}
-    coordinate inputs.}
+    coordinate inputs.}%
   \label{lst:solution.impl.jlcgal.sqdist.cpp}
 \end{listing}
 
@@ -127,7 +126,7 @@ what I strived to do with CGAL.jl, but that's another discussion).}
     Example Julia program that invokes the functionality from the library whose
     source is listed in \cref{lst:solution.impl.jlcgal.sqdist.cpp}.  Julia's
     \texttt{ccall} construct converts the input arguments' types to the types
-    specified in the native C function's parameter types.}
+    specified in the native C function's parameter types.}%
   \label{lst:solution.impl.jlcgal.sqdist.jl}
 \end{listing}
 
@@ -136,7 +135,7 @@ what I strived to do with CGAL.jl, but that's another discussion).}
   \caption[C wrapper for circumcenter functionality]{
     Example C shared library source code that wraps \ac{CGAL}'s circumcenter
     global function.  In this instance, we use an additional struct to wrap
-    around \ac{CGAL}'s \texttt{Point\_3} class to facilitate data transfer.}
+    around \ac{CGAL}'s \texttt{Point\_3} class to facilitate data transfer.}%
   \label{lst:solution.impl.jlcgal.circ.cpp}
 \end{listing}
 
@@ -146,7 +145,7 @@ what I strived to do with CGAL.jl, but that's another discussion).}
     Example Julia program that invokes the functionality from the library listed
     in \cref{lst:solution.impl.jlcgal.circ.cpp}.  We use an additional Julia
     struct that's equivalent to the one specified in C to facilitate data
-    transfer.}
+    transfer.}%
   \label{lst:solution.impl.jlcgal.circ.jl}
 \end{listing}
 
@@ -155,7 +154,7 @@ what I strived to do with CGAL.jl, but that's another discussion).}
   \caption[CGAL.jl: Three points and one segment]{
     The example program as seen in \cref{lst:solution.impl.cgal.pas} written in
     the Julia programming language using \texttt{CGAL.jl}.  The kernel
-    instantiation is hidden away in the C++ layer of the wrapper code.}
+    instantiation is hidden away in the C++ layer of the wrapper code.}%
   \label{lst:solution.impl.jlcgal.pas}
 \end{listing}
 
@@ -174,7 +173,7 @@ one in some regard\ldots}
   \caption[Parallel lines example using our solution]{
     Implementation of the parallel lines example illustrated in
     \cref{fig:intro.example.parallel} using Khepri alongside our solution
-    backed by \texttt{CGAL.jl}.}
+    backed by \texttt{CGAL.jl}.}%
   \label{lst:solution.impl.gcps.parallel}
 \end{listing}
 
@@ -184,6 +183,6 @@ one in some regard\ldots}
     Implementation of the circumcenter example illustrated in
     \cref{fig:intro.example.circumcenter} using Khepri alongside our solution
     backed by \texttt{CGAL.jl}.  In this particular case, we can leverage
-    \ac{CGAL}'s facilities directly.}
+    \ac{CGAL}'s facilities directly.}%
   \label{lst:solution.impl.gcps.circumcenter}
 \end{listing}

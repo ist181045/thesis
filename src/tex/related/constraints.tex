@@ -22,7 +22,9 @@ development, usage, and collection of packages that extend it, enabling the
 specification of graphics and geometry in a variety of simple distinct ways.
 
 \begin{table}[htb]
-  % \small
+  \caption[Table of tools and languages with GCS capabilities]{
+    Table of tools and languages with \acs{GCS} capabilities.}%
+  \label{tab:related.constraints.summary}
   \begin{tabularx}{\textwidth}{X*{7}{c}}
     \toprule
     \textbf{Tool}
@@ -106,10 +108,6 @@ specification of graphics and geometry in a variety of simple distinct ways.
   \ddag{} --- Declarative paradigm;
   $\ast$  --- Imperative paradigm
   }
-
-  \caption[Table of tools and languages with GCS capabilities]{
-    Table of tools and languages with \acs{GCS} capabilities.}%
-  \label{tab:related.constraints.summary}
 \end{table}
 
 \begin{comment}
@@ -192,10 +190,8 @@ decomposed in GeoSolver, but not efficient for complex design tasks when
 compared with its programmatic supporting package.
 
 \begin{figure}[htb]
-  \centering
-  \includegraphics[height=.4\textheight]{fig/gcs-workbench}\\
-  {\scriptsize
-  Source: \url{http://geosolver.sourceforge.net} (Jan 2019)}
+  \includegraphics[width=\textwidth]{fig/gcs-workbench}\\
+  {\scriptsize Source: \url{http://geosolver.sourceforge.net} (Jan 2019)}
   \caption[GCS Workbench visual interface]{
     Depiction of the \acs{GCS} Workbench's \ac{GUI} with two separate panes:
     \begin{enumerate*}[label= (\arabic*)]
