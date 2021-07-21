@@ -4,9 +4,9 @@
 
 The correctness proofs of nearly all geometric algorithms presented in
 theoretical papers assumes exact computation with real
-numbers~\cite{cgal:bfghhkps-lgk23-18b}.  However, floating-point numbers are
-represented with fixed precision in computers, making them inexact, which leads
-to inaccurate representations of the conceptual real number counterparts.  For
+numbers~\cite{CGAL:4.13:23LGK}.  However, floating-point numbers are represented
+with fixed precision in computers, making them inexact, which leads to
+inaccurate representations of the conceptual real number counterparts.  For
 example, the rational number one-tenth ($\frac{1}{10}$) cannot be accurately
 represented as a floating-point number, nor is it guaranteed to be truly equal
 to another seemingly identical number.  Such comparisons must be performed
@@ -53,7 +53,7 @@ arithmetic operations are slower, however mitigating precision issues, providing
 more accurate constructs and improving code robustness.
 
 Several libraries already strive to implement robust geometric computation.  One
-such example is the \acf{CGAL}~\cite{CGAL:2018}.  \ac{CGAL} is a comprehensive
+such example is the \acf{CGAL}~\cite{CGAL:2018}.  \Ac{CGAL} is a comprehensive
 library that employs an exact computation paradigm~\cite{Yap:1995:ECP},
 producing correct results despite roundoff errors and properly handling
 \textit{degenerate} situations (e.g., 3D points on a 2D plane), relying on
