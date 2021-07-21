@@ -5,8 +5,8 @@
 This section details implementation choices with regard to the chosen platforms
 for realizing the initially proposed general solution architecture, previously
 illustrated in \cref{fig:solution.arch}. Following a brief analysis, we expand
-specifically on the concrete components corresponding to the ones within the
-light blue rectangle.
+specifically on the concrete components corresponding to the ones within
+\cref{fig:solution.arch}'s light blue rectangle.
 
 Examining the \ac{AD} workflow portion of \cref{fig:solution.arch}, there are
 depictions of \ac{CAD}, \ac{BIM}, and analysis tools, of which examples could be
@@ -78,25 +78,9 @@ showcase how we leveraged \texttt{CGAL.jl} to build the aforementioned
 specialized yet comprehensible constructive approach solutions to \ac{GC}
 problems.
 
-\subsection{Exact Computation Geometric Library}%
-\label{sec:solution.impl.cgal}
-\todo[inline]{Introduce CGAL to the masses.  Showcase example program using
-basic CGAL constructs and functionality.  Not sure where to put notes about the
-library's complexity, but maybe include explanation of why it made sense to
-choose CGAL as our library of choice (mature library, tons of research resulting
-from several PhDs, open source $\implies$ open to contributions, lots of
-contributors, active development, \textit{et cetera}).}
+\input{tex/solution/impl/cgal}
 
-\begin{listing}[htb]
-  \inputminted{cpp}{cpp/points_and_segments.cpp}
-  \caption[CGAL: Three points and one segment]{
-    An example CGAL program illustrating how to construct some points and a line
-    segment, and perform some basic operations on them.  It uses \texttt{double}
-    precision floating point numbers for cartesian coordinates.}%
-  \label{lst:solution.impl.cgal.pas}
-\end{listing}
-
-\subsection{Wrapper Code}%
+\subsection{From C++ to Julia}%
 \label{sec:solution.impl.jlcgal}
 \todo[inline]{Reiterate the language interoperability hurdle, maybe mention
 briefly there are complications especially when memory management models differ.

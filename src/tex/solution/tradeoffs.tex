@@ -17,3 +17,59 @@ within Julia.  The former was chosen vs. the latter for what seemed like
 stability reasons at the time.  The CxxWrap.jl approach seemed less complicated
 despite the extra step of producing a C++ code shim that can then be fed into
 CxxWrap.jl.}
+
+Since virtually anything comes without trade-offs and compromises, it is
+paramount we address our implementation's qualities, negative and positive.
+
+Relying on a library such as \ac{CGAL} proves to be as great as it can be
+daunting.  As mentioned in \cref{sec:solution.impl.cgal}, \ac{CGAL} is a very
+comprehensive and mature software library, arguably even far exceeding our
+solution's needs, yet fitting it perfectly.
+
+It is, however, an external component, and with every such component, we do not
+hold as much control over it if it was internal instead.  For example, in the
+advent a bug is found within \ac{CGAL}, one cannot \textit{immediately} fix it
+by altering its source code and use this fixed version.  Important emphasis
+on bugs are not \textit{immediately} fixable lest we forget \ac{CGAL} is still
+an Open Source project arguably anyone can contribute to.  Alas, said
+contribution deployments are still out of our control.  In hindsight, however,
+it can be considered just an inconvenience since it is a project that is
+actively maintained by certainly more knowledgeable people in the computer
+graphics and mathematics fields.
+
+\Ac{CGAL} is also a highly generic library, making use and further abusing C++
+templates.  Although its design makes usage an elegant experience (as elegant as
+C++ can be), the same cannot be said with as much \texttt{gusto} when trying to
+wrap its constructs to another language, especially a language with different
+memory management paradigm which could lead to some nasty low-level ordeals.
+
+\todo[inline]{Here come the trade-offs of how CGAL.jl was created.  We look at
+CxxWrap specifically for aiding us in solving hurdles w.r.t. mapping C++
+constructs, such as templates, memory management troubles, etc. However, we
+opaquely map the geometric entities, hiding the kernel away, limiting it to an
+inexact constructions kernel that may lead to not-as-robust results, a hassle
+because our shoddy alternative at the time was supplying a different shared
+library with a different kernel: an approach made virtually impossible to adopt
+due to Julia's precompilation mechanisms which are also leveraged by CxxWrap.
+Had we gone the Cxx.jl route, or even bare ccall's, things might've been
+different and we might've been able to switch between kernel, however more
+troublesome.  This can also be considered future work, i.e., to transparently
+map kernels and number types CGAL additionally offers to Julia as well.
+Nonetheless, using exact computation all the time can also gravely impact
+program performance since computation using exact constructs is slower than
+using inexact constructs for which some operations are even implemented in
+hardware. Hence, the latter are oftentimes enough for plenty of cases, including
+ours, as we've found.}
+
+\todo[inline]{Lastly, go over some trade-offs in the implementation of our
+constraint primitives which might involve loss of robustness as well when
+dealing with problems that require us to apply operations such as square roots.
+It is important to note, however, that these operations, if possible, are
+delayed as much as possible since construction should be the last step in the
+algorithm.  The issue is more noticeable as results from some functions are
+composed with each other, circling back to the round-off errors that may arise
+do to accumulated error propagation.  Again, this could potentially be solved by
+mapping the kernels and numeric types, giving the user a choice.  Regardless,
+it is important to note (I think) that many, and I do mean \textit{many}, of
+the primitives came from CGAL alone, leaving us with a platform to build upon
+that didn't require much building at all, another boon of our approach.}
