@@ -69,7 +69,10 @@ delayed as much as possible since construction should be the last step in the
 algorithm.  The issue is more noticeable as results from some functions are
 composed with each other, circling back to the round-off errors that may arise
 do to accumulated error propagation.  Again, this could potentially be solved by
-mapping the kernels and numeric types, giving the user a choice.  Regardless,
-it is important to note (I think) that many, and I do mean \textit{many}, of
-the primitives came from CGAL alone, leaving us with a platform to build upon
-that didn't require much building at all, another boon of our approach.}
+mapping the kernels and numeric types, giving the user a choice, as well as
+pre-emptively \texttt{warning} or educating the user that, in the presence of
+\texttt{garbage} going in, there will be \texttt{garbage} coming back out.
+Regardless, it is also important to note (I think) that many, and I do mean
+\textit{many}, of the primitives came from CGAL alone, leaving us with a
+platform to build upon that didn't require much building at all, another boon of
+our approach.}
