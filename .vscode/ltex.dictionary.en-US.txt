@@ -11,6 +11,7 @@ Buchberger
 CAADRIA
 CGAL
 ChairDNA
+circulators
 circumcenter
 ConstraintGM
 DesignScript
@@ -56,6 +57,7 @@ TikZ
 TODO
 triangularize
 triangularized
+triangulations
 underconstrained
 unsolvability
 Viner-Usmanova
