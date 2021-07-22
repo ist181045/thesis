@@ -296,7 +296,7 @@
     {Acknowledgments}}
 %
 % DEFINE COMMAND FOR: Acronyms listing Title depending on language
-\newcommand{\tlangAcronyms}{
+\newcommand{\listacronymname}{
   \IfLanguageName{portuguese}
     {Acrónimos e Abreviações}
     {Acronyms and Abbreviations}}
