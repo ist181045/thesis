@@ -12,20 +12,17 @@ Euclidean space, $\mathbb{R}^3$, exist as well.
 
 \begin{figure}[htpb]
   \centering
-  \subfloat[Line that goes through $C$, strictly parallel to
-      $\protect\overleftrightarrow{AB}$]{
-    \label{fig:intro.example.parallel}
-    \resizebox{.4\textwidth}{!}{\input{tikz/ex-parallel}}}
-  \hspace{\fill}
-  \subfloat[$\odot O_r$ circumscribed about $\triangle ABC$]{
-    \label{fig:intro.example.circumcenter}
-    \resizebox{.4\textwidth}{!}{\input{tikz/ex-circumcenter}}}
+  \subcaptionbox{\label{fig:intro.example.parallel}%
+    Line that goes through $C$, strictly parallel to $\overleftrightarrow{AB}$}
+    [.45\linewidth]{\resizebox{!}{.2\textheight}{\input{tikz/ex-parallel}}}
+  \subcaptionbox{\label{fig:intro.example.circumcenter}%
+    $\odot O_r$ circumscribed about $\triangle ABC$}
+    [.45\linewidth]{\resizebox{!}{.2\textheight}{\input{tikz/ex-circumcenter}}}
   \caption[Geometric models defined using GCs]{
     Geometric models defined using \ac{GC} relations:
     \subref{fig:intro.example.parallel} showcases line parallelism, and
     \subref{fig:intro.example.circumcenter} showcases a circle circumscription
-    about a triangle.}%
-  \label{fig:intro.example}
+    about a triangle.}\label{fig:intro.example}
 \end{figure}
 
 The first problem is that of a parallelism constraint: specifying a line that

@@ -46,7 +46,7 @@
 \usepackage{scrbase}        % aid in doc structure redefiniton
 \usepackage{setspace}       % set space between lines
 \usepackage{spreadtab}      % spreadsheet features
-\usepackage{subfig}         % nested sub-figures
+\usepackage{subcaption}     % support for sub-captions
 \usepackage{tabularx}       % adjustable-width column tabulars
 \usepackage{tkz-euclide}    % drawing geometrical constructs
 \usepackage{totcount}       % find last value of counter
@@ -66,12 +66,11 @@
   font=small
 }
 \captionsetup[listing]{skip=0pt}
-\captionsetup[subfloat]{
-  farskip=0.3cm,
-  nearskip=0.2cm,
-  captionskip=0.3cm,
+\captionsetup[sub]{
+  skip=0.3cm,
   margin=0.2cm
 }
+\captionsetup{subrefformat=parens}
 
 % color
 \definecolor{forestgreen}{RGB}{34,139,34}
