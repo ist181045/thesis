@@ -1,6 +1,7 @@
 ## project specific
 src/*.pdf
 out/
+*.equ
 
 ## Vim auxiliary files
 *.*~

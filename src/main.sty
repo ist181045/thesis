@@ -49,6 +49,7 @@
 \usepackage{subcaption}     % support for sub-captions
 \usepackage{tabularx}       % adjustable-width column tabulars
 \usepackage{tkz-euclide}    % drawing geometrical constructs
+\usepackage{tocloft}        % control table of contents
 \usepackage{totcount}       % find last value of counter
 \usepackage{url}            % verbatim with URL-sensitive line breaks
 \usepackage{xcolor}         % color extensions
@@ -229,6 +230,20 @@
 
 % pifont
 \newcommand{\xmark}{\ding{55}}
+
+% tocloft
+\newcommand{\listequationname}{
+  \IfLanguageName{portuguese}
+    {Lista de Equações}
+    {List of Equations}}
+\newlistof[chapter]{equations}{equ}{\listequationname}
+\newcommand{\equations}[1]{%
+  \addcontentsline{equ}{equations}{%
+    \protect\numberline{\theequation}#1}\ignorespaces}
+
+\setlength\cftbeforeequationsskip\cftbeforefigskip
+\setlength\cftequationsindent\cftfigindent
+\setlength\cftequationsnumwidth\cftfignumwidth
 
 % totcount
 \regtotcounter{chapter}

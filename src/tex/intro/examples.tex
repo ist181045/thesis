@@ -39,21 +39,20 @@ strictly parallel to the line $\overleftrightarrow{AB}$ (see
 \cref{fig:intro.example.parallel}).
 
 A line in $\mathbb{R}^2$ can be described by the parametric equation
-%
-\begin{equation}\label{eq:line.vector.2}
-  P_Q = Q + \lambda \vec{u} \Rightarrow \begin{cases}
-    x = x_Q + \lambda u_x\\
+\begin{equation}\label{eq:line.parametric.2}
+  P_Q = Q + \lambda\vec{u} \Rightarrow
+  \begin{cases}
+    x = x_Q + \lambda u_x \\
     y = y_Q + \lambda u_y
-  \end{cases}{\hskip -2.5ex}
+  \end{cases}
   ,\,\lambda \in \mathbb{R}
-\end{equation}
-%
+\end{equation}\equations{Parametric equation of a line in $\mathbb{R}^2$}
 where $Q = (x_Q, y_Q)$ is a point on the line that goes through $P_Q = (x, y)$,
 and $\vec{u} = (u_x, u_y)$ is the vector that drives the line.  To then describe
 the line that goes through $C$ and is parallel to $\overleftrightarrow{AB}$, one
 must compute the base point $Q$, trivially $C$, and the directional vector
 $\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.  Let $Q = C$,
-and $\vec{u} = B - A$, such that
+and $\vec{u} = B - A$, such that, from \cref{eq:line.parametric.2},
 \[
   P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}.
 \]
@@ -211,18 +210,18 @@ $\triangle ABC$'s vertices, i.e., $r = \overline{OA} = \overline{OB} =
 \overline{OC}$.  To determine $O$, one must compute the intersection of the
 perpendicular bisectors of the triangle's edges.  Said bisectors are the
 mediators between an edge's vertices, which can be described
-by~\eqref{eq:line.vector.2}, where $P$ is the midpoint between the vertices, and
-$\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
+by~\cref{eq:line.parametric.2}, where $P$ is the midpoint between the vertices,
+and $\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
 points $P_1, P_2 \in \mathbb{R}$ is given by
 \begin{equation}\label{eq:midpoint.points.2}
   M_{P_1P_2} = \frac{P_1 + P_2}{2}%
              = (\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}).
-\end{equation}
+\end{equation}\equations{Midpoint between two points in $\mathbb{R}^2$}
 Further, the scalar product of two vectors $\vec{u}, \vec{v} \in \mathbb{R}^2$
 is given by
-\begin{equation}\label{eq:vector.dot.2}
+\begin{equation}\label{eq:vector.scalar.2}
   \vec{u} \cdot \vec{v} = (u_x, u_y) \cdot (v_x, v_y) = u_x v_x + u_y v_y.
-\end{equation}
+\end{equation}\equations{Scalar product of vectors in $\mathbb{R}^2$}
 The normal vector $\vec{n}$ is such that, for some vector $\vec{u}$,
 \[
   \vec{u} \cdot \vec{n} = 0.
@@ -267,21 +266,21 @@ midpoints of the respective edges, and $\vec{u_1},\,\vec{u_2},\,\vec{u_3}$ the
 edges' normal vectors, such that
 \[
   \begin{split}
-    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u_1}\\
-    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u_2}\\
-    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u_3}
-  \end{split}
-  ,\,\lambda_i \in \mathbb{R}.
+    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u_1} \\
+    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u_2} \\
+    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u_3} \\
+  \end{split},\,\lambda_i \in \mathbb{R}.
 \]
 This problem can be further simplified by eliminating one of the redundant
 bisectors.  Since the intersection of two lines already yields a single point,
 we can eliminate one of the equations.  Say we discard the mediator of line
 $\overleftrightarrow{BC}$.  We then require that
 \[
-  P_{M_{AB}} = P_{M_{AC}} \Rightarrow \begin{cases}
+  P_{M_{AB}} = P_{M_{AC}} \Rightarrow
+  \begin{cases}
     x_{M_{AB}} + \lambda_1 u_{1x} = x_{M_{AC}} + \lambda_2 u_{2x} \\
-    y_{M_{AB}} + \lambda_1 u_{1y} = y_{M_{AC}} + \lambda_2 u_{2y}
-  \end{cases}{\hskip -2ex}.
+    y_{M_{AB}} + \lambda_1 u_{1y} = y_{M_{AC}} + \lambda_2 u_{2y} \\
+  \end{cases}.
 \]
 Every variable is known except for $\lambda_1$ and $\lambda_2$, but the equation
 system can be solved in order to assign values to both of them since we have
