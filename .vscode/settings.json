@@ -32,8 +32,16 @@
     "\\IfLanguageName{}": "ignore",
     "\\inputminted{}{}": "ignore",
     "\\inputminted[]{}{}": "ignore",
+    "\\subcaptionbox{}": "ignore",
+    "\\subcaptionbox{}{}": "ignore",
+    "\\subcaptionbox{}[]{}": "ignore",
+    "\\subcaptionbox[]{}[]{}": "ignore",
+    "\\subref{}": "dummy",
     "\\texttt{}": "dummy",
     "\\univlogo{}{}{}": "ignore",
+  },
+  "ltex.latex.environments": {
+    "subfigure": "ignore"
   },
   "latex-workshop.latex.clean.fileTypes": [
     "*.aux",
