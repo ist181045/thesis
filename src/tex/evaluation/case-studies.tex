@@ -403,7 +403,8 @@ instance, triangle $\triangle P_1 P_2 P_3$
   \caption[Voronoi problem partial solution]{
     Analytic and constructive approaches to computing a Voronoi vertex via
     computing the circumcenter of every triangle in the Delaunay triangulation
-    whose vertices are the Voronoi diagram's sites.}
+    whose vertices are the Voronoi diagram's sites.}%
+  \label{fig:eval.studies.voronoi.sol}
 \end{figure}
 
 There are several possible \textit{analytic solution} to compute a triangle's
@@ -443,7 +444,8 @@ solution, namely \textit{bisector} and \textit{intersection}.
 \end{enumerate}
 
 We can increase the abstraction level of the solution by using the
-\textit{circumcenter} implemented in our solution, taking it for granted:
+\textit{circumcenter} functionality implemented in our solution, which, in
+reality, is implemented in \ac{CGAL}:
 
 \begin{enumerate}
   \item $C = \mathrm{circumcenter}\left(P_1, P_2, P_3\right)$
@@ -463,5 +465,6 @@ produces a 2D Euclidean Voronoi diagram:
 Implementing this funcionality from scratch is a demanding and error-prone task.
 Fortunately, \ac{CGAL} already has an algorithm that produces robust 2D
 Euclidean Voronoi diagrams that can handle degenerate cases, such as dealing
-with three or more collinear points.  This algorithm was entirely repurposed,
-made available in \texttt{CGAL.jl}, also made available by our solution.
+with three or more collinear points.  This algorithm, much like the
+\textit{circumcenter} functionality, was entirely repurposed, made available in
+\texttt{CGAL.jl}, consequently made available in our solution.
