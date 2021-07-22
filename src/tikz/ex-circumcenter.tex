@@ -1,5 +1,5 @@
 \begin{tikzpicture}
-  \tkzDefPoints{0/0/A,1/3/B,4/0/C}
+  \tkzDefPoints{0/0/A,4/0/B,1/3/C}
   \tkzCircumCenter(A,B,C) \tkzGetPoint{O}
   \tkzDefMidPoint(A,B) \tkzGetPoint{AB}
   \tkzDefMidPoint(A,C) \tkzGetPoint{AC}
@@ -12,7 +12,7 @@
   \tkzDrawPoints(A,B,C,O)
   \tkzLabelLine[above](O,A){$r$}
   \tkzLabelPoints[below left](A)
-  \tkzLabelPoints[above left](B)
-  \tkzLabelPoints[below right](C)
+  \tkzLabelPoints[below right](B)
+  \tkzLabelPoints[above left](C)
   \tkzLabelPoints(O)
 \end{tikzpicture}
