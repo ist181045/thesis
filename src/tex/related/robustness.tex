@@ -46,14 +46,14 @@ unwanted results due to marginal error accumulation caused by rounding
 above, careful observations must be made before proceeding with computations as
 simple as distance calculation.  To help solve this problem, more robust
 numerical constructs and concepts can be used.  In particular, exact numbers,
-such as rational numbers or arbitrary precision numbers, the latter also known
+such as rational numbers or arbitrary precision numbers. The latter, also known
 as \textit{bignums}, allow arbitrary-precision arithmetic, capable of
 representing numbers with virtually infinite precision with the drawback that
 arithmetic operations are slower, however mitigating precision issues, providing
 more accurate constructs and improving code robustness.
 
 Several libraries already strive to implement robust geometric computation.  One
-such example is the \acf{CGAL}~\cite{CGAL:2018}.  \Ac{CGAL} is a comprehensive
+such example is \acf{CGAL}~\cite{CGAL:2018}.  \Ac{CGAL} is a comprehensive
 library that employs an exact computation paradigm~\cite{Yap:1995:ECP},
 producing correct results despite roundoff errors and properly handling
 \textit{degenerate} situations (e.g., 3D points on a 2D plane), relying on

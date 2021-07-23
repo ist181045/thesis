@@ -141,11 +141,13 @@ designed to execute a specific task.  Dynamo further allows extension through th
 creation of custom nodes which can be shared as packages.
 
 One of the nodes in Dynamo, aptly named code block, allows the usage of a
-\ac{TPL}; a language called DesignScript.  Originally developed by Robert
-Aish~\cite{Aish:2011:DesignScript}, DesignScript is a multi-paradigm
-domain-specific language and is the programming language at the core of Dynamo
-itself.  So much so that entire workflows can be reduced to one code block (see
-\cref{fig:related.ad.dynamo.node2code}).
+\ac{TPL}; a language called
+DesignScript.\footnote{\url{https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html}
+--- Dynamo is also capable of interpreting Python code.}
+Originally developed by Robert Aish~\cite{Aish:2011:DesignScript}, DesignScript
+is a multi-paradigm domain-specific language and is the programming language at
+the core of Dynamo itself.  So much so that entire workflows can be reduced to
+one code block (see \cref{fig:related.ad.dynamo.node2code}).
 
 DesignScript is an associative language, which maintains a graph of dependencies
 with variables.  Executing a script will effectively propagate the variables'
@@ -167,9 +169,12 @@ Grasshopper is a graphical algorithm editor tightly integrated with
 Rhinoceros3D, destined for designers who are exploring generative
 algorithms~\cite{Rutten:2018:Grasshopper}.  In spite of tight integration with
 Rhino, a \ac{CAD} application, it is possible to use Grasshopper along with
-ArchiCAD~\cite{Graphisoft:2018:ArchiCAD,Graphisoft:2018:RGACAD}, a \ac{BIM}
-tool.  \Cref{fig:related.ad.grasshopper.islamic-pattern} shows a simple example
-of a Grasshopper workflow.
+Archicad\textsuperscript{\textregistered}\footnote{\url{https://graphisoft.com/solutions/archicad}},
+a \ac{BIM} tool, as well as Revit, through
+Hummingbird\footnote{\url{https://www.food4rhino.com/en/app/hummingbird}} or
+Lyrebird\footnote{\url{https://www.food4rhino.com/en/app/lyrebird}}.
+\Cref{fig:related.ad.grasshopper.islamic-pattern} shows a simple example of a
+Grasshopper workflow.
 
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{fig/grasshopper-islamic-pattern}\\
@@ -186,13 +191,14 @@ of a Grasshopper workflow.
 
 It is a closed-source product, designed by David Rutten and developed by McNeel
 and Associates, Rhino's developers.  Its \ac{VPL} is simple to use, which is
-crucial for users who are not familiar with programming using a \ac{TPL}.
+crucial for users who are not familiar with programming using \acp{TPL}.
 Nonetheless, it offers a \ac{TPL} alternative by way of custom programmatic
 components.  Using C\# or VB.NET, the user can create custom code components
-with access to Rhino's \ac{SDK} and openNURBS~\cite{Lear:2018:openNURBS} within
-Rhino.  Alternatively, through GhPython~\cite{Giulio:2017:GhPython}, the user
-can also write Python code.  Unlike Dynamo's DesignScript, Python and the~.NET
-languages don't support an associative programming model.
+with access to Rhino's \ac{SDK} and
+openNURBS\footnote{\url{https://developer.rhino3d.com/guides/opennurbs/what-is-opennurbs}}
+within Rhino.  Alternatively, through GhPython~\cite{Giulio:2017:GhPython}, the
+user can also write Python code.  Unlike Dynamo's DesignScript, Python and
+the~.NET languages don't support an associative programming model.
 
 Functions in Grasshopper are called components and work just like Dynamo's
 nodes; a wide variety of them exist, most of them capable of producing geometry,

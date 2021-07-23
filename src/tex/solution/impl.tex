@@ -35,16 +35,16 @@ Fortran~\cite{Backus:1957:Fortran} programming languages.  This interfacing
 mechanism is commonly known as \ac{FFI}.  It allows for the repurposing of
 mature software libraries in foreign languages without the need for a complete
 rewrite or adaptation.\footnote{The decision to include such a mechanism at the
-language's core by the language designers makes it so the language can rapidly
-evolve by avoiding reimplementing several facilities and software libraries in,
-but not limited to, scientific and numerical computing areas.  Arguably, it may
-be one of \textit{the} fundamental features that made the language as popular as
-it is and kept it afloat, unlike other similar historical examples that might've
-lacked such a mechanism.} This mechanism can also in turn be leveraged and built
-upon to interface with other programming languages, e.g., Java, Python, MATLAB,
-and, the one needed for our particular use-case, C++.\footnote{There is an
-entire GitHub organization with projects dedicated to foreign language
-interoperation at \url{https://github.com/JuliaInterop} (July 8, 2021)}
+language's core by the language designers makes it so that the language can
+rapidly evolve. As such, one can avoid reimplementing several facilities and
+software libraries in, but not limited to, scientific and numerical computing
+areas.  Arguably, it may be one of \textit{the} fundamental features that made
+the language as popular as it is and kept it afloat, unlike other similar
+historical examples that might have lacked such a mechanism.}  This mechanism
+can also in turn be leveraged and built upon to interface with other programming
+languages, e.g., Java, Python, MATLAB, and, C++.\footnote{There is an entire
+GitHub organization with projects dedicated to foreign language interoperation
+at \url{https://github.com/JuliaInterop} (July 8, 2021)}
 
 Overcoming the language interoperability hurdle, we can now start focusing on
 the implementation of the \textit{Geometric Constraint Primitives}.  These
@@ -52,17 +52,17 @@ primitives build on top of the functionality available in \ac{CGAL}, some of
 which is directly inherited from it, substantially helping us in the process,
 e.g., intersections.  We further enriched the pool with a few more functions,
 illustrating a constructive approach to \ac{GCS}, similar and inspired by the
-approach of \textit{tkz-euclide} mentioned in
-\cref{sec:related.constraints.tikz}.  By providing this abstraction over more
+approach of \texttt{tkz-euclide} mentioned in
+\cref{sec:related.constraints.tikz}.  By creating an abstraction over more
 primitive functionality, we aimed to provide an easy to understand and utilize
-set of tools so users can avoid reimplementing it themselves, which is an
-error-prone process.  as levelling the playing field by working at a
+set of tools so that users can avoid reimplementing it themselves, which is an
+error-prone process.  Furthermore, we level the playing field by working at a
 conceptual level which is more familiar to and understood by traditional
 \ac{CAD} software users rather than falling back to the more analytic approach
 programming languages naturally offer.
 
 The following sections will elaborate further on the components emphasized in
-the previous paragraphs, adopting a bottom-up-like approach.  We'll discuss
+the previous paragraphs, adopting a bottom-up-like approach.  We will discuss
 \ac{CGAL} and what constructs and functionality it can provide to aid our goal,
 as well as some added benefits of building on top of a very mature and
 comprehensive library.  That will be followed by a section detailing how it was
@@ -74,7 +74,7 @@ followed in the Java ecosystem where libraries and tools are usually prefixed
 with the letter \texttt{J}, e.g., \texttt{JUnit}, \texttt{JMeter},
 \texttt{JDeveloper}, among others.}~\cite{Ventura:2019:CGAL.jl}.  Finally, we
 showcase how we leveraged \texttt{CGAL.jl} to build the aforementioned
-\textit{Geometric Constraint Primitives}, a set of functionality that implements
+\textit{Geometric Constraint Primitives}, a set of functionalities that implements
 specialized yet comprehensible constructive approach solutions to \ac{GC}
 problems.
 

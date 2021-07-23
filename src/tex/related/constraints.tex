@@ -100,14 +100,16 @@ specification of graphics and geometry in a variety of simple distinct ways.
       & \xmark{}
     \\\bottomrule
   \end{tabularx}
- 
-  {\scriptsize
-  \P{}    --- Doesn't natively support \acs{GCS}, but can be extended to solve
-  this class of constraint problems.
-  \dag{}  --- Associative model / \textit{change-propagation} mechanism;
-  \ddag{} --- Declarative paradigm;
-  $\ast$  --- Imperative paradigm
-  }
+  
+  \begin{minipage}{\linewidth}
+    \medskip
+    \scriptsize
+    \P{}    --- Doesn't natively support \acs{GCS}, but can be extended to solve
+    this class of constraint problems.
+    \dag{}  --- Associative model / \textit{change-propagation} mechanism;
+    \ddag{} --- Declarative paradigm;
+    $\ast$  --- Imperative paradigm
+  \end{minipage}
 \end{table}
 
 \begin{comment}
@@ -133,11 +135,11 @@ using multiple Kernels simultaneously.
 \label{sec:related.constraints.eukleides}
 
 Devoted to elementary plane geometry~\cite{Obrecht:2010:EM}, Eukleides is a
-simple, full featured, and mainly declarative programming language, capable of
+simple, full-featured, and mainly declarative programming language, capable of
 handling basic data types, such as numbers and strings, and most importantly,
 geometric data types, such as points, vectors, lines, and circles.  Like most
 languages, it provides control flow structures, allows user functions and module
-definitions, proving for easy extensibility.
+definitions, making it easily extendable.
 
 Eukleides provides a wide variety of functions and constructions that easily
 allow the user to specify geometric constraints between objects, as demonstrated
@@ -180,12 +182,12 @@ clusters contrasting with typical graph constructive-based approaches.
 
 A \ac{GUI} interactive tool called \ac{GCS} Workbench~\cite{DeRegt:2008:WGCS}
 (see \cref{fig:related.constraints.geosolver.gcs}) is distributed along with the
-GeoSolver package.  The user can easily edit, analyze and solve geometric
-constraint problems.  The latter features are obviously supported by GeoSolver,
-and 3D interactivity is supported via additional libraries, such as pyQt and
-pyOpenGL\@.  Although an excellent tool for understanding how a geometric
-constraint problem is decomposed in GeoSolver, \ac{GCS} Workbench is not
-efficient for complex design tasks when compared with its programmatic
+GeoSolver package.  With it, the user can easily edit, analyze and solve
+geometric constraint problems.  The latter features are obviously supported by
+GeoSolver, and 3D interactivity is supported via additional libraries, such as
+pyQt and pyOpenGL\@.  Although an excellent tool for understanding how a
+geometric constraint problem is decomposed in GeoSolver, \ac{GCS} Workbench is
+not efficient for complex design tasks when compared with its programmatic
 supporting package.
 
 \begin{figure}[htb]
@@ -208,7 +210,7 @@ Originally a small \LaTeX{} style created by Till Tantau for his PhD thesis,
 \ac{TikZ}~\cite{Tantau:2015:tikz-manual}, along with its underlying lower-level
 \ac{PGF} system, is a fully featured graphics language, basically consisting of
 a series of \TeX{} commands that draw graphics.  \Ac{TikZ} stands for
-``\acl{TikZ}'', a recursive acronym, which translates to ``\acs{TikZ} is not a
+``\acl{TikZ}'', a recursive acronym, which translates to ``\acs{TikZ} is no
 drawing program''.  As mentioned, the user instead programmatically describes
 their drawings.
 
