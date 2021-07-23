@@ -48,7 +48,7 @@ obtain a relatively decent sample of results, while our solution's benchmarks
 were aided by \texttt{BenchmarkTools.jl}~\cite{Chen:2016:BenchmarkTools.jl}, a
 package that facilitates benchmarking Julia code tremendously.  The source code
 used to benchmark both ConstraintGM and our solution is listed in
-\cref{lst:appendix.bench.cgm.rkt,lst:appendix.bench.cgm.jl} respectively.  The
+\cref{lst:appendix.cgm.bench.rkt,lst:appendix.cgm.bench.jl} respectively.  The
 benchmark's results are gathered in \cref{tab:eval.cgm.perf}.  To facilitate
 comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
 
@@ -161,8 +161,8 @@ that preceded this one.
   \end{subfigure}
   \caption[ConstraintGM benchmarks and Scenario 13]{\label{fig:eval.cgm.perf}%
     ConstraintGM benchmark results collected from \cref{tab:eval.cgm.perf} in a
-    multi-series plot in \subref{fig:eval.cgm.perf.plot} beside the depiction
-    of scenario 13 from the benchmark in \subref{fig:eval.cgm.perf.13}.}
+    multi-series plot \subref{fig:eval.cgm.perf.plot} beside the depiction of
+    scenario 13 \subref{fig:eval.cgm.perf.13} from the benchmark suite.}
 \end{figure}
 
 Analyzing the results further, we can see our solution also outdoes
@@ -208,7 +208,7 @@ It seems object creation takes a toll on our solution efficiency despite clear
 performance gains on average.  This is probably related to the complexity and
 superior dimension of \ac{CGAL}'s primitive geometric objects when compared to
 the ones used by the \ac{GFL}.  Examining our solution's more detailed benchmark
-results (see \cref{lst:appendix.cgmdata.jl}), we can see more information about
+results (see \cref{lst:appendix.cgm.data.jl}), we can see more information about
 how much time is consumed during garbage collection, and estimates on the amount
 of memory used and how many allocations were performed.
 
@@ -218,7 +218,7 @@ collecting objects.  But garbage collection in such scenarios is to be expected,
 and on average, typically no more than one tenth of the time is spent in garbage
 collection.  It could still be noticeable, but at this scale, it seems
 negligible.  Ironically, ConstraintGM's \ac{GFL} did not spend any time in
-garbage collection (see \cref{lst:appendix.cgmdata.rkt}), though our sample size
+garbage collection (see \cref{lst:appendix.cgm.data.rkt}), though our sample size
 is tremendously smaller than that produced by the benchmark runs using
 \texttt{BenchmarkTools.jl}.  This could also be once again related to the
 difference in complexity of the objects being created by the \ac{GFL} and our

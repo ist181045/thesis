@@ -1,13 +1,13 @@
 \pdfbookmark[1]{Benchmark Code}{benchmark-code}
-\chapter{Benchmark Code}%
-\label{chap:appendix.bench}
+\chapter{ConstraintGM}%
+\label{chap:appendix.cgm}
 
 \begin{listingx}
   \caption[ConstraintGM Racket benchmark code]{
     Source code from ConstraintGM's benchmarks for thirteen different scenarios
     involving the intersection of differently arranged geometric
     entities.}%
-  \label{lst:appendix.bench.cgm.rkt}
+  \label{lst:appendix.cgm.bench.rkt}
   \smallskip
   {\scriptsize Adapted from:
   \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
@@ -19,32 +19,27 @@
 \begin{listing}[H]
   \caption[\texttt{CGAL.jl} Julia benchmark code]{
     Benchmark code testing the same scenarios benchmarked by ConstraintGM using
-    our solution's supporting library,
-    \texttt{CGAL.jl}.}%
-  \label{lst:appendix.bench.cgm.jl}
+    our solution.}%
+  \label{lst:appendix.cgm.bench.jl}
   \inputminted{julia}{jl/bench_cgm.jl}
 \end{listing}
 
-\pdfbookmark[1]{ConstraintGM Benchmark Data}{cgm-data}
-\chapter{ConstraintGM Benchmark Data}%
-\label{chap:appendix.cgmdata}
-
 \begin{listingx}
-  \caption[ConstraintGM's raw benchmark data]{\label{lst:appendix.cgmdata.rkt}%
+  \caption[ConstraintGM benchmark data]{\label{lst:appendix.cgm.data.rkt}%
     Data produced through the execution of the code in
-    \cref{lst:appendix.bench.cgm.rkt} a total of nine times to obtain a slightly
-    larger sample
-  }
+    \cref{lst:appendix.cgm.bench.rkt} a total of nine times to obtain a slightly
+    bigger sample size.  Contains slight post-processing that involves grouping
+    up the results and reducing them.}
   \medskip
   \verbatiminput{data/cgm.txt}
 \end{listingx}
 
 \begin{listingx}
-\caption[Our solution's ConstraintGM benchmark data]{
+\caption[ConstraintGM analogous benchmark data]{
   More detailed data from benchmarking our solution by submitting it to a test
   suite analogous to ConstraintGM's.  This is the output produced by
-  \cref{lst:appendix.bench.cgm.jl}.}\label{lst:appendix.cgmdata.jl}
+  \cref{lst:appendix.cgm.bench.jl}.}\label{lst:appendix.cgm.data.jl}
 \medskip
-\footnotesize
+\small
 \verbatiminput{data/jlcgal.txt}
 \end{listingx}
