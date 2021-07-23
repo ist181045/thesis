@@ -36,6 +36,7 @@
     "\\IfLanguageName{}": "ignore",
     "\\inputminted{}{}": "ignore",
     "\\inputminted[]{}{}": "ignore",
+    "\\mintinline{}{}": "dummy",
     "\\subcaptionbox{}": "ignore",
     "\\subcaptionbox{}{}": "ignore",
     "\\subcaptionbox{}[]{}": "ignore",

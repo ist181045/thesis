@@ -13,14 +13,6 @@ circumcenter(p₁::Point, p₂::Point, p₃::Point) =
         , (Point, Point, Point) # parameter types
         ,  p₁, p₂, p₃)          # argument types
     
-# alternative syntax using `@ccall`
-circumcenter(p₁::Point, p₂::Point, p₃::Point) =
-    @ccall lib.circumcenter(p₁::Point, p₂::Point, p₃::Point)::Point
-
-let p = Point(1,2,3),
-    q = Point(1,1,1),
-    r = Point(0,1,2)
-    @info("Circumcenter"
-        , p, q, r
-        , circumcenter(p,q,r)) # = Point(1.0, 1.5, 2.0)
+let p = Point(1,2,3), q = Point(1,1,1), r = Point(0,1,2)
+    @info "Circumcenter" p q r circumcenter(p,q,r) # = Point(1.0, 1.5, 2.0)
 end

@@ -28,13 +28,13 @@ parts~\cite{CGAL:5.3:23LGK}:
 \ac{CGAL} program, demonstrating the construction of some points and a segment,
 and performing some basic operations on them.
 
-\begin{listing}[!htb]
-  \inputminted{cpp}{cpp/points_and_segments.cpp}
+\begin{listing}[htbp]
   \caption[CGAL: Three points and one segment]{
     An example CGAL program illustrating how to construct some points and a line
-    segment, and perform some basic operations on them.  It uses \texttt{double}
-    precision floating point numbers for Cartesian coordinates.}%
-  \label{lst:solution.impl.cgal.pas}
+    segment, and perform some basic operations on them.  It uses
+    \mintinline{c}{double} precision floating point numbers for Cartesian
+    coordinates.}\label{lst:solution.impl.cgal.pas}
+  \inputminted{cpp}{cpp/points_and_segments.cpp}
 \end{listing}
 
 As mentioned, geometric primitive types are defined in the kernel.  The chosen
