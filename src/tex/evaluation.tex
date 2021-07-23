@@ -63,17 +63,18 @@ following system specifications:
 
 \section{VoronoiDelaunay.jl}%
 \label{sec:eval.vdjl}
-\todo[inline]{Maybe leave the "how easy it is to leverage our approach to get
-more, both in quantity and complexity, algorithsm from CGAL" discussion for this
-part and evaluate the potential time it takes to use Voronoi Diagrams from CGAL
-and either get more information on how long it took to implement
-VoronoiDelaunay.jl and compare its "correctness" vs. CGAL's version of the
-algorithm, assuming CGAL's results as a source of truth for correctness.
-Testing revealed diagrams differed slightly when it came to some edges.  My
-suspicion was the Julia algorithm "gobble" some very very very small triangles,
-i.e., where the edges are very close together, but it only happens near the
-outside of the diagram, and, again, a more drastic diagram can be manufactured
-to showcase this.  Maybe read up more on the underlying algorithm that was
-implemented in VoronoiDelaunay.jl}
+
+% \todo[inline]{Maybe leave the "how easy it is to leverage our approach to get
+% more, both in quantity and complexity, algorithsm from CGAL" discussion for this
+% part and evaluate the potential time it takes to use Voronoi Diagrams from CGAL
+% and either get more information on how long it took to implement
+% VoronoiDelaunay.jl and compare its "correctness" vs. CGAL's version of the
+% algorithm, assuming CGAL's results as a source of truth for correctness.
+% Testing revealed diagrams differed slightly when it came to some edges.  My
+% suspicion was the Julia algorithm "gobble" some very very very small triangles,
+% i.e., where the edges are very close together, but it only happens near the
+% outside of the diagram, and, again, a more drastic diagram can be manufactured
+% to showcase this.  Maybe read up more on the underlying algorithm that was
+% implemented in VoronoiDelaunay.jl}
 
 \input{tex/evaluation/case-studies}

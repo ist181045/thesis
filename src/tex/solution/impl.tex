@@ -79,96 +79,18 @@ specialized yet comprehensible constructive approach solutions to \ac{GC}
 problems.
 
 \input{tex/solution/impl/cgal}
-
-\subsection{From C++ to Julia}%
-\label{sec:solution.impl.jlcgal}
-\todo[inline]{Reiterate the language interoperability hurdle, maybe mention
-briefly there are complications especially when memory management models differ.
-Showcase Julia's native capabilities of invoking native C++ libraries coupled w/
-an example using CGAL.  Introduce a library that helps with C++ wrapping and
-showcase a slightly more complex example, maybe involving classes and the like.
-Consider demonstrating the ease with which it is possible to wrap things
-incrementally as, on demand, requests for new features may require algorithms
-from the library that weren't wrapped.  Just like following a recipe, it's
-as simple as (1) looking at the docs, (2) mapping necessary types and functions,
-and (3) run Julia (Carefully not mapping \textit{everything}, thought that is
-what I strived to do with CGAL.jl, but that's another discussion).}
-
-\begin{listing}[htb]
-  \inputminted{cpp}{cpp/sqdist.cpp}
-  \caption[C wrapper for squared distance functionality]{
-    Example C library code that wraps \ac{CGAL}'s \texttt{squared\_distance}
-    global function.  The original function takes in instances of
-    \texttt{Point\_3} classes so we instantiate them from our \texttt{double}
-    coordinate inputs.}%
-  \label{lst:solution.impl.jlcgal.sqdist.cpp}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted{julia}{jl/sqdist.jl}
-  \caption[Julia squared distance example program]{
-    Example Julia program that invokes the functionality from the library whose
-    source is listed in \cref{lst:solution.impl.jlcgal.sqdist.cpp}.  Julia's
-    \texttt{ccall} construct converts the input arguments' types to the types
-    specified in the native C function's parameter types.}%
-  \label{lst:solution.impl.jlcgal.sqdist.jl}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted{cpp}{cpp/circ.cpp}
-  \caption[C wrapper for circumcenter functionality]{
-    Example C shared library source code that wraps \ac{CGAL}'s circumcenter
-    global function.  In this instance, we use an additional struct to wrap
-    around \ac{CGAL}'s \texttt{Point\_3} class to facilitate data transfer.}%
-  \label{lst:solution.impl.jlcgal.circ.cpp}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted{julia}{jl/circ.jl}
-  \caption[Julia circumcenter example program]{
-    Example Julia program that invokes the functionality from the library listed
-    in \cref{lst:solution.impl.jlcgal.circ.cpp}.  We use an additional Julia
-    struct that's equivalent to the one specified in C to facilitate data
-    transfer.}%
-  \label{lst:solution.impl.jlcgal.circ.jl}
-\end{listing}
-
-\begin{listing}[htb]
-  \caption[Wrapper JlCxx code for Three points and one segment]{
-    C++ wrapper code powered by JlCxx that maps the types and functions needed
-    from \acs{CGAL} to reproduce the example shown in
-    \cref{lst:solution.impl.cgal.pas} in Julia.}%
-  \label{lst:solution.impl.jlcgal.jlcxx}
-  \inputminted[fontsize=\small]{cpp}{cpp/cgal_julia.cpp}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted{julia}{jl/CGAL.jl} 
-  \caption[Bare-bones Julia module wrapping some of CGAL]{
-    An example Julia module that mimics \texttt{CGAL.jl}, wrapping the library
-    produced from \cref{lst:solution.impl.jlcgal.jlcxx}.  It initializes the
-    library and exports the mapped functionality.}%
-  \label{lst:solution.impl.jlcgal.cgal}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted{julia}{jl/points_and_segments.jl}
-  \caption[CGAL.jl: Three points and one segment]{
-    The example program as seen in \cref{lst:solution.impl.cgal.pas} written in
-    the Julia programming language using \texttt{CGAL.jl}.  The kernel
-    instantiation is hidden away in the C++ layer of the wrapper code.}%
-  \label{lst:solution.impl.jlcgal.pas}
-\end{listing}
+\input{tex/solution/impl/jlcgal}
 
 \subsection{Geometric Constraint Primitives}%
 \label{sec:solution.impl.gcps}
-\todo[inline]{With functionality available on the Julia side of things, call
-back to the previously formulated examples, potentially elaborating with yet
-another slightly more complex example.  Showcase that some of the functionality
-that can be implemented with very little effort relying only on functionality
-already present in mature library alone like CGAL is.  I confess I do not know
-what to discuss in this section, despite feeling like it is the most important
-one in some regard\ldots}
+
+% \todo[inline]{With functionality available on the Julia side of things, call
+% back to the previously formulated examples, potentially elaborating with yet
+% another slightly more complex example.  Showcase that some of the functionality
+% that can be implemented with very little effort relying only on functionality
+% already present in mature library alone like CGAL is.  I confess I do not know
+% what to discuss in this section, despite feeling like it is the most important
+% one in some regard\ldots}
 
 \begin{listing}[htb]
   \inputminted[highlightlines={5,19}]{julia}{jl/ex_parallel.jl}
