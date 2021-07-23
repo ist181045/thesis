@@ -3,15 +3,43 @@
 \label{chap:eval}
 \cleardoublepage{}
 
-\section{Benchmarks}%
-\label{sec:eval.perf}\todo{Working title}
-\todo[inline]{Proper introduction + actual text}
-Benchmarks were performed on a Lenovo ThinkPad E595 laptop computer running an
-Arch Linux\footnote{\url{https://archlinux.org}} environment using the
-Linux\textsuperscript{\textregistered} 5.12.15-zen1
-kernel\footnote{\url{https://github.com/zen-kernel/zen-kernel/tree/v5.12.15-zen1}}
-with the following hardware specifications:
-%
+\noindent In this chapter, we aim to evaluate our solution by measuring a few
+qualities of the approach we took to tackle \ac{GCS} by deviating from a typical
+generic solver-based approach by providing specialized solutions for a variety
+of \ac{GC} problems.
+
+Firstly, we aim to benchmark our solution's performance by comparing it to a
+similar project called ConstraintGM~\cite{Pinheiro:2016:MGR}.  We were able to
+reproduce the project's original benchmark tests and compare the results to our
+solution when subject to identical tests.
+
+Secondly, we explore our approach's potential regarding repurposing more complex
+geometric algorithms in contrast with re-implementing a version of said
+algorithms from scratch.  Specifically, we set out to repurpose \ac{CGAL}'s 2D
+Delaunay Triangulation and Voronoi Diagram algorithms and further compare the
+resulting mapping's performance and correctness when compared to a Julia
+implementation of the algorithms in the form of
+\texttt{VoronoiDelaunay.jl}~\cite{Keselman:2014:VoronoiDelaunay.jl}.  The latter
+was once benchmarked against
+\ac{CGAL}\footnote{\url{https://gist.github.com/skariel/3d2018f9341a058e00fc}}.
+We aim to draw similar tests since then, the Julia language alone having matured
+substantially over that span of time.  Additionally, we set out to estimate the
+effort it took to develop \texttt{VoronoiDelaunay.jl} and compare that to the
+effort it took to extract an analogous algorithm from \ac{CGAL}.
+
+Finally, we end our evaluation by showcasing four different case studies
+inspired by existing designs.  This section of the evaluation focuses on
+comparing different approaches to solving \ac{GC} problems present in each case
+study adopting two different approaches: an analytic approach, one programming
+naturally begs for; and a constructive approach, essentially adding a conceptual
+abstraction layer over the former.  We aim to show that, by following the latter
+approach, resulting programs become both easier to understand and reproducible
+as the set of instructions can be used to recreate the resulting geometry by
+hand, using a ruler and a compass.
+
+Benchmarks were performed on a Lenovo ThinkPad E595 laptop computer with the
+following system specifications:
+
 \begin{itemize}
   \acused{AMD}\label{acro:AMD}
   \acused{CPU}\label{acro:CPU}
@@ -20,21 +48,14 @@ with the following hardware specifications:
   \acused{SO-DIMM}\label{acro:SO-DIMM}
   \acused{DDR}\label{acro:DDR}
   \acused{RAM}\label{acro:RAM}
-  \item 1×16GB \ac{SO-DIMM} of \ac{DDR}4 \ac{RAM} @ 2400MT/s\footnote{The
-  disparity between \textbf{T}ransfers per \textbf{s}econd (T/s) and
-  \textbf{H}ert\textbf{z} (Hz) depends on the memory's transfer rate.  \acf{DDR}
-  memory can perform two operations per clock cycle, which means its transfer
-  rate is double its clock frequency, i.e., 1Hz = 2T/s.  At 2400MT/s, the
+  \item 1×16GB \ac{SO-DIMM} of \ac{DDR}4 \ac{RAM} @ 2400MT/s\footnote{\emph{Not}
+  \textbf{M}ega\textbf{H}ert\textbf{z} (MHz).  \textbf{T}ransfers per
+  \textbf{s}econd (T/s) depend on the memory's data rate.  \acf{DDR} memory can
+  transfer twice the data per clock cycle, which means, at 2400MT/s, the
   respective \ac{DDR} memory's clock frequency would be 1200MHz.}.
-\end{itemize}
-%
-Additionally, the following software versions were configured, installed, and
-used:
-%
-\begin{itemize}
-  \item Julia 1.6.2;
-  \item Maxima 5.45.1;
-  \item Racket 8.2.
+  \item Arch\footnote{\url{https://archlinux.org}}
+  Linux\textsuperscript{\textregistered} x86_64 Kernel
+  5.12.15-zen1\footnote{\url{https://github.com/zen-kernel/zen-kernel/tree/v5.12.15-zen1}}
 \end{itemize}
 
 \subsection{ConstraintGM}%
