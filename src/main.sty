@@ -44,7 +44,9 @@
 \usepackage{nicefrac}       % typeset inline fractions "nicely"
 \usepackage{longtable}      % for tables that exceed a page in length
 \usepackage{pdflscape}      % display landscape pages
+\usepackage{pgfplots}       % create plots
 \usepackage{pifont}         % ps symbols and dingbats
+\usepackage{sansmath}       % sans serif math font
 \usepackage{scrbase}        % aid in doc structure redefiniton
 \usepackage{setspace}       % set space between lines
 \usepackage{spreadtab}      % spreadsheet features
@@ -54,6 +56,7 @@
 \usepackage{tocloft}        % control table of contents
 \usepackage{totcount}       % find last value of counter
 \usepackage{url}            % verbatim with URL-sensitive line breaks
+\usepackage{verbatim}       % extensions to verbatim
 \usepackage{xcolor}         % color extensions
 
 %% configuration
@@ -229,6 +232,20 @@
   \latex@outputpage%
 }
 \makeatother
+
+% pgfplots
+\pgfplotsset{compat=1.17}
+\pgfplotsset{tick label style={font=\sansmath\sffamily}}
+\pgfplotsset{table/col sep=comma}% csv by default
+\pgfplotsset{error bars/.cd,
+  y dir=both,y explicit,
+  x dir=both,x explicit,
+}
+\pgfplotsset{cgm/.style={
+  xmin=1,xmax=13,
+  xtick distance=1,
+  enlarge x limits={abs=.5}
+}}
 
 % pifont
 \newcommand{\xmark}{\ding{55}}

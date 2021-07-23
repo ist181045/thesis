@@ -1,7 +1,6 @@
 \pdfbookmark[1]{Benchmark Code}{benchmark-code}
 \chapter{Benchmark Code}%
 \label{chap:appendix.bench}
-\cleardoublepage
 
 \begin{listingx}
   \caption[ConstraintGM Racket benchmark code]{
@@ -25,3 +24,27 @@
   \label{lst:appendix.bench.cgm.jl}
   \inputminted{julia}{jl/bench_cgm.jl}
 \end{listing}
+
+\pdfbookmark[1]{ConstraintGM Benchmark Data}{cgm-data}
+\chapter{ConstraintGM Benchmark Data}%
+\label{chap:appendix.cgmdata}
+
+\begin{listingx}
+  \caption[ConstraintGM's raw benchmark data]{\label{lst:appendix.cgmdata.rkt}%
+    Data produced through the execution of the code in
+    \cref{lst:appendix.bench.cgm.rkt} a total of nine times to obtain a slightly
+    larger sample
+  }
+  \medskip
+  \verbatiminput{data/cgm.txt}
+\end{listingx}
+
+\begin{listingx}
+\caption[Our solution's ConstraintGM benchmark data]{
+  More detailed data from benchmarking our solution by submitting it to a test
+  suite analogous to ConstraintGM's.  This is the output produced by
+  \cref{lst:appendix.bench.cgm.jl}.}\label{lst:appendix.cgmdata.jl}
+\medskip
+\footnotesize
+\verbatiminput{data/jlcgal.txt}
+\end{listingx}

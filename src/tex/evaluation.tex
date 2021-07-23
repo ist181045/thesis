@@ -58,18 +58,10 @@ following system specifications:
   5.12.15-zen1\footnote{\url{https://github.com/zen-kernel/zen-kernel/tree/v5.12.15-zen1}}
 \end{itemize}
 
-\subsection{ConstraintGM}%
-\label{sec:eval.perf.cgm}
-\todo[inline]{Introduce Fábio's work with ConstraintGM, point out the mishap of
-feeling overconfident about maxima and how that prompted him, per suggestion, to
-implement specific/contextual solutions for geometric constraint problems, i.e.,
-what we did, instead of solely relying on a generic algebraic solver.  Recall
-his benchmarks and compare them with identical benchmarks with our solutions.
-Discuss the possibility that language differences might be the reason behind
-performance differences alone.}
+\input{tex/evaluation/constraint-gm}
 
-\subsection{VoronoiDelaunay.jl}%
-\label{sec:eval.perf.vdjl}
+\section{VoronoiDelaunay.jl}%
+\label{sec:eval.vdjl}
 \todo[inline]{Maybe leave the "how easy it is to leverage our approach to get
 more, both in quantity and complexity, algorithsm from CGAL" discussion for this
 part and evaluate the potential time it takes to use Voronoi Diagrams from CGAL

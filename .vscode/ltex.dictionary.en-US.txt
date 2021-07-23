@@ -57,6 +57,7 @@ RhinoScript
 Ro&Ad
 roundoff
 Rutten
+Ryzen
 SIGGRAPH
 SIGraDi
 subproblem
