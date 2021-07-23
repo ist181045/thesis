@@ -134,12 +134,13 @@ that preceded this one.
       ylabel={Average Time (ns, log)},
       width={\linewidth},
       height=5cm,
-      ymax=1e12,
+      bar width=.3\linewidth/14,
+      enlarge y limits={.26,upper},
       legend columns=-1,
     ]
       \addplot+ table {data/cgm-maxima.csv};
       \addplot+ table {data/cgm-gfl.csv};
-      \addplot+ [color=green] table {data/jlcgal.csv};
+      \addplot+ [color=green,draw=green!60!black] table {data/jlcgal.csv};
       \legend{Maxima,GFL,Our solution}
     \end{semilogyaxis}
     \end{tikzpicture}
@@ -183,25 +184,25 @@ intersect.  In other words, objects are being created.
 \begin{figure}[htb]
   \centering
   \begin{tikzpicture}
-  \begin{axis}[cgm,
+  \begin{semilogyaxis}[cgm,
     title={GFL vs. Our solution},
     xlabel={Scenarios},
-    ylabel={Average Time (ns)},
-    ymax=1.2e7,
+    ylabel={Average Time (ns, log)},
+    enlarge y limits={.2,upper},
     width={.9\linewidth},
     height=6cm,
-    enlarge y limits={.2},
+    bar width=.43\linewidth/14,
     legend columns=-1
   ]
     \addplot+ table [y error=std] {data/cgm-gfl.csv};
     \addplot+ table [y error=std] {data/jlcgal.csv};
-
     \legend{GFL,Our solution}
-  \end{axis}
+  \end{semilogyaxis}
   \end{tikzpicture}
   \caption[ConstraintGM's GFL vs. Our solution]{\label{fig:eval.cgm.perferr}% A
     A slightly more detailed comparison between the \ac{GFL} and our solution
-    alone, additionally representing the results' standard deviation.}
+    alone, additionally representing the results' standard deviation.  N.B.:
+    The Y-axis is logarithmic.}
 \end{figure}
 
 It seems object creation takes a toll on our solution efficiency despite clear
