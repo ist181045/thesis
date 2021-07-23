@@ -2,6 +2,7 @@
 src/*.pdf
 out/
 *.equ
+*.so
 
 ## Vim auxiliary files
 *.*~
