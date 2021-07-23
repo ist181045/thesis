@@ -235,6 +235,7 @@
 
 % pgfplots
 \pgfplotsset{compat=1.17}
+\usepgfplotslibrary{external}
 \pgfplotsset{tick label style={font=\sansmath\sffamily}}
 \pgfplotsset{table/col sep=comma}% csv by default
 \pgfplotsset{error bars/.cd,
@@ -249,6 +250,9 @@
 
 % pifont
 \newcommand{\xmark}{\ding{55}}
+
+% tikz
+\tikzexternalize
 
 % tocloft
 \newcommand{\listequationname}{
