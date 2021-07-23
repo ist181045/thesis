@@ -7,7 +7,7 @@
 Modern \ac{CAD} tools include substantial support for parametric operations and
 \ac{GCS}.  These mechanisms have been developed over the past few
 decades~\cite{Bettig:2011:GCSPC} and are heavily and ubiquitously used across
-the \ac{AEC} industry.
+the Architecture, Engineering, and Construction industry.
 
 Parametric modeling is used to design with constraints, whereby users express a
 set of parameters and interdependent operations, establishing restrictions
@@ -20,7 +20,7 @@ parameters using two computational mechanisms:
   set of constraints explicitly imposed by the user.
 \end{enumerate*}
 
-Nowadays, Parametric operations in \ac{CAD} software are mostly accessible
+Nowadays, parametric operations in \ac{CAD} software are mostly accessible
 through intuitive, robust, and easy-to-use direct-manipulation interfaces,
 offering a wide variety of different operations.  These operations are created
 when a designer uses solid modeling operations, such as face extrusions or shape
@@ -63,11 +63,11 @@ by specifying the values for a set of input parameters.
   \caption[Sketch of a chair seat's outer frame]{
     Sketch of a chair seat's outer frame, defined by 5 input parameters:
     \begin{enumerate*}[label= (\arabic*)]
-      \item Width ($g-w$),
-      \item depth ($g-d$),
-      \item taper width ($g-\Delta wt$),
-      \item front radius ($g-rf$), and
-      \item rear radius ($g-rr$).
+      \item Width \texttt{g-w},
+      \item depth \texttt{g-d},
+      \item taper width \texttt{g-$\Delta$wt},
+      \item front radius \texttt{g-rf}, and
+      \item rear radius \texttt{g-rr}.
     \end{enumerate*}}%
   \label{fig:intro.chair}
 \end{figure}
@@ -97,13 +97,12 @@ use.
 \section{Document Structure}%
 \label{sec:intro.structure}
 
-The present document is structured in \total{chapter} different chapters,
-namely:
+The present document is structured in \total{chap} different chapters, namely:
 \begin{description}
   \item[\nameref{chap:intro}] Broken into several sections, including this
   one, presents:
   \begin{enumerate*}[label= (\arabic*)]
-    \item A brief historical overview of the development of parametric
+    \item a brief historical overview of the development of parametric
     operations in \ac{CAD} software in \cref{sec:intro.parametric},
     \item the main approaches to \ac{GCS} in \ac{CAD}, in
     \cref{sec:intro.constraints},
@@ -120,8 +119,8 @@ namely:
     processes, showcasing a set of software tools capable of handling these
     issues in the context of geometric computation, in
     \cref{sec:related.robustness},
-    \item an overview of some \ac{GC} tools, presenting some of their benefits
-    and drawbacks, in \cref{sec:related.constraints}, and
+    \item an overview of \ac{GC} tools, presenting some of their benefits and
+    drawbacks, in \cref{sec:related.constraints}, and
     \item an overview of algorithmic design tools, similarly comparing them and
     addressing positive and negative points, in \cref{sec:related.ad}.
   \end{enumerate*}

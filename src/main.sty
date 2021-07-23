@@ -12,6 +12,11 @@
 ]{enumitem} % control over enumerations
 
 \usepackage[%
+  numbers,%
+  sort&compress,%
+]{natbib} % natural references
+
+\usepackage[%
   textwidth=2cm,%
   textsize=small,%
 ]{todonotes} % TODO notes
@@ -19,7 +24,6 @@
 \usepackage[printonlyused]{acronym} % acronym management
 \usepackage[nohints]{minitoc}       % mini toc for chapters
 \usepackage[newfloat]{minted}       % highlighted code
-\usepackage[numbers]{natbib}        % natural references
 
 \usepackage{amsfonts}       % other math fonts
 \usepackage{amsmath}        % math
@@ -28,7 +32,6 @@
 \usepackage{array}          % array and tabular extensions
 \usepackage{booktabs}       % to enhance table quality
 \usepackage{caption}        % caption customization
-\usepackage{cleveref}       % intelligent cross-referencing
 \usepackage{color}          % color control
 \usepackage{colortbl}       % table cell coloring
 \usepackage{comment}        % selectively in/exclude parts of text
@@ -58,6 +61,10 @@
 \usepackage{url}            % verbatim with URL-sensitive line breaks
 \usepackage{verbatim}       % extensions to verbatim
 \usepackage{xcolor}         % color extensions
+\usepackage{xassoccnt}      % assoc counters stepping simultaneously
+
+\usepackage{cleveref} % intelligent cross-referencing
+
 
 %% configuration
 \setlength{\marginparwidth}{2cm}
@@ -269,7 +276,7 @@
 \setlength\cftequationsnumwidth\cftfignumwidth
 
 % totcount
-\regtotcounter{chapter}
+\newtotcounter{chap}
 
 %% additional config
 % load titlepage definitions
@@ -342,7 +349,9 @@
   }}
 \makeatother
 % Now put it all together as a command \fancychapter
-\newcommand{\fancychapter}[1]{\chapter{#1}\vfill\minitoc\pagebreak}
+\newcommand{\fancychapter}[1]{%
+  \chapter{#1}\vfill\minitoc\pagebreak%
+  \stepcounter{chap}}
 
 % This commmand allows to place horizontal lines with a custom width... 
 % replaces the standard hline command
