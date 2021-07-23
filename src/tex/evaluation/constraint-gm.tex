@@ -2,15 +2,15 @@
 \section{ConstraintGM}%
 \label{sec:eval.cgm}
 
-ConstraintGM is a \ac{DSL} developed with the shared goal of tackling \ac{GC}
-problem specification using a \ac{TPL} (Racket, to be precise).  This solution
-heavily and blindly relied on Maxima~\cite{Maxima:2021:Maxima}, a generic
-\ac{CAS} to solve \ac{GC} problems.  Geometric entities were boiled down to
-their algebraic equation representation coupled with a set of the problems
+ConstraintGM is a domain-specific language developed with the shared goal of
+tackling \ac{GC} problem specification using a \ac{TPL} (Racket, to be precise).
+This solution heavily and blindly relied on Maxima~\cite{Maxima:2021:Maxima}, a
+generic \ac{CAS} to solve \ac{GC} problems.  Geometric entities were boiled down
+to their algebraic equation representation coupled with a set of the problems
 constraints and delivered to Maxima.  Maxima would then attempt to solve the
 problem and return a result that was parsed and presented to the user.
 
-This approach came at a severe performance cost.  Not only as the communication
+This approach came at a severe performance cost.  Not only was the communication
 between ConstraintGM and Maxima slow, lest we forget that Maxima is a
 \emph{generic} solver.  Per a suggestion, this lead to an \texttt{impromptu}
 implementation of some \ac{GC} problem solutions, creating what was called the
@@ -199,9 +199,9 @@ intersect.  In other words, objects are being created.
     \legend{GFL,Our solution}
   \end{axis}
   \end{tikzpicture}
-  \caption[GFL vs. Our solution]{\label{fig:eval.cgm.perferr}% A slightly more
-    A detailed comparison between the \ac{GFL} and our solution alone, 
-    additionally representing the standard deviation.}
+  \caption[ConstraintGM's GFL vs. Our solution]{\label{fig:eval.cgm.perferr}% A
+    A slightly more detailed comparison between the \ac{GFL} and our solution
+    alone, additionally representing the results' standard deviation.}
 \end{figure}
 
 It seems object creation takes a toll on our solution efficiency despite clear
