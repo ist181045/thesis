@@ -1,16 +1,20 @@
 {
   "files.exclude": {
-    "src/main.pdf":true,
+    "src/*.pdf":true,
 
     "**/_minted*": true,
     "**/*.aux": true,
+    "**/*.auxlock": true,
     "**/*.bbl": true,
     "**/*.blg": true,
+    "**/*.dpth": true,
+    "**/*.dep": true,
     "**/*.equ": true,
     "**/*.fdb_latexmk": true,
     "**/*.fls": true,
     "**/*.lo[acefglt]": true,
     "**/*.maf": true,
+    "**/*.md5": true,
     "**/*.mlf[0-9]*": true,
     "**/*.mlt[0-9]*": true,
     "**/*.mtc": true,
@@ -39,11 +43,16 @@
     "\\subref{}": "dummy",
     "\\texttt{}": "dummy",
     "\\univlogo{}{}{}": "ignore",
+    "\\verbatiminput{}": "ignore"
   },
   "ltex.latex.environments": {
     "subfigure": "ignore"
   },
   "latex-workshop.latex.clean.fileTypes": [
+    "*-figure[0-9]*.pdf",
+    "*-figure[0-9]*.dpth",
+    "*-figure[0-9]*.dep",
+    "*-figure[0-9]*.md5",
     "*.aux",
     "*.bbl",
     "*.blg",
