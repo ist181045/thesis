@@ -126,15 +126,35 @@ The present document is structured in \total{chap} different chapters, namely:
     addressing positive and negative points, in \cref{sec:related.ad}.
   \end{enumerate*}
 
-  \item[\nameref{chap:solution}] A detailed solution proposal, including an
-  explanation of how its implementation can be capable of efficiently handling
-  the specification of \ac{GC} problems, in \cref{chap:solution}.
+  \item[\nameref{chap:solution}] A solution proposal, followed by how it was
+  implemented and how it is capable of efficiently handling the specification of
+  \ac{GC} problems, in \cref{chap:solution}, going over its core components:
+  \begin{enumerate*}[label= (\arabic*)]
+    \item a \textit{Exact Computation Geometry Library}, discussed in
+    \cref{sec:solution.impl.cgal}, which provides the basic geometric entities
+    and functions to work it,
+    \item an interoperability \textit{Wrapper Code} layer that allows the target
+    platform to repurpose the previous component's foreign constructs, detailed
+    in \cref{sec:solution.impl.jlcgal}, and
+    \item \textit{Geometric Constraint Primitives}, showcased in
+    \cref{sec:solution.impl.gcps} capable of solving a class of \ac{GC} problems
+    employing a Euclidean constructive approach to genereating geometry.
+  \end{enumerate*}
+  
+  \item[\nameref{chap:eval}] The methodology used to evaluate the proposed
+  solution in \cref{chap:eval}, involving
+  \begin{enumerate*}[label= (\arabic*)]
+    \item a performance comparison in \cref{sec:eval.cgm} with a similar project
+    with a shared goal,
+    \item a performance, correctness, and effort estimation analysis, in
+    \cref{sec:eval.vdjl}, comparing an implementation of a complex geometric
+    algorithm in the target platform vs. a repurposed mature implementation, and
+    \item an extensive evaluation comparing two different approaches at solving
+    \ac{GC} problems present in four case studies inspired by existing designs.
+  \end{enumerate*}
 
-  \item[\nameref{chap:eval}] A brief plan of the methodology used to evaluate
-  the proposed solution in \cref{chap:eval}.
-
-  \item[\nameref{chap:conclusion}] Concluding remarks that summarize the
-  document, in \cref{chap:conclusion}.
+  \item[\nameref{chap:conclusion}] Concluding remarks that summarize our work,
+  in \cref{chap:conclusion}.
 \end{description}
 
 \input{tex/intro/parametric-operations}
