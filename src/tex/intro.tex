@@ -73,20 +73,21 @@ by specifying the values for a set of input parameters.
 \end{figure}
 
 The seat's corners are defined by circles whose respective front and rear
-radius' length, $g-rf,g-rr$, is obtained by computing distances, from which the
-circles' centers, $GFC$ and $GBC$, can be obtained.  The circles are then
-connected through outer tangent lines, $gsl$, forming the outer frame of the
-chair's seat.  Some of these operations, such as the radius computation,
-\textit{tangency}, and \textit{circumcenter}, depend on operations that query if
-a point is at a certain distance from an object, or if two points are
-coincident.  Such operations must be handled carefully due to numerical
-robustness issues that may arise when performing fixed-precision arithmetic.  As
-such, on top of the design process itself, the user must identify the \acp{GC},
-resorting to trigonometry analysis, perform tolerance-based comparisons to
-determine point distance or if two points are coincident, among other techniques
-the user most likely is not aware he must rely upon to circumvent these issues,
-particularly, when we take into consideration that most \ac{AD} practitioners
-are architects and designers without an extensive background in \ac{CS}.
+radius' length, \texttt{g-rf}, \texttt{g-rr}, is obtained by computing
+distances, from which the circles' centers, \texttt{GFC} and \texttt{GBC}, can
+be obtained.  The circles are then connected through outer tangent lines,
+\texttt{gsl}, forming the outer frame of the chair's seat.  Some of these
+operations, such as the radius computation, \textit{tangency}, and
+\textit{circumcenter}, depend on operations that query if a point is at a
+certain distance from an object, or if two points are coincident.  Such
+operations must be handled carefully due to numerical robustness issues that may
+arise when performing fixed-precision arithmetic.  As such, on top of the design
+process itself, the user must identify the \acp{GC}, resorting to trigonometry
+analysis, perform tolerance-based comparisons to determine point distance or if
+two points are coincident, among other techniques the user most likely is not
+aware he must rely upon to circumvent these issues, particularly, when we take
+into consideration that most \ac{AD} practitioners are architects and designers
+without an extensive background in \ac{CS}.
 
 To overcome the limitations exposed above, this report proposes the
 implementation of \ac{GC} primitives with specialized efficient solutions for
