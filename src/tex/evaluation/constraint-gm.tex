@@ -5,30 +5,37 @@
 ConstraintGM is a domain-specific language developed with the shared goal of
 tackling \ac{GC} problem specification using a \ac{TPL} (Racket, to be precise).
 This solution heavily and blindly relied on Maxima~\cite{Maxima:2021:Maxima}, a
-generic \ac{CAS} to solve \ac{GC} problems.  Geometric entities were boiled down
-to their algebraic equation representation coupled with a set of the problems
-constraints and delivered to Maxima.  Maxima would then attempt to solve the
-problem and return a result that was parsed and presented to the user.
+generic \ac{CAS} to solve \ac{GC} problems.  Geometric entities were serialized
+into their algebraic equation representation coupled with the problem's
+constraints and sent to Maxima.  Maxima would then attempt to solve the system
+of equations and return a result that was parsed and sent back to Racket.
 
-This approach came at a severe performance cost.  Not only was the communication
-between ConstraintGM and Maxima slow, lest we forget that Maxima is a
-\emph{generic} solver.  Per a suggestion, this lead to an \texttt{impromptu}
-implementation of some \ac{GC} problem solutions, creating what was called the
-\ac{GFL}. The latter approach revealed that contextually specialized solutions
-had a greater potential than relying on a generic solver.
+This approach came at a severe performance cost, the reason being two-fold:
+\begin{enumerate*}[label= (\arabic*)]
+  \item the communication between ConstraintGM and Maxima was slow, and
+  \item Maxima is a \emph{generic} solver and could not take advantage of the
+  geometric characteristics of the problem at hand.
+\end{enumerate*}
+The considerable performance penalty of this approach are hard to justify in the
+case of simple geometric problems for which there are well-known efficient
+solutions. This lead to an \textit{impromptu} implementation of some \ac{GC}
+problem solutions, creating what was called the \ac{GFL}. As expected, the
+latter approach revealed that contextually specialized solutions had much better
+performance than relying on a generic solver.
 
 It is worth noting that relying on Maxima meant ConstraintGM was intrinsically
-exact and robust since symbolic \ac{GCS} methods, used by Maxima, don't suffer
-from such issues.  The \ac{GFL}, when compared to the Maxima-based approach, is
-more fragile in that regard because it will depend on the underlying constructs'
-number type.  If an exact arbitrary precision number type is used, the issue
-disappears, but at a performance cost since arbitrary precision arithmetic is
-computationally heavy.  Relying on inexact number types can eventually lead to
-erroneous results if one is not careful and avoids error-inducing computations,
-but, by contrast, offers better performance.  That said, some computations are
-unavoidable, such as the computation of the squared root, for example, when the
-effective distance is necessary to operate with.  In the end, it is a matter of
-making a compromise and evaluating which fits the case at end the best.
+exact and robust since symbolic \ac{GCS} methods, used by Maxima, automatically
+provide those features.  The \ac{GFL}, when compared to the Maxima-based
+approach, is more fragile in that regard because it will depend on the
+underlying constructs' number type.  If an exact arbitrary precision number type
+is used, exactness and robustness will be preserved, but at a performance cost
+since arbitrary precision arithmetic is computationally heavy.  Relying on
+inexact number types can eventually lead to erroneous results if one is not
+careful to avoid error-inducing computations, but, by contrast, offers better
+performance.  That said, some computations are unavoidable, such as the
+computation of the squared root, for example, when the effective distance is
+necessary to operate with.  In the end, it is a matter of making a compromise
+and evaluating which fits the case at end the best.
 
 The project's benchmark involve three different \ac{GC} problems focused around
 object intersection, namely
@@ -43,11 +50,11 @@ intersection operation's results and measure each individual scenario's
 performance.
 
 We measured real execution time instead of \ac{CPU} time both for ConstraintGM
-and our solution.  We ran ConstraintGM's benchmarks a total of nine times to
+and for our solution.  We ran ConstraintGM's benchmarks a total of nine times to
 obtain a relatively decent sample of results, while our solution's benchmarks
 were aided by \texttt{BenchmarkTools.jl}~\cite{Chen:2016:BenchmarkTools.jl}, a
-package that facilitates benchmarking Julia code tremendously.  The source code
-used to benchmark both ConstraintGM and our solution is listed in
+package that considerably facilitates benchmarking Julia code tremendously.  The
+source code used to benchmark both ConstraintGM and our solution is listed in
 \cref{lst:appendix.cgm.bench.rkt,lst:appendix.cgm.bench.jl} respectively.  The
 benchmark's results are gathered in \cref{tab:eval.cgm.perf}.  To facilitate
 comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
@@ -114,18 +121,18 @@ comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
   \end{tabular*}
 \end{table}
 
-Immediately, we can see the disparity between the approach reliant on Maxima
-when compared to both the \ac{GFL} and our solution, which was to be expected.
-Even so, amidst relatively consistent results, scenario 13 made Maxima slug more
-than usual.  That scenario consists of two circles intersecting at two different
-points, illustrated in \cref{fig:eval.cgm.perf.13}.  It is not the only scenario
-of the set that involves two circles that intersect.  However, this is the one
-that produces relatively more complex results, which could justify why Maxima
-took relatively longer to compute the solution than it did for the scenarios
-that preceded this one.
+Observing the results, we can see the disparity between the approach reliant on
+Maxima when compared to both the \ac{GFL} and our solution, which was to be
+expected.  Even so, amidst relatively consistent results, scenario 13 made
+Maxima slug more than usual.  That scenario consists of two circles intersecting
+at two different points, illustrated in \cref{fig:eval.cgm.perf.13}.  It is not
+the only scenario of the set that involves two circles that intersect.  However,
+this is the one that produces relatively more complex results, which could
+justify why Maxima took relatively longer to compute the solution than it did
+for the scenarios that preceded this one.
 
 \begin{figure}[htb]
-  \begin{subfigure}[t]{.6\linewidth}
+  \begin{subfigure}[t]{.75\linewidth}
     \centering
     \begin{tikzpicture}
     \begin{semilogyaxis}[cgm,
@@ -133,7 +140,8 @@ that preceded this one.
       xlabel={Scenarios},
       ylabel={Average Time (ns, log)},
       width={\linewidth},
-      height=5cm,
+      height=5.5cm,
+      ytick distance={1e1},
       bar width=.3\linewidth/14,
       enlarge y limits={.26,upper},
       legend columns=-1,
@@ -144,20 +152,21 @@ that preceded this one.
       \legend{Maxima,GFL,Our solution}
     \end{semilogyaxis}
     \end{tikzpicture}
-    \subcaption{Multi-series plot of every approaches' benchmark results.  N.B.:
-      The Y-axis is logarithmic.}\label{fig:eval.cgm.perf.plot}
+    \subcaption{Y-bar plot of every approaches' benchmark results.  N.B.: The
+      Y-axis is logarithmic.}\label{fig:eval.cgm.perf.plot}
   \end{subfigure}
   \hfill
-  \begin{subfigure}[t]{.35\linewidth}
-    \resizebox{!}{5cm}{
+  \begin{subfigure}[t]{.22\linewidth}
+    \centering
+    \raisebox{1.25cm}{\resizebox{\linewidth}{!}{
     \begin{tikzpicture}
       \tkzDefPoints{0/0/A,1/1/B}
       \tkzDrawCircle[R](A, 1.5cm)\tkzGetLength{rA}
       \tkzDrawCircle[R](B, 1cm)  \tkzGetLength{rB}
       \tkzInterCC[R](A,\rA pt)(B,\rB pt) \tkzGetPoints{C}{D}
       \tkzDrawPoints[color=red](C,D)
-    \end{tikzpicture}}
-    \subcaption{Scenario 13 of ConstraintGM's set of benchmarks.}%
+    \end{tikzpicture}}}
+    \subcaption{Scenario 13 from the benchmark suite.}%
     \label{fig:eval.cgm.perf.13}
   \end{subfigure}
   \caption[ConstraintGM benchmarks and Scenario 13]{\label{fig:eval.cgm.perf}%
@@ -167,74 +176,12 @@ that preceded this one.
 \end{figure}
 
 Analyzing the results further, we can see our solution also outdoes
-ConstraintGM's \ac{GFL}.  This is most likely due to the fact that we are
-relying on \ac{CGAL}, a library implemented in C++.  The latter in turn is
-notoriously known for being a high performance language, potentially
-outperforming Racket.  Nevertheless, there is some overhead in the form of
-Julia, but the results are still positive, on average beating the \ac{GFL} by an
-order of magnitude.
-
-However, some of our solution's results deviate around a thousand times more
-than others, fluctuating from mild micro-second deviations to variations in the
-millisecond range.  \Cref{fig:eval.cgm.perferr} illustrates this phenomenon more
-clearly.  Looking back at the scenarios where the error is wider, a pattern
-starts to emerge as those scenarios are the ones where the participating objects
-intersect.  In other words, objects are being created.
-
-\begin{figure}[htb]
-  \centering
-  \begin{tikzpicture}
-  \begin{semilogyaxis}[cgm,
-    title={GFL vs. Our solution},
-    xlabel={Scenarios},
-    ylabel={Average Time (ns, log)},
-    enlarge y limits={.2,upper},
-    width={.9\linewidth},
-    height=6cm,
-    bar width=.43\linewidth/14,
-    legend columns=-1
-  ]
-    \addplot+ table [y error=std] {data/cgm-gfl.csv};
-    \addplot+ table [y error=std] {data/jlcgal.csv};
-    \legend{GFL,Our solution}
-  \end{semilogyaxis}
-  \end{tikzpicture}
-  \caption[ConstraintGM's GFL vs. Our solution]{\label{fig:eval.cgm.perferr}% A
-    A slightly more detailed comparison between the \ac{GFL} and our solution
-    alone, additionally representing the results' standard deviation.  N.B.:
-    The Y-axis is logarithmic.}
-\end{figure}
-
-It seems object creation takes a toll on our solution efficiency despite clear
-performance gains on average.  This is probably related to the complexity and
-superior dimension of \ac{CGAL}'s primitive geometric objects when compared to
-the ones used by the \ac{GFL}.  Examining our solution's more detailed benchmark
-results (see \cref{lst:appendix.cgm.data.jl}), we can see more information about
-how much time is consumed during garbage collection, and estimates on the amount
-of memory used and how many allocations were performed.
-
-Every scenario that produced objects also shows garbage collection involvement
-in some sense.  In some of the worst cases, nearly half of the time is spent
-collecting objects.  But garbage collection in such scenarios is to be expected,
-and on average, typically no more than one tenth of the time is spent in garbage
-collection.  It could still be noticeable, but at this scale, it seems
-negligible.  Ironically, ConstraintGM's \ac{GFL} did not spend any time in
-garbage collection (see \cref{lst:appendix.cgm.data.rkt}), though our sample size
-is tremendously smaller than that produced by the benchmark runs using
-\texttt{BenchmarkTools.jl}.  This could also be once again related to the
-difference in complexity of the objects being created by the \ac{GFL} and our
-solution.
-
-One of the great features \texttt{BenchmarkTools.jl} has is its capability of
-also producing a histogram of the samples it collected.  Looking over at these
-problematic scenarios, the histograms show an accumulation of samples towards
-the faster run times, leaving some crumbs spread out.  This is consistent with
-the scenarios' respectively greater standard deviation values.
+ConstraintGM's \ac{GFL} by a significant margin.  This is most likely due to the
+fact that we are relying on \ac{CGAL}, a library implemented in C++.  The latter
+is notoriously known for being a high-performance language, considerably
+outperforming Racket in a series of benchmarks.  Nevertheless, despite some
+overhead in the case of Julia, the results are still positive, on average
+beating the \ac{GFL} by an order of magnitude.
 
 In conclusion, our solution proves capable and performant, having surpassed
-ConstraintGM's \ac{GFL} by an entire order of magnitude on average.  The
-downside is the potential yet seemingly rare slower computations when we are
-creating lots of objects which could prove problematic.  However, upon further
-observation, we can conclude that a vast majority of the time that is not the
-case and such situations where computation is in fact impacted are rare.  Even
-then, the impact seems negligible as well.
+ConstraintGM's \ac{GFL} by an entire order of magnitude on average.
