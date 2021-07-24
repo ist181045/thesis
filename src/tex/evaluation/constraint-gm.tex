@@ -19,9 +19,9 @@ This approach came at a severe performance cost, the reason being two-fold:
 The considerable performance penalty of this approach are hard to justify in the
 case of simple geometric problems for which there are well-known efficient
 solutions. This lead to an \textit{impromptu} implementation of some \ac{GC}
-problem solutions, creating what was called the \ac{GFL}. As expected, the
-latter approach revealed that contextually specialized solutions had much better
-performance than relying on a generic solver.
+problem solutions, creating the \ac{GFL}. As expected, the latter approach
+revealed that contextually specialized solutions had much better performance
+than relying on a generic solver.
 
 It is worth noting that relying on Maxima meant ConstraintGM was intrinsically
 exact and robust since symbolic \ac{GCS} methods, used by Maxima, automatically
@@ -73,50 +73,50 @@ comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
     & \multicolumn{1}{c}{\textbf{GFL}}
     & \multicolumn{1}{c}{\textbf{Our solution}} & \\
     \midrule
-     1 & \texttt{~2.265 s ± 142.344 ms}
-       & \texttt{~8.778 ms ± ~~1.641 ms}
-       & \texttt{362.191 μs ± ~4.841 ms}
+     1 & \verb| 2.265 s ± 142.344 ms|
+       & \verb| 8.778 ms ±   1.641 ms|
+       & \verb|362.191 μs ±  4.841 ms|
        & \multirow{2}{*}{Line $\cap$ Line}\\
-     2 & \texttt{~1.645 s ± 197.824 ms}
-       & \texttt{~6.222 ms ± 440.959 μs}
-       & \texttt{159.567 μs ± ~4.634 μs} &\\
+     2 & \verb| 1.645 s ± 197.824 ms|
+       & \verb| 6.222 ms ± 440.959 μs|
+       & \verb|159.567 μs ±  4.634 μs| &\\
     \midrule
-     3 & \texttt{~3.958 s ± 295.673 ms}
-       & \texttt{~9.444 ms ± ~~1.333 ms}
-       & \texttt{~~1.871 ms ± ~4.892 ms} 
+     3 & \verb| 3.958 s ± 295.673 ms|
+       & \verb| 9.444 ms ±   1.333 ms|
+       & \verb|  1.871 ms ±  4.892 ms| 
        & \multirow{3}{*}{Circle $\cap$ Line}\\
-     4 & \texttt{~3.070 s ± 243.768 ms}
-       & \texttt{~8.000 ms ± ~~0.000 ns}
-       & \texttt{955.815 μs ± ~3.710 ms} &\\
-     5 & \texttt{~1.839 s ± ~84.460 ms}
-       & \texttt{~6.000 ms ± ~~0.000 ns}
-       & \texttt{600.386 μs ± 19.807 μs} &\\
+     4 & \verb| 3.070 s ± 243.768 ms|
+       & \verb| 8.000 ms ±   0.000 ns|
+       & \verb|955.815 μs ±  3.710 ms| &\\
+     5 & \verb| 1.839 s ±  84.460 ms|
+       & \verb| 6.000 ms ±   0.000 ns|
+       & \verb|600.386 μs ± 19.807 μs| &\\
     \midrule
-     6 & \texttt{~1.311 s ± ~59.139 ms}
-       & \texttt{~5.111 ms ± 333.333 μs}
-       & \texttt{241.531 μs ± 12.504 μs} 
+     6 & \verb| 1.311 s ±  59.139 ms|
+       & \verb| 5.111 ms ± 333.333 μs|
+       & \verb|241.531 μs ± 12.504 μs| 
        & \multirow{8}{*}{Circle $\cap$ Circle}\\
-     7 & \texttt{~1.847 s ± ~50.466 ms}
-       & \texttt{~5.333 ms ± 500.000 μs}
-       & \texttt{242.780 μs ± ~5.692 μs} &\\
-     8 & \texttt{~1.868 s ± ~37.650 ms}
-       & \texttt{~5.333 ms ± 500.000 μs}
-       & \texttt{245.425 μs ± 11.840 μs} &\\
-     9 & \texttt{~4.277 s ± ~37.053 ms}
-       & \texttt{~5.222 ms ± 440.959 μs}
-       & \texttt{515.829 μs ± ~4.881 ms} &\\
-    10 & \texttt{~2.506 s ± 238.696 ms}
-       & \texttt{~7.222 ms ± 440.959 μs}
-       & \texttt{629.341 μs ± ~5.360 ms} &\\
-    11 & \texttt{~3.493 s ± 258.715 ms}
-       & \texttt{~7.222 ms ± 440.959 μs}
-       & \texttt{~~1.453 ms ± ~5.070 ms} &\\
-    12 & \texttt{~3.830 s ± 150.402 ms}
-       & \texttt{~9.444 ms ± 527.046 μs}
-       & \texttt{~~1.455 ms ± ~5.088 ms} &\\
-    13 & \texttt{11.111 s ± ~81.302 ms}
-       & \texttt{10.222 ms ± ~~1.093 ms}
-       & \texttt{~~1.463 ms ± ~5.055 ms} &\\
+     7 & \verb| 1.847 s ±  50.466 ms|
+       & \verb| 5.333 ms ± 500.000 μs|
+       & \verb|242.780 μs ±  5.692 μs| &\\
+     8 & \verb| 1.868 s ±  37.650 ms|
+       & \verb| 5.333 ms ± 500.000 μs|
+       & \verb|245.425 μs ± 11.840 μs| &\\
+     9 & \verb| 4.277 s ±  37.053 ms|
+       & \verb| 5.222 ms ± 440.959 μs|
+       & \verb|515.829 μs ±  4.881 ms| &\\
+    10 & \verb| 2.506 s ± 238.696 ms|
+       & \verb| 7.222 ms ± 440.959 μs|
+       & \verb|629.341 μs ±  5.360 ms| &\\
+    11 & \verb| 3.493 s ± 258.715 ms|
+       & \verb| 7.222 ms ± 440.959 μs|
+       & \verb|  1.453 ms ±  5.070 ms| &\\
+    12 & \verb| 3.830 s ± 150.402 ms|
+       & \verb| 9.444 ms ± 527.046 μs|
+       & \verb|  1.455 ms ±  5.088 ms| &\\
+    13 & \verb|11.111 s ±  81.302 ms|
+       & \verb|10.222 ms ±   1.093 ms|
+       & \verb|  1.463 ms ±  5.055 ms| &\\
     \bottomrule
   \end{tabular*}
 \end{table}

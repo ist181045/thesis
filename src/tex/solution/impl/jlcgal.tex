@@ -134,18 +134,17 @@ impractical, given \ac{CGAL}'s complexity.
 
 Fortunately, the Julia community has explored methods of interoperating with
 many other languages, one of them being C++.  That exploration resulted in
-packages like \texttt{CxxWrap.jl}~\cite{Janssens:2021:CxxWrap.jl}.\footnote{An
-alternative was considered at the time, in the form of
-\texttt{Cxx.jl}~\cite{Fischer:2019:Cxx.jl}, but it proved to be a less stable
-alternative.} \texttt{CxxWrap.jl} adopts an approach to language operability
-similar to that of BOOST.Python~\cite{Abrahams:2003:BHSBP} or
-pybind11~\cite{Wenzel:2017:pybind11}.  The user writes the code for the Julia
-wrapper in C++, and then simply issue an instruction on the Julia side to
-initialize the library, making it available there.  The Julia package is
-supported by a C++ component known as \texttt{libcxxwrap-julia}, or the
-friendlier name, JlCxx. This component is what the C++ wrapper code depends on.
-\Cref{lst:solution.impl.jlcgal.jlcxx} constitutes the code to wrap necessary
-functionality to reproduce the example \ac{CGAL} program in
+packages like 
+\texttt{CxxWrap.jl}\footnote{\url{https://github.com/JuliaInterop/CxxWrap.jl}}.
+\texttt{CxxWrap.jl} adopts an approach to language interoperation similar to
+that of BOOST.Python~\cite{Abrahams:2003:BHSBP} or
+pybind11\footnote{\url{https://github.com/pybind/pybind11}}.  The user writes
+the code for the Julia wrapper in C++, and then simply issue an instruction on
+the Julia side to initialize the library, making it available there.  The Julia
+package is supported by a C++ component known as \texttt{libcxxwrap-julia}, or
+the friendlier name, JlCxx. This component is what the C++ wrapper code depends
+on.  \Cref{lst:solution.impl.jlcgal.jlcxx} constitutes the code to wrap
+necessary functionality to reproduce the example \ac{CGAL} program in
 \cref{lst:solution.impl.cgal.pas}.
 
 \begin{listing}[p]
@@ -189,7 +188,7 @@ available is
   \item tell \texttt{CxxWrap.jl} where the library is,
   \item tell \texttt{CxxWrap.jl} to initialize itself when the module is loaded,
   and
-  \item export the mapped functionality).
+  \item export the mapped functionality.
 \end{enumerate*}
 The rest of the non-highlighted code, both in this example and the previous
 only serves the purpose of obtaining a human-readable representation of the C++

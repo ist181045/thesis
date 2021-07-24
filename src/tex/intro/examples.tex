@@ -5,7 +5,7 @@
 This section presents two simple examples of geometric models that are defined
 through the specification of \acp{GC}, and the respective solutions using
 intuitive algebraic formulation, accompanied by programmatic solutions using
-\ac{TikZ}~\cite{Tantau:2015:tikz-manual} and Eukleides~\cite{Obrecht:2010:EM}.
+\acs{TikZ}~\cite{Tantau:2021:TikZ} and Eukleides~\cite{Obrecht:2010:EM}.
 Depictions of the aforementioned models can be seen in \cref{fig:intro.example}.
 The examples are limited to the two-dimensional Euclidean plane over real
 numbers, $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
@@ -52,18 +52,18 @@ and $\vec{u} = (u_x, u_y)$ is the vector that drives the line.  To then describe
 the line that goes through $C$ and is parallel to $\overleftrightarrow{AB}$, one
 must compute the base point $Q$, trivially $C$, and the directional vector
 $\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.  Let $Q = C$,
-and $\vec{u} = B - A$, such that, from \cref{eq:line.parametric.2},
+and $\vec{u} = B - A$, such that
 \[
   P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}.
 \]
 
 \Cref{lst:intro.example.parallel.tikz} shows the code used to produce the
-example shown in \cref{fig:intro.example.parallel} using \ac{TikZ} with the
-\texttt{tkz-euclide} \LaTeX{} package, using \texttt{tkzDefLine}, which takes
-two points $A,\,B$, with the \texttt{parallel} transformation option.  This
-option takes the point $C$ the resulting line goes through.  The result is a
-point $D = C + \vec{u}$, which can be obtained using \texttt{tkzGetPoint} to
-later draw the line. 
+example shown in \cref{fig:intro.example.parallel} using \acs{TikZ} with the
+\texttt{tkz-euclide}\footnote{\url{https://ctan.org/pkg/tkz-euclide}} \LaTeX{}
+package, using \texttt{tkzDefLine}, which takes two points $A,\,B$, with the
+\texttt{parallel} transformation option.  This option takes the point $C$ the
+resulting line goes through.  The result is a point $D = C + \vec{u}$, which can
+be obtained using \texttt{tkzGetPoint} to later draw the line. 
 
 \begin{listing}[htb]
   \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tex}
@@ -291,7 +291,7 @@ for instance, we have
 \]
 
 \Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
-example in \Cref{fig:intro.example.circumcenter} using \ac{TikZ} with the
+example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the
 \texttt{tkz-euclide} \LaTeX{} package.  To compute the center point of $\odot
 O_r$, one can use \texttt{tkzCircumCenter}, which takes three points
 $A,\,B,\,C$, and generates the result $O$, obtainable using

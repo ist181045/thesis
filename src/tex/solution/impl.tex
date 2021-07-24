@@ -14,15 +14,16 @@ Rhinoceros3D, Autodesk's Revit, and Radiance, respectively, with no particular
 focus on any of them.  Digging a layer deeper, we find the \ac{AD} tool, which,
 by means made available by the tools above it, produces models specific to those
 tools from a description provided by the user.  The \ac{AD} tool we've chosen
-was Khepri~\cite{Leitao:2019:GRUGEAV,Leitao:2021:Khepri.jl}, a text-based tool
-written in the Julia programming language~\cite{Bezanson:2017:JAFANC}.  Khepri
-is the successor of another text-based \ac{AD} tool named
-Rosetta~\cite{Leitao:2011:PGDCAD}, a tool written in the Racket programming
-language~\cite{PLT:2010:Reference}.  It follows that the \textit{Geometric
-Constraint Primitives} were implemented in the Julia language as well, supported
-by an \textit{Exact Computation Geometry Library}.  The library chosen for the
-effect was the \acf{CGAL}~\cite{CGAL:2018}, a highly performant and robust
-geometric library written in the C++ programming
+was
+Khepri\footnote{\url{https://github.com/aptmcl/Khepri.jl}}~\cite{Leitao:2019:GRUGEAV},
+a text-based tool written in the Julia programming
+language~\cite{Bezanson:2017:JAFANC}.  Khepri is the successor of another
+text-based \ac{AD} tool named Rosetta~\cite{Leitao:2011:PGDCAD}, a tool written
+in the Racket programming language~\cite{PLT:2010:Reference}.  It follows that
+the \textit{Geometric Constraint Primitives} were implemented in the Julia
+language as well, supported by an \textit{Exact Computation Geometry Library}.
+The library chosen for the effect was \ac{CGAL}~\cite{CGAL:5.3:Project}, a
+highly performant and robust geometric library written in the C++ programming
 language~\cite{Stroustrup:2013:CPP}.
 
 This language disparity between the \textit{Geometric Constraint Primitives}

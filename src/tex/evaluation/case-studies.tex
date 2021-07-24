@@ -50,7 +50,7 @@ Eero Aarnio's Egg chair, James Law's Cybertecture Egg building, and RAU
 Architects and Ro\&Ad Architects' Tij observatory.
 
 The egg shape is a broad concept, as it can refer to a wide range of curves
-resembling an egg \cite{Dixon:1991:Mathographics}.  In this case, our shape is
+resembling an egg~\cite{Dixon:1991:Mathographics}.  In this case, our shape is
 bilaterally symmetric and is composed of four arcs, the side arcs being tangent
 to the bottom and top arcs.
 
@@ -59,7 +59,7 @@ $O_1$, the bottom and top arcs' radii $r_1$ and $r_2$ respectively, and the
 egg's height $h$ (\cref{fig:eval.studies.egg.prob.params}).  Different egg
 shapes, more or less elongated, can be obtained by varying the parameters'
 values (\cref{fig:eval.studies.egg.prob.vars}).  One of those variations, where
-$r_2 = r_1 (2 − \sqrt2)$ and $h = 2r_1 + r_2$, corresponds to the Moss' Egg
+$r_2 = (2 - \sqrt2)r_1$ and $h = 2r_1 + r_2$, corresponds to the Moss' Egg
 (\cref{fig:eval.studies.egg.prob}, the egg with $h = 2.6$ and $r_2 = 0.6$).
 
 \begin{figure}[htb]
@@ -103,12 +103,12 @@ be computed according to the following procedure
 (\cref{fig:eval.studies.egg.sol.c}):
 
 \begin{enumerate}
-  \item $C_{2}' = \mathrm{circle}\left(P_1, r_2\right)$
+  \item $C_{2}' = \mathrm{circle}\left(P_1, r_2\right)$%
   \label{enum:eval.studies.egg.cs}
   \item $I = \mathrm{intersection}\left(C_{2}', \overline{O_1 P_2}\right)$
   \item $B = \mathrm{bisector}\left(\overline{IO_2}\right)$
   \item $O_3 = \mathrm{intersection}\left(B, O_1 P_1\right)$
-  \item $r_3 = \mathrm{length}\left(\overline{O_3 P_1}\right)$
+  \item $r_3 = \mathrm{length}\left(\overline{O_3 P_1}\right)$%
   \label{enum:eval.studies.egg.ce}
   \item $\alpha = \mathrm{angle}\left(O_2,O_3,O_1\right)$
 \end{enumerate}
@@ -323,11 +323,11 @@ and $I_2$ are given by a rotation around $O_1$
 (\cref{fig:eval.studies.star.sol}).
 
 \begin{enumerate}
-  \item $r_1 = r\frac{\sin^2\frac{\pi}{n}}{\cos\frac{\pi}{n}}$
+  \item $r_1 = r\frac{\sin^2\frac{\pi}{n}}{\cos\frac{\pi}{n}}$%
   \label{enum:eval.studies.star.r1}
-  \item $r_2 = r\cos\frac{\pi}{n} - r_1$
+  \item $r_2 = r\cos\frac{\pi}{n} - r_1$%
   \label{enum:eval.studies.star.r2}
-  \item $O_1 = O + \left(r_2, \angle\frac{\pi}{n}\right)$
+  \item $O_1 = O + \left(r_2, \angle\frac{\pi}{n}\right)$%
   \label{enum:eval.studies.star.O1}
   \item $I_1 = O_1 + \left(r_1, \angle\frac{2\pi}{n} - \frac{\pi}{2}\right)$
   \item $I_2 = O_1 + \left(r_1, \angle\frac{\pi}{2}\right)$
@@ -423,16 +423,16 @@ $\alpha$ (step \ref{enum:eval.studies.voronoi.sol.a.alpha}).
 
 \begin{enumerate}
   \item $a, b, c = \lVert P_2 - P_1 \rVert, \lVert P_3 - P_1 \rVert, \lVert P_3
-  - P_2 \rVert$
+  - P_2 \rVert$%
   \label{enum:eval.studies.voronoi.sol.a.tri}
   \item $s = \frac{a + b + c}{2}$
-  \item $A = \sqrt{s(s - a)(s - b)(s - c)}$
+  \item $A = \sqrt{s(s - a)(s - b)(s - c)}$%
   \label{enum:eval.studies.voronoi.sol.a.area}
-  \item $r = \frac{abc}{4A}$
+  \item $r = \frac{abc}{4A}$%
   \label{enum:eval.studies.voronoi.sol.a.circum}
-  \item $\alpha = \arccos\frac{a}{2r}$
+  \item $\alpha = \arccos\frac{a}{2r}$%
   \label{enum:eval.studies.voronoi.sol.a.alpha}
-  \item $C = P_1 + \left(r, \angle\alpha\right)$
+  \item $C = P_1 + \left(r, \angle\alpha\right)$%
   \label{enum:eval.studies.voronoi.sol.a.move}
 \end{enumerate}
 

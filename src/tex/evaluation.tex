@@ -18,8 +18,8 @@ out to repurpose \ac{CGAL}'s 2D Delaunay Triangulation and Voronoi Diagram
 algorithms and further compare the resulting mapping's performance and
 correctness when compared to a native Julia implementation of the algorithms as
 provided by the package
-\texttt{VoronoiDelaunay.jl}~\cite{Keselman:2019:VoronoiDelaunay.jl}, that, in
-the past, was once benchmarked against
+\texttt{VoronoiDelaunay.jl}\footnote{\url{https://github.com/JuliaGeometry/VoronoiDelaunay.jl}},
+that, in the past, was once benchmarked against
 \ac{CGAL}\footnote{\url{https://gist.github.com/skariel/3d2018f9341a058e00fc}}.
 Additionally, we set out to estimate the effort it took to develop
 \texttt{VoronoiDelaunay.jl} and compare that to the effort it took to extract an
@@ -38,18 +38,16 @@ We aim to show that, by following the latter approach, resulting programs become
 both easier to understand and reproducible as the set of instructions can be
 used to recreate the resulting geometry by hand, using a ruler and a compass.
 
-Benchmarks were performed on a Lenovo ThinkPad E595 laptop computer with the
-following system specifications:
+Benchmarks were performed on a Lenovo\textsuperscript\textregistered\
+ThinkPad\textsuperscript\textregistered\ E595 laptop computer with the following
+system specifications:
 
 \begin{itemize}
-  \acused{AMD}\label{acro:AMD}
-  \acused{CPU}\label{acro:CPU}
-  \item \ac{AMD} Ryzen\textsuperscript{\texttrademark} 5 3500U \ac{CPU} @
-  2.1GHz\footnote{Base clock frequency.  Can boost up to 3.7GHz.};
-  \acused{SO-DIMM}\label{acro:SO-DIMM}
-  \acused{DDR}\label{acro:DDR}
-  \acused{RAM}\label{acro:RAM}
-  \item 1×16GB \ac{SO-DIMM} of \ac{DDR}4 \ac{RAM} @ 2400MT/s.
+  \item \acsu{AMD}\label{acro:AMD} Ryzen\textsuperscript{\texttrademark} 5 3500U
+  \acsu{CPU}\label{acro:CPU} @ 2.1GHz\footnote{Base clock frequency.  Can boost
+  up to 3.7GHz.};
+  \item 1×16GB \acsu{SO-DIMM}\label{acro:SO-DIMM} of \acsu{DDR}\label{acro:DDR}4
+  \acsu{RAM}\label{acro:RAM} @ 2400MT/s.
   \item Arch\footnote{\url{https://archlinux.org}}
   Linux\textsuperscript{\textregistered} x86\_64 Kernel
   5.12.15-zen1\footnote{\url{https://github.com/zen-kernel/zen-kernel/tree/v5.12.15-zen1}}

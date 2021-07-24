@@ -53,13 +53,13 @@ arithmetic operations are slower, however mitigating precision issues, providing
 more accurate constructs and improving code robustness.
 
 Several libraries already strive to implement robust geometric computation.  One
-such example is \acf{CGAL}~\cite{CGAL:2018}.  \Ac{CGAL} is a comprehensive
+such example is \ac{CGAL}~\cite{CGAL:5.3:Project}.  \Ac{CGAL} is a comprehensive
 library that employs an exact computation paradigm~\cite{Yap:1995:ECP},
 producing correct results despite roundoff errors and properly handling
 \textit{degenerate} situations (e.g., 3D points on a 2D plane), relying on
 numbers with arbitrary precision to do so.  Moreover, other libraries, such as
-\acs{LEDA}\label{acro:LEDA}~\cite{LEDA:2017,Mehlhorn:1989:LEDA}, and
-CORE~\cite{Karamcheti:1999:CLRNGC} and its successor~\cite{Yu:2010:CORE2}, also
-deal with robustness problems in geometric computation, offering simpler
-interfaces when compared to \ac{CGAL}.  However, \ac{CGAL} arguably remains the
-\textit{de facto} library for robust exact geometric computation.
+\ac{LEDA}~\cite{Mehlhorn:1989:LEDA}, and CORE~\cite{Karamcheti:1999:CLRNGC} and
+its successor~\cite{Yu:2010:CORE2}, also deal with robustness problems in
+geometric computation, offering simpler interfaces when compared to \ac{CGAL}.
+However, \ac{CGAL} arguably remains the \textit{de facto} standard library for
+robust exact geometric computation.
