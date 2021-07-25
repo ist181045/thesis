@@ -1,2 +1,0 @@
-{"rule":"BARBARISMS","sentence":"\\bDesign\\b"}
-{"rule":"PT_BARBARISMS_REPLACE","sentence":"\\bDesign\\b"}
