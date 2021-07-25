@@ -29,6 +29,7 @@
     "**/*.synctex.gz(busy)": true,
     "**/*.toc": true,
   },
+  "julia.environmentPath": "/home/rgcv/src/github/ist181045/thesis/src/jl",
   "ltex.latex.commands": {
     "\\Citet{}": "dummy",
     "\\DTMfetchmonth{}": "dummy",
@@ -47,7 +48,8 @@
     "\\verbatiminput{}": "ignore"
   },
   "ltex.latex.environments": {
-    "subfigure": "ignore"
+    "subfigure": "ignore",
+    "minted": "ignore"
   },
   "latex-workshop.latex.clean.fileTypes": [
     "*-figure[0-9]*.pdf",
