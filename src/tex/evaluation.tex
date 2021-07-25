@@ -11,8 +11,21 @@ similar project called ConstraintGM~\cite{Pinheiro:2016:MGR}.  We were able to
 reproduce the project's original benchmark tests and create an analogous test
 suite for our solution so we can compare both projects.
 
-Secondly, we explore our approach's potential regarding repurposing more complex
-geometric algorithms with intrinsic \ac{GC} relations in contrast with
+Secondly, we showcase four different case studies inspired by existing designs.
+This section of the evaluation focuses on comparing different approaches to
+solving \ac{GC} problems present in each case study by adopting two different
+approaches: 
+\begin{enumerate*}[label= (\arabic*)]
+  \item an analytic approach, one programming naturally begs for, and 
+  \item a constructive approach, essentially adding a conceptual abstraction
+  layer over the former.
+\end{enumerate*}
+We aim to show that, by following the latter approach, resulting programs become
+both easier to understand and reproducible as the set of instructions can be
+used to recreate the resulting geometry by hand, using a ruler and a compass.
+
+Finally, as an added bonus, we explore our approach's potential regarding
+repurposing more complex geometric algorithms, contrasting it with
 re-implementing a version of said algorithms from scratch.  Specifically, we set
 out to repurpose \ac{CGAL}'s 2D Delaunay Triangulation and Voronoi Diagram
 algorithms and further compare the resulting mapping's performance and
@@ -24,19 +37,6 @@ that, in the past, was once benchmarked against
 Additionally, we set out to estimate the effort it took to develop
 \texttt{VoronoiDelaunay.jl} and compare that to the effort it took to extract an
 analogous algorithm from \ac{CGAL}.
-
-Finally, we end our evaluation by showcasing four different case studies
-inspired by existing designs.  This section of the evaluation focuses on
-comparing different approaches to solving \ac{GC} problems present in each case
-study by adopting two different approaches: 
-\begin{enumerate*}[label= (\arabic*)]
-  \item an analytic approach, one programming naturally begs for, and 
-  \item a constructive approach, essentially adding a conceptual abstraction
-  layer over the former.
-\end{enumerate*}
-We aim to show that, by following the latter approach, resulting programs become
-both easier to understand and reproducible as the set of instructions can be
-used to recreate the resulting geometry by hand, using a ruler and a compass.
 
 Benchmarks were performed on a Lenovo{\textregistered}
 ThinkPad{\textregistered} E595 laptop computer with the following
@@ -57,9 +57,6 @@ system specifications:
 
 \input{tex/evaluation/constraint-gm}
 
-\section{VoronoiDelaunay.jl}%
-\label{sec:eval.vdjl}
-
 % \todo[inline]{Maybe leave the "how easy it is to leverage our approach to get
 % more, both in quantity and complexity, algorithsm from CGAL" discussion for this
 % part and evaluate the potential time it takes to use Voronoi Diagrams from CGAL
@@ -74,3 +71,76 @@ system specifications:
 % implemented in VoronoiDelaunay.jl}
 
 \input{tex/evaluation/case-studies}
+
+\section{Voronoi Delaunay}%
+\label{sec:eval.vdjl}
+
+\begin{longlisting}
+  \todo{Candidate for appendix.}
+  \caption[JlCxx wrapper around CGAL's Delaunay algorithms]{
+    Wrapper code using JlCxx around \ac{CGAL}'s algorithms for producing
+    2D Delaunay Triangulations and Voronoi Diagrams.}%
+  \label{lst:eval.vdjl.jlcxx}
+  \inputminted{cpp}{cpp/voronoi.cpp} 
+\end{longlisting}
+
+\begin{listing}[htb]
+  \inputminted{julia}{jl/Voronoi.jl}
+  \caption[Bare-bones Julia module wrapping CGAL's Delaunay algorithms]{
+    Bare-bones Julia module wrapping \ac{CGAL}'s 2D Delaunay Triangulation and
+    Voronoi Diagrams, supported by the JlCxx wrapper in
+    \cref{lst:eval.vdjl.jlcxx}.}%
+  \label{lst:eval.vdjl.jl}
+\end{listing}
+
+\begin{table}[htb]
+  \caption[Delaunay Triangulation batch insertion benchmark]{
+    Execution times for batch insertion of various powers-of-ten points using
+    both \ac{CGAL}'s and \texttt{VoronoiDelaunay.jl} algorithms.  The former was
+    wrapped in \cref{lst:eval.vdjl.jl}, but is also present in \texttt{CGAL.jl},
+    albeit with added complexity.}%
+  \label{tab:eval.vdjl.bench}
+  \centering
+  \begin{tabular}{r*{2}{l}}
+    \toprule
+    \multirow{2}{*}{\textbf{\# Points}}
+    & \multicolumn{2}{c}{\textbf{Execution time (mean ± σ)}} \\
+    & \multicolumn{1}{c}{\texttt{Voronoi.jl}}
+    & \multicolumn{1}{c}{\texttt{VoronoiDelaunay.jl}} \\
+    \midrule
+    10\textsuperscript{2} & \verb| 42.145 μs ±  5.638 μs| & \verb| 53.799 μs ±  39.811 μs| \\
+    10\textsuperscript{3} & \verb|509.757 μs ±  1.258 ms| & \verb|510.851 μs ± 113.523 μs| \\
+    10\textsuperscript{4} & \verb|  5.879 ms ±  3.874 ms| & \verb|  5.606 ms ± 382.603 μs| \\
+    10\textsuperscript{5} & \verb| 62.344 ms ± 11.980 ms| & \verb| 65.103 ms ±   2.287 ms| \\
+    10\textsuperscript{6} & \verb|668.331 ms ± 44.458 ms| & \verb|841.925 ms ±  51.394 ms| \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htb]
+  \centering
+  \begin{tikzpicture}
+  \begin{loglogaxis}[ybar,
+    title={\texttt{Voronoi.jl} vs.\ \texttt{VoronoiDelaunay.jl}},
+    xlabel={Number of Points (log)},
+    ylabel={Average Time (ns, log)},
+    width={.9\linewidth},
+    height=8cm,
+    bar width={\linewidth/16},
+    enlarge y limits={.3,upper},
+    enlarge x limits={rel=.2},
+    legend columns=-1,
+    error bars/y explicit,
+    error bars/y dir=plus
+  ]
+    \addplot+ table [y error index=2] {data/voronoi-cgal.csv};
+    \addplot+ table [y error index=2] {data/voronoi-vdjl.csv};
+    \legend{Voronoi.jl,VoronoiDelaunay.jl}
+  \end{loglogaxis}
+  \end{tikzpicture}
+  \caption[Delaunay Triangulation comparison plot]{
+    Delaunay Triangulation benchmark comparison results collected form
+    \cref{tab:eval.vdjl.bench} in a Y-bar plot.  Both axes follow a logarithmic
+    scale.}%
+  \label{fig:eval.vdjl.bench}
+\end{figure}

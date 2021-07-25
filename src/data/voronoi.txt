@@ -1,0 +1,120 @@
+================================== 100 points ==================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CGAL.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 10000 samples with 1 evaluation.
+ Range (min … max):  34.432 μs … 554.193 μs  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     41.416 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   42.145 μs ±   5.638 μs  ┊ GC (mean ± σ):  0.00% ± 0.00%
+
+                       ▄█▂                                      
+  ▂▁▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▃▄█████▇▅▇▅▄▅▃▄▃▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂ ▃
+  34.4 μs         Histogram: frequency by time           52 μs <
+
+ Memory estimate: 928 bytes, allocs estimate: 3.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VoronoiDelaunay.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 10000 samples with 1 evaluation.
+ Range (min … max):  43.931 μs …  1.489 ms  ┊ GC (min … max): 0.00% … 91.99%
+ Time  (median):     51.264 μs              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   53.799 μs ± 39.811 μs  ┊ GC (mean ± σ):  2.01% ±  2.65%
+
+               ▂▄█▅▅▃▁                                         
+  ▁▁▁▁▁▁▁▂▂▂▃▆▇███████▅▄▂▂▂▁▁▂▂▂▂▂▂▃▂▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁ ▂
+  43.9 μs         Histogram: frequency by time        69.7 μs <
+
+ Memory estimate: 39.41 KiB, allocs estimate: 215.
+
+================================== 1000 points =================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CGAL.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 9667 samples with 1 evaluation.
+ Range (min … max):  478.624 μs … 124.182 ms  ┊ GC (min … max): 0.00% … 2.22%
+ Time  (median):     495.596 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   509.757 μs ±   1.258 ms  ┊ GC (mean ± σ):  0.06% ± 0.02%
+
+                  ▁▃▄▄▇█▇▇▄▂           ▂▂▁▃▃▃▅▄▃                 
+  ▂▁▂▂▂▂▂▂▂▃▃▃▄▅▆████████████▇▇▇▆▇▆▆▇█████████████▇▅▅▄▃▃▃▂▃▃▂▃▂ ▅
+  479 μs           Histogram: frequency by time          513 μs <
+
+ Memory estimate: 7.97 KiB, allocs estimate: 3.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VoronoiDelaunay.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 9658 samples with 1 evaluation.
+ Range (min … max):  470.034 μs …   1.939 ms  ┊ GC (min … max): 0.00% … 70.32%
+ Time  (median):     499.508 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   510.851 μs ± 113.523 μs  ┊ GC (mean ± σ):  1.76% ±  5.82%
+
+          ▁▃▇█▇▇▆▄▆▇▅▄                                           
+  ▂▂▂▂▃▃▄▆█████████████▇▅▄▃▃▃▃▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▂ ▄
+  470 μs           Histogram: frequency by time          592 μs <
+
+ Memory estimate: 308.34 KiB, allocs estimate: 2016.
+
+================================= 10000 points =================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CGAL.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 849 samples with 1 evaluation.
+ Range (min … max):  5.697 ms … 118.578 ms  ┊ GC (min … max): 0.00% … 0.99%
+ Time  (median):     5.728 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   5.879 ms ±   3.874 ms  ┊ GC (mean ± σ):  0.02% ± 0.03%
+
+   ▁▅▇▇██▇▆▄▄▂▂▃▁▁                                             
+  ▆███████████████▇▅▅▅█▆▇▅▆▆▅▆▆▆▆▆▅▁▁▁▅▄▁▁▄▄▁▅▄▁▁▁▁▅▄▄▁▄▁▁▄▁▅ █
+  5.7 ms       Histogram: log(frequency) by time      5.98 ms <
+
+ Memory estimate: 78.23 KiB, allocs estimate: 4.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VoronoiDelaunay.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 889 samples with 1 evaluation.
+ Range (min … max):  5.378 ms …   7.643 ms  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     5.491 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   5.606 ms ± 382.603 μs  ┊ GC (mean ± σ):  1.64% ± 5.01%
+
+   ▁▆█▇▄                                                       
+  ▄███████▆▅▅▅▅▄▁▁▁▁▁▄▁▁▁▁▄▆▇▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▄▇▅▅▇▄▆▆▆▅▆▁▇▅▅ ▇
+  5.38 ms      Histogram: log(frequency) by time      7.12 ms <
+
+ Memory estimate: 2.91 MiB, allocs estimate: 20016.
+
+================================= 100000 points ================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CGAL.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 81 samples with 1 evaluation.
+ Range (min … max):  60.715 ms … 168.723 ms  ┊ GC (min … max): 0.00% … 0.56%
+ Time  (median):     60.929 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   62.344 ms ±  11.980 ms  ┊ GC (mean ± σ):  0.02% ± 0.06%
+
+   ▃▄██                                                         
+  ▇████▆▃▄▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃▁▁▁▁▁▃ ▁
+  60.7 ms         Histogram: frequency by time         64.5 ms <
+
+ Memory estimate: 781.36 KiB, allocs estimate: 4.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VoronoiDelaunay.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 77 samples with 1 evaluation.
+ Range (min … max):  61.386 ms … 75.334 ms  ┊ GC (min … max): 0.00% … 9.91%
+ Time  (median):     64.489 ms              ┊ GC (median):    3.77%
+ Time  (mean ± σ):   65.103 ms ±  2.287 ms  ┊ GC (mean ± σ):  4.14% ± 3.48%
+
+               ▄█    ▄                                         
+  ▆▁▄▄▁▆▁▄▄▁▆▁▄█████▁█▄▆▄▄▁▁▄▆▄▁▄▁██▆▆█▄▆█▁▄▄▆▁▁▄▁▆▄▁▄▁▁▁▁▁▁▄ ▁
+  61.4 ms         Histogram: frequency by time        69.9 ms <
+
+ Memory estimate: 29.00 MiB, allocs estimate: 200016.
+
+================================ 1000000 points ================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CGAL.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 8 samples with 1 evaluation.
+ Range (min … max):  648.159 ms … 777.243 ms  ┊ GC (min … max): 0.00% … 0.11%
+ Time  (median):     650.569 ms               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   668.331 ms ±  44.458 ms  ┊ GC (mean ± σ):  0.02% ± 0.04%
+
+  █▃                                                             
+  ██▇▁▁▁▁▁▁▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇ ▁
+  648 ms           Histogram: frequency by time          777 ms <
+
+ Memory estimate: 7.63 MiB, allocs estimate: 4.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VoronoiDelaunay.jl ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BenchmarkTools.Trial: 6 samples with 1 evaluation.
+ Range (min … max):  766.543 ms … 918.534 ms  ┊ GC (min … max):  7.65% … 22.32%
+ Time  (median):     831.606 ms               ┊ GC (median):    14.46%
+ Time  (mean ± σ):   841.925 ms ±  51.394 ms  ┊ GC (mean ± σ):  15.64% ±  5.09%
+
+  █                       ███                 █               █  
+  █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁███▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█ ▁
+  767 ms           Histogram: frequency by time          919 ms <
+
+ Memory estimate: 290.05 MiB, allocs estimate: 2006420.
+
