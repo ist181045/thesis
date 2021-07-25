@@ -79,7 +79,7 @@ function that takes three points as its parameters, returning the circumcenter
 about the given points, under the assumption the points are not collinear.  We
 could try and directly mirror \ac{CGAL}'s \texttt{Point\_3} type, but that would
 require that we know its layout.  Even then, we would be breaking an abstraction
-barrier that could prove detrimental if \ac{CGAL}' developers decide to change
+barrier that could prove detrimental if \ac{CGAL}'s developers decide to change
 the type's internal representation.  To circumvent this completely, we can just
 create a \mintinline{c}{struct} that opaquely wraps around \ac{CGAL}'s type.
 The C++ wrapper code for this example is listed in
@@ -142,18 +142,19 @@ pybind11\footnote{\url{https://github.com/pybind/pybind11}}.  The user writes
 the code for the Julia wrapper in C++, and then simply issue an instruction on
 the Julia side to initialize the library, making it available there.  The Julia
 package is supported by a C++ component known as \texttt{libcxxwrap-julia}, or
-the friendlier name, JlCxx. This component is what the C++ wrapper code depends
+the friendlier name JlCxx. This component is what the C++ wrapper code depends
 on.  \Cref{lst:solution.impl.jlcgal.jlcxx} constitutes the code to wrap
 necessary functionality to reproduce the example \ac{CGAL} program in
 \cref{lst:solution.impl.cgal.pas}.
 
-\begin{listing}[p]
+\begin{listing}[htbp]
   \caption[Wrapper CxxWrap code for Three points and one segment]{
     C++ wrapper code powered by JlCxx that maps the types and functions needed
     from \acs{CGAL} to reproduce the example shown in
     \cref{lst:solution.impl.cgal.pas} in Julia.}%
   \label{lst:solution.impl.jlcgal.jlcxx}
-  \inputminted[fontsize=\small,highlightlines={24,30-34,36-38,40-43,46-49}]%
+  \vspace{-8pt}
+  \inputminted[highlightlines={24,30-34,36-38,40-43,46-49}]%
     {cpp}{cpp/cgal_julia.cpp}
 \end{listing}
 
@@ -174,7 +175,7 @@ illustrated earlier with simpler examples using \mintinline{julia}{ccall}.
 \Cref{lst:solution.impl.jlcgal.cgal} shows a bare-bones CGAL Julia module.
 
 \begin{listing}[htbp]
-  \inputminted[highlightlines={4-6,8,10}]{julia}{jl/CGAL.jl} 
+  \inputminted[highlightlines={4-6,8,9}]{julia}{jl/CGAL.jl} 
   \caption[Bare-bones Julia module wrapping some of CGAL]{
     An example Julia module that mimics \texttt{CGAL.jl}, wrapping the library
     produced from \cref{lst:solution.impl.jlcgal.jlcxx}.  It initializes the
@@ -208,12 +209,10 @@ example, translated from C++.
   \label{lst:solution.impl.jlcgal.pas}
 \end{listing}
 
-We now have available some core functionality on which we can continue to
-incrementally build upon following a similar approach to that in
-\cref{lst:solution.impl.jlcgal.jlcxx}.  Doing so, with relatively low effort,
-will let us obtain the primitive objects on which our \textit{Geometric
-Constraint Primitives} will be supported on.  The final implementation section
-goes over how we effectively used the functionality from \texttt{CGAL.jl} to
-implement constructive solutions for \ac{GC} problems.  We showcase this
-approach with implementations of the example problems introduced in
-\cref{sec:intro.examples}.
+We illustrated how to repurpose some core functionality on which we can continue
+to incrementally build upon following a similar approach to that shown in
+\cref{lst:solution.impl.jlcgal.jlcxx}.  Doing so, with relatively low effort, we
+can obtain the primitive objects and functionality on which our
+\textit{Geometric Constraint Primitives} will be supported.  The following
+section goes over how we effectively used the functionality from
+\texttt{CGAL.jl} to implement constructive solutions for \ac{GC} problems.

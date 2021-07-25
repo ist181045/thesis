@@ -1,5 +1,6 @@
 ## project specific
 src/*.pdf
+build/
 out/
 *.equ
 *.so

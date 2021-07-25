@@ -53,8 +53,8 @@ We measured real execution time instead of \ac{CPU} time both for ConstraintGM
 and for our solution.  We ran ConstraintGM's benchmarks a total of nine times to
 obtain a relatively decent sample of results, while our solution's benchmarks
 were aided by \texttt{BenchmarkTools.jl}~\cite{Chen:2016:BenchmarkTools.jl}, a
-package that considerably facilitates benchmarking Julia code tremendously.  The
-source code used to benchmark both ConstraintGM and our solution is listed in
+package that considerably facilitates benchmarking Julia code.  The source code
+used to benchmark both ConstraintGM and our solution is listed in
 \cref{lst:appendix.cgm.bench.rkt,lst:appendix.cgm.bench.jl} respectively.  The
 benchmark's results are gathered in \cref{tab:eval.cgm.perf}.  To facilitate
 comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
@@ -180,8 +180,7 @@ ConstraintGM's \ac{GFL} by a significant margin.  This is most likely due to the
 fact that we are relying on \ac{CGAL}, a library implemented in C++.  The latter
 is notoriously known for being a high-performance language, considerably
 outperforming Racket in a series of benchmarks.  Nevertheless, despite some
-overhead in the case of Julia, the results are still positive, on average
-beating the \ac{GFL} by an order of magnitude.
+overhead in the case of Julia, the results are still positive.
 
 In conclusion, our solution proves capable and performant, having surpassed
 ConstraintGM's \ac{GFL} by an entire order of magnitude on average.

@@ -81,33 +81,4 @@ problems.
 
 \input{tex/solution/impl/cgal}
 \input{tex/solution/impl/jlcgal}
-
-\subsection{Geometric Constraint Primitives}%
-\label{sec:solution.impl.gcps}
-
-% \todo[inline]{With functionality available on the Julia side of things, call
-% back to the previously formulated examples, potentially elaborating with yet
-% another slightly more complex example.  Showcase that some of the functionality
-% that can be implemented with very little effort relying only on functionality
-% already present in mature library alone like CGAL is.  I confess I do not know
-% what to discuss in this section, despite feeling like it is the most important
-% one in some regard\ldots}
-
-\begin{listing}[htb]
-  \inputminted[highlightlines={5,19}]{julia}{jl/ex_parallel.jl}
-  \caption[Parallel lines example using our solution]{
-    Implementation of the parallel lines example illustrated in
-    \cref{fig:intro.example.parallel} using Khepri alongside our solution
-    backed by \texttt{CGAL.jl}.}%
-  \label{lst:solution.impl.gcps.parallel}
-\end{listing}
-
-\begin{listing}[htb]
-  \inputminted[highlightlines={2,19}]{julia}{jl/ex_circumcenter.jl}
-  \caption[Circumcenter example using our solution]{
-    Implementation of the circumcenter example illustrated in
-    \cref{fig:intro.example.circumcenter} using Khepri alongside our solution
-    backed by \texttt{CGAL.jl}.  In this particular case, we can leverage
-    \ac{CGAL}'s facilities directly.}%
-  \label{lst:solution.impl.gcps.circumcenter}
-\end{listing}
+\input{tex/solution/impl/gcps}

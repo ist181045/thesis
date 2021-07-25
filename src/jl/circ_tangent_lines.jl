@@ -1,3 +1,4 @@
+# implementation
 @cxxdereference tangent_lines(p::Point2, c::Circle2) =
     let o  = center(c), 
         r² = squared_radius(c),
@@ -8,11 +9,8 @@
         elseif r² == 0
             [Segment2(o, p)]
         else
-            mc = Circle2(midpoint(p, o), dₚ² / 4)
-            ps = CGAL.intersection(mc, c)
-            if CGAL.y(o) ≤ CGAL.y(p) 
-                reverse!(ps)
-            end
+            ps = intersection(c, Circle2(midpoint(p, o), dₚ² / 4))
+            y(o) ≤ y(p) && reverse!(ps)
             Segment2.(ps, Ref(p))
         end
     end
@@ -32,7 +30,7 @@
 
     # Auxiliary
     translation(v) = AffTransformation2(TRANSLATION, v)
-    translate(s, v) = CGAL.transform(s, translation(v))
+    translate(s, v) = transform(s, translation(v))
     vec(s, r) = (source(s) - o₁) * r₂ / r
 
     # External Tangents
@@ -59,6 +57,8 @@
     # Result
     [ssₑ[1], ssᵢ..., ssₑ[end]]
 end
+
+# conversion
 tangent_lines(p::Loc, c) =
     let ss = tangent_lines(convert(Point2, p), convert(Circle2, c))
         convert.(Path, ss)

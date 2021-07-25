@@ -6,7 +6,6 @@ struct Point # julia equivalent struct
     z::Float64
 end
 
-# julia wrapper function around C function
 circumcenter(p₁::Point, p₂::Point, p₃::Point) =
     ccall((:circumcenter, lib)  # qualified function name
         ,  Point                # return type
