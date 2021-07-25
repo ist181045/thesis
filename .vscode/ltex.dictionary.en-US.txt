@@ -15,6 +15,7 @@ CGAL
 ChairDNA
 circulators
 circumcenter
+circumradius
 ConstraintGM
 Cybertecture
 Delaunay
@@ -30,6 +31,7 @@ GeoGebra
 GeoSolver
 GhPython
 Guilin
+Hassell
 Homotopy
 Iberoamerican
 ImplicitCAD
@@ -39,6 +41,7 @@ Luzhniki
 McNeel
 Mottaghi
 Newton-Raphson
+octagram
 OpenJSCAD
 openNURBS
 OpenSCAD
@@ -73,6 +76,7 @@ triangulations
 underconstrained
 unsolvability
 Viner-Usmanova
+voronoi
 Voronoi
 VPL
 Wen-Tsün
