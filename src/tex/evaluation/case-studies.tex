@@ -452,9 +452,9 @@ We can increase the abstraction level of the solution by using the
 \textit{circumcenter} functionality implemented in our solution, which, in
 reality, is implemented in \ac{CGAL}:
 
-\begin{enumerate}
-  \item $C = \mathrm{circumcenter}\left(P_1, P_2, P_3\right)$
-\end{enumerate}
+\begin{itemize}
+  \item[] $C = \mathrm{circumcenter}\left(P_1, P_2, P_3\right)$
+\end{itemize}
 
 The circumcenter problem is only a small part of the generation of a Voronoi
 diagram, since we first need to build a Delaunay triangulation.  We can then 
@@ -463,9 +463,9 @@ draw the diagram's edges.  This set of steps can be abstracted away in a
 functionality called \textit{voronoi} that, given a set of points $P_S$,
 produces a 2D Euclidean Voronoi diagram:
 
-\begin{enumerate}
-  \item $V = \mathrm{voronoi}\left(P_S\right)$
-\end{enumerate}
+\begin{itemize}
+  \item[] $V = \mathrm{voronoi}\left(P_S\right)$
+\end{itemize}
 
 Implementing this functionality from scratch is a demanding and error-prone
 task.  Fortunately, \ac{CGAL} already has an algorithm that produces robust 2D
