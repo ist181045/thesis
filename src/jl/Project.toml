@@ -1,0 +1,20 @@
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+CGAL = "15fcbb24-5a00-427b-98c5-e32879a22884"
+CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
+Khepri = "c487d830-b105-11e8-2c9d-150ba7e503f8"
+PGFPlotsX = "8314cec4-20b6-5062-9cdb-752b83310925"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+RandomNumbers = "e6cf234a-135c-5ec9-84dd-332b85af5143"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+VoronoiDelaunay = "72f80fcb-8c52-57d9-aff0-40c1a3526986"
+
+[compat]
+BenchmarkTools = "~1.1.1"
+CGAL = "~0.5.0"
+CxxWrap = "~0.11.2"
+Khepri = "~0.1.0"
+PGFPlotsX = "~1.3.0"
+Plots = "~1.18.0"
+RandomNumbers = "~1.4.0"
+VoronoiDelaunay = "~0.4.0"
