@@ -41,7 +41,7 @@ JLCXX_MODULE define_julia_module(jlcxx::Module &m) {
 
   auto dt = m.add_type<DT>(t_name)
    .method(t_name, [](std::vector<Point_2> ps) {
-     return jlcxx::create<DT>(ps.cbegin(), ps.cend());
+     return jlcxx::create<DT>(ps.begin(), ps.end());
    })
    .method("edges", [](const DT& dt) {
      std::vector<DT::Edge> res(dt.edges_begin(), dt.edges_end());
@@ -77,7 +77,7 @@ JLCXX_MODULE define_julia_module(jlcxx::Module &m) {
    m.add_type<VD>(vd_name)
     .constructor<const DT&>()
     .method(vd_name, [](std::vector<VD::Site_2> ps) {
-      return jlcxx::create<VD>(ps.cbegin(), ps.cend());
+      return jlcxx::create<VD>(ps.begin(), ps.end());
     })
     .method("edges", [](const VD& vd) {
       std::vector<VD::Halfedge> res(vd.edges_begin(), vd.edges_end());
