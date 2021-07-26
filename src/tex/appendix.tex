@@ -14,7 +14,7 @@
   \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
   (July 2021)}
   \vspace{-12pt}
-  \inputminted[breaklines]{racket}{rkt/bench-cgm.rkt}
+  \inputminted[breaklines]{racket}{rkt/cgm-bench.rkt}
 \end{longlisting}
 
 \begin{longlisting}
@@ -22,7 +22,7 @@
     Benchmark code testing the same scenarios benchmarked by ConstraintGM using
     our solution.}%
   \label{lst:appendix.cgm.bench.jl}
-  \inputminted{julia}{jl/bench_cgm.jl}
+  \inputminted{julia}{jl/cgm_bench.jl}
 \end{longlisting}
 
 \begin{longlisting}
@@ -46,6 +46,14 @@
 \pdfbookmark[1]{Voronoi Delaunay}{voronoi-delaunay}
 \chapter{Voronoi Delaunay}%
 \label{chap:appendix.voronoi}
+
+\begin{longlisting}
+  \caption[JlCxx wrapper around CGAL's Delaunay algorithms]{
+    Wrapper code using JlCxx around \ac{CGAL}'s algorithms for producing
+    2D Delaunay Triangulations and Voronoi Diagrams.}%
+  \label{lst:appendix.voronoi.jlcxx}
+  \inputminted{cpp}{cpp/voronoi.cpp} 
+\end{longlisting}
 
 \begin{longlisting}
   \caption[Delaunay/Voronoi plotting and benchmark code]{
