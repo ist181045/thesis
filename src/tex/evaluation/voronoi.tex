@@ -1,0 +1,215 @@
+% !TeX root = ../../main.tex
+\section{Voronoi Diagrams Extended}%
+\label{sec:eval.voronoi}
+
+In the previous section, we left the problem of Voronoi Diagrams partially
+unresolved, only tackling a small sub-problem required for computing the
+diagram's vertices.  This section expands on it by showing how we can repurpose
+\ac{CGAL}'s version of the algorithm~\cite{CGAL:5.3:VDA2} as a beneficial side
+effect of integrating with the library.  Additionally, we compare said version
+with a native Julia implementation of the algorithm described
+in~\cite{Springel:2010:GCHSMM} available in the
+\texttt{VoronoiDelaunay.jl}\footnote{\url{https://github.com/JuliaGeometry/VoronoiDelaunay.jl}}
+package.  Measurements involved obtaining an estimate of the effort required to
+obtain either implementation, measuring Delaunay Triangulation construction
+performance, and subsequent output triangulation and diagram comparison.
+
+Both implementations adopt a similar incremental approach and are both robust.
+The version from \texttt{VoronoiDelaunay.jl}, however, uses floating point
+filtering~\cite{Springel:2010:GCHSMM}, requiring all point coordinates to be in
+the interval $\left(1, 2\right) \times \left(1, 2\right) \subset \mathbb{R}^2$;
+a restriction \ac{CGAL}'s implementation does not have since it uses a dynamic
+floating point precision approach\footnote{Briefed at
+\url{https://www.cs.cmu.edu/~quake/robust.html}}~\cite{Shewchuk:1997:APFPAFRGP}.
+The \textit{limitation} in the former arguably constitutes a minor inconvenience
+since the diagram may be produced in that limited range and then scaled
+afterwards to meet the use case's needs.  But it is worth noting the issue is
+not present in \ac{CGAL}'s implementation.  This is relevant if the input
+coordinates cannot be altered to meet those needs.
+
+To illustrate how we obtained the 2D Delaunay Triangulation and Voronoi Diagram
+algorithms from \ac{CGAL}, \cref{lst:appendix.voronoi.jlcxx} shows a minimal
+working example of the wrapper library code supported by JlCxx required to make
+the necessary constructs and functionality available in Julia.  It follows a
+familiar approach, the same used to obtain the core constructs supporting our
+\textit{Geometric Constraint Primitives} solution.  \Cref{lst:eval.voronoi.jl}
+shows a bare-bones Julia module encapsulating and exposing the mapped
+functionality to the Julia language.
+\begin{listing}[htb]
+  \inputminted{julia}{jl/Voronoi.jl}
+  \caption[Bare-bones Julia module wrapping CGAL's Delaunay algorithms]{
+    Bare-bones Julia module wrapping \ac{CGAL}'s 2D Delaunay Triangulation and
+    Voronoi Diagrams, supported by the JlCxx wrapper in
+    \cref{lst:appendix.voronoi.jlcxx}.}%
+  \label{lst:eval.voronoi.jl}
+\end{listing}
+\texttt{CGAL.jl} contains a version of these mappings that are, however,
+parameterized, and adds methods for querying, insertion, and further
+manipulation.  For the purposes of testing, we used the slimmer \texttt{Voronoi}
+module (\cref{lst:eval.voronoi.jl}).
+
+The process for obtaining these code bindings is a relatively simple one that
+requires bare minimal C++ knowledge and following reference documentation as if
+it were a recipe book, looking up the necessary ingredients and adding them to
+the mix.  At most, accounting for trial and error in case a minute detail was
+overlooked, to make this functionality available, it would take no more than a
+full day.  Having that, the algorithms are ready and available for use.
+
+The algorithm present in \texttt{VoronoiDelaunay.jl} is the result of an immense
+body of research, detailed in the \textsc{Arepo}
+paper~\cite{Springel:2010:GCHSMM}.  Julia is an expressive language that greatly
+benefits prototyping.  Changes are easy to apply and test without the overhead
+of compilation, a downside of prototyping in C++, especially when compiling
+(against) a sizeable codebase.  We can only infer that the development of the
+algorithm did not take long to draft.  However, we can certainly say that it
+took more than a full day to obtain a robust implementation, far exceeding the
+effort taken by just repurposing an existing robust implementation in \ac{CGAL}.
+It required interpretation and understanding of the approach described in the
+article since there is no explicit algorithm listed.  The article's primary
+focus is not the construction of Voronoi Diagrams, but using it as a supporting
+medium for its focus, adding to the effort of extracting an algorithm out of it.
+This then requires the creation of a conceptual mapping of the algorithm's
+entities and procedures, later translating them into corresponding, preferably
+efficient, data structures and functions in the Julia language, which, in
+fairness, is an easy platform to prototype in.  These are among other trials and
+tribulations that we did not have to meet in the slightest.  Our estimate is
+that developing the algorithm in \texttt{VoronoiDelaunay.jl} took far longer
+than obtaining one via our approach, the latter concisely, generously, fitting
+into the span of a full day at most.
+
+Regarding both algorithms' performance, \cref{tab:eval.voronoi.bench} shows a
+series of results obtained by batch inserting various powers-of-ten sets of
+points into Delaunay Triangulation objects, effectively building the meshes.
+The results are plotted in \cref{fig:eval.voronoi.bench} for a better
+understanding of the tabulated results.  The source code used to perform these
+tests is listed in \cref{lst:appendix.voronoi.benchjl}.  More detailed data can
+be seen in \cref{lst:appendix.voronoi.data}.
+
+\begin{table}[htb]
+  \caption[Delaunay Triangulation benchmarks]{
+    Execution times for the construction of Delaunay Triangulations, comparing
+    implementations of the algorithm: one from \ac{CGAL} and one from
+    \texttt{VoronoiDelaunay.jl}.}%
+  \label{tab:eval.voronoi.bench}
+  \centering
+  \begin{tabular}{r*{2}{l}}
+    \toprule
+    \multirow{2}{*}{\textbf{\# Points}}
+    & \multicolumn{2}{c}{\textbf{Execution time (mean ± σ)}} \\
+    & \multicolumn{1}{c}{\texttt{Voronoi.jl}}
+    & \multicolumn{1}{c}{\texttt{VoronoiDelaunay.jl}} \\
+    \midrule
+    10\textsuperscript{2} & \verb| 42.145 μs ±  5.638 μs|
+                          & \verb| 53.799 μs ±  39.811 μs| \\
+    10\textsuperscript{3} & \verb|509.757 μs ±  1.258 ms|
+                          & \verb|510.851 μs ± 113.523 μs| \\
+    10\textsuperscript{4} & \verb|  5.879 ms ±  3.874 ms|
+                          & \verb|  5.606 ms ± 382.603 μs| \\
+    10\textsuperscript{5} & \verb| 62.344 ms ± 11.980 ms|
+                          & \verb| 65.103 ms ±   2.287 ms| \\
+    10\textsuperscript{6} & \verb|668.331 ms ± 44.458 ms|
+                          & \verb|841.925 ms ±  51.394 ms| \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[htb]
+  \centering
+  \begin{tikzpicture}
+  \begin{loglogaxis}[ybar=0pt,
+    title={\texttt{Voronoi.jl} vs.\ \texttt{VoronoiDelaunay.jl}},
+    xlabel={Number of Points (log)},
+    ylabel={Average Time (ns, log)},
+    width={\linewidth},
+    height=6cm,
+    bar width=3.16227766,% 10^(1/n) where n = 2 (bars)
+    enlarge y limits={.2,upper},
+    enlarge x limits={abs=3.16227766},
+    legend columns=-1,
+    table/col sep=comma,
+    error bars/y explicit,
+    error bars/y dir=both
+  ]
+    \addplot+ table [y error index=2] {data/voronoi-vdjl.csv};
+    \addplot+ table [y error index=2] {data/voronoi-cgal.csv};
+    \legend{VoronoiDelaunay.jl,Voronoi.jl}
+  \end{loglogaxis}
+  \end{tikzpicture}
+  \caption[Delaunay Triangulation benchmarks]{
+    Delaunay Triangulation benchmark comparison results collected form
+    \cref{tab:eval.voronoi.bench} in a Y-bar plot.  Both axes follow a
+    logarithmic scale.}%
+  \label{fig:eval.voronoi.bench}
+\end{figure}
+
+The sets of points were randomly generated using an instance of the Mersenne
+Twister pseudo-random number generator, MT19937, with the seed
+\texttt{0xdeadbeef}.  Tests for 10\textsuperscript{n} points used the same
+10\textsuperscript{n} random points for every sample evaluated.  Results are
+pretty identical, both variants trading blows.  However, more often than not, we
+see \ac{CGAL}'s variant of the algorithm beating \texttt{VoronoiDelaunay.jl}'s
+by a relatively small margin, except the last result's difference is more than
+marginal.  We see some more variation from \ac{CGAL}'s algorithm, but looking at
+more detailed data (\cref{lst:appendix.voronoi.data}), such cases seem to be
+punctual at best, proving negligible in practice.
+
+One other interesting detail we can see represented in additional data is that
+of estimated memory usage.  The algorithm in \texttt{VoronoiDelaunay.jl} appears
+to use far more memory than \ac{CGAL}'s does, differing by two entire orders of
+magnitude.  We did not investigate any further, though additional profiling
+could help bring light to some of these results.
+
+Finally, we take a look at the output Delaunay Triangulations and their
+respective dual Voronoi Diagrams, produced by both implementations.
+\Cref{fig:eval.voronoi.output} illustrates two plots of overlapping meshes: on
+the left, the Delaunay Triangulations, and on the right, the respective dual
+Voronoi Diagrams.  \Cref{lst:appendix.voronoi.plotsjl} shows the Julia code used
+to produce the plots in the figures.
+
+\begin{figure}[!htb]
+  \resizebox{\linewidth}{!}{\input{tikz/voronoi-plots.tikz}}
+  \caption[Voronoi Delaunay output comparison]{
+    Delaunay Triangulations (on the left) and Voronoi Diagrams (on the right)
+    produced both by \ac{CGAL} and \texttt{VoronoiDelaunay.jl}.  The mesh was
+    produced from a 21-point cloud.}%
+  \label{fig:eval.voronoi.output}
+\end{figure}
+
+Surprisingly, the produced triangulations are not the same, which explains the
+divergence in the dependent Voronoi Diagrams.  \Ac{CGAL}'s implementation
+produces a few more edges, or perhaps it should be said the other way around:
+\texttt{VoronoiDelaunay.jl} does not produce every possible edge.  Simpler point
+clouds illustrate this disparity further.  If tested with a 3-point cloud, i.e.,
+a triangle, \ac{CGAL} will properly produce said triangle while
+\texttt{VoronoiDelaunay.jl} will not.  \Cref{fig:eval.voronoi.surprising} shows
+this scenario blatantly.  This uses the same code in
+\cref{lst:appendix.voronoi.plotsjl} with a minor difference in the number of
+points changed from the default of 21 down to 3.
+
+\begin{figure}[htb]
+  \resizebox{\linewidth}{!}{\input{tikz/voronoi-surprising.tikz}}
+  \caption[Surprising Voronoi Delaunay output]{
+    \ac{CGAL}'s algorithm produced a triangle (on the left) while
+    \texttt{VoronoiDelaunay.jl} did not.  Consequently, \ac{CGAL} did not
+    produce a (finite) Voronoi Diagram while \texttt{VoronoiDelaunay.jl} did (on
+    the right).}%
+  \label{fig:eval.voronoi.surprising}
+\end{figure}
+
+It is not clear which of the implementations is wrong.  Though, given that
+\ac{CGAL} is considered the \textit{de facto} industry standard library for
+geometric computation, it is probably safe to assume there is something wrong
+with the implementation of the algorithm in \texttt{VoronoiDelaunay.jl}.
+
+Summarily, though we do not believe it to be entirely wrong to implement
+(especially complex) algorithms and functionality from scratch, we have seen how
+it can rapidly prove problematic, making it sometimes less preferable.  From our
+benchmarks, there was no performance gain.  As a matter of fact, the
+re-implementation was slower.  The effort put into repurposing an already
+existing algorithm from what is considered to be a rather complex library is
+still far lower than the effort required to implement a solid, robust version of
+the algorithm from scratch.  Differences between the outputs validate our
+argument here that new implementations will inevitably lead to an emergence of
+erroneous behavior, whereas more established and battle-tested software will
+probably have taken care of many of the issues that are still to become
+apparent.

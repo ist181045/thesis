@@ -48,7 +48,7 @@
 \label{chap:appendix.voronoi}
 
 \begin{longlisting}
-  \caption[JlCxx wrapper around CGAL's Delaunay algorithms]{
+  \caption[JlCxx wrapper for CGAL's meshing algorithms]{
     Wrapper code using JlCxx around \ac{CGAL}'s algorithms for producing
     2D Delaunay Triangulations and Voronoi Diagrams.}%
   \label{lst:appendix.voronoi.jlcxx}
@@ -56,15 +56,22 @@
 \end{longlisting}
 
 \begin{longlisting}
-  \caption[Delaunay/Voronoi plotting and benchmark code]{
-    Julia code used to plots Delaunay Triangulations and Voronoi Diagrams using
-    both \ac{CGAL}'s algorithm and
-    \texttt{VoronoiDelaunay.jl}'s.}\label{lst:appendix.voronoi.jl}
-  \inputminted{julia}{jl/voronoi.jl}
+  \caption[Voronoi Delaunay plotting code]{
+    Julia code used to plot Delaunay Triangulations and Voronoi Diagrams using
+    both \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s. algorithm}%
+  \label{lst:appendix.voronoi.plotsjl}
+  \inputminted{julia}{jl/voronoi_plots.jl}
 \end{longlisting}
 
 \begin{longlisting}
-  \caption[Delaunay/Voronoi benchmark data]{
+  \caption[Voronoi Delaunay benchmark code]{
+    Julia code used to benchmark the creationg of Delaunay Triangulations using
+    both \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s. algorithm}%
+  \label{lst:appendix.voronoi.benchjl}
+\end{longlisting}
+
+\begin{longlisting}
+  \caption[Voronoi Delaunay benchmark data]{
     Detailed benchmark data from several batch point insertion tests using both
     \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s.}
   \label{lst:appendix.voronoi.data}
