@@ -170,12 +170,12 @@
     {\main@listlistingname}}
 \makeatother
 \newenvironment{longlisting}
-  {\begingroup\medskip
+  {\bigskip\begingroup
    \let\oldbaselinestretch\baselinestretch
    \renewcommand{\baselinestretch}{1}
    \captionsetup{type=listing}}
   {\let\baselinestretch\oldbaselinestretch
-   \medskip\endgroup}
+   \endgroup\bigskip}
 
 % minitoc
 \setcounter{minitocdepth}{1}
