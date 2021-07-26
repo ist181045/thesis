@@ -241,19 +241,10 @@
 \makeatother
 
 % pgfplots
-\pgfplotsset{compat=1.17}
-\pgfplotsset{tick label style={font=\sansmath\sffamily}}
-\pgfplotsset{table/col sep=comma}% csv by default
-\pgfplotsset{error bars/.cd,
-  y dir=both,y explicit,
-  x dir=both,x explicit,
+\pgfplotsset{
+  compat=1.17,
+  tick label style={font=\sansmath\sffamily},
 }
-\pgfplotsset{cgm/.style={
-  ybar=0pt,
-  xmin=1,xmax=13,
-  xtick distance=1,
-  enlarge x limits={abs=.5},
-}}
 
 % pifont
 \newcommand{\xmark}{\ding{55}}

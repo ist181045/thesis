@@ -135,16 +135,20 @@ for the scenarios that preceded this one.
   \begin{subfigure}[t]{.75\linewidth}
     \centering
     \begin{tikzpicture}
-    \begin{semilogyaxis}[cgm,
+    \begin{semilogyaxis}[ybar=0pt,
       title={Maxima vs.\ GFL vs.\ Our solution},
       xlabel={Scenarios},
       ylabel={Average Time (ns, log)},
       width={\linewidth},
       height=5.5cm,
-      ytick distance={1e1},
-      bar width=.3\linewidth/14,
+      bar width=1/3,
+      xmin=1,xmax=13,
+      xtick distance=1,
+      ytick distance=1e1,
       enlarge y limits={.26,upper},
+      enlarge x limits={abs=.5},
       legend columns=-1,
+      table/col sep=comma
     ]
       \addplot+ table {data/cgm-maxima.csv};
       \addplot+ table {data/cgm-gfl.csv};
