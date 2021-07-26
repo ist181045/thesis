@@ -14,11 +14,13 @@ Euclidean space, $\mathbb{R}^3$, exist as well.
 \begin{figure}[htpb]
   \subcaptionbox{\label{fig:intro.example.parallel}%
     Line that goes through $C$, strictly parallel to $\overleftrightarrow{AB}$.}
-    [.45\linewidth]{\resizebox{!}{.2\textheight}{\input{tikz/ex-parallel}}}
+    [.45\linewidth]{\resizebox{!}{.2\textheight}{%
+      \input{tikz/ex-parallel.tikz}}}
   \hspace{\fill}
   \subcaptionbox{\label{fig:intro.example.circumcenter}%
     $\odot O_r$ circumscribed about $\triangle ABC$.}
-    [.45\linewidth]{\resizebox{!}{.2\textheight}{\input{tikz/ex-circumcenter}}}
+    [.45\linewidth]{\resizebox{!}{.2\textheight}{%
+      \input{tikz/ex-circumcenter.tikz}}}
   \caption[Geometric models defined using GCs]{
     Geometric models defined using \ac{GC} relations:
     \subref{fig:intro.example.parallel} showcases line parallelism, and
@@ -66,7 +68,7 @@ resulting line goes through.  The result is a point $D = C + \vec{u}$, which can
 be obtained using \texttt{tkzGetPoint} to later draw the line. 
 
 \begin{listing}[htb]
-  \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tex}
+  \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tikz}
   \caption[Parallel lines example using \texttt{tkz-euclide}]{
     Parallel lines example from \cref{fig:intro.example.parallel} using
     \texttt{tkz-euclide}.  The highlighted line shows how to define the line
@@ -298,7 +300,7 @@ $A,\,B,\,C$, and generates the result $O$, obtainable using
 \texttt{tkzGetPoint}.
 
 \begin{listing}[htb]
-  \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tex}
+  \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tikz}
   \caption[Circumcenter example using TikZ]{
     Circumcenter example from \cref{fig:intro.example.circumcenter} using
     \acs{TikZ} alongside \texttt{tkz-euclide}.  The highlighted line shows how
