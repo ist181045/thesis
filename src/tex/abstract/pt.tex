@@ -1,29 +1,40 @@
 % !TEX root = ../../main.tex
 \begin{pt}
 \begin{resumo}
-Aplicações modernas de projecto assistido por computador precisam de empregar,
-em menor ou maior grau, restrições geométricas que condicionam os modelos
-produzidos.  Como exemplos, considerem-se o de uma linha que atravessa um ponto
-e é paralela a outra linha, ou o da construção de um círculo recorrendo a três
-pontos.  A especificação (e resolução) destas restrições permite a criação de
-formas geométricas que, de outro modo, exigiriam descrições substancialmente
-mais complexas.  A inclusão, numa linguagem de programação, de operações
-primitivas capazes de criar restrições geométricas aumenta a expressividade da
-linguagem e liberta o programador de especificar detalhes desnecessários.  Essas
-operações podem incluir a definição de relações de incidência, paralelismo ou
-perpendicularidade, distâncias, e ângulos; às quais o modelo geométrico deve
-obedecer.  O foco deste trabalho consiste na criação e implementação de
-primitivas de restrições geométricas que facilitam a especificação de formas
-geométricas.
+
+Aplicações modernas de projecto assisto por computador precisam de empregar, em
+menor ou maior grau, restrições geométricas que condicionam os modelos
+produzidos.  Todavia, estas aplicações provam ser insuficientes para a produção
+de modelos complexos e sofisticados.  Como resposta a esta limitação, surgiu um
+novo paradigma nomeado Algorithmic Design (AD).  O paradigma consiste na criação
+de modelos provenientes de descrições algorítmicas, permitindo a automatização
+de tarefas repetitivas.  Infelizmente, não é um paradigma tão difundido como
+métodos mais tradicionais, parcialmente devido ao tempo, esforço, e conhecimento
+adicional necessário para especificar relações entre objectos.  Isto pode ser
+mitigado através da incorporação de funcionalidade de restrição geométrica em
+ferramentas de AD para ajudar preencher a lacuna entre AD e paradigmas mais
+tradicionais.  O foco deste trabalho assenta sobre a criação, e implementação,
+de funcionalidade primitiva de restrição geométrica, suportada por uma
+biblioteca de computação geométrica exacta, que facilita a especificação de
+formas geométricas.  Produzimos testes de referência de desempenho da nossa
+solução, também têmo-la testado com quatro formas geométricas dominadas por
+restrições inspiradas por projectos existentes, salientado duas abordagens
+diferentes: uma abordagem analítica, naturalmente usada em programação, e uma
+abordagem constructiva, em que se baseia a nossa solução.  Adicionalmente,
+exploramos efeitos secundários benéficos da nossa implementação relativamente ao
+reaproveitamento de funcionalidade mais complexa com muito pequeno esforço
+extra.  Concluímos que a abordagem empregue pela nossa solução prova ser mais
+compreensível e intuitiva para praticantes.
+
 \end{resumo}
 
 \begin{palavraschave}
 \noindent
-Design Algorítmico;
-Restrições Geométricas;
-Resolução de Restrições Geométricas;
 CAD Paramétrico;
-Linguagem de Programação.
+Restrições Geométricas;
+Algorithmic Design;
+Computação Exacta;
+Geometria Construtiva.
 \end{palavraschave}
 \end{pt}
 
