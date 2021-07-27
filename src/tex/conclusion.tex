@@ -3,31 +3,78 @@
 \label{chap:conclusion}
 \cleardoublepage{}
 
-\noindent
-The generation of highly constrained sophisticated designs is not viable through
-usage of interactive interfaces due to rigidity in the manipulation of existing
-models in order to generate multiple variants, or through \acp{VPL} because of
-the disproportionate relation between the resulting workflow and respective
-design complexity.  However, working with geometric constraints in \acp{TPL}
-imposes a set of challenges, which can be overcome through the usage of \ac{GCS}
-approaches to solve complex systems of constraints.  To achieve that goal,
-several methods can be employed, but they mostly resort to generic \acs{GCS}
-algorithms, but solvers, in general, have difficulty in identifying specific
-underlying subproblems for which efficiently computable and robust solutions
-might be available.
+\noindent The generation of highly constrained sophisticated designs is not
+viable through usage of interactive interfaces due to rigidity in the
+manipulation of existing models in order to generate multiple variants.  
+\Ac{AD} Even
+then, \Acp{VPL} suffer from the disproportionate relation between the resulting
+workflow and respective design complexity.  However, working with geometric
+constraints in \acp{TPL} imposes a set of challenges, which can be overcome
+through the usage of \ac{GCS} approaches to solve complex systems of
+constraints.  To achieve that goal, several methods can be employed, but they
+mostly resort to generic \acs{GCS} algorithms.  Alas, solvers, in general, have
+difficulties identifying specific underlying subproblems for which efficiently
+computable and robust solutions might be available.
 
-The prior analysis of the set of geometric constraints that must be dealt with,
-nonetheless, requires certain background knowledge on numerical robustness to
+The prior analysis of the set of geometric constraints that must be dealt with.
+Nonetheless, it requires certain background knowledge on numerical robustness to
 mitigate fixed-precision arithmetic issues, such as \textit{roundoff} error
-accumulation throughout calculation, as well as investigation on how to solve
-these specific constraint problems.  The user will end up having to spend more
-time and effort in this process than in the design process itself.
+accumulation throughout computation, as well as researching solutions to these
+specific constraint problems.  The user will end up spending more time and
+effort in this process than in the design process itself.
 
 Thus, in order to overcome these obstacles, an alternative approach is proposed
 in the form of the implementation of geometric constraint primitives in an
 expressive \ac{TPL} supported by an exact geometric computation library.  The
-latter provides a series of optimized geometrical algorithms and exact data
+latter provides a series of optimized geometric algorithms and exact data
 structures that allow transparent handling of robustness issues, lifting this
 concern from the user's shoulders with the goal of improving constrained
 geometry specification efficiency as well as consequently facilitating the
 design process.
+
+However, the usage of exact data structures incurs a substantial performance hit
+that does not justify its pervasive use, only fitting very few scenarios in
+practice.  We leveraged faster, albeit inexact, constructs, while still
+preserving exact predicate computation.  Additionally, the implemented
+primitives still delay geometry construction as much as possible, remaining
+robust and preserving exactness up until that point.  Misuse of resulting
+geometry might still lead to surprising erroneous situations, though in
+practical terms, these cases are few and far apart, meaning our solution still
+holds value.
+
+Finally, we proved the approach employed by our solution is one that creates
+understandable programs that can be manually reproduced.  By adopting a
+constructive approach to geometry specification, we externalize and clarify the
+steps required to build geometric objects.  This is contrasted with the more
+natural analytical approach programming languages usually beg for.  Following
+the latter approach is not only more cumbersome due to the solution derivation
+process, but it produces incomprehensible programs, hiding the concrete geometry
+behind formulas.  The former is preferred by \ac{AD} practitioners, as well as
+industry professionals in general, but it proves alluring to novice users all
+the same.  Said novice users might be starting to learn and adopt \ac{AD}.  With
+our work, we aim to bolster this adoption rate, driving more and more people
+from traditional means to novel design paradigms.
+
+\section*{Future Work}
+
+Our solution certainly has some drawbacks and misfeatures that could be
+improved.  Some were already discussed in \cref{sec:solution.tradeoffs}.  To
+briefly reiterate a few, our wrapper around the underlying library is less
+transparent than desired.  Constructs and functionality should be mapped as
+transparently as possible, fully parameterized, as to provide the user with more
+control and choice over the constructs they are using.  Furthermore, the set of
+geometric primitives that were implemented was quite limited in size and could
+be further expanded on.  However, let the ones showcased serve as an example for
+expanding the set of primitives even further.
+
+This work focuses is exclusively on constrained geometry bound to the
+$\mathbb{R}^2$ Euclidean space, i.e., the 2D plane.  There is still much work to
+be done researching problem solutions that encompass 3D space as well.
+Elevating a dimension means the solutions to problems once formulated in the 2D
+plane are no longer applicable in 3D space for some problems may now be
+under-constrained.  As an example, our solution for the circumcenter problem,
+exemplified in \cref{sec:intro.examples.circumcenter}, would no longer work in
+3D space.  A line's bisector in 3D space is a plane, and noncoplanar nor
+parallel plane intersection results in a line.  To obtain the actual
+circumcenter, one would additionally, for example, have to intersect the
+resulting line with the plane the circumscribed triangle sits on.

@@ -41,6 +41,7 @@ Luzhniki
 McNeel
 Mottaghi
 Newton-Raphson
+noncoplanar
 octagram
 OpenJSCAD
 openNURBS
