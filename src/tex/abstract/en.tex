@@ -1,28 +1,37 @@
 % !TEX root = ../../main.tex
 \begin{abstract}
+
 Modern Computer-Aided Design (CAD) applications need to employ, to a lesser or
-greater extent, geometric constraints that condition the geometric models being
-produced.  As an example, consider that of a line that goes through a point and
-is parallel to another line, or constructing a circle from three points.  The
-specification (and solving) of geometric constraints allows the creation of
-geometric shapes that would otherwise require substantially more complex
-descriptions.  The inclusion, in a programming language, of primitive operations
-for creating geometric constraints augments the expressiveness of the language
-and frees the programmer from the specification of unnecessary details.  Said
-primitive operations could include the definition of incidence relations,
-parallelism or perpendicularity, distances, and angles; to which the various
-parts in a geometric model must obey.  The focus of this work is the creation
-and implementation, of geometric constraint primitives that facilitate the
-specification of geometric forms.
+greater extent, Geometric Constraints (GCs) that condition the geometric models
+being produced.  However, these applications prove insufficient for the
+production of complex and sophisticated designs.  In response to this
+limitation, a new paradigm named Algorithmic Design (AD) emerged.  It
+comprehends the creation of designs through algorithmic specifications, enabling
+the automation of repetitive tasks.  Alas, it is not yet as widespread as more
+traditional methods, partially due to the added time, effort, and expertise
+required to specify relations between objects.  This can be mitigated through
+the incorporation of GC functionality in AD tools to help bridge the gap between
+AD and more traditional paradigms.  The focus of this work is the creation, and
+implementation, of primitive GC functionality, supported by a mature geometric
+computation library, that facilitates the specification of geometric forms.  We
+benchmark our solution's performance, as well as test our it with four different
+constraint-ridden shapes inspired by existing designs, highlighting two
+different approaches: an analytic approach, naturally used in programming, and a
+constructive approach, the one our solution is based on.  Additionally, we
+explore beneficial side effects of our implementation regarding the repurposing
+of more complex functionality with very little extra effort.  Conclusively, we
+determine our solution's approach proves more comprehensible and intuitive for
+practitioners.
+
 \end{abstract}
 
 \begin{keywords}
 \noindent
-Algorithmic Design;
-Geometric Constraints;
-Geometric Constraint Solving;
 Parametric CAD;
-Programming Language.
+Geometric Constraints;
+Algorithmic Design;
+Exact Computation;
+Constructive Geometry.
 \end{keywords}
 
 \clearpage

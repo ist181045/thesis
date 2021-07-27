@@ -6,22 +6,22 @@
 \noindent The generation of highly constrained sophisticated designs is not
 viable through usage of interactive interfaces due to rigidity in the
 manipulation of existing models in order to generate multiple variants.  
-\Ac{AD} Even
-then, \Acp{VPL} suffer from the disproportionate relation between the resulting
-workflow and respective design complexity.  However, working with geometric
-constraints in \acp{TPL} imposes a set of challenges, which can be overcome
-through the usage of \ac{GCS} approaches to solve complex systems of
+\Ac{AD}.  Even then, \acp{VPL} suffer from the disproportionate relation between
+the resulting workflow and respective design complexity.  However, working with
+geometric constraints in \acp{TPL} imposes a set of challenges, which can be
+overcome through the usage of \ac{GCS} approaches to solve complex systems of
 constraints.  To achieve that goal, several methods can be employed, but they
 mostly resort to generic \acs{GCS} algorithms.  Alas, solvers, in general, have
 difficulties identifying specific underlying subproblems for which efficiently
 computable and robust solutions might be available.
 
-The prior analysis of the set of geometric constraints that must be dealt with.
-Nonetheless, it requires certain background knowledge on numerical robustness to
+Nonetheless, the prior analysis of the set of geometric constraints that must be
+dealt with requires certain background knowledge on numerical robustness to
 mitigate fixed-precision arithmetic issues, such as \textit{roundoff} error
-accumulation throughout computation, as well as researching solutions to these
-specific constraint problems.  The user will end up spending more time and
-effort in this process than in the design process itself.
+accumulation throughout computation.  Moreover, there is the added requirement
+of researching solutions to these specific constraint problems.  The user will
+end up spending more time and effort in this process than in the design process
+itself.
 
 Thus, in order to overcome these obstacles, an alternative approach is proposed
 in the form of the implementation of geometric constraint primitives in an
@@ -48,12 +48,12 @@ constructive approach to geometry specification, we externalize and clarify the
 steps required to build geometric objects.  This is contrasted with the more
 natural analytical approach programming languages usually beg for.  Following
 the latter approach is not only more cumbersome due to the solution derivation
-process, but it produces incomprehensible programs, hiding the concrete geometry
-behind formulas.  The former is preferred by \ac{AD} practitioners, as well as
-industry professionals in general, but it proves alluring to novice users all
-the same.  Said novice users might be starting to learn and adopt \ac{AD}.  With
-our work, we aim to bolster this adoption rate, driving more and more people
-from traditional means to novel design paradigms.
+process, but it also produces incomprehensible programs, hiding the concrete
+geometry behind formulas.  The former is preferred by \ac{AD} practitioners, as
+well as industry professionals in general, but it proves alluring to novice
+users all the same.  Said novice users might be starting to learn and adopt
+\ac{AD}.  With our work, we aim to bolster this adoption rate, driving more and
+more people from traditional means to novel design paradigms.
 
 \section*{Future Work}
 
@@ -67,7 +67,7 @@ geometric primitives that were implemented was quite limited in size and could
 be further expanded on.  However, let the ones showcased serve as an example for
 expanding the set of primitives even further.
 
-This work focuses is exclusively on constrained geometry bound to the
+This work focused exclusively on constrained geometry bound to the
 $\mathbb{R}^2$ Euclidean space, i.e., the 2D plane.  There is still much work to
 be done researching problem solutions that encompass 3D space as well.
 Elevating a dimension means the solutions to problems once formulated in the 2D
