@@ -91,6 +91,28 @@
 }
 \captionsetup{subrefformat=parens}
 
+% cleveref
+% undo @cref labels for acronyms after \acresetall
+\makeatletter
+\newcommand*{\org@overridelabel}{}
+\let\org@overridelabel\@verridelabel
+\@ifpackagelater{acronym}{2015/03/21}{% v1.41
+  \renewcommand*{\@verridelabel}[1]{%
+    \@bsphack
+    \protected@write\@auxout{}{\string\AC@undonewlabel{#1@cref}}%
+    \org@overridelabel{#1}%
+    \@esphack
+  }%
+}{% older versions
+  \renewcommand*{\@verridelabel}[1]{%
+    \@bsphack
+    \protected@write\@auxout{}{\string\undonewlabel{#1@cref}}%
+    \org@overridelabel{#1}%
+    \@esphack
+  }%
+}
+\makeatother
+
 % color
 \definecolor{forestgreen}{RGB}{34,139,34}
 \definecolor{orangered}{RGB}{239,134,64}
