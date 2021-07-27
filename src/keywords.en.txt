@@ -1,0 +1,2 @@
+Parametric CAD, Geometric Constraints, Algorithmic Design, Exact Computation,
+Constructive Geometry
