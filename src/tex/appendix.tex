@@ -7,21 +7,18 @@
   \caption[ConstraintGM benchmark Racket code]{
     Source code from ConstraintGM's benchmarks for thirteen different scenarios
     involving the intersection of differently arranged geometric
-    entities.}%
-  \label{lst:appendix.cgm.bench.rkt}
-  \smallskip
+    entities.}\label{lst:appendix.cgm.bench.rkt}
   {\scriptsize Adapted from:
   \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
   (July 2021)}
   \vspace{-12pt}
-  \inputminted[breaklines]{racket}{rkt/cgm-bench.rkt}
+  \inputminted{racket}{rkt/cgm-bench.rkt}
 \end{longlisting}
 
 \begin{longlisting}
   \caption[Our solution's benchmark Julia code]{
     Benchmark code testing the same scenarios benchmarked by ConstraintGM using
-    our solution.}%
-  \label{lst:appendix.cgm.bench.jl}
+    our solution.}\label{lst:appendix.cgm.bench.jl}
   \inputminted{julia}{jl/cgm_bench.jl}
 \end{longlisting}
 
@@ -29,18 +26,25 @@
   \caption[ConstraintGM benchmark data]{\label{lst:appendix.cgm.data.rkt}%
     Data produced through the execution of the code in
     \cref{lst:appendix.cgm.bench.rkt} a total of nine times to obtain a slightly
-    bigger sample size.  Contains slight post-processing that involves grouping
-    and reducing results.}
-  \small
-  \verbatiminput{data/cgm.txt}
+    bigger sample size.  Includes post-processing that involves grouping and
+    reducing results.}
+  \inputminted[
+    fontsize=\small,
+    stepnumberfromfirst,
+    stepnumber=14,
+  ]{text}{data/cgm.txt}
 \end{longlisting}
 
 \begin{longlisting}
-\caption[ConstraintGM analogous benchmark data]{
-  More detailed data from benchmarking our solution by submitting it to a test
-  suite analogous to ConstraintGM's.  This is the output produced by
-  \cref{lst:appendix.cgm.bench.jl}.}\label{lst:appendix.cgm.data.jl}
-\verbatiminput{data/jlcgal.txt}
+  \caption[ConstraintGM analogous benchmark data]{
+    More detailed data from benchmarking our solution by submitting it to a test
+    suite analogous to ConstraintGM's.  This is the output produced by
+    \cref{lst:appendix.cgm.bench.jl}.}\label{lst:appendix.cgm.data.jl}
+  \inputminted[
+    fontsize=\small,
+    stepnumberfromfirst,
+    stepnumber=11,
+  ]{text}{data/jlcgal.txt}
 \end{longlisting}
 
 \pdfbookmark[1]{Voronoi Delaunay}{voronoi-delaunay}
@@ -74,7 +78,10 @@
 \begin{longlisting}
   \caption[Voronoi Delaunay benchmark data]{
     Detailed benchmark data from several batch point insertion tests using both
-    \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s.}
+    \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}
   \label{lst:appendix.voronoi.data}
-  \verbatiminput{data/voronoi.txt}
+  \inputminted[
+    stepnumberfromfirst,
+    stepnumber=12,
+  ]{text}{data/voronoi.txt}
 \end{longlisting}
