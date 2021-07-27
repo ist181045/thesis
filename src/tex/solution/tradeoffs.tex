@@ -2,7 +2,7 @@
 \section{Trade-offs}%
 \label{sec:solution.tradeoffs}
 
-Since virtually anything comes without trade-offs and compromises, it is
+Since virtually nothing comes without trade-offs and compromises, it is
 paramount we address our implementation's qualities, negative and positive.
 
 Relying on a library such as \ac{CGAL} proves to be as great as it can be
@@ -18,15 +18,15 @@ not being \emph{immediately} fixable lest we forget \ac{CGAL} is still an
 open-source project arguably anyone can contribute to.  Alas, said contribution
 deployments are still out of our control.  In hindsight, however, it can be
 considered as just an inconvenience since it is a project that is actively
-maintained by certainly more knowledgeable people in the computer graphics and
-mathematics fields.
+maintained by very knowledgeable in the computer graphics and mathematics
+fields.
 
 \Ac{CGAL} is also a highly generic library, making use and further abusing C++
 templates.  Although its design makes usage an elegant experience (as elegant as
-C++ can be), the same cannot be said with as much \emph{gusto} when trying to
-wrap its constructs to another language, especially a language with different
-memory management paradigm which could lead to some nasty low-level ordeals.
-Luckily, \texttt{CxxWrap.jl} helps us solve most, if not all, of those issues.
+C++ can be), the same cannot be said when trying to wrap its constructs to
+another language, especially a language with different memory management
+paradigm which could lead to some nasty low-level ordeals.  Luckily,
+\texttt{CxxWrap.jl} helps us solve most, if not all, of those issues.
 
 Regarding our wrapper code,  there is one small problem we still technically did
 not solve.  We are still mapping \ac{CGAL} types in an opaque fashion, fixing
@@ -48,11 +48,11 @@ fixed a kernel that provides exact predicates with inexact constructions,
 favoring performance over some robustness loss.  Nonetheless, in practical
 terms, it suffices for our use case.
 
-As an alternative to wrapping \ac{CGAL}, we could have explored alternatives in
+As an alternative to wrapping \ac{CGAL}, we could have explored other options in
 the still growing Julia ecosystem.  Some work seems
 promising,\footnote{\url{https://github.com/JuliaGeometry}} but not only are
-some libraries still catching up, it is highly unlikely they will ever meet the
-quality of \ac{CGAL}.
+some libraries still catching up, it is also highly unlikely they will ever meet
+the quality of \ac{CGAL}.
 
 Lastly, some of our \ac{GC} primitives employ some computation that can lead to
 robustness loss as well.  Primarily the ones that involve circles, non-linear
@@ -68,4 +68,4 @@ Be that as it may, due to having fixed a kernel with inexact constructions for
 can only be mitigated by also ensuring the quality of the inputs given to our
 primitives, and that is reliant on the user.  If the user decides to provide
 ``garbage'' inputs, they will most likely be met with ``garbage'' outputs, a
-concern, however, that falls out of scope of this work.
+concern, however, that falls out of the scope of this work.

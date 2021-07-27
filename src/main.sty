@@ -1,16 +1,20 @@
 % !TEX root = ./main.tex
 %% packages
-\usepackage[no-math]{fontspec} % font selection under LuaLaTeX/XeTeX
+\usepackage[no-math]{fontspec}     % font selection under LuaLaTeX/XeTeX
 \usepackage[draft=false]{hyperref} % hypertext support
 
+\usepackage{babel}  % multilingual support
+\usepackage{iflang} % lang dispatch conditionals
 
-\usepackage{babel}    % multilingual support
-\usepackage{iflang}   % lang dispatch conditionals
-
-\usepackage[%
-  shortlabels,%
-  inline,%
+\usepackage[
+  shortlabels,
+  inline,
 ]{enumitem} % control over enumerations
+
+\usepackage[
+  % draft=false,
+  newfloat,
+]{minted} % highlighted code
 
 \usepackage[
   numbers,
@@ -24,7 +28,6 @@
 
 \usepackage[printonlyused]{acronym} % acronym management
 \usepackage[nohints]{minitoc}       % mini toc for chapters
-\usepackage[newfloat]{minted}       % highlighted code
 
 \usepackage{amsfonts}       % other math fonts
 \usepackage{amsmath}        % math

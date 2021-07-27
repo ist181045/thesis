@@ -21,9 +21,9 @@ Classical numerical methods constitute alluring alternatives to the predominant
 graph-based approaches.  Having been studied for several decades, even if the
 provided solution does not encompass all the possible values within the
 problem's domain, they can be used to target specific problems efficiently.
-Nonetheless, these suffer from robustness issues discussed in
+Nonetheless, these suffer from the robustness issues discussed in
 \cref{sec:related.robustness}, effectively yielding inaccurate solutions if
-precautions aren't taken.  A similar argument can be made about algebraic
+precautions are not taken.  A similar argument can be made about algebraic
 methods.
 
 This work aims to implement a series of geometric constraint primitives in an
@@ -37,12 +37,12 @@ discussed in \cref{sec:intro.ad}.
 Moreover, by relying on an exact geometry computation library, one of the core
 features of this solution lies in the capability of transparently dealing with
 plenty of the previously addressed robustness issues.  The user can then resort
-to these primitives, and, by composing them, elegantly specify the set of
-geometric constraints necessary in order to produce the idealized model.  Since
-the available primitives will implement specialized solutions for a finite set
-of shapes the user can utilize in whichever combination possible during the
-design process, the solution will be exempt of a generic solver component,
-potentially boosting performance of design generation.
+to the implemented primitives, and, by composing them, elegantly specify the set
+of geometric constraints necessary to produce the idealized model.  Since the
+available primitives will implement specialized solutions for a finite set of
+shapes, the user can utilize in whichever combination possible during the design
+process, the solution will be exempt of a generic solver component, potentially
+boosting performance of design generation.
 
 \Cref{fig:solution.arch} shows the typical \ac{AD} workflow and how the proposed
 solution could be integrated with the \ac{AD} tool.  The encapsulated modules in
@@ -58,9 +58,12 @@ wrapping the computation library.
   \label{fig:solution.arch}
 \end{figure}
 
+\newcommand{\geomlibrary}{\textit{Exact Geometric Computation Library}}
+\newcommand{\wrapper}{\textit{Wrapper Code}}
+\newcommand{\primitives}{\textit{Geometric Constraint Primitives}}
+
 The following sections go over the components in \cref{fig:solution.arch},
-namely the \textit{Exact Computation Geometric Library}, the \textit{Wrapper
-Code}, and the \textit{Geometric Constraint Primitives}.  Additionally, we
+namely the \geomlibrary, the \wrapper, and the \primitives.  Additionally, we
 discuss a few trade-offs from tackling the problem in this fashion as opposed to
 potential alternative routes, describing advantages and disadvantages of our
 approach.

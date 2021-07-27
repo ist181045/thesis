@@ -4,14 +4,14 @@
 
 Having overcome the language barrier between C++ and Julia, we can build our
 \ac{GC} primitives on top of \texttt{CGAL.jl}.  Our implementation of the
-\textit{Geometric Constraint Primitives} is loosely inspired on tools like
-\texttt{tkz-euclide} and Eukleides.  Both are based on Euclidean geometry, a
-constructive system where the production of geometry can be done solely
-resorting to a straightedge and a compass.  This makes programs described using
-these constructs easier to understand and manually reproduce.
+\primitives is loosely inspired on tools like \texttt{tkz-euclide} and
+Eukleides.  Both are based on Euclidean geometry, a constructive system where
+the production of geometry can be done solely resorting to a straightedge and a
+compass.  This makes programs described using these constructs easier to
+understand and manually reproduce.
 
 The following sections include a revisiting of our initially formulated example 
-problems described in \cref{sec:intro.examples} and another set of primitives
+problems, described in \cref{sec:intro.examples}, and another set of primitives
 that will be the driving force behind the case studies we go over later in
 \cref{chap:eval}.
 
@@ -65,14 +65,23 @@ Khepri supports.
 Regarding our circumcenter problem, introduced in
 \cref{sec:intro.examples.circumcenter}, we initially solved it by intersecting
 two of the three triangle sides' bisectors.  We can still approach the problem
-that way, defining a \texttt{circumcenter} function similar to the following
-\begin{minted}{julia}
-circumcenter(a, b, c) = intersection(bisector(a, b), bisector(b, c)) 
-\end{minted}
+that way, defining a \texttt{circumcenter} function similar to the one in
+\cref{lst:solution.impl.gcps.circimpl}.
+
+\begin{listing}[htb]
+  \begin{minted}{julia}
+  circumcenter(a, b, c) = intersection(bisector(a, b), bisector(b, c)) 
+  \end{minted}
+  \caption[Initial circumcenter solution]{
+    Initial implementation of the \texttt{circumcenter} function.}%
+  \label{lst:solution.impl.gcps.circimpl}
+\end{listing}
+
 However, this is one of those occasions where this functionality is already
 present in \ac{CGAL}.  This is a simple yet perfect demonstration of one of our
-approach's benefits w.r.t. repurposing a comprehensive library with plenty of
-functionality, allowing us near-direct reuse without re-implementing it.
+approach's benefits with regard to repurposing a comprehensive library with
+plenty of functionality, allowing us near-direct reuse without re-implementing
+it.
 
 \Cref{lst:solution.impl.gcps.circumcenter} illustrates a solution to the
 ``circumcenter'' problem using \ac{CGAL}'s \texttt{circumcenter} function.  The
@@ -98,9 +107,9 @@ program's output can be seen in \cref{fig:solution.impl.gcps.circumcenter}.
 \label{sec:solution.impl.gcps.tangcirc2line}
 
 Moving on to a set of problems that cannot as directly be solved by \ac{CGAL} is
-that of tangencies.  Generally speaking, there are no constructs that specific
-available in \ac{CGAL} that solve these problems.  However, we can once again
-repurpose the ones we have and build on top of them.
+that of tangencies.  Generally speaking, there are specific constructs available
+in \ac{CGAL} that solve these problems.  However, we can once again repurpose
+the ones we have and build on top of them.
 
 This problem involves computing a circle that is tangent to an already existing
 line.  Given the circle's center \texttt{o} and the line \texttt{l} we want the
@@ -114,8 +123,7 @@ The implementation of the problem's solution can be seen in
   tangent_circle(o::Point2, l::Line2) = Circle2(o, squared_distance(o, l))
   \end{minted}
   \caption[Circle tangent to a line]{
-    Implementation of the ``Circle tangent to a line'' problem.  Note this works
-    with \texttt{infinite} lines, not necessarily line \texttt{segments}.}%
+    Implementation of the ``Circle tangent to a line'' problem.}%
   \label{lst:solution.impl.gcps.tangcircle2line}
 \end{listing}
 
@@ -127,13 +135,12 @@ endpoints instead of tangent to a point along the segment.  In some cases, the
 latter behavior may be preferred, for which adjustments to the solution must be
 made, such as indicating that there is no solution for the given center point.
 
-We did not implement such a scenario regarding line segments, for we did not
-consider it, keeping with the implementation in
-\cref{lst:solution.impl.gcps.tangcircle2line}.  A potential solution to that
-specific problem could be obtained reusing the \texttt{tangent\_circle}
-function, however.  We would then need to verify if the circle would fall
-somewhere between the segment's endpoints.  Otherwise, there would not be a
-solution available.
+We did not implement such a scenario regarding line segments, because much like
+the other primitives, it was created to quench a specific use case's thirst.  A
+potential solution to that specific problem could be obtained reusing the
+\texttt{tangent\_circle} function, however.  We would then need to verify if the
+circle would fall somewhere between the segment's endpoints.  Otherwise, there
+would not be a solution available.
 
 \subsubsection{Tangent circles}%
 \label{sec:solution.impl.gcps.tangentcircles}

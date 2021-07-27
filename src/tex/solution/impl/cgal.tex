@@ -3,10 +3,26 @@
 \label{sec:solution.impl.cgal}
 
 \Ac{CGAL} is a software project that provides easy access to efficient and
-reliable geometric algorithms in the form of a C++ library.  It offers a
-multitude of data structures and algorithms, such as triangulations, Voronoi
-diagrams, and convex hull algorithms, to name a few.  The library is broken up
-into three parts~\cite{CGAL:5.3:23LGK}:
+reliable geometric algorithms in the form of a C++ library.  It is considered
+the industry's \textit{de facto} standard geometric library, used in well-known
+projects such as OpenSCAD.  It is also a very mature software library with
+decades of Ph.D.-grade research results, still being actively maintained to this
+day.  Being an open-source project, one can easily contribute to it by reporting
+issues in the software as well as directly submitting patches.\footnote{The
+library's source is hosted on GitHub at \url{https://github.com/CGAL/cgal}.  To
+illustrate the ease with which one can contribute to the project, here is a pull
+request the author submitted: \url{https://github.com/CGAL/cgal/pull/4705}.}
+
+These factors, among others, justify our choice for our solution's \geomlibrary
+component.  We chose \ac{CGAL} because of its comprehensiveness and decades of
+work instead of relying on less mature software, as well as the critical mass of
+maintainers behind it.  That is not to say less mature software cannot be used
+in its stead, though it is unlikely they can match \ac{CGAL}, be it in terms of
+performance, quality, or breadth.
+
+\ac{CGAL} offers a multitude of data structures and algorithms, such as
+triangulations, Voronoi diagrams, and convex hull algorithms, to name a few.
+The library is broken up into three parts~\cite{CGAL:5.3:23LGK}:
 \begin{enumerate}
   \item The kernel, which consists of geometric primitive objects and operations
   on these objects.  The objects are represented both as
@@ -59,31 +75,14 @@ Revisiting \cref{lst:solution.impl.cgal.pas}, it is as simple as switching the
 e.g., \texttt{Exact\_predicates\_exact\_constructions\_kernel} or \texttt{Epeck}
 for short.
 
-\ac{CGAL} is arguably considered as the industry's \textit{de facto} standard
-geometric library, used in well-known projects such as OpenSCAD.  It is a very
-mature software library with decades of Ph.D.-grade research results, still
-being actively maintained to this day.  Being an Open Source project, one can
-easily contribute to it by reporting issues or bugs in the software as well as
-directly submitting patches.\footnote{The library's source is hosted on GitHub
-at \url{https://github.com/CGAL/cgal}.  To illustrate the ease with which one
-can contribute to the project, here is a pull request the author submitted:
-\url{https://github.com/CGAL/cgal/pull/4705}.}
-
-These factors, among others, justify our choice for our solution's \textit{Exact
-Computation Geometric Library} component.  We chose \ac{CGAL} because of its
-comprehensiveness and decades of work instead of relying on less mature
-software, as well as the critical mass of maintainers behind it.  That is not to
-say less mature software cannot be used in its stead, though it is unlikely they
-can match \ac{CGAL}, be it in terms of performance, quality, or breadth.
-
 However, \ac{CGAL} is a terribly complex library under the hood, presenting many
-challenges when it comes to mapping it to the Julia language.  Firstly, it is
-a C++ library.  Despite Julia's native capabilities for interoperating with C,
-there's additional work to be done to reach C++ code.  Secondly, a partial
-problem also shared by C, is memory management, which differs between C/C++ and
-Julia, potentially leading to memory leaks and other related issues if not
-properly tended to.  Finally, \ac{CGAL} makes extensive use of C++ templates,
-proving sometimes difficult to transparently map some of its constructs.
+challenges when it comes to mapping it to the Julia language.  Firstly, it is a
+C++ library.  Despite Julia's native capabilities for interoperating with C,
+there's additional work to be done to reach C++ code.  Secondly, is problem of
+memory management, which differs between C/C++ and Julia, potentially leading to
+memory leaks and other related issues if not properly tended to.  Finally,
+\ac{CGAL} makes extensive use of C++ templates, proving sometimes difficult to
+transparently map some of its constructs.
 
 Fortunately, there are both methods and additional libraries that aid us by
 transparently overcoming some of those issues.  In the next section, we go over

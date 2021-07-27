@@ -16,7 +16,7 @@ This approach came at a severe performance cost, the reason being two-fold:
   \item Maxima is a \emph{generic} solver and could not take advantage of the
   geometric characteristics of the problem at hand.
 \end{enumerate*}
-The considerable performance penalty of this approach are hard to justify in the
+The considerable performance penalty of this approach is hard to justify in the
 case of simple geometric problems for which there are well-known efficient
 solutions. This lead to an \textit{impromptu} implementation of some \ac{GC}
 problem solutions, creating the \ac{GFL}. As expected, the latter approach
@@ -28,14 +28,10 @@ exact and robust since symbolic \ac{GCS} methods, used by Maxima, automatically
 provide those features.  The \ac{GFL}, when compared to the Maxima-based
 approach, is more fragile in that regard because it will depend on the
 underlying constructs' number type.  If an exact arbitrary precision number type
-is used, exactness and robustness will be preserved, but at a performance cost
-since arbitrary precision arithmetic is computationally heavy.  Relying on
-inexact number types can eventually lead to erroneous results if one is not
-careful to avoid error-inducing computations, but, by contrast, offers better
-performance.  That said, some computations are unavoidable, such as the
-computation of the squared root, for example, when the effective distance is
-necessary to operate with.  In the end, it is a matter of making a compromise
-and evaluating which fits the case at end the best.
+is used, exactness and robustness will be preserved, but at a performance cost.
+Relying on inexact number types can eventually lead to erroneous results, but,
+by contrast, offers better performance.  In the end, it is a matter of making a
+compromise and evaluating which fits the case at end the best.
 
 The project's benchmark involve three different \ac{GC} problems focused around
 object intersection, namely

@@ -2,23 +2,11 @@
 \subsection{From C++ to Julia}%
 \label{sec:solution.impl.jlcgal}
 
-% \todo[inline]{Reiterate the language interoperability hurdle, maybe mention
-% briefly there are complications especially when memory management models differ.
-% Showcase Julia's native capabilities of invoking native C++ libraries coupled w/
-% an example using CGAL.  Introduce a library that helps with C++ wrapping and
-% showcase a slightly more complex example, maybe involving classes and the like.
-% Consider demonstrating the ease with which it is possible to wrap things
-% incrementally as, on demand, requests for new features may require algorithms
-% from the library that weren't wrapped.  Just like following a recipe, it's
-% as simple as (1) looking at the docs, (2) mapping necessary types and functions,
-% and (3) run Julia (Carefully not mapping \textit{everything}, thought that is
-% what I strived to do with CGAL.jl, but that's another discussion).}
-
-Having established \ac{CGAL} as our \textit{Exact Computation Geometry Library}
-of choice, we must now overcome the quite literal language barrier between Julia
-and C++.  Fortunately, the former possesses \ac{FFI} mechanisms that can aid us
-in resolving this issue.  Here is an excerpt from the language's manual about
-Julia's C and Fortran \ac{FFI} capabilities:\footnote{From
+Having established \ac{CGAL} as our \geomlibrary of choice, we must now overcome
+the quite literal language barrier between Julia and C++.  Fortunately, the
+former possesses \ac{FFI} mechanisms that can aid us in resolving this issue.
+Here is an excerpt from the language's manual about Julia's C and Fortran
+\ac{FFI} capabilities:\footnote{From
 \url{https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/}}
 
 \begin{quote}
@@ -34,8 +22,8 @@ context of our problem, we created a small wrapper around \ac{CGAL} exposing the
 \texttt{squared\_distance} function.  The original function we are interested in
 takes two instances of 3D points.  To facilitate the wrapping, we create the
 points on the C++ side of things, instead passing primitive
-\mintinline{c}{double} values representing the points' coordinates.  The C++
-wrapper library is listed in \cref{lst:solution.impl.jlcgal.sqdist.cpp}.
+\mintinline{cpp}{double} values representing the points' coordinates.  The C++
+wrapper library is shown in \cref{lst:solution.impl.jlcgal.sqdist.cpp}.
 
 \begin{listing}[htb]
   \inputminted{cpp}{cpp/sqdist.cpp}
@@ -43,7 +31,7 @@ wrapper library is listed in \cref{lst:solution.impl.jlcgal.sqdist.cpp}.
     Example C library code that wraps \ac{CGAL}'s \texttt{squared\_distance}
     global function.  The original function takes in instances of
     \texttt{Point\_3} classes, so we instantiate them from our
-    \mintinline{c}{double} coordinate inputs.}%
+    \mintinline{cpp}{double} coordinate inputs.}%
   \label{lst:solution.impl.jlcgal.sqdist.cpp}
 \end{listing}
 
@@ -68,12 +56,12 @@ using \mintinline{julia}{ccall}, as showcased in
   \label{lst:solution.impl.jlcgal.sqdist.jl}
 \end{listing}
 
-Though this is looks like a good start, the number passing strategy soon shows
-its limitations. For example, think of the combinatorial explosion problem that
-may arise when a function requires a number $M$ of $N$-dimensional points.  We
-would then have to create a wrapper that takes $N\cdot M$ coordinates.  Such an
+Though this looks like a good start, the number passing strategy soon shows its
+limitations. For example, think of the combinatorial explosion problem that may
+arise when a function requires a number $M$ of $N$-dimensional points.  We would
+then have to create a wrapper that takes $N\cdot M$ coordinates.  Such an
 approach does not scale.  It is possible to overcome this limitation by
-mirroring C \mintinline{c}{struct}s in Julia.
+mirroring C \mintinline{cpp}{struct}s in Julia.
 
 As an example, we consider the \texttt{circumcenter} function from \ac{CGAL}, a
 function that takes three points as its parameters, returning the circumcenter
@@ -82,7 +70,7 @@ could try and directly mirror \ac{CGAL}'s \texttt{Point\_3} type, but that would
 require that we know its layout.  Even then, we would be breaking an abstraction
 barrier that could prove detrimental if \ac{CGAL}'s developers decide to change
 the type's internal representation.  To circumvent this completely, we can just
-create a \mintinline{c}{struct} that opaquely wraps around \ac{CGAL}'s type.
+create a \mintinline{cpp}{struct} that opaquely wraps around \ac{CGAL}'s type.
 The C++ wrapper code for this example is listed in
 \cref{lst:solution.impl.jlcgal.circ.cpp}.
 
@@ -97,19 +85,20 @@ The C++ wrapper code for this example is listed in
 
 The wrapper code looks very similar to the previous example in
 \cref{lst:solution.impl.jlcgal.sqdist.cpp}.  This time, however, we introduced a
-new \mintinline{c}{struct Point} that we will mirror in Julia so that we can
+new \mintinline{cpp}{struct Point} that we will mirror in Julia so that we can
 seamlessly pass instances of it to our externalized C++ function.\footnote{Note
-that, unlike the function, the \mintinline{c}{struct} was not externalized.
+that, unlike the function, the \mintinline{cpp}{struct} was not externalized.
 This is not necessary because we do not need to refer it by name.  We need only
 to match its field layout.}  All the wrapper function does is take in our
-\texttt{Point}s and creates new \texttt{Point\_3} objects, using them to invoke
+\texttt{Point}s and create new \texttt{Point\_3} objects, using them to invoke
 \ac{CGAL}'s \texttt{circumcenter} function.  The returned \texttt{Point\_3} is
-then used to create a \texttt{Point}, which is then sent back upstream to Julia.
+then used to create a \texttt{Point}, which is later sent back upstream to
+Julia.
 
 On the Julia side of things, the process is much the same as before with the
 addition of a new \texttt{Point} type that contains three
 \mintinline{julia}{Float64} fields. The previous example showed the latter Julia
-type's correspondence to the C/C++ \mintinline{c}{double} type.  The Julia code
+type's correspondence to the C/C++ \mintinline{cpp}{double} type.  The Julia code
 for this example is listed in \cref{lst:solution.impl.jlcgal.circ.jl}.
 
 \begin{listing}[htb]
@@ -117,7 +106,7 @@ for this example is listed in \cref{lst:solution.impl.jlcgal.circ.jl}.
   \caption[Julia circumcenter example program]{
     Example Julia program that invokes the functionality from the library listed
     in \cref{lst:solution.impl.jlcgal.circ.cpp}.  We use an additional Julia
-    struct that's equivalent to the one specified in C to facilitate data
+    struct that is equivalent to the one specified in C to facilitate data
     transfer.}%
   \label{lst:solution.impl.jlcgal.circ.jl}
 \end{listing}
@@ -158,16 +147,16 @@ necessary functionality to reproduce the example \ac{CGAL} program in
     {cpp}{cpp/cgal_julia.cpp}
 \end{listing}
 
-We direct our focus to the lines that are highlighted in the figure.  We define
-a function that is later invoked by \texttt{CxxWrap.jl}.  In it, we start
-registering the required types and functions that we need in a declarative
-fashion\footnote{Order with which types and functions are registered matters.
-This means we cannot add a function that depends on a type we did not yet
-register.}, reminiscent of the builder design pattern.  Notice the
-\texttt{JLCXX\_MODULE} symbol preceding the function definition.  That symbol
-takes care of properly externalizing the function regardless of the system the
-library is built for.\footnote{Think similar to \mintinline{c}{extern "C"}, but
-slightly more robust.}
+We direct our focus to the lines that are highlighted in
+\cref{lst:solution.impl.jlcgal.jlcxx}.  We define a function that is later
+invoked by \texttt{CxxWrap.jl}.  In it, we start registering the required types
+and functions that we need in a declarative fashion\footnote{Order with which
+types and functions are registered matters.  This means we cannot add a function
+that depends on a type we did not yet register.}, reminiscent of the builder
+design pattern.  Notice the \texttt{JLCXX\_MODULE} symbol preceding the function
+definition.  That symbol takes care of properly externalizing the function
+regardless of the system the library is built for.\footnote{Think similar to
+\mintinline{cpp}{extern "C"}, but slightly more robust.}
 
 After compiling the wrapper code, we can load it on the Julia side resorting to
 \texttt{CxxWrap.jl}.  This process is reminiscent of and analogous to the ones
@@ -212,7 +201,7 @@ example, translated from C++.
 We illustrated how to repurpose some core functionality on which we can continue
 to incrementally build upon following a similar approach to that shown in
 \cref{lst:solution.impl.jlcgal.jlcxx}.  Doing so, with relatively low effort, we
-can obtain the primitive objects and functionality on which our
-\textit{Geometric Constraint Primitives} will be supported.  The following
-section goes over how we effectively used the functionality from
-\texttt{CGAL.jl} to implement constructive solutions for \ac{GC} problems.
+can obtain the primitive objects and functionality on which our \primitives will
+be supported.  The following section goes over how we effectively used the
+functionality from \texttt{CGAL.jl} to implement constructive solutions for
+\ac{GC} problems.
