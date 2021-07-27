@@ -1,19 +1,17 @@
 using Khepri
 import CGAL: Point2, circumcenter
-
 # conversion
 circumcenter(p, q, r) =
-    convert(Loc
-          , circumcenter(convert.(Point2, (p, q, r))...))
+    convert(Loc, circumcenter(convert.(Point2, (p, q, r))...))
 
 right_angle(p, q, r; scale=.2) =
     with(current_cs, cs_from_o_vx_vy(q, p - q, r - q)) do
         line(y(scale), xy(scale, scale), x(scale))
     end
+right_angle(ps; kws...) = right_angle(ps...; kws...)
 
 begin
-    backend(autocad)
-    delete_all_shapes()
+    backend(autocad); delete_all_shapes()
 
     A, B, C = u0(), xy(1, 3), x(4)
     O  = circumcenter(A, B, C)
@@ -21,8 +19,7 @@ begin
     AC = intermediate_loc(A, C)
     BC = intermediate_loc(B, C)
     line.((AB, AC, BC), O)
-    foreach(t -> right_angle(t...)
-         , ((A,AB,O), (B,BC,O), (C,AC,O)))
+    foreach(right_angle, ((A,AB,O), (B,BC,O), (C,AC,O)))
     polygon(A, B, C)
     circle(O, distance(O, A))
     line(O, A)

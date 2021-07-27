@@ -1,16 +1,13 @@
 using Khepri
 import CGAL: Point2, Segment2, to_vector
-
 # implementation
 parallel(l::Segment2, p::Point2) = Segment2(p, p + to_vector(l))
-
 # conversion
 parallel(l, p) = convert(Line, parallel(convert(Segment2, l)
                                       , convert(Point2, p)))
 
 begin
-    backend(autocad)
-    delete_all_shapes()
+    backend(autocad); delete_all_shapes()
 
     with(current_cs, cs_from_o_phi(u0(), deg2rad(20))) do 
         A, B, C = u0(), x(3), xy(1,1)
