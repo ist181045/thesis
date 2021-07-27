@@ -32,9 +32,9 @@ algorithms from \ac{CGAL}, \cref{lst:appendix.voronoi.jlcxx} shows a minimal
 working example of the wrapper library code supported by JlCxx required to make
 the necessary constructs and functionality available in Julia.  It follows a
 familiar approach, the same used to obtain the core constructs supporting our
-\textit{Geometric Constraint Primitives} solution.  \Cref{lst:eval.voronoi.jl}
-shows a bare-bones Julia module encapsulating and exposing the mapped
-functionality to the Julia language.
+\primitives{} solution.  \Cref{lst:eval.voronoi.jl} shows a bare-bones Julia
+module encapsulating and exposing the mapped functionality to the Julia
+language.
 \begin{listing}[htb]
   \inputminted{julia}{jl/Voronoi.jl}
   \caption[Bare-bones Julia module wrapping CGAL's Delaunay algorithms]{

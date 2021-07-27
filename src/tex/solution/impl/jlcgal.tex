@@ -2,11 +2,11 @@
 \subsection{From C++ to Julia}%
 \label{sec:solution.impl.jlcgal}
 
-Having established \ac{CGAL} as our \geomlibrary of choice, we must now overcome
-the quite literal language barrier between Julia and C++.  Fortunately, the
-former possesses \ac{FFI} mechanisms that can aid us in resolving this issue.
-Here is an excerpt from the language's manual about Julia's C and Fortran
-\ac{FFI} capabilities:\footnote{From
+Having established \ac{CGAL} as our \geomlibrary{} of choice, we must now
+overcome the quite literal language barrier between Julia and C++.  Fortunately,
+the former possesses \ac{FFI} mechanisms that can aid us in resolving this
+issue.  Here is an excerpt from the language's manual about Julia's C and
+Fortran \ac{FFI} capabilities:\footnote{From
 \url{https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/}}
 
 \begin{quote}
@@ -201,7 +201,7 @@ example, translated from C++.
 We illustrated how to repurpose some core functionality on which we can continue
 to incrementally build upon following a similar approach to that shown in
 \cref{lst:solution.impl.jlcgal.jlcxx}.  Doing so, with relatively low effort, we
-can obtain the primitive objects and functionality on which our \primitives will
-be supported.  The following section goes over how we effectively used the
+can obtain the primitive objects and functionality on which our \primitives{}
+will be supported.  The following section goes over how we effectively used the
 functionality from \texttt{CGAL.jl} to implement constructive solutions for
 \ac{GC} problems.

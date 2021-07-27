@@ -34,10 +34,12 @@
     "\\Citet{}": "dummy",
     "\\DTMfetchmonth{}": "dummy",
     "\\DTMfetchyear{}": "dummy",
+    "\\geomlibrary{}": "dummy",
     "\\IfLanguageName{}": "ignore",
     "\\inputminted{}{}": "ignore",
     "\\inputminted[]{}{}": "ignore",
     "\\mintinline{}{}": "dummy",
+    "\\primitives{}": "dummy",
     "\\subcaptionbox{}": "ignore",
     "\\subcaptionbox{}{}": "ignore",
     "\\subcaptionbox{}[]{}": "ignore",
@@ -45,7 +47,8 @@
     "\\subref{}": "dummy",
     "\\texttt{}": "dummy",
     "\\univlogo{}{}{}": "ignore",
-    "\\verbatiminput{}": "ignore"
+    "\\verbatiminput{}": "ignore",
+    "\\wrapper{}": "dummy"
   },
   "ltex.latex.environments": {
     "subfigure": "ignore",

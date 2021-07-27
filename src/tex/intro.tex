@@ -131,15 +131,14 @@ The present document is structured in \total{chap} different chapters, namely:
   implemented and how it is capable of efficiently handling the specification of
   \ac{GC} problems, in \cref{chap:solution}, going over its core components:
   \begin{enumerate*}[label= (\arabic*)]
-    \item an \textit{Exact Computation Geometry Library}, discussed in
-    \cref{sec:solution.impl.cgal}, which provides the basic geometric entities
-    and functions to work it,
-    \item an interoperability \textit{Wrapper Code} layer that allows the target
-    platform to repurpose the previous component's foreign constructs, detailed
-    in \cref{sec:solution.impl.jlcgal}, and
-    \item \textit{Geometric Constraint Primitives}, showcased in
-    \cref{sec:solution.impl.gcps} capable of solving a class of \ac{GC} problems
-    employing a Euclidean constructive approach to producing geometry.
+    \item an \geomlibrary{}, discussed in \cref{sec:solution.impl.cgal}, which
+    provides the basic geometric entities and functions to work it,
+    \item an interoperability \wrapper{} layer that allows the target platform
+    to repurpose the previous component's foreign constructs, detailed in
+    \cref{sec:solution.impl.jlcgal}, and
+    \item \primitives{}, showcased in \cref{sec:solution.impl.gcps} capable of
+    solving a class of \ac{GC} problems employing a Euclidean constructive
+    approach to producing geometry.
   \end{enumerate*}
   
   \item[\nameref{chap:eval}] The methodology used to evaluate the proposed
