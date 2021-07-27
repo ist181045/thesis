@@ -56,6 +56,7 @@ let ps  = randpoints(),
 
     plot(plotxy(VoronoiDiagram2(cdt))
        , lab = "Voronoi.jl"
+       , lims = (.9, 2.1)
        , titlefontsize = 10
        , color = :red)
     plot!(getplotxy(voronoiedges(vdt))
