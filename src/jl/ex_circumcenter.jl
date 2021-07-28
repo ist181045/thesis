@@ -1,14 +1,10 @@
 using Khepri
 import CGAL: Point2, circumcenter
+include("utils.jl") # helpers
+
 # conversion
 circumcenter(p, q, r) =
     convert(Loc, circumcenter(convert.(Point2, (p, q, r))...))
-
-right_angle(p, q, r; scale=.2) =
-    with(current_cs, cs_from_o_vx_vy(q, p - q, r - q)) do
-        line(y(scale), xy(scale, scale), x(scale))
-    end
-right_angle(ps; kws...) = right_angle(ps...; kws...)
 
 begin
     backend(autocad); delete_all_shapes()
@@ -23,10 +19,11 @@ begin
     polygon(A, B, C)
     circle(O, distance(O, A))
     line(O, A)
-    surface_circle.((A, B, C, O), 3e-2)
-    text("r", intermediate_loc(O, A) + vy(.1), .2)
-    text("A", A + .2vxy(-1, -1), .2)
-    text("B", B + .1vxy(-2,  1), .2)
-    text("C", C + .1vxy( 1, -2), .2)
-    text("O", O + .1vxy( 1, -2), .2)
+    draw_point.((A, B, C, O))
+    r = intermediate_loc(O, A)
+    @label r vy(.1)
+    @label A .2vxy(-1, -1)
+    @label B .1vxy(-2,  1)
+    @label C .1vxy( 1, -2)
+    @label O .1vxy( 1, -2)
 end
