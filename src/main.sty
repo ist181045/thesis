@@ -1,7 +1,6 @@
 % !TEX root = ./main.tex
 %% packages
 \usepackage{fontspec} % font selection under LuaLaTeX/XeTeX
-\usepackage{hyperref} % hypertext support
 
 \usepackage[
   shortlabels,
@@ -37,7 +36,8 @@
 \usepackage{verbatim}       % extensions to verbatim
 \usepackage{xcolor}         % color extensions
 
-\usepackage[noabbrev]{cleveref} % intelligent cross-referencing
+\usepackage[draft=false]{hyperref} % hypertext support
+\usepackage[noabbrev]{cleveref}    % intelligent cross-referencing
 
 
 %% configuration
