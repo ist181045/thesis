@@ -1,1 +1,18 @@
-To anyone and everyone who supported and bore with me: thank you.
+First and foremost, to my dear supervisor, António Leitão, without whom this
+dissertation would not exist.  Thank you for your guidance, insight, support,
+and friendship, which was sorely needed during such a turbulent travel.
+
+Secondly, I would like to extend my gratitude to everyone in the Algorithmic
+Design for Architecture (ADA) group.  Special mention to members Sara Garcia
+and Renata Castelo-Branco.  Thank you both for additional support and your
+friendship as well.
+
+Additionally, thank you to all my friends and family who have also offered me
+support and incentivized me to get finish this thesis.  Sorry for being so numb
+and taking so long.  Thank you.
+
+Finally, to my parents.  Thank you.  Truly.  For everything: your love, your
+care, your support, and much much more.  Despite not being the most cooperative
+person, they still put up with me, through thick and thin.  Even though it is a
+cliché, there really are no words I can use to express my gratitude to you both.
+I am sorry, but thankful.
