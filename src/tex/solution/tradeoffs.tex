@@ -13,20 +13,24 @@ solution's needs, yet fitting it perfectly.
 It is, however, an external component, and with every such component, we do not
 hold as much control over it as if it was internal instead.  For example, in the
 advent a bug is found within \ac{CGAL}, one cannot \emph{immediately} fix it by
-altering its source code and use this fixed version.  Important emphasis on bugs
-not being \emph{immediately} fixable lest we forget \ac{CGAL} is still an
+altering its source code and use this fixed version.\footnote{Not unless one
+wishes to maintain an entirely separate version of the software until this local
+fix is applied upstream.  It can be tiresome if we wish to distribute our
+solution and have to redistribute a different version of \ac{CGAL} as well
+instead of the globally available releases.}  Important emphasis on bugs not
+being \emph{immediately} fixable lest we forget \ac{CGAL} is still an
 open-source project arguably anyone can contribute to.  Alas, said contribution
 deployments are still out of our control.  In hindsight, however, it can be
 considered as just an inconvenience since it is a project that is actively
 maintained by very knowledgeable in the computer graphics and mathematics
 fields.
 
-\Ac{CGAL} is also a highly generic library, making use and further abusing C++
-templates.  Although its design makes usage an elegant experience (as elegant as
-C++ can be), the same cannot be said when trying to wrap its constructs to
-another language, especially a language with different memory management
-paradigm which could lead to some nasty low-level ordeals.  Luckily,
-\texttt{CxxWrap.jl} helps us solve most, if not all, of those issues.
+\Ac{CGAL} is also a highly generic library, making heavy use of C++ templates.
+Although its design makes usage an elegant experience, the same cannot be said
+when trying to wrap its constructs to another language, especially a language
+with a different memory management paradigm which could lead to some nasty
+low-level ordeals.  Luckily, \texttt{CxxWrap.jl} helps us solve most, if not
+all, of those issues.
 
 Regarding our wrapper code,  there is one small problem we still technically did
 not solve.  We are still mapping \ac{CGAL} types in an opaque fashion, fixing
@@ -57,11 +61,11 @@ the quality of \ac{CGAL}.
 Lastly, some of our \ac{GC} primitives employ some computation that can lead to
 robustness loss as well.  Primarily the ones that involve circles, non-linear
 geometric objects, typically require the computation of a square root to work
-with absolute distances.  We tend to typically avoid those computations,
-postponing them as much as possible until they are absolutely necessary.  As an
-example, in the ``Tangent lines to a circle'' implementation in
+with absolute distances.  We to typically avoid those computations, postponing
+them as much as possible until they are absolutely necessary.  As an example, in
+the ``Tangent lines to a circle'' implementation in
 \cref{lst:solution.impl.gcps.tanglines2circles}, we first compare squared
-distances before inevitably requiring their absolute value.
+distances before requiring their absolute value.
 
 Be that as it may, due to having fixed a kernel with inexact constructions for
 \ac{CGAL}, we are bound with some robustness loss regardless.  At this point, it

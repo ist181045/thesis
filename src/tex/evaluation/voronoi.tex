@@ -11,7 +11,7 @@ compare said version with a native Julia implementation of the algorithm
 described in~\cite{Springel:2010:GCHSMM} available in the
 \texttt{VoronoiDelaunay.jl}\footnote{\url{https://github.com/JuliaGeometry/VoronoiDelaunay.jl}}
 package.  Measurements involved obtaining an estimate of the effort required to
-obtain either implementation, measuring Delaunay Triangulation construction
+create either implementation, measuring Delaunay Triangulation construction
 performance, and subsequent output triangulation and diagram comparison.
 
 Both implementations adopt a similar incremental approach and are both robust.
@@ -48,12 +48,12 @@ parameterized, and adds methods for querying, insertion, and further
 manipulation.  For the purposes of testing, we used the slimmer \texttt{Voronoi}
 module (\cref{lst:eval.voronoi.jl}).
 
-The process for obtaining these code bindings is a relatively simple one that
+The process for obtaining these bindings is a relatively simple one that
 requires bare minimal C++ knowledge and following reference documentation as if
 it were a recipe book, looking up the necessary ingredients and adding them to
-the mix.  At most, accounting for trial and error in case a minute detail was
-overlooked, to make this functionality available, it would take no more than a
-full day.  Having that, the algorithms are ready and available for use.
+the mix.  Accounting for trial and error, in case a minute detail was
+overlooked, to make this functionality available would take no more than a full
+day.  Having that, the algorithms are ready and available for use.
 
 The algorithm present in \texttt{VoronoiDelaunay.jl} is the result of an immense
 body of research, detailed in the \textsc{Arepo}
@@ -68,11 +68,10 @@ It required interpretation and understanding of the approach described in the
 article since there is no explicit algorithm listed.  This then requires the
 creation of a conceptual mapping of the algorithm's entities and procedures,
 later translating them into corresponding, preferably efficient, data structures
-and functions in the Julia language, which, in fairness, is an easy platform to
-prototype in.  These are among other trials and tribulations that we did not
-have to meet in the slightest.  Our estimate is that developing the algorithm in
-\texttt{VoronoiDelaunay.jl} took far longer than obtaining one via our approach,
-the latter concisely, generously, fitting into the span of a full day at most.
+and functions in the Julia language.  These are among other trials and
+tribulations that we did not have to meet in the slightest.  Our estimate is
+that developing the algorithm in \texttt{VoronoiDelaunay.jl} took far longer
+than obtaining one via our approach.
 
 Regarding both algorithms' performance, \cref{tab:eval.voronoi.bench} shows a
 series of results obtained by batch inserting various powers-of-ten sets of

@@ -14,11 +14,11 @@ illustrate the ease with which one can contribute to the project, here is a pull
 request the author submitted: \url{https://github.com/CGAL/cgal/pull/4705}.}
 
 These factors, among others, justify our choice for our solution's
-\geomlibrary{} component.  We chose \ac{CGAL} because of its comprehensiveness
-and decades of work instead of relying on less mature software, as well as the
-critical mass of maintainers behind it.  That is not to say less mature software
-cannot be used in its stead, though it is unlikely they can match \ac{CGAL}, be
-it in terms of performance, quality, or breadth.
+\geomlibrary{} component: we chose \ac{CGAL} because of its comprehensiveness
+and decades of work invested in the production of a piece of highly mature
+software, as well as the critical mass of maintainers behind it.  That is not to
+say less mature software cannot be used in its stead, though it is unlikely it
+can match \ac{CGAL}, be it in terms of performance, quality, or breadth.
 
 \ac{CGAL} offers a multitude of data structures and algorithms, such as
 triangulations, Voronoi diagrams, and convex hull algorithms, to name a few.
@@ -36,13 +36,19 @@ The library is broken up into three parts~\cite{CGAL:5.3:23LGK}:
   classes that define the interface between the data structure or algorithm and
   the primitives they use;
   \item Non-geometric support facilities, such as circulators, random sources,
-  and I/O support for debugging and for interfacing \ac{CGAL} to various
+  and I/O support for debugging and for interfacing \ac{CGAL} with various
   visualization tools.
 \end{enumerate}
 
+Kernels in \ac{CGAL} are parametric, enabling the combination of kernels with
+exact predicates and exact constructions or inexact constructions.  The latter
+provide exact predicates and are faster than the former, but may produce inexact
+results due to \textit{roundoff} errors.  In practice, however, inexact
+construction kernels suffice for most of \ac{CGAL}'s algorithms.
+
 \Cref{lst:solution.impl.cgal.pas} showcases an example of a very simple
-\ac{CGAL} program, demonstrating the construction of some points and a segment,
-and performing some basic operations on them.
+\ac{CGAL} program, demonstrating the construction of points and a segment, and
+performing some basic operations on them.
 
 \begin{listing}[htbp]
   \caption[CGAL: Three points and one segment]{
@@ -53,38 +59,35 @@ and performing some basic operations on them.
   \inputminted{cpp}{cpp/points_and_segments.cpp}
 \end{listing}
 
-As mentioned, geometric primitive types are defined in the kernel.  The chosen
-kernel in the example uses \texttt{double} precision floating point numbers for
+As mentioned, geometric primitive types are defined in the kernel.  The kernel
+chosen in the example uses \texttt{double} precision floating point numbers for
 the Cartesian coordinates of the point.
 
 We can also see some predicates, such as testing the orientation of three
 points, and constructions, like the distance\footnote{It is worth noting
 \ac{CGAL} does \texttt{not} compute the absolute distance, offering instead to
-compute the squared distance, avoiding the additional square root computation.
-This preserves exactness and avoids a potentially unnecessary heavy
-computation.} and midpoint computation.  Predicates typically produce a boolean
-logical value or one of a discrete set of possible results, whereas
+compute the squared distance, as this avoids the additional square root
+computation.  This preserves exactness and eliminates a potentially unnecessary
+heavy computation.} and midpoint computation.  Predicates typically produce a
+boolean logical value or one of a discrete set of possible results, whereas
 constructions produce either a number or another geometric entity.
 
 It is worth noting that floating point-based geometric computation can lead to
 surprising results since we are relying on inexact constructions.  If one must
-ensure that the numbers get interpreted at their full precision, \ac{CGAL}
-offers kernels that perform exact predicates and exact constructions.
-Revisiting \cref{lst:solution.impl.cgal.pas}, it is as simple as switching the
+ensure that the numbers get interpreted at their full precision, all one has to
+do is pick a kernel with exact constructions.  Revisiting
+\cref{lst:solution.impl.cgal.pas}, it is as simple as switching the
 \texttt{Simple\_cartesian} kernel with one the provides exact constructions,
 e.g., \texttt{Exact\_predicates\_exact\_constructions\_kernel} or \texttt{Epeck}
 for short.
 
-However, \ac{CGAL} is a terribly complex library under the hood, presenting many
-challenges when it comes to mapping it to the Julia language.  Firstly, it is a
-C++ library.  Despite Julia's native capabilities for interoperating with C,
-there's additional work to be done to reach C++ code.  Secondly, is problem of
-memory management, which differs between C/C++ and Julia, potentially leading to
-memory leaks and other related issues if not properly tended to.  Finally,
-\ac{CGAL} makes extensive use of C++ templates, proving sometimes difficult to
-transparently map some of its constructs.
+Unfortunately, \ac{CGAL} is a terribly complex library under the hood,
+presenting many challenges when it comes to mapping it to the Julia language.
+Firstly, it is a C++ library.  Despite Julia's native capabilities for
+interoperating with C, there's additional work to be done to reach C++ code.
+Secondly, is problem of memory management, which differs between C/C++ and
+Julia, potentially leading to memory leaks and other related issues if not
+properly tended to.  Finally, \ac{CGAL} makes extensive use of C++ templates,
+proving sometimes difficult to transparently map some of its constructs.
 
-Fortunately, there are both methods and additional libraries that aid us by
-transparently overcoming some of those issues.  In the next section, we go over
-how we overcame these issues, demonstrating it by reproducing the example in
-\cref{lst:solution.impl.cgal.pas} in Julia.
+In the next section, we go over how we overcame these issues.

@@ -1,5 +1,5 @@
 # implementation
-@cxxdereference tangent_lines(p::Point2, c::Circle2) =
+tangent_lines(p::Point2, c::Circle2) =
     let o  = center(c), 
         r² = squared_radius(c),
         dₚ² = squared_distance(p, o)
@@ -15,7 +15,7 @@
         end
     end
 
-@cxxdereference function tangent_lines(c₁::Circle2, c₂::Circle2)
+function tangent_lines(c₁::Circle2, c₂::Circle2)
     r₁², r₂² = squared_radius.((c₁, c₂))
 
     if r₂² > r₁² # swap arguments
@@ -25,8 +25,8 @@
         return opposite.(ss)
     end
 
-    o₁, r₁  = center(c₁), √r₁²
-    o₂, r₂  = center(c₂), √r₂²
+    o₁, r₁  = center(c₁)[], √r₁²
+    o₂, r₂  = center(c₂)[], √r₂²
 
     # Auxiliary
     translation(v) = AffTransformation2(TRANSLATION, v)

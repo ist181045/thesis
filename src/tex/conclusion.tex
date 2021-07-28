@@ -6,15 +6,13 @@
 \noindent The generation of highly constrained sophisticated designs is not
 viable through usage of interactive interfaces due to rigidity in the
 manipulation of existing models in order to generate multiple variants.  This is
-where \Ac{AD} comes in.  Even then, \acp{VPL} suffer from the disproportionate
-relation between the resulting workflow and respective design complexity.
-However, working with geometric constraints in \acp{TPL} imposes a set of
-challenges, which can be overcome through the usage of \ac{GCS} approaches to
-solve complex systems of constraints.  To achieve that goal, several methods can
-be employed, but they mostly resort to generic \acs{GCS} algorithms.  Alas,
-solvers, in general, have difficulties identifying specific underlying
-subproblems for which efficiently computable and robust solutions might be
-available.
+where \Ac{AD} comes in.  Even then, working with geometric constraints, whether
+it be in a \ac{VPL} or a \ac{TPL}, imposes a set of challenges, which can be
+overcome through the usage of \ac{GCS} approaches to solve complex systems of
+constraints.  To achieve that goal, several methods can be employed, but they
+mostly resort to generic \acs{GCS} algorithms.  Alas, solvers, in general, have
+difficulties identifying specific underlying subproblems for which efficiently
+computable and robust solutions might be available.
 
 Nonetheless, the prior analysis of the set of geometric constraints that must be
 dealt with requires certain background knowledge on numerical robustness to
@@ -71,11 +69,16 @@ expanding the set of primitives even further.
 This work focused exclusively on constrained geometry bound to the
 $\mathbb{R}^2$ Euclidean space, i.e., the 2D plane.  There is still much work to
 be done researching problem solutions that encompass 3D space as well.
-Elevating a dimension means the solutions to problems once formulated in the 2D
-plane are no longer applicable in 3D space for some problems may now be
-under-constrained.  As an example, our solution for the circumcenter problem,
-exemplified in \cref{sec:intro.examples.circumcenter}, would no longer work in
-3D space.  A line's bisector in 3D space is a plane, and noncoplanar nor
-parallel plane intersection results in a line.  To obtain the actual
-circumcenter, one would additionally, for example, have to intersect the
-resulting line with the plane the circumscribed triangle sits on.
+Solutions to problems once formulated in the 2D plane are no longer generally
+applicable in 3D space for some problems may now be under-constrained.  As an
+example, our solution for the circumcenter problem, seen first in
+\cref{sec:intro.examples.circumcenter}, would no longer work in 3D space.  A
+line's bisector in 3D space is a plane, and noncoplanar nor parallel plane
+intersection results in a line.  To obtain the actual circumcenter, one would
+additionally, for example, have to intersect the resulting line with the plane
+the circumscribed triangle sits on.  Among problems like this one, many more
+exist.
+
+Going from the 2D plane into 3D space seems simple on paper.  But much like the
+jump from sketching on paper to projecting skyscrapers, the dimensional gap is
+wider than it initially seemed.

@@ -135,11 +135,11 @@ latter behavior may be preferred, for which adjustments to the solution must be
 made, such as indicating that there is no solution for the given center point.
 
 We did not implement such a scenario regarding line segments, because much like
-the other primitives, it was created to quench a specific use case's thirst.  A
-potential solution to that specific problem could be obtained reusing the
-\texttt{tangent\_circle} function, however.  We would then need to verify if the
-circle would fall somewhere between the segment's endpoints.  Otherwise, there
-would not be a solution available.
+the other primitives, it was created to satisfy a specific use case's
+requirements.  A potential solution to that specific problem could be obtained
+reusing the \texttt{tangent\_circle} function, however.  We would then need to
+verify if the circle would fall somewhere between the segment's endpoints.
+Otherwise, there would not be a solution available.
 
 \subsubsection{Tangent circles}%
 \label{sec:solution.impl.gcps.tangentcircles}
@@ -185,7 +185,7 @@ Another problem that surfaced in a case study earlier illustrated in
 \cref{fig:intro.chair} is that of computing tangent lines between two circles.
 It is a slightly more complex problem for which there is no obvious solution.
 Fortunately, a constructive solution to this problem already
-exists\footnote{\url{https://en.wikipedia.org/wiki/Tangent_lines_to_circles\#Synthetic_geometry}},
+exists,\footnote{\url{https://en.wikipedia.org/wiki/Tangent_lines_to_circles\#Synthetic_geometry}}
 an approach our implementation is based on.
 
 This problem's complexity lead us to break it into two different problems.
@@ -193,7 +193,7 @@ First, we must determine the lines tangent to a circle that pass through a given
 point (\cref{lst:solution.impl.gcps.tanglines2circles}).  Then, repurposing the
 solution to that problem, we solve the overarching problem of determining the
 lines tangent between circles (\cref{lst:solution.impl.gcps.tanglines2circle}).
-This is another example of how we can compose a smaller set of our primitives to
+This is another example of how we can compose a smaller set of primitives to
 solve a larger problem.
 
 \begin{listing}[htbp]
