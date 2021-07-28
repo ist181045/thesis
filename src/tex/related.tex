@@ -1,27 +1,21 @@
 % !TEX root = ../main.tex
-\fancychapter{Related Work}%
-\label{chap:related}
-\cleardoublepage{}
+\section{Related Work}%
+\label{sec:related}
 
-\noindent
-In this chapter, we expose and discuss numerical accuracy issues that arise when
-performing computations with fixed-precision arithmetic.  We then proceed to
-naming some precautions and steps in order to obtain practical solutions,
-followed by a brief mention of some software libraries dedicated to overcoming
-these issues through a series of exact algorithms and data structures.
+In this section, we discuss numerical accuracy issues that arise when performing
+computations with fixed-precision arithmetic.  We then proceed to naming some
+precautions and highlighting alternative methods of obtaining practical
+solutions.
 
-We follow that by a comparative analysis of a set of \ac{GCS}-capable
+That is followed by a comparative analysis of a set of \ac{GCS}-capable
 programming tools along different dimensions, such as supported language
-paradigm, native \ac{GCS} capabilities, 2D and 3D support.  Of those tools,
-Eukleides~\cite{Obrecht:2010:EM}, GeoSolver~\cite{Van:2009:NRCRASSGC}, and
-\acs{TikZ} \& \acs{PGF}~\cite{Tantau:2021:TikZ} are extensively discussed.
+paradigm, native \ac{GCS} capabilities, 2D and 3D support.
 
-Similarly, we analyze \ac{AD} tools.  Some of them are integrated within
-\ac{CAD} applications while others are standalone applications.  These tools and
-their capabilities are summarized in \cref{tab:related.ad.summary}.
-Furthermore, Dynamo and Grasshopper are expanded upon.
+Similarly, we analyze a variety of \ac{AD} tools.  Some of them are integrated
+within \ac{CAD} applications while others are standalone applications.  These
+tools and their capabilities are summarized in \cref{tab:related.ad.summary}.
 
-The chapter closes with small remarks on \acp{VPL}' poorer scalability with
+The section closes with small remarks on \acp{VPL}' poorer scalability with
 increasing project complexity when compared to \acp{TPL}, showcasing the
 \ac{RGC} as an example.
 

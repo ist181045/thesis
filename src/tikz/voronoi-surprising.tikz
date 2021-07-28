@@ -8,7 +8,7 @@
             1.8946103360503908  1.4291503357235342  \\
         }
         ;
-    \addlegendentry {Voronoi.jl}
+    \addlegendentry {CGAL.jl}
     \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={8223002b-7729-4b6e-a2c9-1769cec69fa1}, draw opacity={1.0}, line width={1}, solid, forget plot]
         table[row sep={\\}]
         {

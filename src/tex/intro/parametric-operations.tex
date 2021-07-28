@@ -1,45 +1,34 @@
 % !TEX root = ../../main.tex
-\section{Parametric Operations in CAD}%
+\subsection{Parametric Operations in CAD}%
 \label{sec:intro.parametric}
 
 Ivan Sutherland introduced the world to
 Sketchpad~\cite{Sutherland:1964:Sketchpad} in 1963, an interactive 2D \ac{CAD}
-program. Despite never using the word \textit{parametric} in writing,
-Sutherland's Sketchpad was capable of establishing atomic constraints between
-objects which had all the essential properties of parametric equations, being
-the first of its kind and the prime ancestor of modern \ac{CAD} programs.  The
-earliest 3D system~\cite{Requicha:1980:RRS:356827.356833} dates from the 1970s.
-It used a \ac{CSG}~\cite{Requicha:1977:CSG,Foley:1996:CGPP} binary tree, and
-\ac{B-Rep}~\cite{Stroud:2006:BRMT} for representing solid objects.  This
-system's parametric nature rested in the \ac{CSG} tree, which acted as a
-rudimentary construction step history.  The user could make modifications to the
-controlling parameters' values of a certain operation in the tree, reapply the
-modified history, and generate the newly updated model.  Surfacing nearly a
-decade later,
+program.  Sutherland's Sketchpad was capable of establishing atomic constraints
+between objects which had all the essential properties of parametric equations,
+being the first of its kind and the prime ancestor of modern \ac{CAD} programs.
+The earliest 3D system~\cite{Requicha:1980:RRS:356827.356833} dates from the
+1970s.  This system's parametric nature rested in a
+\ac{CSG}~\cite{Requicha:1977:CSG,Foley:1996:CGPP} tree, which acted as a
+rudimentary construction step history.  The user could modify an operation's
+parameters' values, reapply the modified history, and generate the newly updated
+model.  Nearly a decade later,
 Pro/ENGINEER\footnote{\url{https://www.ptc.com/en/products/creo/pro-engineer}}~\cite{Jabi:2013:PDA}
-was the first system to be acknowledged as a parametric system.  It enabled the
-establishment of relations between the objects' sizes and positions such that a
-change in a dimension between objects would automatically change affected
-objects accordingly.  Unlike Sketchpad, it supported 3D geometry and changes
-would propagate over different drawings made by different users.  This amid a
-sudden flux of activity and interest, \ac{GCS} soon became standard in drawings
-by the early 1990s~\cite{Chung:1990:TEVPD,Owen:1991:ASGDC,Bouma:1995:GCS}.
-Efforts to expand the benefits of constraint solving beyond simple sketches were
-made, some systems having implemented constraint solving in 3D.  Improvements
-from then on focused mostly on robustness and operation variety.
+surfaced.  It enabled the establishment of relations between the objects' sizes
+and positions such that a change in a dimension between objects would
+automatically change affected objects accordingly.  \Ac{GCS} soon became
+standard in drawings by the early
+1990s~\cite{Chung:1990:TEVPD,Owen:1991:ASGDC,Bouma:1995:GCS}.  Efforts to expand
+the benefits of constraint solving beyond simple sketches were made, some
+systems having implemented constraint solving in 3D.  Improvements from then on
+focused mostly on robustness and operation variety.
 
-In recent decades, emphasis shifted to making parametric \ac{CAD} software more
-interactive and user-friendly.  The intent was to make it as simple as dragging
-a face of an object to where it should be instead of scrolling through a
-construction history in attempts to locate a specific operation, and hopefully
-changing the correct controlling parameter's value within that operation.  This
-in itself is a tedious and error-prone process that can lead to undesired
-side effects instead of producing the intended changes.  A variety of systems
-have been developed to mitigate this
-rigidity~\cite{Samuel:2006:CPPUP,Wu:2007:MSMSM,Clarke:2009:SM}, but not without
-drawbacks, since direct-manipulation operations were just added to the
-construction history as transformation operations, oblivious to parent
-operations the new ones might depend on.  Further limitations are discussed
-in~\cite{Bettig:2005:LPOSSD}, along with a proposal for future design software
-exempt of parametric operations.  Nonetheless, parametric operations will still
-see continued usage for the foreseeable future.
+In recent decades, emphasis shifted towards making parametric \ac{CAD} software
+more interactive and user-friendly.  The intent was to make it as simple as
+dragging a face of an object to where it should be instead of scrolling through
+a construction history in attempts to locate an operation and changing the
+correct parameter's value.  This is a tedious and error-prone process that can
+lead to undesired side effects.  A variety of systems have been developed to
+mitigate this rigidity~\cite{Samuel:2006:CPPUP,Wu:2007:MSMSM,Clarke:2009:SM},
+but not without drawbacks.  Nonetheless, parametric operations will still see
+continued usage for the foreseeable future.

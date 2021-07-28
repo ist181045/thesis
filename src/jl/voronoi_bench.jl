@@ -1,5 +1,5 @@
 using VoronoiDelaunay
-include("Voronoi.jl"); using .Voronoi
+using CGAL
 
 import RandomNumbers.MersenneTwisters: MT19937
 

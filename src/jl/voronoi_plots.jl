@@ -1,5 +1,5 @@
 using VoronoiDelaunay
-include("Voronoi.jl"); using .Voronoi
+using CGAL
 
 import RandomNumbers.MersenneTwisters: MT19937
 
@@ -41,7 +41,7 @@ let ps  = randpoints(),
     push!(vdt,   [Point(p...)  for p ∈ ps])
 
     plot(plotxy(cdt)
-       , lab = "Voronoi.jl"
+       , lab = "CGAL.jl"
        , lims = (.9, 2.1)
        , titlefontsize = 10
        , tickfontfamily = "monospace"
@@ -54,8 +54,8 @@ let ps  = randpoints(),
     title!("Delaunay Triangulation")
     pl1 = current()
 
-    plot(plotxy(VoronoiDiagram2(cdt))
-       , lab = "Voronoi.jl"
+    plot(plotxy(VoronoiDiagram2{DelaunayTriangulation2}(cdt))
+       , lab = "CGAL.jl"
        , lims = (.9, 2.1)
        , titlefontsize = 10
        , color = :red)

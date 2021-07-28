@@ -1,186 +1,67 @@
 % !TEX root = ../../main.tex
-\section{ConstraintGM}%
+\subsection{ConstraintGM}%
 \label{sec:eval.cgm}
 
-ConstraintGM is a domain-specific language developed with the shared goal of
-tackling \ac{GC} problem specification using a \ac{TPL} (Racket, to be precise).
-This solution heavily and blindly relied on Maxima~\cite{Maxima:2021:Maxima}, a
-generic \ac{CAS} to solve \ac{GC} problems.  Geometric entities were serialized
-into their algebraic equation representation coupled with the problem's
-constraints and sent to Maxima.  Maxima would then attempt to solve the system
-of equations and return a result that was parsed and sent back to Racket.
+ConstraintGM is a domain-specific language developed with the goal of tackling
+\ac{GC} problems using the Racket \ac{TPL}.  This solution blindly relied on
+Maxima~\cite{Maxima:2021:Maxima}.
 
-This approach came at a severe performance cost, the reason being two-fold:
+This approach came at a grave performance cost for two reasons:
 \begin{enumerate*}[label= (\arabic*)]
   \item the communication between ConstraintGM and Maxima was slow, and
-  \item Maxima is a \emph{generic} solver and could not take advantage of the
-  geometric characteristics of the problem at hand.
+  \item Maxima is a \emph{generic} solver.
 \end{enumerate*}
 The considerable performance penalty of this approach is hard to justify in the
-case of simple geometric problems for which there are well-known efficient
-solutions. This lead to an \textit{impromptu} implementation of some \ac{GC}
-problem solutions, creating the \ac{GFL}. As expected, the latter approach
-revealed that contextually specialized solutions had much better performance
-than relying on a generic solver.
+case of simple geometric problems. This lead to the implementation of some
+\ac{GC} problem solutions, creating the \ac{GFL}.
 
-It is worth noting that relying on Maxima meant ConstraintGM was intrinsically
-exact and robust since symbolic \ac{GCS} methods, used by Maxima, automatically
-provide those features.  The \ac{GFL}, when compared to the Maxima-based
-approach, is more fragile in that regard because it will depend on the
-underlying constructs' number type.  If an exact arbitrary precision number type
-is used, exactness and robustness will be preserved, but at a performance cost.
-Relying on inexact number types can eventually lead to erroneous results, but,
-by contrast, offers better performance.  In the end, it is a matter of making a
-compromise and evaluating which fits the case at end the best.
-
-The project's benchmark involve three different \ac{GC} problems focused around
+The project's benchmark involved three different \ac{GC} problems focused around
 object intersection, namely
 \begin{enumerate*}[label= (\arabic*)]
   \item line-line intersection,
   \item circle-line intersection, and
   \item circle-circle intersection.
 \end{enumerate*}
-These problems expanded into thirteen different scenarios that consisted of
-rearranging the geometric entities' disposition in order to evaluate the
-intersection operation's results and measure each individual scenario's
-performance.
 
-We measured real execution time instead of \ac{CPU} time both for ConstraintGM
-and for our solution.  We ran ConstraintGM's benchmarks a total of nine times to
-obtain a relatively decent sample of results, while our solution's benchmarks
-were aided by \texttt{BenchmarkTools.jl}~\cite{Chen:2016:BenchmarkTools.jl}, a
-package that considerably facilitates benchmarking Julia code.  The source code
-used to benchmark both ConstraintGM and our solution is listed in
-\cref{lst:appendix.cgm.bench.rkt,lst:appendix.cgm.bench.jl} respectively.  The
-benchmark's results are gathered in \cref{tab:eval.cgm.perf}.  To facilitate
-comprehension, these are also plotted in \cref{fig:eval.cgm.perf}.
-
-\begin{table}[htb]
-  \caption[ConstraintGM performance benchmarks]{\label{tab:eval.cgm.perf}%
-    Performance comparison between ConstraintGM's solutions, both using Maxima
-    and \ac{GFL}, and our solution.}
-  \footnotesize\centering
-  \begin{tabular*}{\linewidth}{r*{3}{l}l}
-    \toprule
-    \multirow{2}{*}{\textbf{Scenario}}
-    & \multicolumn{3}{c}{\textbf{Execution time ($\mathrm{mean}\pm\sigma$)}}
-    & \multirow{2}{*}{\textbf{GC problem}} \\
-    & \multicolumn{1}{c}{\textbf{Maxima}}
-    & \multicolumn{1}{c}{\textbf{GFL}}
-    & \multicolumn{1}{c}{\textbf{Our solution}} & \\
-    \midrule
-     1 & \verb| 2.265 s ± 142.344 ms|
-       & \verb| 8.778 ms ±   1.641 ms|
-       & \verb|362.191 μs ±  4.841 ms|
-       & \multirow{2}{*}{Line $\cap$ Line}\\
-     2 & \verb| 1.645 s ± 197.824 ms|
-       & \verb| 6.222 ms ± 440.959 μs|
-       & \verb|159.567 μs ±  4.634 μs| &\\
-    \midrule
-     3 & \verb| 3.958 s ± 295.673 ms|
-       & \verb| 9.444 ms ±   1.333 ms|
-       & \verb|  1.871 ms ±  4.892 ms| 
-       & \multirow{3}{*}{Circle $\cap$ Line}\\
-     4 & \verb| 3.070 s ± 243.768 ms|
-       & \verb| 8.000 ms ±   0.000 ns|
-       & \verb|955.815 μs ±  3.710 ms| &\\
-     5 & \verb| 1.839 s ±  84.460 ms|
-       & \verb| 6.000 ms ±   0.000 ns|
-       & \verb|600.386 μs ± 19.807 μs| &\\
-    \midrule
-     6 & \verb| 1.311 s ±  59.139 ms|
-       & \verb| 5.111 ms ± 333.333 μs|
-       & \verb|241.531 μs ± 12.504 μs| 
-       & \multirow{8}{*}{Circle $\cap$ Circle}\\
-     7 & \verb| 1.847 s ±  50.466 ms|
-       & \verb| 5.333 ms ± 500.000 μs|
-       & \verb|242.780 μs ±  5.692 μs| &\\
-     8 & \verb| 1.868 s ±  37.650 ms|
-       & \verb| 5.333 ms ± 500.000 μs|
-       & \verb|245.425 μs ± 11.840 μs| &\\
-     9 & \verb| 4.277 s ±  37.053 ms|
-       & \verb| 5.222 ms ± 440.959 μs|
-       & \verb|515.829 μs ±  4.881 ms| &\\
-    10 & \verb| 2.506 s ± 238.696 ms|
-       & \verb| 7.222 ms ± 440.959 μs|
-       & \verb|629.341 μs ±  5.360 ms| &\\
-    11 & \verb| 3.493 s ± 258.715 ms|
-       & \verb| 7.222 ms ± 440.959 μs|
-       & \verb|  1.453 ms ±  5.070 ms| &\\
-    12 & \verb| 3.830 s ± 150.402 ms|
-       & \verb| 9.444 ms ± 527.046 μs|
-       & \verb|  1.455 ms ±  5.088 ms| &\\
-    13 & \verb|11.111 s ±  81.302 ms|
-       & \verb|10.222 ms ±   1.093 ms|
-       & \verb|  1.463 ms ±  5.055 ms| &\\
-    \bottomrule
-  \end{tabular*}
-\end{table}
-
+We measured real execution time instead of \ac{CPU} time, both for ConstraintGM
+and for our solution, and plotted the results in \cref{fig:eval.cgm.perf}.
 Observing the results, we can see the disparity between the approach reliant on
 Maxima when compared to both the \ac{GFL} and our solution, which was to be
-expected.  Even so, amidst relatively consistent results, scenario 13 made
-Maxima slug more than usual.  That scenario consists of two circles intersecting
-at two different points, illustrated in \cref{fig:eval.cgm.perf.13}.  It is not
-the only scenario of the set that involves two circles that intersect.  However,
-this is the one that produces relatively more complex results, which could
-justify why Maxima took relatively longer to compute the solution than it did
-for the scenarios that preceded this one.
+expected.
 
 \begin{figure}[htb]
-  \begin{subfigure}[t]{.75\linewidth}
-    \centering
-    \begin{tikzpicture}
-    \begin{semilogyaxis}[ybar=0pt,
-      title={Maxima vs.\ GFL vs.\ Our solution},
-      xlabel={Scenarios},
-      ylabel={Average Time (ns, log)},
-      width={\linewidth},
-      height=5.5cm,
-      bar width=1/3,
-      xmin=1,xmax=13,
-      xtick distance=1,
-      ytick distance=1e1,
-      enlarge y limits={.26,upper},
-      enlarge x limits={abs=.5},
-      legend columns=-1,
-      table/col sep=comma
-    ]
-      \addplot+ table {data/cgm-maxima.csv};
-      \addplot+ table {data/cgm-gfl.csv};
-      \addplot+ [color=green,draw=green!60!black] table {data/jlcgal.csv};
-      \legend{Maxima,GFL,Our solution}
-    \end{semilogyaxis}
-    \end{tikzpicture}
-    \subcaption{Y-bar plot of every approaches' benchmark results.  N.B.: The
-      Y-axis is logarithmic.}\label{fig:eval.cgm.perf.plot}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}[t]{.22\linewidth}
-    \centering
-    \raisebox{1.25cm}{\resizebox{\linewidth}{!}{
-    \begin{tikzpicture}
-      \tkzDefPoints{0/0/A,1/1/B}
-      \tkzDrawCircle[R](A, 1.5cm)\tkzGetLength{rA}
-      \tkzDrawCircle[R](B, 1cm)  \tkzGetLength{rB}
-      \tkzInterCC[R](A,\rA pt)(B,\rB pt) \tkzGetPoints{C}{D}
-      \tkzDrawPoints[color=red](C,D)
-    \end{tikzpicture}}}
-    \subcaption{Scenario 13 from the benchmark suite.}%
-    \label{fig:eval.cgm.perf.13}
-  \end{subfigure}
-  \caption[ConstraintGM benchmarks and Scenario 13]{\label{fig:eval.cgm.perf}%
-    ConstraintGM benchmark results collected from \cref{tab:eval.cgm.perf} in a
-    Y-bar plot \subref{fig:eval.cgm.perf.plot} beside the depiction of scenario
-    13 \subref{fig:eval.cgm.perf.13} from the benchmark suite.}
+  \begin{tikzpicture}
+  \begin{semilogyaxis}[ybar=0pt,
+    title={Maxima vs.\ GFL vs.\ Our solution},
+    xlabel={Scenarios},
+    ylabel={Average Time (ns, log)},
+    width={\linewidth},
+    height=5.5cm,
+    bar width=1/3,
+    xmin=1,xmax=13,
+    xtick distance=1,
+    ytick distance=1e1,
+    enlarge y limits={.26,upper},
+    enlarge x limits={abs=.5},
+    legend columns=-1,
+    table/col sep=comma
+  ]
+    \addplot+ table {data/cgm-maxima.csv};
+    \addplot+ table {data/cgm-gfl.csv};
+    \addplot+ [color=green,draw=green!60!black] table {data/jlcgal.csv};
+    \legend{Maxima,GFL,Our solution}
+  \end{semilogyaxis}
+  \end{tikzpicture}
+  \caption{\label{fig:eval.cgm.perf}%
+    ConstraintGM benchmark results in a Y-bar plot.}
 \end{figure}
 
-Analyzing the results further, we can see our solution also outdoes
-ConstraintGM's \ac{GFL} by a significant margin.  This is most likely due to the
-fact that we are relying on \ac{CGAL}, a library implemented in C++.  The latter
-is notoriously known for being a high-performance language, considerably
-outperforming Racket in a series of benchmarks.  Nevertheless, despite some
-overhead in the case of Julia, the results are still positive.
+Furthermore, we can see our solution also outdoes ConstraintGM's \ac{GFL}.  This
+is most likely due to the fact that we are relying on \ac{CGAL}, a library
+implemented in C++.  The latter is notoriously known for being a
+high-performance language, considerably outperforming Racket in a series of
+benchmarks.  Nevertheless, despite some overhead in the case of Julia, the
+results are still positive.
 
 In conclusion, our solution proves capable and performant, having surpassed
 ConstraintGM's \ac{GFL} by an entire order of magnitude on average.

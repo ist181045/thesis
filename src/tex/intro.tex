@@ -1,162 +1,57 @@
 % !TEX root = ../main.tex
-\fancychapter{Introduction}%
-\label{chap:intro}
-\cleardoublepage{}
+\section{Introduction}%
+\label{sec:intro}
 
-\noindent
 Modern \ac{CAD} tools include substantial support for parametric operations and
 \ac{GCS}.  These mechanisms have been developed over the past few
 decades~\cite{Bettig:2011:GCSPC} and are heavily and ubiquitously used across
 the Architecture, Engineering, and Construction industry.
 
-Parametric modeling is used to design with constraints, whereby users express a
-set of parameters and interdependent operations, establishing restrictions
-between geometric entities.  The resulting geometry can be controlled from input
-parameters using two computational mechanisms:
+Parametric modeling is used to design with constraints.  Users express a set of
+parameters and operations, establishing restrictions between geometric entities.
+The resulting geometry can be controlled from input parameters using two
+computational mechanisms:
 \begin{enumerate*}[label= (\arabic*)]
-  \item parametric operations, which build geometry that implicitly abides by
-  constraints imposed when the user selects the operation and its inputs, and
-  \item \ac{GCS}, which finds the positions of geometric entities that satisfy a
-  set of constraints explicitly imposed by the user.
+  \item parametric operations, and
+  \item \ac{GCS}.
 \end{enumerate*}
-
-Nowadays, parametric operations in \ac{CAD} software are mostly accessible
-through intuitive, robust, and easy-to-use direct-manipulation interfaces,
-offering a wide variety of different operations.  These operations are created
-when a designer uses solid modeling operations, such as face extrusions or shape
-unions; and recorded into a user-controlled sequential history of construction
-steps that can be replayed in the event of changes, updating the modeled
-geometry.  Alas, dependency propagation direction is fixed, forcing users to
-plan their model's features beforehand.  In constraint solving, by contrast,
-dependency propagation direction isn't fixed.  Instead, users introduce a set of
-parameters and geometric entities followed by specifying the constraints that
-relate these objects.  Naturally, \ac{GCS} fits in \ac{CAD} software, having
-been the target of considerable research and development to implement efficient
-approaches and methodologies capable of solving \ac{GC} problems.  So much so
-that it has become standard in major \ac{CAD} software, such as
-AutoCAD\footnote{https://autodesk.com/autocad} from
-Autodesk\textsuperscript\textregistered, which supports the ability to constrain
-objects in a variety of ways, e.g., point coincidence, line perpendicularity,
-and tangencies, among other kinds of constraints.
 
 However, traditional interactive methods for parametric modeling suffer from the
 disadvantage that they do not scale properly when designing more complex ideas.
 In recent years, a novel approach to design named \ac{AD} has emerged, allowing
 the specification of sketches and models through
-algorithms~\cite{McCormack:2004:GDPDR}, leading to the creation and integration
-of \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL},
-others \acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental
-issue with \acp{VPL} which is the frequently disproportionate complexity between
-the program and the respective resulting model.
+algorithms~\cite{McCormack:2004:GDPDR} using either a \ac{TPL}, a \acp{VPL}, or
+even a mixture of both.
 
-Dealing with \acp{GC}, regardless of the approach, can still prove to be an
-arduous task.  Take as an example the sketch of a chair seat's outer frame, as
-seen in \cref{fig:intro.chair}, from a multi-purpose chair generation
-tool~\cite{Garcia:2012:ChairDNA} where the chair's overall shape is controllable
-by specifying the values for a set of input parameters.
+Dealing with \acp{GC} can still prove to be an arduous task.  Take as an example
+the sketch of a chair seat's outer frame, as seen in \cref{fig:intro.chair},
+from a multi-purpose chair generation tool~\cite{Garcia:2012:ChairDNA} where the
+chair's overall shape is controllable by specifying the values for a set of
+input parameters.
 
 \begin{figure}[htb]
-  \begin{center}
-  \includegraphics[height=.5\textheight]{fig/chair-seat-outer-frame}
-  \end{center}
-  \vspace{-12pt}
-  {\scriptsize Source: Project source code, publicly unavailable (Jan 2019)}
-  \caption[Sketch of a chair seat's outer frame]{
-    Sketch of a chair seat's outer frame, defined by 5 input parameters:
-    \begin{enumerate*}[label= (\arabic*)]
-      \item Width \texttt{g-w},
-      \item depth \texttt{g-d},
-      \item taper width \texttt{g-$\Delta$wt},
-      \item front radius \texttt{g-rf}, and
-      \item rear radius \texttt{g-rr}.
-    \end{enumerate*}}%
-  \label{fig:intro.chair}
+  \includegraphics[width=.7\linewidth]{fig/chair-seat-outer-frame}
+  \begin{minipage}{\linewidth}
+  \scriptsize Source: Project source code, publicly unavailable.
+  \end{minipage}
+  \caption[Sketch of a chair seat's outer frame]{\label{fig:intro.chair}
+    Sketch of a chair seat's outer frame, defined by several input parameters.}
 \end{figure}
 
-The seat's corners are defined by circles whose respective front and rear
-radius' length, \texttt{g-rf}, \texttt{g-rr}, is obtained by computing
-distances, from which the circles' centers, \texttt{GFC} and \texttt{GBC}, can
-be obtained.  The circles are then connected through outer tangent lines,
-\texttt{gsl}, forming the outer frame of the chair's seat.  Some of these
-operations, such as the radius computation, \textit{tangency}, and
-\textit{circumcenter}, depend on operations that query if a point is at a
-certain distance from an object, or if two points are coincident.  Such
-operations must be handled carefully due to numerical robustness issues that may
-arise when performing fixed-precision arithmetic.  As such, on top of the design
-process itself, the user must identify the \acp{GC}, resorting to trigonometry
-analysis, perform tolerance-based comparisons to determine point distance or if
-two points are coincident, among other techniques the user most likely is not
-aware he must rely upon to circumvent these issues, particularly, when we take
-into consideration that most \ac{AD} practitioners are architects and designers
-without an extensive background in \ac{CS}.
+The seat's corners are defined by circles whose respective front and rear radii
+are obtained by computing distances from which the circles' centers can be
+obtained.  The circles are then connected through outer tangent lines, forming
+the outer frame of the chair's seat.  Some of these operations, such as point
+distance and tangency, must be handled carefully due to numerical robustness
+issues that may arise when performing fixed-precision arithmetic computations.
+This means that, on top of the design process itself, the user must spend
+additional time identifying and carefully researching how to robustly implement
+solutions to \acp{GC}.
 
-To overcome the limitations exposed above, this report proposes the
-implementation of \ac{GC} primitives with specialized efficient solutions for
-different combinations of input objects.  We additionally focus our work around
-\acp{TPL}, further making them more attractive, and easier to both adopt and
-use.
-
-\section{Document Structure}%
-\label{sec:intro.structure}
-
-The present document is structured in \total{chap} different chapters, namely:
-\begin{description}
-  \item[\nameref{chap:intro}] Broken into several sections, including this
-  one, presents:
-  \begin{enumerate*}[label= (\arabic*)]
-    \item a brief historical overview of the development of parametric
-    operations in \ac{CAD} software in \cref{sec:intro.parametric},
-    \item the main approaches to \ac{GCS} in \ac{CAD}, in
-    \cref{sec:intro.constraints},
-    \item two simple algebraically formulated examples of \ac{GC} problems and
-    respective solutions along with code examples, in \cref{sec:intro.examples},
-    and
-    \item a section dedicated to further elaborating on \ac{AD} and the benefits
-    and drawbacks it introduces to the design process, in \cref{sec:intro.ad}.
-  \end{enumerate*}
-
-  \item[\nameref{chap:related}] An exposition of the related work in the form of
-  \begin{enumerate*}[label= (\arabic*)]
-    \item a comprehensive discussion about numerical robustness in computational
-    processes, showcasing a set of software tools capable of handling these
-    issues in the context of geometric computation, in
-    \cref{sec:related.robustness},
-    \item an overview of \ac{GC} tools, presenting some of their benefits and
-    drawbacks, in \cref{sec:related.constraints}, and
-    \item an overview of algorithmic design tools, similarly comparing them and
-    addressing positive and negative points, in \cref{sec:related.ad}.
-  \end{enumerate*}
-
-  \item[\nameref{chap:solution}] A solution proposal, followed by how it was
-  implemented and how it is capable of efficiently handling the specification of
-  \ac{GC} problems, in \cref{chap:solution}, going over its core components:
-  \begin{enumerate*}[label= (\arabic*)]
-    \item an \geomlibrary{}, discussed in \cref{sec:solution.impl.cgal}, which
-    provides the basic geometric entities and functions to work it,
-    \item an interoperability \wrapper{} layer that allows the target platform
-    to repurpose the previous component's foreign constructs, detailed in
-    \cref{sec:solution.impl.jlcgal}, and
-    \item \primitives{}, showcased in \cref{sec:solution.impl.gcps} capable of
-    solving a class of \ac{GC} problems employing a Euclidean constructive
-    approach to producing geometry.
-  \end{enumerate*}
-  
-  \item[\nameref{chap:eval}] The methodology used to evaluate the proposed
-  solution in \cref{chap:eval}, involving
-  \begin{enumerate*}[label= (\arabic*)]
-    \item a performance comparison in \cref{sec:eval.cgm} with a similar project
-    with a shared goal,
-    \item an extensive evaluation comparing two different approaches at solving
-    \ac{GC} problems present in four case studies inspired by existing designs,
-    and
-    \item a performance, correctness, and effort estimation analysis, in
-    \cref{sec:eval.voronoi}, comparing an implementation of a complex geometric
-    algorithm in the target platform vs.\ a repurposed mature implementation.
-  \end{enumerate*}
-
-  \item[\nameref{chap:conclusion}] Concluding remarks that summarize our work,
-  in \cref{chap:conclusion}, accompanied by candidate future work.
-\end{description}
+To overcome this problem, this report proposes the implementation of \ac{GC}
+primitives with specialized efficient solutions for different combinations of
+input objects.  We additionally focus our work around \acp{TPL}, further making
+them more attractive, and easier to both adopt and use.
 
 \input{tex/intro/parametric-operations}
 \input{tex/intro/constraints}

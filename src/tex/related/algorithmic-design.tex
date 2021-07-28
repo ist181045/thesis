@@ -1,5 +1,5 @@
 % !TEX root = ../../main.tex
-\section{\acl{AD} Tools}%
+\subsection{\acl{AD} Tools}%
 \label{sec:related.ad}
 
 As discussed in \cref{sec:intro.ad}, \ac{AD} tools have been integrated into
@@ -8,25 +8,19 @@ or even a mixture of both approaches.
 
 Other tools, like JSCAD\footnote{\url{https://openjscad.xyz}} and
 ImplicitCAD\footnote{\url{https://implicitcad.org}}, are standalone \ac{CAD}
-software hosted on the web.  Being cloud-based is advantageous in many fronts:
-it is inherently portable and removes the additional typical installation steps
-required for desktop applications.  Alas, being relatively new, they lack
-features in comparison to the immense feature-set of applications such as
-AutoCAD\@.
+software hosted on the web.  Alas, being relatively new, they lack features in
+comparison to the immense feature-set of applications such as AutoCAD\@.
 
 \Cref{tab:related.ad.summary} succinctly summarizes a list of \ac{CAD} software
 that supports the usage of a programming language, as well as other \ac{AD}
-tools that live detached from existing \ac{CAD} software.  From there, Dynamo
-and Grasshopper are further comparatively discussed, being relatively similar
-tools integrated within \acs{CAD}/\acs{BIM} software.  Moreover, both include
-\ac{TPL} and \ac{VPL} support in different forms.
+tools that live detached from existing \ac{CAD} software.
 
 \begin{table}[htb]
   \caption[Table of programmatic CAD/BIM and AD software]{%
     \acs{CAD}/\acs{BIM} software with programmatic capabilities and \ac{AD}
-    software/tools.  Added notes per tool shortly outline deemed significant
-    characteristics.}\label{tab:related.ad.summary}
-  \begin{tabularx}{\textwidth}{*{4}{c}X}
+    software/tools.}\label{tab:related.ad.summary}
+  \scriptsize
+  \begin{tabularx}{\linewidth}{*{4}{c}X}
     \toprule
     \textbf{Application}
     & \textbf{Tool} 
@@ -36,26 +30,26 @@ tools integrated within \acs{CAD}/\acs{BIM} software.  Moreover, both include
     \\\midrule
     \multirow{5}{*}{AutoCAD}
     & \multirow{2}{*}{.NET \acs{API}\label{acro:API}}
-    & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\xmark}
     & \multirow{2}{*}{\parbox{\linewidth}{
       Powerful, but very verbose; C\# \& VB.NET}}\\ &&&&
       \\\cmidrule{2-5}
     & \multirow{2}{*}{\parbox{7em}{\centering ActiveX Automation}}
-    & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\xmark}
     & \multirow{2}{*}{\parbox{\linewidth}{
       Deprecated, bundled separately; \acs{VBA}\label{acro:VBA}}}\\ &&&&
       \\\cmidrule{2-5}
     & Visual LISP
-    & \checkmark{}
+    & \cmark{}
     & \xmark{}
     & \acs{IDE}\label{acro:IDE}; AutoLISP extension
     \\\midrule
     Dynamo Studio
     & \multirow{2}{*}{Dynamo}
-    & \multirow{2}{*}{\checkmark}
-    & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{\cmark}
+    & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\parbox{\linewidth}{
       Data flow paradigm; Associative programming support through
       DesignScript}}
@@ -64,41 +58,41 @@ tools integrated within \acs{CAD}/\acs{BIM} software.  Moreover, both include
     \\\midrule
     Archicad
     & \multirow{2}{*}{Grasshopper}
-    & \multirow{2}{*}{\checkmark}
-    & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{\cmark}
+    & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\parbox{\linewidth}{
       Data flow paradigm; Rhino \acs{SDK} access, C\# \& VB.NET}}
     \\\cmidrule{1-1}
     \multirow{4}{*}{Rhinoceros3D} &&&&
       \\\cmidrule{2-5}
-    & \multirow{2}{*}{Python Scripting} & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{Python Scripting} & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\xmark}
     & \multirow{2}{*}{\parbox{\linewidth}{%
       Simple language; Create custom Grasshopper components}}\\ &&&&
       \\\cmidrule{2-5}
     & RhinoScript
-    & \checkmark{}
+    & \cmark{}
     & \xmark{}
     & VBScript based
     \\\midrule
     \multirow{5}{*}{\texttt{Standalone$^\dag$}}
     & ImplicitCAD
-    & \checkmark{}
+    & \cmark{}
     & \xmark{}
     & Web hosted; OpenSCAD inspired
       \\\cmidrule{2-5}
     & JSCAD
-    & \checkmark{}
+    & \cmark{}
     & \xmark{}
     & Web hosted; JavaScript
       \\\cmidrule{2-5}
     & OpenSCAD
-    & \checkmark{}
+    & \cmark{}
     & \xmark{}
     & Solid 3D models; Simple domain language
       \\\cmidrule{2-5}
     & \multirow{2}{*}{Rosetta~\cite{Leitao:2011:PGDCAD}}
-    & \multirow{2}{*}{\checkmark}
+    & \multirow{2}{*}{\cmark}
     & \multirow{2}{*}{\xmark}
     & \multirow{2}{*}{\parbox{\linewidth}{%
       Portable tool; Multiple front- and back-end support}}\\ &&&&
@@ -106,104 +100,9 @@ tools integrated within \acs{CAD}/\acs{BIM} software.  Moreover, both include
   \end{tabularx}
 
   \begin{minipage}{\linewidth}
-    \smallskip
+    \medskip
     \scriptsize
     $^\dag$These tools are standalone software, i.e., not directly integrated
     into any specific \ac{CAD} application.
   \end{minipage}
 \end{table}
-
-\subsection{Dynamo}%
-\label{sec:related.ad.dynamo}
-
-An open source \ac{AD} tool available as a plug-in for Revit or by itself within
-Dynamo Studio, Dynamo extends \ac{BIM} with the data and logic environment of a
-graphical algorithm editor.  Dynamo can be used through both a \ac{VPL} and a
-\ac{TPL}, showcased in \cref{fig:related.ad.dynamo.node2code}.
-
-\begin{figure}[htb]
-  \includegraphics[width=\textwidth]{fig/dynamo-node-to-code}\\
-  {\scriptsize
-  Source: \url{http://primer.dynamobim.org/en/07_Code-Block/7-2_Design-Script-syntax.html}
-  (Jan 2019)
-  }
-  \caption[Dynamo's visual interface with node to code translation]{
-    Showcase of Dynamo's visual interface containing a workflow that produces
-    the model on the top left.  The figure also shows Dynamo's capability of
-    converting a workflow into a single DesignScript code block.}%
-  \label{fig:related.ad.dynamo.node2code}
-\end{figure}
-
-In its visual form, Dynamo offers a wide variety of functions, called nodes,
-most of them capable of generating an even wider variety of geometry through
-node combination, wiring one's outputs to another's inputs, and resorting to
-predefined mutable parameters which can serve as some of the nodes' initial
-inputs.  The workflow itself is the final product: a visual program, usually
-designed to execute a specific task.  Dynamo further allows extension through the
-creation of custom nodes which can be shared as packages.
-
-One of the nodes in Dynamo, aptly named code block, allows the usage of a
-\ac{TPL}; a language called
-DesignScript.\footnote{\url{https://primer.dynamobim.org/10_Custom-Nodes/10-4_Python.html}
---- Dynamo is also capable of interpreting Python code.}
-Originally developed by Robert Aish~\cite{Aish:2011:DesignScript}, DesignScript
-is a multi-paradigm domain-specific language and is the programming language at
-the core of Dynamo itself.  So much so that entire workflows can be reduced to
-one code block (see \cref{fig:related.ad.dynamo.node2code}).
-
-DesignScript is an associative language, which maintains a graph of dependencies
-with variables.  Executing a script will effectively propagate the variables'
-values accordingly.  By default, code blocks in Dynamo follow an associative
-paradigm.  The user can, however, switch to an imperative paradigm approach
-instead effortlessly if needed.
-
-This \textit{change-propagation} mechanism in DesignScript, consequently present
-in Dynamo, makes Dynamo a great tool for dealing with constraints.  However,
-most users might not fully exercise DesignScript's associative capabilities and
-instead approach the problem with the mindset of an imperative programming
-paradigm given its overwhelming presence in and adoption by major well-known
-\acp{TPL}.
-
-\subsection{Grasshopper}%
-\label{sec:related.ad.grasshopper}
-
-Grasshopper is a graphical algorithm editor tightly integrated with
-Rhinoceros3D, destined for designers who are exploring generative algorithms.
-In spite of tight integration with Rhino, a \ac{CAD} application, it is possible
-to use Grasshopper along with
-Archicad\textsuperscript{\textregistered}\footnote{\url{https://graphisoft.com/solutions/archicad}},
-a \ac{BIM} tool, as well as Revit, through
-Hummingbird\footnote{\url{https://www.food4rhino.com/en/app/hummingbird}} or
-Lyrebird\footnote{\url{https://www.food4rhino.com/en/app/lyrebird}}.
-\Cref{fig:related.ad.grasshopper.islamic-pattern} shows a simple example of a
-Grasshopper workflow.
-
-\begin{figure}[htb]
-  \includegraphics[width=\textwidth]{fig/grasshopper-islamic-pattern}\\
-  {\scriptsize
-  Source: \url{https://www.grasshopper3d.com/photo/islamic-pattern-parakeet}
-  (Jan 2019)
-  }
-  \caption[Islamic Pattern in Grasshopper using Parakeet]{
-    Islamic Pattern, by Esmaeil Mottaghi.  On top is the Grasshopper workflow to
-    produce the pattern below it, aided by
-    Parakeet\footnotemark.}%
-  \label{fig:related.ad.grasshopper.islamic-pattern}
-\end{figure}
-
-\footnotetext{\url{https://www.food4rhino.com/app/parakeet}}
-
-It is a closed-source product, designed by David Rutten and developed by McNeel
-and Associates, Rhino's developers.  Its \ac{VPL} is simple to use, which is
-crucial for users who are not familiar with programming using \acp{TPL}.
-Nonetheless, it offers a \ac{TPL} alternative by way of custom programmatic
-components.  Using C\# or VB.NET, the user can create custom code components
-with access to Rhino's \ac{SDK} and
-openNURBS\footnote{\url{https://developer.rhino3d.com/guides/opennurbs/what-is-opennurbs}}
-within Rhino.  Alternatively, through GhPython\footnote{\url{https://www.food4rhino.com/app/ghpython}}, the
-user can also write Python code.  Unlike Dynamo's DesignScript, Python and
-the~.NET languages don't support an associative programming model.
-
-Functions in Grasshopper are called components and work just like Dynamo's
-nodes; a wide variety of them exist, most of them capable of producing geometry,
-and are composable.

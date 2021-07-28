@@ -1,108 +1,67 @@
 % !TEX root = ./main.tex
-% #############################################################################
-% Thesis-MSc
-% Version 3.1, February 2021 (adapted)
-% BY: Prof. Rui Santos Cruz, rui.s.cruz@tecnico.ulisboa.pt
-% #############################################################################
-\documentclass[%
-  english,%
-  defaultstyle,%
-  10pt,%
-  twoside,%
-  openright,%
-  % draft,%
-]{istulthesis}
+\documentclass[
+  sigconf,
+  nonacm,
+  % draft,
+]{acmart}
 \usepackage{main}
 
 \begin{document}
 
-\pdfbookmark[0]{\tlangTitlepage}{titlepage}
-\input{cover}
+\title{Geometric Constraints in Algorithmic Design}
+\author{Rui Ventura}
+\email{rui.ventura@tecnico.ulisboa.pt}
+\affiliation{%
+  \institution{Instituto Superior Técnico, Universidade de Lisboa}
+  \streetaddress{Avenida Rovisco Pais 1}
+  \city{Lisbon}
+  \country{Portugal}
+  \postcode{1049-001}
+}
+% \renewcommand{\shortauthors}{Rui Ventura}
 
-\setcounter{page}{1}\pagenumbering{roman}
-\baselineskip=18pt % line spacing: -12pt for single spacing
-                   %               -18pt for 1 1/2 spacing
-                   %               -24pt for double spacing
+\begin{abstract}
+\input{abstract.txt}
+\end{abstract}
 
-\pdfbookmark[0]{\tlangAcknowledgments}{acknowledgments}
-\begin{acknowledgments}
-\input{acknowledgments.txt}
-\end{acknowledgments}
+\keywords{\input{keywords.txt}}
 
-\pdfbookmark[0]{Abstract}{abstract}
-\input{tex/abstract/en}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
+\maketitle
 
-\pdfbookmark[0]{Resumo}{resumo}
-\input{tex/abstract/pt}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-% This is required for the Fancy Chapters with minitoc
-\dominitoc{}
-\dominilof{}
-\dominilot{}
-
-\renewcommand{\baselinestretch}{1}
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-\renewcommand{\baselinestretch}{1.5} % reposition baseline
-
-\pdfbookmark[1]{\listfigurename}{lof}
-\listoffigures
-\cleardoublepage{}
-
-\pdfbookmark[1]{\listtablename}{lot}
-\listoftables
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-\pdfbookmark[1]{\listequationname}{equ}
-\listofequations
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-% \pdfbookmark[1]{List of Algorithms}{loa}
-% \listofalgorithms
-% \cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-\pdfbookmark[1]{\listlistingname}{lol}
-\listoflistings{}
-\cleardoublepage{}
-
-\pdfbookmark[1]{\listacronymname}{loac}
-\chapter*{\listacronymname}
 \input{tex/acronyms}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-\setcounter{page}{1}\pagenumbering{arabic}
-\baselineskip=18pt
-
-\acresetall{}
 
 \input{tex/intro}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
 \input{tex/related}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
 \input{tex/solution}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
 \input{tex/evaluation}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
-
-\acresetall
 \input{tex/conclusion}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
 
-\pdfbookmark[0]{\bibname}{bibliography}
-\addcontentsline{toc}{chapter}{\bibname}
-\bibliographystyle{IEEEtranN}
-\bibliography{main} % Put here your own filename
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
+\begin{acks}
+\input{acknowledgments.txt}
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{main}
 
 \appendix
 
-\input{tex/appendix}
-\cleardoublepage{} % comment if NOT printing DOUBLE SIDED.
+\section{Appendix}
+
+\begin{longlisting}
+  \caption[Wrapper CxxWrap code for Three points and one segment]{
+    C++ wrapper code that maps the functionality required to reproduce the
+    example shown in \cref{lst:solution.impl.cgal.pas} in Julia.}%
+  \label{lst:solution.impl.jlcgal.jlcxx}
+  \inputminted[highlightlines={24,30-34,36-38,40-43,46-49}]%
+    {cpp}{cpp/cgal_julia.cpp}
+\end{longlisting}
+
+\begin{longlisting}
+  \caption[Bare-bones Julia module wrapping some of CGAL]{
+    An example Julia module, wrapping the library produced from
+    \cref{lst:solution.impl.jlcgal.jlcxx}.}\label{lst:solution.impl.jlcgal.cgal}
+  \inputminted[highlightlines={4-6,8,9}]{julia}{jl/CGAL.jl} 
+\end{longlisting}
 
 \end{document}
+\endinput

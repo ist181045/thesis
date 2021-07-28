@@ -1,71 +1,34 @@
 % !TeX root = ../../main.tex
-\section{Trade-offs}%
+\subsection{Trade-offs}%
 \label{sec:solution.tradeoffs}
 
 Since virtually nothing comes without trade-offs and compromises, it is
-paramount we address our implementation's qualities, negative and positive.
+paramount we address our implementation's qualities.
 
-Relying on a library such as \ac{CGAL} proves to be as great as it can be
-daunting.  As mentioned in \cref{sec:solution.impl.cgal}, \ac{CGAL} is a very
-comprehensive and mature software library, arguably even far exceeding our
-solution's needs, yet fitting it perfectly.
+\Ac{CGAL} is a highly generic library, abusing C++ templates.  Although its
+design makes usage an elegant experience, the same cannot be said when trying to
+wrap its constructs to another language. Luckily, \texttt{CxxWrap.jl} helps us
+overcome this.
 
-It is, however, an external component, and with every such component, we do not
-hold as much control over it as if it was internal instead.  For example, in the
-advent a bug is found within \ac{CGAL}, one cannot \emph{immediately} fix it by
-altering its source code and use this fixed version.  Important emphasis on bugs
-not being \emph{immediately} fixable lest we forget \ac{CGAL} is still an
-open-source project arguably anyone can contribute to.  Alas, said contribution
-deployments are still out of our control.  In hindsight, however, it can be
-considered as just an inconvenience since it is a project that is actively
-maintained by very knowledgeable in the computer graphics and mathematics
-fields.
-
-\Ac{CGAL} is also a highly generic library, making use and further abusing C++
-templates.  Although its design makes usage an elegant experience (as elegant as
-C++ can be), the same cannot be said when trying to wrap its constructs to
-another language, especially a language with different memory management
-paradigm which could lead to some nasty low-level ordeals.  Luckily,
-\texttt{CxxWrap.jl} helps us solve most, if not all, of those issues.
-
-Regarding our wrapper code,  there is one small problem we still technically did
-not solve.  We are still mapping \ac{CGAL} types in an opaque fashion, fixing
-the kernel on the C++ side.\footnote{There are other projects that attempt to
-make \ac{CGAL} available in other language that resort to this same trick. See
-\url{https://github.com/scikit-geometry/scikit-geometry} and
-\url{https://github.com/CGAL/cgal-swig-bindings}.}  Alternative methods of
-supplying a different kernel were explored, including deploying a different
-library compiled with a different kernel.  Despite not entirely solving the
-problem, it offered the user the choice of using exact constructions.  However,
-this alternative became unmaintainable and virtually impossible to successfully
-employ.  In part due to Julia's package pre-compilation, it is no longer viable
-to attempt and use the other library.
-
-Ideally, the geometric objects would be parametric, and the kernel (or kernels)
-mapped to Julia as well, but we were met with complications that would make it
-unfeasible for us to implement our solution.  As a compromise, \texttt{CGAL.jl}
-fixed a kernel that provides exact predicates with inexact constructions,
-favoring performance over some robustness loss.  Nonetheless, in practical
-terms, it suffices for our case.
+Regarding our wrapper code, we are still mapping \ac{CGAL} types in an opaque
+fashion, fixing the kernel on the C++ side.\footnote{There are other projects
+that attempt to make \ac{CGAL} available in other language that resort to this
+same trick. See \url{https://github.com/scikit-geometry/scikit-geometry} and
+\url{https://github.com/CGAL/cgal-swig-bindings}.} Ideally, objects would be
+parametric, and the kernel mapped to Julia as well.  As a compromise,
+\texttt{CGAL.jl} fixed a kernel that provides exact predicates with inexact
+constructions, favoring performance over some robustness loss.  Nonetheless, in
+practical terms, it suffices for our case.
 
 As an alternative to wrapping \ac{CGAL}, we could have explored other options in
-the still growing Julia ecosystem.  Some work seems
+the still growing Julia ecosystem.  Some work looks
 promising,\footnote{\url{https://github.com/JuliaGeometry}} but not only are
 some libraries still catching up, it is also highly unlikely they will ever meet
 the quality of \ac{CGAL}.
 
 Lastly, some of our \ac{GC} primitives employ some computation that can lead to
-robustness loss as well.  Primarily the ones that involve circles, non-linear
-geometric objects, typically require the computation of a square root to work
-with absolute distances.  We tend to typically avoid those computations,
-postponing them as much as possible until they are absolutely necessary.  As an
-example, in the ``Tangent lines to a circle'' implementation in
-\cref{lst:solution.impl.gcps.tanglines2circles}, we first compare squared
-distances before inevitably requiring their absolute value.
-
-Be that as it may, due to having fixed a kernel with inexact constructions for
-\ac{CGAL}, we are bound with some robustness loss regardless.  At this point, it
-can only be mitigated by also ensuring the quality of the inputs given to our
-primitives, and that is reliant on the user.  If the user decides to provide
-``garbage'' inputs, they will most likely be met with ``garbage'' outputs, a
-concern, however, that falls out of the scope of this work.
+robustness loss as well.  We tend to typically avoid those computations,
+postponing them as much as possible.  Be that as it may, we are bound with some
+robustness loss regardless.  At this point, it can only be mitigated by also
+ensuring the quality of the inputs given to our primitives, and that is reliant
+on the user.

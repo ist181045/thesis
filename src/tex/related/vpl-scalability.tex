@@ -2,61 +2,30 @@
 \subsection{Visual Programming Scalability}%
 \label{sec:related.ad.vpl-scalability}
 
-Both Dynamo and Grasshopper's visual approach suffer from the disproportionate
-scalability between the code and the respective model's
-complexity~\cite{Leitao:2013:PESLGD}.  Sophisticated modeling workflows tend to
-become difficult to create, and harder for a human to understand when compared
-to a textual approach.
+\Ac{VPL}-based approaches suffer from the disproportionate scalability between
+the code and the respective model's complexity~\cite{Leitao:2013:PESLGD}.
+Sophisticated modeling workflows tend to become difficult to create, and harder
+for a human to understand when compared to a textual approach.
 
-As an example, consider the Irina Viner-Usmanova \ac{RGC}, a project developed
-by TPO Pride\footnote{\url{http://prideproject.pro} (July 2, 2021)}.  The
-\ac{RGC}, built in Moscow's Luzhniki Stadium, is an arena that houses training
-sessions and competitions while also comprising several other premises.
+As an example, consider the Irina Viner-Usmanova \ac{RGC}.
 \Cref{fig:related.ad.vpl-scalability.rgc} depicts an outside view of the
-\ac{RGC} and its prominent overarching roof covering.  The roof covering was
-designed using a combination of Rhino3D and Grasshopper.  Grasshopper was used
-from a conceptual stage all the way through to production of construction
-drawings.
+\ac{RGC} and its prominent overarching roof covering, the latter conceived using
+Grasshopper.
 
-\begin{figure}[htb]
-  \includegraphics[width=\textwidth]{fig/rgc}\\
-  {\scriptsize
-  Source: \url{https://www.grasshopper3d.com/photo/rhythmic-gymnastics-center-moscow-russia-5}
-  (Jul 2021)
-  }
+Developing a roof covering with such a contour lends itself well to \ac{AD}.
+Such complex \ac{AD} projects tend to require complex \ac{AD} programs that
+become overly difficult to develop and understand with \acp{VPL}.  This
+disadvantage, however, is mitigated by \ac{TPL} alternatives which, despite
+project complexity, scale relatively better than \acp{VPL} on account of
+abstraction mechanisms.
+
+\begin{figure}[htbp]
+  \includegraphics[width=\linewidth]{fig/rgc}
+  \begin{minipage}{\linewidth}
+  \scriptsize Source:
+  \url{https://www.grasshopper3d.com/photo/rhythmic-gymnastics-center-moscow-russia-5}
+  \end{minipage}
   \caption[\acl{RGC} in the Luzhniki Complex]{
-    Irina Viner-Usmanova \ac{RGC} in the Luzhniki Complex, Moscow, Russia.  The
-    roof covering was designed using Rhino/Grasshopper.}%
+    Irina Viner-Usmanova \ac{RGC}, Moscow, Russia.}%
   \label{fig:related.ad.vpl-scalability.rgc}
 \end{figure}
-
-Developing a roof covering with such a contour lends itself well to \ac{AD}
-since it resembles a sine wave whose amplitude is progressively dampened along
-the length of the building.  Such a shape can be easily described through a
-relatively simple mathematical function to obtain the general wave's shape.
-With parametrization in mind, one could then easily fluctuate input variables in
-order to achieve different variations of the roof covering's shape, e.g.,
-varying the wave's frequency, amplitude, or dampening rate.
-
-Such complex \ac{AD} projects tend to require complex \ac{AD} programs that
-become overly difficult to develop and understand with \acp{VPL}.  The final
-Grasshopper definition of the \ac{RGC} roof's covering can be seen in
-\cref{fig:related.ad.vpl-scalability.rgc-gh}.  This further reinforces the
-statement that complex workflows become exponentially difficult to comprehend
-due to the added dimensionality of the constructs used in \acp{VPL}.  This
-disadvantage, however, is mitigated with their respective \ac{TPL} alternatives
-which, despite project complexity, scale relatively better than \acp{VPL} on
-account of abstraction mechanisms.
-
-\begin{landscape}
-\begin{figure}
-  \includegraphics[width=\linewidth]{fig/rgc-gh}\\
-  {\scriptsize
-  Source: \url{https://www.grasshopper3d.com/photo/final-definition} (Jul 2021)
-  }
-  \caption[Grasshopper definition of the \acl{RGC} roof covering]{
-    Final Grasshopper definition of the Irina Viner-Usmanova \ac{RGC} roof
-    covering.}%
-  \label{fig:related.ad.vpl-scalability.rgc-gh}
-\end{figure}
-\end{landscape}

@@ -51,8 +51,9 @@
     "\\wrapper{}": "dummy"
   },
   "ltex.latex.environments": {
+    "CCSXML": "ignore",
+    "minted": "ignore",
     "subfigure": "ignore",
-    "minted": "ignore"
   },
   "latex-workshop.latex.clean.fileTypes": [
     "*-figure[0-9]*.pdf",
@@ -125,7 +126,7 @@
       "command": "cp",
       "args": [
         "%DOCFILE%.pdf",
-        "%DIR%/../thesis.pdf"
+        "%DIR%/../abstract.pdf"
       ]
     }
   ],

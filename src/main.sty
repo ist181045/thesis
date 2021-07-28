@@ -1,10 +1,7 @@
 % !TEX root = ./main.tex
 %% packages
-\usepackage[no-math]{fontspec}     % font selection under LuaLaTeX/XeTeX
-\usepackage[draft=false]{hyperref} % hypertext support
-
-\usepackage{babel}  % multilingual support
-\usepackage{iflang} % lang dispatch conditionals
+\usepackage{fontspec} % font selection under LuaLaTeX/XeTeX
+\usepackage{hyperref} % hypertext support
 
 \usepackage[
   shortlabels,
@@ -16,75 +13,39 @@
   newfloat,
 ]{minted} % highlighted code
 
-\usepackage[
-  numbers,
-  sort&compress,
-]{natbib} % natural references
-
-\usepackage[
-  textwidth=2cm,
-  textsize=small,
-]{todonotes} % TODO notes
-
-\usepackage[printonlyused]{acronym} % acronym management
-\usepackage[nohints]{minitoc}       % mini toc for chapters
-
+\usepackage{acronym} % acronym management
 \usepackage{amsfonts}       % other math fonts
 \usepackage{amsmath}        % math
 \usepackage{amsthm}         % typesetting theorems
-\usepackage{amssymb}        % symbol fonts
+% \usepackage{amssymb}        % symbol fonts
 \usepackage{array}          % array and tabular extensions
 \usepackage{booktabs}       % to enhance table quality
 \usepackage{caption}        % caption customization
 \usepackage{color}          % color control
 \usepackage{colortbl}       % table cell coloring
-\usepackage{comment}        % selectively in/exclude parts of text
-\usepackage{datetime2}      % formats for dates, times, and Tzs
-\usepackage{datetime2-calc} % datetime2 module: week day computation
-\usepackage{emptypage}      % make empty pages really empty
-\usepackage{esvect}         % vector arrows
-\usepackage{fancyhdr}       % extensive control over page headers/footers
 \usepackage{float}          % improved interface for floating objs
 \usepackage{graphicx}       % enchanced support for graphics
 \usepackage{mathtools}      % math tools that complement amsmath
 \usepackage{multirow}       % for multirow/col tables
-\usepackage{nicefrac}       % typeset inline fractions "nicely"
 \usepackage{longtable}      % for tables that exceed a page in length
-\usepackage{pdflscape}      % display landscape pages
 \usepackage{pgfplots}       % create plots
 \usepackage{pifont}         % ps symbols and dingbats
-\usepackage{sansmath}       % sans serif math font
-\usepackage{scrbase}        % aid in doc structure redefiniton
-\usepackage{setspace}       % set space between lines
-\usepackage{spreadtab}      % spreadsheet features
 \usepackage{subcaption}     % support for sub-captions
 \usepackage{tabularx}       % adjustable-width column tabulars
 \usepackage{tkz-euclide}    % drawing geometrical constructs
-\usepackage{tocloft}        % control table of contents
-\usepackage{totcount}       % find last value of counter
 \usepackage{url}            % verbatim with URL-sensitive line breaks
 \usepackage{verbatim}       % extensions to verbatim
 \usepackage{xcolor}         % color extensions
 
-\usepackage{cleveref} % intelligent cross-referencing
+\usepackage[noabbrev]{cleveref} % intelligent cross-referencing
 
 
 %% configuration
-\setlength{\marginparwidth}{2cm}
 \newcommand{\geomlibrary}{\textit{Exact Geometric Computation Library}}
 \newcommand{\wrapper}{\textit{Wrapper Code}}
 \newcommand{\primitives}{\textit{Geometric Constraint Primitives}}
 
-% babel
-\babeltags{pt=portuguese}
-
 % caption
-\captionsetup{
-  format=hang,
-  labelfont=bf,
-  font=small
-}
-\captionsetup[listing]{skip=0pt}
 \captionsetup[sub]{
   skip=0.3cm,
   margin=0.2cm
@@ -131,9 +92,6 @@
 \definecolor{brown}{rgb}{0.69,0.31,0.31}
 \definecolor{purple}{rgb}{0.38,0.18,0.81}
 
-% datetime2
-\DTMsavenow{now}
-
 % enumitem
 \setlist[description]{
   leftmargin=\parindent,
@@ -143,34 +101,7 @@
   topsep=0pt
 }
 
-% fancyhdr
-\fancyhf{}
-\fancyfoot[C]{\bfseries\thepage}
-\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\renewcommand{\headrulewidth}{0.0pt}
-\renewcommand{\footrulewidth}{0.0pt}
-\addtolength{\headheight}{2pt}
-\fancypagestyle{plain}{%
-   \renewcommand{\headrulewidth}{0pt} % and the line
-   \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{blank}{%
-   \renewcommand{\headrulewidth}{0pt} % and the line
-   \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{abstract}{%
-   \renewcommand{\headrulewidth}{0pt}
-   \renewcommand{\footrulewidth}{0.0pt}
-}
-\fancypagestyle{document}{%
-  \renewcommand{\headrulewidth}{0.5pt}
-  \renewcommand{\footrulewidth}{0.5pt}
-  \addtolength{\headheight}{2pt} % make space for the rule
-}
-
 % fontspec
-\setmainfont{Arial}
 \setmonofont{JuliaMono}[
   UprightFont = *-Regular,
   BoldFont    = *-Bold,
@@ -178,25 +109,7 @@
   Contextuals = NoAlternate
 ]
 
-% hyperref
-\hypersetup{
-  colorlinks=true,
-  citecolor=cyan,
-  linkcolor=darkgray,
-  urlcolor=teal,
-  breaklinks=true,
-  bookmarksnumbered=true,
-  bookmarksopen=true,
-}
-
 % listing
-\makeatletter
-\let\main@listlistingname\listlistingname
-\renewcommand*\listlistingname{%
-  \IfLanguageName{portuguese}%
-    {Lista de Listagens}%
-    {\main@listlistingname}}
-\makeatother
 \newenvironment{longlisting}
   {\bigskip\begingroup
    \let\oldbaselinestretch\baselinestretch
@@ -205,178 +118,24 @@
   {\let\baselinestretch\oldbaselinestretch
    \endgroup\bigskip}
 
-% minitoc
-\setcounter{minitocdepth}{1}
-\setlength{\mtcindent}{24pt}
-\renewcommand{\mtcfont}{\small\rm}
-\renewcommand{\mtcSfont}{\small\bf}
-\renewcommand*{\kernafterminitoc}{\kern0.\baselineskip\kern0.ex}
-\mtcselectlanguage{\languagename} 
-
 % minted
 \usemintedstyle{friendly}
 \renewcommand{\theFancyVerbLine}{\small\arabic{FancyVerbLine}}
 \setminted{
   autogobble,
+  fontsize=\footnotesize,
   frame=lines,
-  framesep=1ex,
   linenos,
+  numbersep=4pt,
 }
 
-% pdflscape
-\makeatletter
-\global\let\orig@begin@landscape=\landscape%
-\global\let\orig@end@landscape=\endlandscape%
-\gdef\@true{1}
-\gdef\@false{0}
-\gdef\landscape{%
-    \global\let\within@landscape=\@true%
-    \orig@begin@landscape%
-}%
-\gdef\endlandscape{%
-    \orig@end@landscape%
-    \global\let\within@landscape=\@false%
-}%
-\@ifpackageloaded{pdflscape}{%
-    \gdef\pdf@landscape@rotate{\PLS@Rotate}%
-}{
-    \gdef\pdf@landscape@rotate#1{}%
-}
-\let\latex@outputpage\@outputpage
-\def\@outputpage{
-  \ifx\within@landscape\@true%
-    \if@twoside%
-      \ifodd\c@page%
-        \gdef\LS@rot{\setbox\@outputbox\vbox{%
-          \pdf@landscape@rotate{-90}%
-          \hbox{\rotatebox{90}{\hbox{\rotatebox{180}{\box\@outputbox}}}}}%
-        }%
-      \else%
-        \gdef\LS@rot{\setbox\@outputbox\vbox{%
-          \pdf@landscape@rotate{+90}%
-          \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
-        }%
-      \fi%
-    \else%
-      \gdef\LS@rot{\setbox\@outputbox\vbox{%
-        \pdf@landscape@rotate{+90}%
-        \hbox{\rotatebox{90}{\hbox{\rotatebox{0}{\box\@outputbox}}}}}%
-      }%
-    \fi%
-  \fi%
-  \latex@outputpage%
-}
-\makeatother
+% natbib
+% \setcitestyle{numbers,sort&compress}
 
 % pgfplots
 \usetikzlibrary{backgrounds}
-\pgfplotsset{
-  compat=1.17,
-  tick label style={font=\sansmath\sffamily},
-}
+\pgfplotsset{compat=1.17}
 
 % pifont
+\newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
-
-% tocloft
-\newcommand{\listequationname}{
-  \IfLanguageName{portuguese}
-    {Lista de Equações}
-    {List of Equations}}
-\newlistof[chapter]{equations}{equ}{\listequationname}
-\newcommand{\equations}[1]{%
-  \addcontentsline{equ}{equations}{%
-    \protect\numberline{\theequation}#1}\ignorespaces}
-
-\setlength\cftbeforeequationsskip\cftbeforefigskip
-\setlength\cftequationsindent\cftfigindent
-\setlength\cftequationsnumwidth\cftfignumwidth
-
-% totcount
-\newtotcounter{chap}
-
-%% additional config
-% load titlepage definitions
-\usepackage{cover}
-
-% listings, much like figures, for parity's sake, should contain the chapter
-\numberwithin{listing}{chapter}
-
-% Set paragraph counter to alphanumeric mode
-% DO NOT CHANGE these lines, otherwise the document will not respect the Guide
-\renewcommand{\theparagraph}{\Alph{paragraph}~--}
-\hoffset 0in
-\voffset 0in
-\oddsidemargin 0 cm
-\evensidemargin 0 cm
-\marginparsep 0in
-\topmargin -0.25cm
-\textwidth 16 cm
-\textheight 22.4 cm
-\makeatletter
-% package indentfirst says \let\@afterindentfalse\@afterindenttrue
-% and we revert this modification, reinstating the original definitio
-% of \@afterindentfalse
-\def\@afterindentfalse{\let\if@afterindent\iffalse}
-\makeatother
-
-\pagestyle{fancy}
-\setcounter{secnumdepth}{5}
-\setcounter{tocdepth}{5}
-\renewcommand{\thesubsubsection}{\thesubsection.\Alph{subsubsection}}
-
-% Now prepare the MINITOC
-\def\boxedverbatim{%
-  \def\verbatim@processline{%
-    {\setbox0=\hbox{\the\verbatim@line}%
-    \hsize=\wd0 \the\verbatim@line\par}}%
-  \@minipagetrue%%%DPC%%%
-  \@tempswatrue%%%DPC%%%
-  \setbox0=\vbox\bgroup\vspace*{0.2cm}\footnotesize\verbatim
-}
-\def\endboxedverbatim{%
-  \endverbatim
-  \unskip\setbox0=\lastbox %%%DPC%%%
-  \hspace*{0.2cm}
-  \vspace*{-0.2cm}
-  \egroup
-  \fbox{\box0}% <<<=== change here for centering,...
-}
-% Now prepare the CHAPTER Number
-\newcommand*{\chapnumfont}{%
-%   \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{100}{130}\selectfont%
-  \usefont{T1}{pbk}{b}{n}
-  \fontsize{150}{130}
-  \selectfont
-  \color{chaptergrey}
-}
-\makeatletter
-\def\@makechapterhead#1{%
-  \vspace*{50\p@}%
-  {\parindent \z@ \raggedright \normalfont
-    {\chapnumfont\ifnum \c@secnumdepth >\m@ne
-%         \huge\bfseries \@chapapp\space \thechapter
-        \raggedleft\bfseries \thechapter
-        \par\nobreak
-        \vskip 20\p@
-    \fi}
-    \interlinepenalty\@M
-    {\raggedleft\Huge \bfseries #1\par\nobreak}
-    \vskip 40\p@
-  }}
-\makeatother
-% Now put it all together as a command \fancychapter
-\newcommand{\fancychapter}[1]{%
-  \chapter{#1}\vfill\minitoc\pagebreak%
-  \stepcounter{chap}}
-
-% This commmand allows to place horizontal lines with a custom width... 
-% replaces the standard hline command
-\newcommand{\hlinew}[1]{%
-  \noalign{\ifnum0=`}\fi\hrule \@height #1 \futurelet
-   \reserved@a\@xhline}
-  
-% This command defines some marks... USEFUL FOR TABLES.
-\def\Mark#1{\raisebox{0pt}[0pt][0pt]{\textsuperscript{\footnotesize\ensuremath{\ifcase#1\or *\or \dagger\or \ddagger\or%
-    \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger%
-    \or \ddagger\ddagger \else\textsuperscript{\expandafter\romannumeral#1}\fi}}}}

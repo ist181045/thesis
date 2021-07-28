@@ -1,65 +1,25 @@
 % !TEX root = ../../main.tex
-\section{Robustness}%
+\subsection{Robustness}%
 \label{sec:related.robustness}
 
-The correctness proofs of nearly all geometric algorithms presented in
-theoretical papers assumes exact computation with real
-numbers~\cite{CGAL:4.13:23LGK}.  However, floating-point numbers are represented
-with fixed precision in computers, making them inexact, which leads to
-inaccurate representations of the conceptual real number counterparts.  For
-example, the rational number one-tenth ($\frac{1}{10}$) cannot be accurately
-represented as a floating-point number, nor is it guaranteed to be truly equal
-to another seemingly identical number.  Such comparisons must be performed
-relying on tolerances, i.e., if $a$ and $b$ are two floating-point numbers, they
-are considered \textit{the same} if $|a - b| \le \epsilon$ for a given tolerance
-$\epsilon$.
-
-As an example, consider the problem of finding the closest of two points
-to the origin.  The distance between two points $P,Q \in \mathbb{R}^2$ can be
-expressed by
-%
-\begin{equation}\label{eq:distance.2}
-  d(P, Q) = \sqrt{(x_Q - x_P)^2 + (y_Q - y_P)^2}.
-\end{equation}\equations{Euclidean distance between two points in $\mathbb{R}^2$}
-%
-Let $A,B \in \mathbb{R}^2$ be two arbitrary points, and $O \in \mathbb{R}^2$ the
-origin.  To determine which point, $A$ or $B$, is closest to the origin $O$, we
-compare the former's distances to the latter's.  That is, if
-%
-\[ 
-  d(A, O) < d(B, O) 
-\]
-%
-holds, $A$ is the closest to the origin.  Otherwise, they are either equidistant
-or $B$ is closer.  However, applying the square root operation in the distance
-computation is a step that will introduce errors.  Given that we are only
-interested in comparing distances, and not use their actual value, we can,
-instead, compare the squared distances.  As such, we avoid the square root, thus
-improving robustness, and speeding up the process because the square root is a
-computationally heavy operation.  \Citet{Mei:2014:NRGC} further discuss the
-issues with numerical robustness in geometric computation, namely how they
-arise, and propose practical solutions.
+The correctness proofs of most all geometric algorithms presented in theoretical
+papers assumes exact computation with real numbers~\cite{CGAL:4.13:23LGK}.
+However, floating-point numbers are represented with fixed precision in
+computers, which leads to inaccurate representations of real number.  Typically,
+comparisons must be performed relying on tolerances, i.e., two floating-point
+numbers $a$ and $b$ are considered \textit{the same} if $|a - b| \le \epsilon$
+for a given $\epsilon$.
 
 When used without care, fixed-precision arithmetic almost always leads to
 unwanted results due to marginal error accumulation caused by rounding
-(\textit{roundoff}), propagated throughout a series of calculations.  As seen
-above, careful observations must be made before proceeding with computations as
-simple as distance calculation.  To help solve this problem, more robust
-numerical constructs and concepts can be used.  In particular, exact numbers,
-such as rational numbers or arbitrary precision numbers. The latter, also known
-as \textit{bignums}, allow arbitrary-precision arithmetic, capable of
-representing numbers with virtually infinite precision with the drawback that
-arithmetic operations are slower, however mitigating precision issues, providing
-more accurate constructs and improving code robustness.
+(\textit{roundoff}).  To help solve this problem, more robust numerical
+constructs and concepts can be used.  In particular, exact numbers, such as
+rational numbers or arbitrary precision numbers. The latter allow
+arbitrary-precision arithmetic with the drawback that operations are slower,
+however mitigating precision issues.
 
 Several libraries already strive to implement robust geometric computation.  One
-such example is \ac{CGAL}~\cite{CGAL:5.3:Project}.  \Ac{CGAL} is a comprehensive
-library that employs an exact computation paradigm~\cite{Yap:1995:ECP},
-producing correct results despite roundoff errors and properly handling
-\textit{degenerate} situations (e.g., 3D points on a 2D plane), relying on
-numbers with arbitrary precision to do so.  Moreover, other libraries, such as
-\ac{LEDA}~\cite{Mehlhorn:1989:LEDA}, and CORE~\cite{Karamcheti:1999:CLRNGC} and
-its successor~\cite{Yu:2010:CORE2}, also deal with robustness problems in
-geometric computation, offering simpler interfaces when compared to \ac{CGAL}.
-However, \ac{CGAL} arguably remains the \textit{de facto} standard library for
-robust exact geometric computation.
+such example is \ac{CGAL}~\cite{CGAL:5.3:Project}.  Moreover, other libraries,
+such as \ac{LEDA}~\cite{Mehlhorn:1989:LEDA}, and
+CORE~\cite{Karamcheti:1999:CLRNGC} and its successor~\cite{Yu:2010:CORE2}, can
+also be leveraged to deal with robustness problems in geometric computation.
