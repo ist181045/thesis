@@ -35,17 +35,15 @@ powers-of-ten sets of points.
     xlabel={Number of Points (log)},
     ylabel={Average Time (ns, log)},
     width={\linewidth},
-    height=6cm,
+    height=5cm,
     bar width=3.16227766,% 10^(1/n) where n = 2 (bars)
-    enlarge y limits={.2,upper},
+    enlarge y limits={.25,upper},
     enlarge x limits={abs=3.16227766},
     legend columns=-1,
     table/col sep=comma,
-    error bars/y explicit,
-    error bars/y dir=both
   ]
-    \addplot+ table [y error index=2] {data/voronoi-vdjl.csv};
-    \addplot+ table [y error index=2] {data/voronoi-cgal.csv};
+    \addplot+ table {data/voronoi-vdjl.csv};
+    \addplot+ table {data/voronoi-cgal.csv};
     \legend{VoronoiDelaunay.jl,CGAL.jl}
   \end{loglogaxis}
   \end{tikzpicture}
@@ -56,11 +54,8 @@ powers-of-ten sets of points.
 Results are pretty identical.  However, we see \ac{CGAL}'s variant of the
 algorithm beating \texttt{VoronoiDelaunay.jl}'s by a relatively small margin.
 
-Finally, we take a look at the output Delaunay Triangulations and their
-respective Voronoi Diagrams, produced by both implementations.
-\Cref{fig:eval.voronoi.output} illustrates two plots of the output meshes: on
-the left, the Delaunay Triangulations, and on the right, the respective dual
-Voronoi Diagrams.
+Finally, we take a look at the output meshes produced by both implementations,
+illustrated in \cref{fig:eval.voronoi.output}.
 
 \begin{figure}[htb]
   \resizebox{\linewidth}{!}{\input{tikz/voronoi-plots.tikz}}
@@ -71,24 +66,12 @@ Voronoi Diagrams.
 
 Surprisingly, the triangulations are not the same, explaining the divergence in
 the respective Voronoi Diagrams.  Simpler point distributions illustrate this
-disparity further.  \Cref{fig:eval.voronoi.surprising} shows this scenario
-blatantly.
+disparity further.  Though it is not clear which of the implementations is
+wrong, given \ac{CGAL} is a more mature library, it is probably safe to assume
+that the implementation in \texttt{VoronoiDelaunay.jl} is the culprit.
 
-\begin{figure}[htb]
-  \resizebox{\linewidth}{!}{\input{tikz/voronoi-surprising.tikz}}
-  \caption[Surprising Voronoi Delaunay output]{
-    \ac{CGAL}'s algorithm produced a triangle (on the left) while
-    \texttt{VoronoiDelaunay.jl} did not.  Consequently, \ac{CGAL} did not
-    produce a (finite) Voronoi Diagram while \texttt{VoronoiDelaunay.jl} did (on
-    the right).}%
-  \label{fig:eval.voronoi.surprising}
-\end{figure}
-
-It is not clear which of the implementations is wrong.  Though, given that
-\ac{CGAL} is a more mature library, it is probably safe to assume that the
-implementation in \texttt{VoronoiDelaunay.jl} has issues.
-
-Summarily, re-implementations of complex algorithms from scratch are very likely
-to produce erroneous results, paling in comparison to more mature alternatives
-that may be repurposed.  Though new implementations may show potential, it will
-be hard to compete with established battle-tested software.
+Summarily, new implementations of complex algorithms from scratch are very
+likely to produce erroneous results, paling in comparison to more mature
+alternatives that may be repurposed.  Despite showing potential, new
+implementations will have a hard time competing with established battle-tested
+software.

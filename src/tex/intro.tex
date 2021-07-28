@@ -23,30 +23,12 @@ the specification of sketches and models through
 algorithms~\cite{McCormack:2004:GDPDR} using either a \ac{TPL}, a \acp{VPL}, or
 even a mixture of both.
 
-Dealing with \acp{GC} can still prove to be an arduous task.  Take as an example
-the sketch of a chair seat's outer frame, as seen in \cref{fig:intro.chair},
-from a multi-purpose chair generation tool~\cite{Garcia:2012:ChairDNA} where the
-chair's overall shape is controllable by specifying the values for a set of
-input parameters.
-
-\begin{figure}[htb]
-  \includegraphics[width=.7\linewidth]{fig/chair-seat-outer-frame}
-  \begin{minipage}{\linewidth}
-  \scriptsize Source: Project source code, publicly unavailable.
-  \end{minipage}
-  \caption[Sketch of a chair seat's outer frame]{\label{fig:intro.chair}
-    Sketch of a chair seat's outer frame, defined by several input parameters.}
-\end{figure}
-
-The seat's corners are defined by circles whose respective front and rear radii
-are obtained by computing distances from which the circles' centers can be
-obtained.  The circles are then connected through outer tangent lines, forming
-the outer frame of the chair's seat.  Some of these operations, such as point
-distance and tangency, must be handled carefully due to numerical robustness
-issues that may arise when performing fixed-precision arithmetic computations.
-This means that, on top of the design process itself, the user must spend
-additional time identifying and carefully researching how to robustly implement
-solutions to \acp{GC}.
+Dealing with \acp{GC} can still prove to be an arduous task.  Some operations,
+such as point distance and tangency, must be handled carefully due to numerical
+robustness issues that may arise when performing fixed-precision arithmetic
+computations.  This means that, on top of the design process itself, the user
+must spend additional time identifying and carefully researching how to robustly
+implement solutions to \acp{GC}.
 
 To overcome this problem, this report proposes the implementation of \ac{GC}
 primitives with specialized efficient solutions for different combinations of

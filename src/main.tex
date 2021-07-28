@@ -43,25 +43,24 @@
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{main}
 
+\clearpage
 \appendix
 
 \section{Appendix}
 
-\begin{longlisting}
-  \caption[Wrapper CxxWrap code for Three points and one segment]{
-    C++ wrapper code that maps the functionality required to reproduce the
-    example shown in \cref{lst:solution.impl.cgal.pas} in Julia.}%
-  \label{lst:solution.impl.jlcgal.jlcxx}
-  \inputminted[highlightlines={24,30-34,36-38,40-43,46-49}]%
-    {cpp}{cpp/cgal_julia.cpp}
-\end{longlisting}
+\begin{listing}[htb]
+  \caption{\label{lst:solution.impl.jlcgal.jlcxx}
+    C++ wrapper around the functionality required for recreating the example
+    from \cref{lst:solution.impl.cgal.pas} in Julia.}
+  \inputminted[breaklines]{cpp}{cpp/cgal_julia.cpp}
+\end{listing}
 
-\begin{longlisting}
-  \caption[Bare-bones Julia module wrapping some of CGAL]{
-    An example Julia module, wrapping the library produced from
-    \cref{lst:solution.impl.jlcgal.jlcxx}.}\label{lst:solution.impl.jlcgal.cgal}
-  \inputminted[highlightlines={4-6,8,9}]{julia}{jl/CGAL.jl} 
-\end{longlisting}
+\begin{listing}[htb]
+  \caption{\label{lst:solution.impl.jlcgal.cgal}
+    Example Julia module, wrapping the library produced from
+    \cref{lst:solution.impl.jlcgal.jlcxx}.}
+  \inputminted[breaklines]{julia}{jl/CGAL.jl} 
+\end{listing}
 
 \end{document}
 \endinput

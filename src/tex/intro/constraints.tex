@@ -30,8 +30,8 @@ not have too few or too many constraints.  Summarily, a system can either be
 \end{enumerate*}
 
 Some of the subjects approached here are briefed in~\cite{Hoffmann:2005:BCS}.
-The following sections present and briefly discuss the most relevant approaches
-to constraint solving.
+The following sections present and briefly discuss some of the most relevant
+approaches to constraint solving.
 
 \subsubsection{Graph-Based Approaches}%
 \label{sec:intro.constraints.graph}
@@ -39,14 +39,6 @@ to constraint solving.
 The problem is translated into a labeled \textit{constraint graph}, where
 vertices are constrained geometric objects, and edges the constraints
 themselves.  These became the dominant \ac{GCS} approaches.
-
-\subsubsection{Logic-Based Approaches}%
-\label{sec:intro.constraints.logic}
-
-The constraint problem is translated into a set of geometric assertions and
-axioms which is then transformed in such a way that specific solution steps are
-made explicit by applying geometric reasoning.  The solver then takes a set of
-construction steps and assigns coordinate values to the geometric entities.
 
 \subsubsection{Algebraic Approaches}%
 \label{sec:intro.constraints.algebraic}
@@ -58,15 +50,6 @@ subproblems, and a general, complete solution of algebraic equations is
 inefficient.  Nonetheless, small algebraic systems tend to appear in the other
 approaches and are routinely solved.
 
-\subsubsection{Symbolic Methods}%
-\label{sec:intro.constraints.symbolic}
-
-Symbolic methods rely on general equation solvers that employ techniques to
-triangularize equation systems~\cite{Chou:1988:IWMMTPG,Buchberger:1995:Grobner}
-that emerge from employing an algebraic approach.  These methods can produce
-generic solutions, but solvers are very slow and computation demands a lot of
-space, usually requiring exponential running time~\cite{Durand:1998:SNTCS}.
-
 \subsubsection{Numerical Methods}%
 \label{sec:intro.constraints.numerical}
 
@@ -76,10 +59,3 @@ if a good approximation of the intended solution can be supplied and the system
 is not ill-conditioned.  Alas, such methods may find only one solution, even in
 cases where there are many, and may not allow the user to select the one they
 are interested in.
-
-\subsubsection{Theorem Proving}%
-\label{sec:intro.constraints.proving}
-
-\ac{GCS} can be seen as a subproblem of geometric theorem proving, but the
-latter requires general techniques, therefore requiring much more complex
-methods than those required by the former.

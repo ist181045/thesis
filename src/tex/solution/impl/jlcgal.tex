@@ -5,41 +5,37 @@
 Having established \ac{CGAL} as our \geomlibrary{} of choice, we must now
 overcome the language barrier between Julia and C++.  Fortunately, the former
 possesses \ac{FFI} mechanisms that can aid us in resolving this issue.  Julia
-provides a special construct named \mintinline{julia}{ccall} that is capable of
-efficiently calling C and Fortran functions.  It is similar to a function call
-that requires the target function's signature and arguments.
+provides a special \mintinline{julia}{ccall} construct that is capable of
+efficiently calling C and Fortran functions.
 
 However, we cannot wrap C++ functions directly because C++ compilers mangle
-function names.  We must inhibit the compiler from doing so by preceding the
-target functions with \mintinline{cpp}{extern "C"}.  Besides primitive types,
-it is possible to map Julia \mintinline{julia}{struct}s to C
-\mintinline{cpp}{struct}s to facilitate data transfer.
+function names.  Target functions must be externalized first, signalling the
+compiler with a special instruction.
 
-This strategy, however, does not scale.  Though we could incrementally build on
-this approach, C++ is leaps and bounds more complex than C, which is enough to
-justify exploring a different approach.
+Besides primitive types, it is possible to map Julia \mintinline{julia}{struct}s
+to C \mintinline{cpp}{struct}s to facilitate data transfer.  This strategy,
+however, does not scale.  Though we could incrementally build on this approach,
+C++ is leaps and bounds more complex than C, which is enough to justify
+exploring a different approach.
 
 Fortunately, there is a Julia package destined to wrapping C++ code named
 \texttt{CxxWrap.jl}\footnote{\url{https://github.com/JuliaInterop/CxxWrap.jl}}.
-\texttt{CxxWrap.jl} adopts an approach where the user writes the code for the
-Julia wrapper in C++ and initializes the library on the Julia side with little
-more than a single instruction.  \Cref{lst:solution.impl.jlcgal.jlcxx}
-shows the code that wraps the functionality required to reproduce the program
-program in \cref{lst:solution.impl.cgal.pas} in Julia.
+It adopts an approach where the user writes the code for the Julia wrapper in
+C++ and initializes the library on the Julia side with very little effort.
+\Cref{lst:solution.impl.jlcgal.jlcxx} shows the code that wraps the
+functionality required to reproduce the program in
+\cref{lst:solution.impl.cgal.pas} in Julia.
 
-After compiling the wrapper code, we can load it on the Julia side resorting to
-\texttt{CxxWrap.jl}. \Cref{lst:solution.impl.jlcgal.cgal} shows an example
-bare-bones CGAL Julia module.
-
-As a result, we can devise the program in \Cref{lst:solution.impl.jlcgal.pas},
-which is a translation of C++ example in \cref{lst:solution.impl.cgal.pas}.
+\Cref{lst:solution.impl.jlcgal.cgal} shows an example bare-bones Julia module
+wrapping \ac{CGAL}.  As a result, we can devise the program in
+\Cref{lst:solution.impl.jlcgal.pas}, which is a translation of C++ example in
+\cref{lst:solution.impl.cgal.pas}.
 
 \begin{listing}[htbp]
   \inputminted{julia}{jl/points_and_segments.jl}
-  \caption[CGAL.jl: Three points and one segment]{
+  \caption{\label{lst:solution.impl.jlcgal.pas}
     The example program as seen in \cref{lst:solution.impl.cgal.pas} written in
     the Julia programming language using \texttt{CGAL.jl}.}%
-  \label{lst:solution.impl.jlcgal.pas}
 \end{listing}
 
 Our \wrapper{} component expands on this methodology to expose far more
