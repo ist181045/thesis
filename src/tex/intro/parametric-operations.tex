@@ -5,30 +5,23 @@
 Ivan Sutherland introduced the world to
 Sketchpad~\cite{Sutherland:1964:Sketchpad} in 1963, an interactive 2D \ac{CAD}
 program.  Sutherland's Sketchpad was capable of establishing atomic constraints
-between objects which had all the essential properties of parametric equations,
-being the first of its kind and the prime ancestor of modern \ac{CAD} programs.
-The earliest 3D system~\cite{Requicha:1980:RRS:356827.356833} dates from the
-1970s.  This system's parametric nature rested in a
-\ac{CSG}~\cite{Requicha:1977:CSG,Foley:1996:CGPP} tree, which acted as a
-rudimentary construction step history.  The user could modify an operation's
-parameters' values, reapply the modified history, and generate the newly updated
-model.  Nearly a decade later,
+between objects, being the first of its kind.  The earliest 3D
+system~\cite{Requicha:1980:RRS:356827.356833} dates from the 1970s.  This
+system's parametric nature rested on a construction history tree.  The user
+could modify an operation's parameters' values, reapply the modified history,
+and regenerate the model.  Nearly a decade later,
 Pro/ENGINEER\footnote{\url{https://www.ptc.com/en/products/creo/pro-engineer}}~\cite{Jabi:2013:PDA}
-surfaced.  It enabled the establishment of relations between the objects' sizes
-and positions such that a change in a dimension between objects would
-automatically change affected objects accordingly.  \Ac{GCS} soon became
-standard in drawings by the early
-1990s~\cite{Chung:1990:TEVPD,Owen:1991:ASGDC,Bouma:1995:GCS}.  Efforts to expand
-the benefits of constraint solving beyond simple sketches were made, some
-systems having implemented constraint solving in 3D.  Improvements from then on
-focused mostly on robustness and operation variety.
+surfaced, enabling the creation of relations between the objects' sizes and
+positions such that a change in a dimension between objects would automatically
+change affected objects accordingly.  \Ac{GCS} soon became standard in drawings
+by the early 1990s~\cite{Owen:1991:ASGDC,Bouma:1995:GCS}.  Efforts to expand the
+benefits of \ac{GCS} beyond simple sketches were made, some systems having
+implemented constraint solving in 3D.  Improvements from then on focused mostly
+on robustness and operation variety.
 
 In recent decades, emphasis shifted towards making parametric \ac{CAD} software
 more interactive and user-friendly.  The intent was to make it as simple as
-dragging a face of an object to where it should be instead of scrolling through
-a construction history in attempts to locate an operation and changing the
-correct parameter's value.  This is a tedious and error-prone process that can
-lead to undesired side effects.  A variety of systems have been developed to
-mitigate this rigidity~\cite{Samuel:2006:CPPUP,Wu:2007:MSMSM,Clarke:2009:SM},
-but not without drawbacks.  Nonetheless, parametric operations will still see
-continued usage for the foreseeable future.
+dragging a face of an object to where it should be instead of locating and
+modifying operations buried in a construction history.  This is a tedious and
+error-prone process that can lead to undesired side effects.  Nonetheless,
+parametric operations will still see continued usage for the foreseeable future.

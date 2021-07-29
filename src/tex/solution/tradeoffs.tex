@@ -11,10 +11,7 @@ when trying to wrap its constructs to another language. Luckily,
 \texttt{CxxWrap.jl} helps us overcome this.
 
 Regarding our wrapper code, we are still mapping \ac{CGAL} types in an opaque
-fashion, fixing the kernel on the C++ side.\footnote{There are other projects
-that attempt to make \ac{CGAL} available in other language that resort to this
-same trick. See \url{https://github.com/scikit-geometry/scikit-geometry} and
-\url{https://github.com/CGAL/cgal-swig-bindings}.} Ideally, objects would be
+fashion, fixing the kernel on the C++ side.  Ideally, objects would be
 parametric, and the kernel mapped to Julia as well.  As a compromise,
 \texttt{CGAL.jl} fixed a kernel that provides exact predicates with inexact
 constructions, favoring performance over some robustness loss.  Nonetheless, in

@@ -11,7 +11,7 @@ the incorporation of GC functionality in AD tools to help bridge the gap between
 AD and more traditional paradigms.  The focus of this work is the creation, and
 implementation, of primitive GC functionality, supported by a mature geometric
 computation library, that facilitates the specification of geometric forms.  We
-benchmark our solution's performance, as well as test it with four different
+benchmark our solution's performance, as well as test it with two different
 constraint-ridden shapes inspired by existing designs, highlighting two
 different approaches: an analytic approach, naturally used in programming, and a
 constructive approach, the one our solution is based on.  Additionally, we
