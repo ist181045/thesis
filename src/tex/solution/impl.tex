@@ -16,11 +16,10 @@ library chosen for the effect was \ac{CGAL}~\cite{CGAL:5.3:Project}, a highly
 performant library written in the C++ programming
 language~\cite{Stroustrup:2013:CPP}.
 
-We need to make \ac{CGAL} available to the Julia language.  Fortunately, the
-Julia language already possesses \ac{FFI} facilities that allow it to invoke
-functionality within C~\cite{Kernighan:1988:C} or
-Fortran~\cite{Backus:1957:Fortran} libraries.  This mechanism can be built upon
-to interface with C++.
+We need to make \ac{CGAL} available to the Julia language.  Julia already
+possesses \ac{FFI} facilities that allow it to invoke functionality within
+C~\cite{Kernighan:1988:C} or Fortran~\cite{Backus:1957:Fortran} libraries.  This
+mechanism can be built upon to interface with C++.
 
 Overcoming the language interoperability hurdle, we can focus on the
 \primitives{}.  These primitives build on top of the functionality available in
