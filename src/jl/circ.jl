@@ -6,7 +6,7 @@ struct Point # julia equivalent struct
     z::Float64
 end
 
-circumcenter(p₁::Point, p₂::Point, p₃::Point) =
+circumcenter(p₁, p₂, p₃) =
     ccall((:circumcenter, lib)  # qualified function name
         ,  Point                # return type
         , (Point, Point, Point) # parameter types

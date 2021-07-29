@@ -14,9 +14,8 @@ compiler with a special instruction.
 
 Besides primitive types, it is possible to map Julia \mintinline{julia}{struct}s
 to C \mintinline{cpp}{struct}s to facilitate data transfer.  This strategy,
-however, does not scale.  Though we could incrementally build on this approach,
-C++ is leaps and bounds more complex than C, which is enough to justify
-exploring a different approach.
+however, does not scale.  C++ is leaps and bounds more complex than C, which is
+enough to justify exploring a different approach.
 
 Fortunately, there is a Julia package destined to wrapping C++ code named
 \texttt{CxxWrap.jl}\footnote{\url{https://github.com/JuliaInterop/CxxWrap.jl}}.

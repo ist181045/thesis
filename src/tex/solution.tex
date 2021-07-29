@@ -13,6 +13,14 @@ unnecessary details when modeling geometrically constrained entities.  Choosing
 to implement these in a \ac{TPL} further avoids \acp{VPL}' poor scalability with
 increasing code complexity.
 
+In order to implement these primitives, we require basic geometric objects and
+functions to operate in terms of points, lines, and circles, instead of plain
+coordinates and algebraic formulations.  However, instead of implementing these
+basic constructs, potentially introducing errors in the implementation, we
+decided to support our primitives on an exact geometry computation library
+already containing a wide gamut of data structures and functionality with
+decades of research and active maintenance.
+
 Moreover, by relying on an exact geometry computation library, one of the core
 features of this solution lies in the capability of transparently dealing with
 robustness issues.  The user can then resort to the implemented primitives, and,

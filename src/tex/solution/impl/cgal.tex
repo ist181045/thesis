@@ -15,12 +15,18 @@ The library is broken up into three parts~\cite{CGAL:5.3:23LGK}:
   on these objects,
   \item basic geometric data structures and algorithms, and
   \item non-geometric support facilities for debugging and for interfacing
-  \ac{CGAL} to various visualization tools.
+  \ac{CGAL} with various visualization tools.
 \end{enumerate*}
 
+Kernels in \ac{CGAL} are parametric, enabling the combination of kernels with
+exact constructions or inexact constructions.  The latter are faster than the
+former, but may produce inexact results due to \textit{roundoff} errors during
+object construction.  In practice, however, inexact construction kernels suffice
+for most of \ac{CGAL}'s algorithms.
+
 \Cref{lst:solution.impl.cgal.pas} showcases an example of a very simple
-\ac{CGAL} program, demonstrating the construction of some points and a segment,
-and performing some basic operations on them.
+\ac{CGAL} program, demonstrating the construction of points and a segment, and
+performing some basic operations on them.
 
 \begin{listing}[htbp]
   \inputminted{cpp}{cpp/points_and_segments.cpp}
@@ -30,8 +36,8 @@ and performing some basic operations on them.
 \end{listing}
 
 It is worth noting that floating point-based computation can lead to surprising
-results.  \Ac{CGAL} offers easily interchangeable kernels that provide exact
-predicates and exact constructions.
+results.  \Ac{CGAL} offers easily interchangeable kernels that provide
+exact constructions, resolving this issue, albeit at a performance cost.
 
 However, \ac{CGAL} is a terribly complex library under the hood, presenting many
 challenges when it comes to mapping it to the Julia language.  Firstly, wrapping

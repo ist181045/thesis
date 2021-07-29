@@ -1,6 +1,6 @@
 \begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
 \begin{axis}[point meta max={nan}, point meta min={nan}, title={Delaunay Triangulation}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{10 pt}{13.0 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={west}}, at={(0.98, 0.98)}, anchor={north east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={86.9mm}, height={86.9mm}, scaled x ticks={false}, xlabel={$x$}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.9}, xmax={2.1}, xtick={{1.0,1.25,1.5,1.75,2.0}}, xticklabels={{$1.00$,$1.25$,$1.50$,$1.75$,$2.00$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={$y$}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={0.9}, ymax={2.1}, ytick={{1.0,1.25,1.5,1.75,2.0}}, yticklabels={{$1.00$,$1.25$,$1.50$,$1.75$,$2.00$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}, legend columns={-1}]
-    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={8223002b-7729-4b6e-a2c9-1769cec69fa1}, draw opacity={1.0}, line width={1}, solid]
+    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={dd5ce4d0-0c2a-4dcb-959b-185bff5aa011}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
         {
             \\
@@ -9,7 +9,7 @@
         }
         ;
     \addlegendentry {CGAL.jl}
-    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={8223002b-7729-4b6e-a2c9-1769cec69fa1}, draw opacity={1.0}, line width={1}, solid, forget plot]
+    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={dd5ce4d0-0c2a-4dcb-959b-185bff5aa011}, draw opacity={1.0}, line width={1}, solid, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -17,7 +17,7 @@
             1.8946103360503908  1.4291503357235342  \\
         }
         ;
-    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={8223002b-7729-4b6e-a2c9-1769cec69fa1}, draw opacity={1.0}, line width={1}, solid, forget plot]
+    \addplot[color={rgb,1:red,1.0;green,0.0;blue,0.0}, name path={dd5ce4d0-0c2a-4dcb-959b-185bff5aa011}, draw opacity={1.0}, line width={1}, solid, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -26,86 +26,86 @@
         }
         ;
 \end{axis}
-\begin{axis}[point meta max={nan}, point meta min={nan}, title={Voronoi Diagram}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{10 pt}{13.0 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={west}}, at={(0.98, 0.98)}, anchor={north east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={89.9mm}, yshift={-1.0mm}, width={86.9mm}, height={86.9mm}, scaled x ticks={false}, xlabel={$x$}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.12476873002050426}, xmax={3.1965007103949628}, xtick={{0.5,1.0,1.5,2.0,2.5,3.0}}, xticklabels={{$0.5$,$1.0$,$1.5$,$2.0$,$2.5$,$3.0$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={$y$}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={1.010882628426966}, ymax={2.112657908518973}, ytick={{1.2000000000000002,1.4000000000000001,1.6,1.8,2.0}}, yticklabels={{$1.2$,$1.4$,$1.6$,$1.8$,$2.0$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}, legend columns={-1}]
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid]
+\begin{axis}[point meta max={nan}, point meta min={nan}, title={Voronoi Diagram}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{10 pt}{13.0 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={west}}, at={(0.98, 0.98)}, anchor={north east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={89.9mm}, yshift={-1.0mm}, width={86.9mm}, height={86.9mm}, scaled x ticks={false}, xlabel={$x$}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={0.9}, xmax={2.1}, xtick={{1.0,1.25,1.5,1.75,2.0}}, xticklabels={{$1.00$,$1.25$,$1.50$,$1.75$,$2.00$}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={$y$}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={0.9}, ymax={2.1}, ytick={{1.0,1.25,1.5,1.75,2.0}}, yticklabels={{$1.00$,$1.25$,$1.50$,$1.75$,$2.00$}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}, legend columns={-1}]
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid]
         table[row sep={\\}]
         {
             \\
-            3.109564899629648  1.4999999999999998  \\
-            1.532938482009341  1.1128160355579375  \\
+            1.531341804702409  1.1112309382207224  \\
+            1.4999999999999998  1.042064947674853  \\
         }
         ;
     \addlegendentry {VoronoiDelaunay.jl}
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
         table[row sep={\\}]
         {
             \\
+            1.531341804702409  1.1112309382207224  \\
+            1.1315016278762886  1.709276137233047  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.531341804702409  1.1112309382207224  \\
+            1.532938482009341  1.1128160355579375  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.2117045407858189  1.5  \\
+            1.1315016278762886  1.709276137233047  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.2117045407858189  1.5  \\
+            1.4999999999999998  1.042064947674853  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.4999999999999998  2.081475589271086  \\
+            1.1315016278762886  1.709276137233047  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.4999999999999998  2.081475589271086  \\
+            1.738886336883075  1.753053233015188  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.532938482009341  1.1128160355579375  \\
+            1.738886336883075  1.753053233015188  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            1.532938482009341  1.1128160355579375  \\
             3.109564899629648  1.4999999999999998  \\
+        }
+        ;
+    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={3b0dc794-9677-4da2-8fe1-2db0290db9e1}, draw opacity={0.8}, line width={1}, solid, forget plot]
+        table[row sep={\\}]
+        {
+            \\
             1.738886336883075  1.753053233015188  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.1315016278762886  1.7092761372330472  \\
-            1.5  2.081475589271086  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.1315016278762886  1.7092761372330472  \\
-            1.531341804702409  1.1112309382207224  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.1315016278762886  1.7092761372330472  \\
-            0.21170454078581913  1.5  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.5  1.0420649476748531  \\
-            1.531341804702409  1.1112309382207224  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.5  1.0420649476748531  \\
-            0.21170454078581913  1.5  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.531341804702409  1.1112309382207224  \\
-            1.532938482009341  1.1128160355579375  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.5  2.081475589271086  \\
-            1.738886336883075  1.753053233015188  \\
-        }
-        ;
-    \addplot[color={rgb,1:red,0.0;green,1.0;blue,0.498}, name path={4a9a37d1-bb44-42f3-82a7-1a36a3143ab8}, draw opacity={0.8}, line width={1}, solid, forget plot]
-        table[row sep={\\}]
-        {
-            \\
-            1.532938482009341  1.1128160355579375  \\
-            1.738886336883075  1.753053233015188  \\
+            3.109564899629648  1.4999999999999998  \\
         }
         ;
 \end{axis}
