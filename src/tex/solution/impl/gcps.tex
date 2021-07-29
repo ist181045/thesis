@@ -69,7 +69,7 @@ that way, defining a \texttt{circumcenter} function similar to the one in
 \cref{lst:solution.impl.gcps.circimpl}.
 
 \begin{listing}[htbp]
-  \begin{minted}{julia}
+  \begin{minted}[linenos=false]{julia}
   circumcenter(a, b, c) = intersection(bisector(a, b), bisector(b, c)) 
   \end{minted}
   \caption[Initial circumcenter solution]{
@@ -118,7 +118,7 @@ The implementation of the problem's solution can be seen in
 \cref{lst:solution.impl.gcps.tangcircle2line}.
 
 \begin{listing}[htb]
-  \begin{minted}{julia}
+  \begin{minted}[linenos=false]{julia}
   tangent_circle(o::Point2, l::Line2) = Circle2(o, squared_distance(o, l))
   \end{minted}
   \caption[Circle tangent to a line]{
