@@ -65,32 +65,27 @@ Let $A,\, B,\, C,\, O \in \mathbb{R}^2$ be points such that $O$ is the center
 point of a circle of radius $r$, $\odot O_r$, that is circumscribed about the
 triangle $\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
 
-To draw $\odot O_r$, we need its center $O$, which results from intersecting
-the perpendicular bisectors of the triangle's edges; and its radius $r$, which
-is the distance from $O$ to any of $\triangle ABC$'s vertices.  Said bisectors
-can be described by~\cref{eq:line.parametric.2}, where $P$ is the midpoint
-between the vertices, and $\vec{u}$ is a vector normal to the edge.  The normal
-vector $\vec{n}$ is such that, for some vector $\vec{u}$,
-\[
-  \vec{u} \cdot \vec{n} = (u_x, u_y) \cdot (v_x, v_y) = u_x v_x + u_y v_y = 0.
-\]
-A vector $\vec{n} \in \mathbb{R}^2$ normal to another vector $\vec{u}$ can be
-easily obtained by swapping the components of $\vec{u}$ while negating one of
+To draw $\odot O_r$, we need its center $O$, which results from intersecting the
+perpendicular bisectors of the triangle's edges; and its radius $r$, which is
+the distance from $O$ to any of $\triangle ABC$'s vertices.  Said bisectors can
+be described by~\cref{eq:line.parametric.2}, where $P$ is an edge's midpoint,
+and $\vec{u}$ is a vector normal to an edge.  A vector $\vec{n} \in
+\vec{\mathbb{R}}^2$ normal to another vector $\vec{u} \in \vec{\mathbb{R}}^2$
+can be easily obtained by swapping the components of $\vec{u}$, negating one of
 them.
 
 Let $M_{AB},\, M_{AC},\, M_{BC} \in \mathbb{R}^2$ be the midpoints of the
-respective edges, and $\vec{u_1},\,\vec{u_2},\,\vec{u_3}$ the edges' normal
-vectors, such that
+respective edges, and $\vec{u}_1,\,\vec{u}_2,\,\vec{u}_3 \in \vec{\mathbb{R}}^2$
+the edges' normal vectors, such that
 \[
   \begin{split}
-    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u_1} \\
-    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u_2} \\
-    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u_3} \\
+    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
+    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
+    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
   \end{split},\,\lambda_i \in \mathbb{R}.
 \]
-This problem can be further simplified by eliminating one of the redundant
-bisectors.  Say we discard the mediator of line $\overleftrightarrow{BC}$.  We
-then require that
+We can eliminate one of the redundant bisectors, e.g., the mediator of
+$\overleftrightarrow{BC}$.  We then require that
 \[
   P_{M_{AB}} = P_{M_{AC}} \stackrel{\eqref{eq:line.parametric.2}}{\Rightarrow}
   \begin{cases}
@@ -100,11 +95,7 @@ then require that
 \]
 Every variable is known except for $\lambda_1$ and $\lambda_2$, but the equation
 system can be solved in order to determine their values.  Finally, we can define
-$O$ using one of the mediator line equations.  Using $P_{M_{AB}}$, for instance,
-we have
-\[
-  O = M_{AB} + \lambda_1 \vec{u_1}.
-\]
+$O$ using one of the mediator line equations.
 
 \Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
 example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the

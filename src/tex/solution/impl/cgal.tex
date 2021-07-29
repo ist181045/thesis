@@ -34,11 +34,8 @@ results.  \Ac{CGAL} offers easily interchangeable kernels that provide
 exact constructions, resolving this issue, albeit at a performance cost.
 
 However, \ac{CGAL} is a terribly complex library under the hood, presenting many
-challenges when it comes to mapping it to the Julia language.  Firstly, wrapping
-C++ with Julia requires additional steps.  Secondly, both languages use differing
-memory management mechanisms.  Finally, \ac{CGAL} abuses C++ templates, making
-it cumbersome to transparently map functionality.
+challenges when it comes to mapping it to the Julia language.  For instance,
+\ac{CGAL} makes heavy use of C++ templates, making it cumbersome to
+transparently map functionality.
 
-Fortunately, there are methods and libraries that can help us overcome some of
-those issues.  We demonstrate how we overcame said issues, demonstrating it by
-reproducing the example in \cref{lst:solution.impl.cgal.pas} in Julia.
+In the next section, we go over how we overcame said issues.
