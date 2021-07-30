@@ -159,8 +159,7 @@ Finally, we take a look at the output Delaunay Triangulations and their
 respective dual Voronoi Diagrams, produced by both implementations.
 \Cref{fig:eval.voronoi.output} illustrates two plots of overlapping meshes: on
 the left, the Delaunay Triangulations, and on the right, the respective dual
-Voronoi Diagrams.  \Cref{lst:appendix.voronoi.plotsjl} shows the Julia code used
-to produce the plots in the figures.
+Voronoi Diagrams.
 
 \begin{figure}[!htb]
   \resizebox{\linewidth}{!}{\input{tikz/voronoi-plots.tikz}}
@@ -178,17 +177,15 @@ produces a few more edges, or perhaps it should be said the other way around:
 clouds illustrate this disparity further.  If tested with a 3-point cloud, i.e.,
 a triangle, \ac{CGAL} will properly produce said triangle while
 \texttt{VoronoiDelaunay.jl} will not.  \Cref{fig:eval.voronoi.surprising} shows
-this scenario blatantly.  This example uses the same code in
-\cref{lst:appendix.voronoi.plotsjl} with a minor difference in the number of
-points changed from the default of 21 down to 3.
+this scenario blatantly.
 
 \begin{figure}[htb]
   \resizebox{\linewidth}{!}{\input{tikz/voronoi-surprising.tikz}}
   \caption[Surprising Voronoi Delaunay output]{
-    \ac{CGAL}'s algorithm produced a triangle (on the left) while
-    \texttt{VoronoiDelaunay.jl} did not.  Consequently, \ac{CGAL} did not
-    produce a (finite) Voronoi Diagram while \texttt{VoronoiDelaunay.jl} did (on
-    the right).}%
+    \texttt{Voronoi.jl} produced a triangle (on the left) while
+    \texttt{VoronoiDelaunay.jl} did not.  Consequently, \texttt{Voronoi.jl} did
+    not produce a (finite) Voronoi Diagram while \texttt{VoronoiDelaunay.jl} did
+    (on the right).}%
   \label{fig:eval.voronoi.surprising}
 \end{figure}
 
