@@ -2,15 +2,15 @@
 \section{Conclusion}%
 \label{sec:conclusion}
 
-Generating highly constrained complex designs is not viable using traditional
+Generating highly complex designs is not viable using traditional
 methods due to the rigidity in manipulating existing models to generate multiple
 variants.  This is where \ac{AD} comes in.  However, working with \acp{GC} still
-proves challenging.  \Ac{GCS} approaches can be employed to solve complex
-constraint systems, but they mostly resort to generic algorithms that struggle
-to identify specific problems for which efficient solutions exist.
+proves challenging.  \Ac{GCS} approaches can be employed to overcome them, but
+they mostly resort to generic algorithms that struggle to identify specific
+problems for which efficient solutions exist.
 
 Nonetheless, the prior analysis of the set of \acp{GC} that must be dealt with
-requires certain background knowledge on numerical robustness to mitigate
+requires background knowledge on numerical robustness to mitigate
 fixed-precision arithmetic issues.  Moreover, there is the added requirement of
 researching solutions to these specific constraint problems,  wasting the user's
 time that could be spent in the design process itself.
@@ -21,14 +21,21 @@ computation library.  The latter provides a series of optimized geometric
 algorithms and exact constructs that can transparently handle robustness issues,
 lifting this concern from the user's shoulders.
 
+Our solution is correct, ensured by supporting it on \ac{CGAL}.  Consequently,
+development time is vastly reduced by repurposing existing functionality instead
+of re-implementing it from scratch, also reducing the potential for producing
+erroneous code.  Additionally, our solution's performance proves to be superior
+when compared to projects that implement some of the same constructs we managed
+to repurpose.  As a side effect, we opened the door to extending more
+functionality in \ac{CGAL}.  These reasons suffice to validate our approach.
+
 Finally, we showed our approach creates programs that are easy to understand and
-reproduce.  By adopting a constructive approach, we clarify the steps required
-to build geometric objects, as opposed to the analytical approach programming
-usually begs for.  The latter is not only more cumbersome to follow, but it also
-produces programs that hide geometry behind formulas.  The former is preferred
-by \ac{AD} practitioners while also being alluring to new adopters, contributing
-to increasing \ac{AD} adoption rate, driving more people away from the rigid
-traditional methods.
+reproduce using a straightedge and a compass.  By adopting a constructive
+approach, we clarify the steps required to build geometry, as opposed to the
+analytical approach programming usually begs for.  The latter is not only more
+cumbersome to follow, but it also produces less tangible programs.  The former
+is preferred by \ac{AD} practitioners while also being alluring to new adopters,
+contributing to the increasing adoption of \ac{AD}.
 
 \subsection*{Future Work}
 
@@ -36,12 +43,21 @@ Our solution certainly has some drawbacks, some of which were already discussed
 in \cref{sec:solution.tradeoffs}.  To briefly reiterate a few, our wrapper
 around \ac{CGAL} is still rather opaque.  Functionality should be transparently
 mapped, providing the user with more control and choice over the constructs they
-are using.  Furthermore, the set of implemented \ac{GC} primitives was quite
-limited in size and could be further expanded on.  However, let the ones
-implemented serve as an example for expansion.
+are using.  \texttt{CxxWrap.jl} enables the mapping of parametric types,
+something that was done in part for some packages in \texttt{CGAL.jl}.  Adopting
+a similar approach for the opaquely mapped constructs should be considered.
+
+Furthermore, the set of implemented \ac{GC} primitives was quite could be
+further expanded on by, for instance, attempting to reach parity with tools,
+like \texttt{tkz-euclide}, or familiar \ac{CAD} systems, like AutoCAD, providing
+users with a more complete interface.  Alternatively, one could look further
+into \ac{CGAL} for more functionality, like the 2D \& 3D Boolean Operations
+packages.
 
 This work focused exclusively on geometry in the 2D plane, leaving 3D space
 vastly unexplored.  Elevating a dimension means the solutions to problems once
-formulated in the 2D plane may no longer be applicable in 3D space for some
-problems may now be under-constrained.  Moving from 2D to 3D will certainly
+formulated in the 2D plane are not applicable in 3D space for some problems may
+now be under-constrained.  We can once again look into \ac{CGAL}, or, deviating
+from it, explore other libraries, as well as research solutions for the 3D
+versions of the primitives in our solution. Moving from 2D to 3D will certainly
 elevate our work, like going from sketching on paper to projecting buildings.

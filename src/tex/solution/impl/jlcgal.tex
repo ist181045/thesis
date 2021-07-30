@@ -20,15 +20,10 @@ enough to justify exploring a different approach.
 Fortunately, there is a Julia package destined to wrapping C++ code named
 \texttt{CxxWrap.jl}.\footnote{\url{https://github.com/JuliaInterop/CxxWrap.jl}}
 It adopts an approach where the user writes the code for the Julia wrapper in
-C++ and initializes the library on the Julia side with very little effort.
-\Cref{lst:solution.impl.jlcgal.jlcxx} shows the code that wraps the
-functionality required to reproduce the program in
-\cref{lst:solution.impl.cgal.pas} in Julia.
-
-\Cref{lst:solution.impl.jlcgal.cgal} shows an example bare-bones Julia module
-wrapping \ac{CGAL}.  As a result, we can devise the program in
-\Cref{lst:solution.impl.jlcgal.pas}, which is a translation of C++ example in
-\cref{lst:solution.impl.cgal.pas}.
+C++ and initializes the library on the Julia side with very little effort.  
+Leveraging this package, we can devise the program in
+\cref{lst:solution.impl.jlcgal.pas}, which is a translation of the C++ example
+in \cref{lst:solution.impl.cgal.pas}.
 
 \begin{listing}[htbp]
   \inputminted{julia}{jl/points_and_segments.jl}
