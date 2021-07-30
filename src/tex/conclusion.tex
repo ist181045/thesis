@@ -3,56 +3,52 @@
 \label{chap:conclusion}
 \cleardoublepage{}
 
-\noindent The generation of highly constrained sophisticated designs is not
-viable through usage of interactive interfaces due to rigidity in the
-manipulation of existing models in order to generate multiple variants.  This is
-where \Ac{AD} comes in.  Even then, working with geometric constraints, whether
-it be in a \ac{VPL} or a \ac{TPL}, imposes a set of challenges, which can be
-overcome through the usage of \ac{GCS} approaches to solve complex systems of
-constraints.  To achieve that goal, several methods can be employed, but they
-mostly resort to generic \acs{GCS} algorithms.  Alas, solvers, in general, have
-difficulties identifying specific underlying subproblems for which efficiently
-computable and robust solutions might be available.
+\noindent The generation of sophisticated designs is not viable through the
+usage of interactive interfaces due to rigidity in the manipulation of existing
+models in order to generate multiple variants.  This is where \ac{AD} comes in.
+Even then, working with \acp{GC}, whether in a \ac{VPL} or a \ac{TPL}, imposes a
+set of challenges, which can be overcome by resorting to \ac{GCS} approaches.
+Alas, said approaches typically resort to generic \acs{GCS} algorithms, which
+means \ac{GC} solvers, in general, have difficulties identifying specific
+underlying subproblems with efficiently computable and robust solutions.
 
 Nonetheless, the prior analysis of the set of geometric constraints that must be
-dealt with requires certain background knowledge on numerical robustness to
+dealt with requires background knowledge on numerical robustness to
 mitigate fixed-precision arithmetic issues, such as \textit{roundoff} error
-accumulation throughout computation.  Moreover, there is the added requirement
-of researching solutions to these specific constraint problems.  The user will
-end up spending more time and effort in this process than in the design process
-itself.
+accumulation.  Moreover, there is the added requirement of researching solutions
+to these specific constraint problems and subsequent implementation of the
+corresponding algorithms.  The user will end up spending more time and effort in
+this process than in the design process itself.
 
 Thus, in order to overcome these obstacles, an alternative approach is proposed
-in the form of the implementation of geometric constraint primitives in an
-expressive \ac{TPL} supported by an exact geometric computation library.  The
-latter provides a series of optimized geometric algorithms and exact data
-structures that allow transparent handling of robustness issues, lifting this
-concern from the user's shoulders with the goal of improving constrained
-geometry specification efficiency as well as consequently facilitating the
-design process.
+in the form of the implementation of \ac{GC} primitives supported by an exact
+geometric computation library.  The latter provides a series of optimized
+geometric algorithms and exact data structures that allow transparent handling
+of robustness issues, lifting this concern from the user's shoulders thus
+facilitating the design process.
 
-However, the usage of exact data structures incurs a substantial performance hit
-that does not justify its pervasive use, only fitting very few scenarios in
-practice.  We leveraged faster, albeit inexact, constructs, while still
-preserving exact predicate computation.  Additionally, the implemented
-primitives still delay geometry construction as much as possible, remaining
-robust and preserving exactness up until that point.  Misuse of resulting
-geometry might still lead to surprising erroneous situations, though in
-practical terms, these cases are few and far apart, meaning our solution still
-holds value.
+Our solution is inherently correct, a quality that is ensured by supporting it
+on \ac{CGAL}, a library considered to be the \textit{de facto} industry standard
+library for computational geometry.  Consequently, development time is vastly
+reduced, choosing to repurpose existing geometric constructs and functionality
+instead of re-implementing them from scratch, also reducing the potential for
+producing erroneous code.  Additionally, our solution's performance proves to be
+superior when compared to projects that implement some of the same constructs we
+managed to repurpose.  As a side effect, we opened the door to extending more
+functionality in \ac{CGAL}.  These reasons suffice to validate our approach.
 
 Finally, we proved the approach employed by our solution is one that creates
-understandable programs that can be manually reproduced.  By adopting a
-constructive approach to geometry specification, we externalize and clarify the
-steps required to build geometric objects.  This is contrasted with the more
-natural analytical approach programming languages usually beg for.  Following
-the latter approach is not only more cumbersome due to the solution derivation
-process, but it also produces incomprehensible programs, hiding the concrete
-geometry behind formulas.  The former is preferred by \ac{AD} practitioners, as
-well as industry professionals in general, but it proves alluring to novice
-users all the same.  Said novice users might be starting to learn and adopt
-\ac{AD}.  With our work, we aim to bolster this adoption rate, driving more and
-more people from traditional means to novel design paradigms.
+understandable programs that can be reproduced by hand, using a straightedge and
+a compass.  By adopting a constructive approach to geometry specification, we
+externalize and clarify the steps required to build geometric objects.  This is
+contrasted with the more natural analytical approach programming languages
+usually beg for.  Following the latter approach is not only more cumbersome due
+to the solution derivation process, but it also produces less tangible programs,
+hiding the concrete geometry behind formulas.  The former is preferred by
+\ac{AD} practitioners, as well as industry professionals in general, but it
+proves alluring to novice users all the same.  Said novice users might be
+starting to learn and adopt \ac{AD}.  With our work, we aim to bolster this
+adoption rate, driving more and more people to novel design paradigms.
 
 \pdfbookmark[1]{Future Work}{future-work}
 \section*{Future Work}
@@ -62,23 +58,47 @@ improved.  Some were already discussed in \cref{sec:solution.tradeoffs}.  To
 briefly reiterate a few, our wrapper around the underlying library is less
 transparent than desired.  Constructs and functionality should be mapped as
 transparently as possible, fully parameterized, as to provide the user with more
-control and choice over the constructs they are using.  Furthermore, the set of
-geometric primitives that were implemented was quite limited in size and could
-be further expanded on.  However, let the ones showcased serve as an example for
-expanding the set of primitives even further.
+control and choice over the constructs they are using.  There is potential for
+this as \texttt{CxxWrap.jl} allows the mapping of parametric types.  We have
+leveraged these mechanisms and expanded on our mappings of the 2D Triangulations
+and Voronoi Diagram Adaptor packages from \ac{CGAL} in \texttt{CGAL.jl}.
+Voronoi Diagrams can be generated from other triangulations, not necessarily
+Delaunay Triangulations.  \Ac{CGAL} provides the user with that choice, and so
+does \texttt{CGAL.jl}.  Applying this same approach to other more opaquely
+mapped functionality then adds to potential future work.
 
-This work focused exclusively on constrained geometry bound to the
+Furthermore, the set of geometric primitives that were implemented could be
+further expanded on.  This could initially be done by attempting to reach parity
+with tools, like \texttt{tkz-euclide}, from which we can draw inspiration; or
+even with more popular \ac{CAD} systems that industry professionals are familiar
+with.  Hence, we would be providing a familiar interface to said professionals.
+One again, now with \ac{CGAL} in tow, we can explore the library further,
+looking for additional algorithms that can support that venture as well.  For
+example, there are packages within \ac{CGAL} that implement 2D and 3D Boolean
+Operations, a set of operations all too familiar to \ac{CAD} system users, that
+could be repurposed.
+
+To divert focus from \ac{CGAL} for a moment, one should also look into other
+geometry libraries as well.  The world is evolving, and so is software with it.
+We mentioned the Julia package ecosystem is still catching up, but there is
+already a lot of work put into it that makes usage of certain packages
+attractive since we do not have to communicate across languages, avoiding some
+issues we were met with.
+
+Finally, this work focused exclusively on constrained geometry bound to the
 $\mathbb{R}^2$ Euclidean space, i.e., the 2D plane.  There is still much work to
 be done researching problem solutions that encompass 3D space as well.
-Solutions to problems once formulated in the 2D plane are no longer generally
-applicable in 3D space for some problems may now be under-constrained.  As an
-example, our solution for the circumcenter problem, seen first in
-\cref{sec:intro.examples.circumcenter}, would no longer work in 3D space.  A
-line's bisector in 3D space is a plane, and noncoplanar nor parallel plane
+Solutions to problems once formulated in the 2D plane are not generally
+applicable in 3D space, as the corresponding 3D problems may now be
+under-constrained.  As an example, our solution for the circumcenter problem,
+seen first in \cref{sec:intro.examples.circumcenter}, does not work in 3D space.
+A line's bisector in 3D space is a plane, and noncoplanar nor parallel plane
 intersection results in a line.  To obtain the actual circumcenter, one would
 additionally, for example, have to intersect the resulting line with the plane
 the circumscribed triangle sits on.  Among problems like this one, many more
-exist.
+exist, but much like we just illustrated, solutions also exist.  Once again, for
+starters, one can start by experimenting with the 3D functionality \ac{CGAL}
+provides, some of which is already available in \texttt{CGAL.jl} as well.
 
 Going from the 2D plane into 3D space seems simple on paper.  But much like the
 jump from sketching on paper to projecting skyscrapers, the dimensional gap is
