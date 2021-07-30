@@ -12,14 +12,14 @@
   \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
   \vspace{-2\baselineskip}
   \end{minipage}
-  \inputminted{racket}{rkt/cgm-bench.rkt}
+  \inputminted[fontsize=\scriptsize]{racket}{rkt/cgm-bench.rkt}
 \end{longlisting}
 
 \begin{longlisting}
   \caption[Our solution's benchmark Julia code]{
     Benchmark code testing the same scenarios benchmarked by ConstraintGM using
     our solution.}\label{lst:appendix.cgm.bench.jl}
-  \inputminted{julia}{jl/cgm_bench.jl}
+  \inputminted[fontsize=\scriptsize]{julia}{jl/cgm_bench.jl}
 \end{longlisting}
 
 \begin{longlisting}
@@ -29,7 +29,7 @@
     bigger sample size.  Includes post-processing that involves grouping and
     reducing results.}
   \inputminted[
-    fontsize=\small,
+    fontsize=\scriptsize,
     stepnumberfromfirst,
     stepnumber=14,
   ]{text}{data/cgm.txt}
@@ -41,7 +41,7 @@
     suite analogous to ConstraintGM's.  This is the output produced by
     \cref{lst:appendix.cgm.bench.jl}.}\label{lst:appendix.cgm.data.jl}
   \inputminted[
-    fontsize=\small,
+    fontsize=\scriptsize,
     stepnumberfromfirst,
     stepnumber=11,
   ]{text}{data/jlcgal.txt}
@@ -52,34 +52,27 @@
 
 \begin{longlisting}
   \caption[JlCxx wrapper for CGAL's meshing algorithms]{
-    Wrapper code using JlCxx around \ac{CGAL}'s algorithms for producing
+    Wrapper code using JlCxx around \acs{CGAL}'s algorithms for producing
     2D Delaunay Triangulations and Voronoi Diagrams.}%
   \label{lst:appendix.voronoi.jlcxx}
-  \inputminted{cpp}{cpp/voronoi.cpp} 
-\end{longlisting}
-
-\begin{longlisting}
-  \caption[Voronoi Delaunay plotting code]{
-    Julia code used to plot Delaunay Triangulations and Voronoi Diagrams using
-    both \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}%
-  \label{lst:appendix.voronoi.plotsjl}
-  \inputminted{julia}{jl/voronoi_plots.jl}
+  \inputminted[fontsize=\scriptsize]{cpp}{cpp/voronoi.cpp} 
 \end{longlisting}
 
 \begin{longlisting}
   \caption[Voronoi Delaunay benchmark code]{
     Julia code used to benchmark the creation of Delaunay Triangulations using
-    both \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}%
+    both \acs{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}%
   \label{lst:appendix.voronoi.benchjl}
-  \inputminted{julia}{jl/voronoi_bench.jl}
+  \inputminted[fontsize=\scriptsize]{julia}{jl/voronoi_bench.jl}
 \end{longlisting}
 
 \begin{longlisting}
   \caption[Voronoi Delaunay benchmark data]{
     Detailed benchmark data from several batch point insertion tests using both
-    \ac{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}
+    \acs{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}%
   \label{lst:appendix.voronoi.data}
   \inputminted[
+    fontsize=\scriptsize,
     stepnumberfromfirst,
     stepnumber=12,
   ]{text}{data/voronoi.txt}

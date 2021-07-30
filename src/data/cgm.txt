@@ -1,129 +1,129 @@
 ## Scenario 1
 # Maxima
-cpu time: 1231 real time:  2140 gc time: 17  cpu time:
-cpu time: 1232 real time:  2185 gc time: 15   (min … max): 1.231 s …   1.526  s
-cpu time: 1300 real time:  2226 gc time: 17   (median):    1.399 s
-cpu time: 1361 real time:  2101 gc time: 17   (mean ± σ):  1.372 s ± 101.282 ms
-cpu time: 1399 real time:  2125 gc time: 18  real time:
-cpu time: 1405 real time:  2356 gc time: 18   (min … max): 2.101 s …   2.475  s
-cpu time: 1444 real time:  2318 gc time: 17   (median):    2.226 s
-cpu time: 1453 real time:  2475 gc time: 18   (mean ± σ):  2.265 s ± 142.334 ms
-cpu time: 1526 real time:  2457 gc time: 19  gc time:
-                                              (min … max): 15.000 ms … 19.000 ms
-                                              (median):    17.000 ms
-                                              (mean ± σ):  17.333 ms ±  1.118 ms
+cpu time:  1231 real time:  2140 gc time: 17  cpu time:
+cpu time:  1232 real time:  2185 gc time: 15   (min … max): 1.231 s …   1.526  s
+cpu time:  1300 real time:  2226 gc time: 17   (median):    1.399 s
+cpu time:  1361 real time:  2101 gc time: 17   (mean ± σ):  1.372 s ± 101.282 ms
+cpu time:  1399 real time:  2125 gc time: 18  real time:
+cpu time:  1405 real time:  2356 gc time: 18   (min … max): 2.101 s …   2.475  s
+cpu time:  1444 real time:  2318 gc time: 17   (median):    2.226 s
+cpu time:  1453 real time:  2475 gc time: 18   (mean ± σ):  2.265 s ± 142.334 ms
+cpu time:  1526 real time:  2457 gc time: 19  gc time:
+                                               (min … max): 15.000 ms … 19.000 ms
+                                               (median):    17.000 ms
+                                               (mean ± σ):  17.333 ms ±  1.118 ms
 # GFL
-cpu time:    7 real time:     7 gc time:  0   cpu time:
-cpu time:    7 real time:     7 gc time:  0    (min … max): 7.000 ms … 12.000 ms
-cpu time:    8 real time:     8 gc time:  0    (median):    8.000 ms
-cpu time:    8 real time:     8 gc time:  0    (mean ± σ):  8.778 ms ±  1.641 ms
-cpu time:    8 real time:     8 gc time:  0   real time:
-cpu time:    9 real time:     9 gc time:  0    (min … max): 7.000 ms … 12.000 ms
-cpu time:   10 real time:    10 gc time:  0    (median):    8.000 ms
-cpu time:   10 real time:    10 gc time:  0    (mean ± σ):  8.778 ms ±  1.641 ms
-cpu time:   12 real time:    12 gc time:  0   gc time:
+cpu time:     7 real time:     7 gc time:  0  cpu time:
+cpu time:     7 real time:     7 gc time:  0   (min … max): 7.000 ms … 12.000 ms
+cpu time:     8 real time:     8 gc time:  0   (median):    8.000 ms
+cpu time:     8 real time:     8 gc time:  0   (mean ± σ):  8.778 ms ±  1.641 ms
+cpu time:     8 real time:     8 gc time:  0  real time:
+cpu time:     9 real time:     9 gc time:  0   (min … max): 7.000 ms … 12.000 ms
+cpu time:    10 real time:    10 gc time:  0   (median):    8.000 ms
+cpu time:    10 real time:    10 gc time:  0   (mean ± σ):  8.778 ms ±  1.641 ms
+cpu time:    12 real time:    12 gc time:  0  gc time:
                                                (min … max): 0.000 s … 0.000 s
                                                (median):    0.000 s
                                                (mean ± σ):  0.000 s ± 0.000 s
 
 ## Scenario 2
 # Maxima
-cpu time:  569 real time:  1200 gc time:  9  cpu time:
-cpu time:  629 real time:  1492 gc time: 10   (min … max): 569.000 ms … 808.000 ms
-cpu time:  689 real time:  1637 gc time: 10   (median):    739.000 ms
-cpu time:  702 real time:  1599 gc time: 10   (mean ± σ):  722.889 ms ±  83.047 ms
-cpu time:  739 real time:  1723 gc time: 11  real time:
-cpu time:  783 real time:  1800 gc time: 12   (min … max): 1.200 s …   1.807  s
-cpu time:  792 real time:  1780 gc time: 12   (median):    1.723 s
-cpu time:  795 real time:  1807 gc time: 12   (mean ± σ):  1.645 s ± 197.524 ms
-cpu time:  808 real time:  1767 gc time: 15  gc time:
-                                              (min … max):  9.000 ms … 15.000 ms
-                                              (median):    11.000 ms
-                                              (mean ± σ):  11.222 ms ±  1.787 ms
+cpu time:   569 real time:  1200 gc time:  9  cpu time:
+cpu time:   629 real time:  1492 gc time: 10   (min … max): 569.000 ms … 808.000 ms
+cpu time:   689 real time:  1637 gc time: 10   (median):    739.000 ms
+cpu time:   702 real time:  1599 gc time: 10   (mean ± σ):  722.889 ms ±  83.047 ms
+cpu time:   739 real time:  1723 gc time: 11  real time:
+cpu time:   783 real time:  1800 gc time: 12   (min … max): 1.200 s …   1.807  s
+cpu time:   792 real time:  1780 gc time: 12   (median):    1.723 s
+cpu time:   795 real time:  1807 gc time: 12   (mean ± σ):  1.645 s ± 197.524 ms
+cpu time:   808 real time:  1767 gc time: 15  gc time:
+                                               (min … max):  9.000 ms … 15.000 ms
+                                               (median):    11.000 ms
+                                               (mean ± σ):  11.222 ms ±  1.787 ms
 # GFL
-cpu time:    6 real time:     6 gc time:  0  cpu time:
-cpu time:    6 real time:     6 gc time:  0   (min … max): 6.000 ms …   7.000 ms
-cpu time:    6 real time:     6 gc time:  0   (median):    6.000 ms
-cpu time:    6 real time:     6 gc time:  0   (mean ± σ):  6.222 ms ± 440.959 μs
-cpu time:    6 real time:     6 gc time:  0  real time:
-cpu time:    6 real time:     6 gc time:  0   (min … max): 6.000 ms …   7.000 ms
-cpu time:    6 real time:     6 gc time:  0   (median):    6.000 ms
-cpu time:    7 real time:     7 gc time:  0   (mean ± σ):  6.222 ms ± 440.959 μs
-cpu time:    7 real time:     7 gc time:  0  gc time:
-                                              (min … max): 0.000 s … 0.000 s
-                                              (median):    0.000 s
-                                              (mean ± σ):  0.000 s ± 0.000 s
+cpu time:     6 real time:     6 gc time:  0  cpu time:
+cpu time:     6 real time:     6 gc time:  0   (min … max): 6.000 ms …   7.000 ms
+cpu time:     6 real time:     6 gc time:  0   (median):    6.000 ms
+cpu time:     6 real time:     6 gc time:  0   (mean ± σ):  6.222 ms ± 440.959 μs
+cpu time:     6 real time:     6 gc time:  0  real time:
+cpu time:     6 real time:     6 gc time:  0   (min … max): 6.000 ms …   7.000 ms
+cpu time:     6 real time:     6 gc time:  0   (median):    6.000 ms
+cpu time:     7 real time:     7 gc time:  0   (mean ± σ):  6.222 ms ± 440.959 μs
+cpu time:     7 real time:     7 gc time:  0  gc time:
+                                               (min … max): 0.000 s … 0.000 s
+                                               (median):    0.000 s
+                                               (mean ± σ):  0.000 s ± 0.000 s
 
 ## Scenario 3
 # Maxima
-cpu time: 1597 real time:  3603 gc time: 14  cpu time:
-cpu time: 1771 real time:  3832 gc time: 16   (min … max): 1.597 s …   2.048  s
-cpu time: 1777 real time:  3637 gc time: 15   (median):    1.898 s
-cpu time: 1896 real time:  3821 gc time: 15   (mean ± σ):  1.892 s ± 151.672 ms
-cpu time: 1898 real time:  4149 gc time: 15  real time:
-cpu time: 2002 real time:  4271 gc time: 17   (min … max): 3.603 s …   4.306  s
-cpu time: 2011 real time:  4298 gc time: 16   (median):    3.832 s
-cpu time: 2028 real time:  3704 gc time: 15   (mean ± σ):  3.957 s ± 295.673 ms
-cpu time: 2048 real time:  4306 gc time: 16  gc time:
-                                              (min … max): 14.000 ms …  17.000 ms
-                                              (median):    15.000 ms
-                                              (mean ± σ):  15.444 ms ± 881.917 μs
+cpu time:  1597 real time:  3603 gc time: 14  cpu time:
+cpu time:  1771 real time:  3832 gc time: 16   (min … max): 1.597 s …   2.048  s
+cpu time:  1777 real time:  3637 gc time: 15   (median):    1.898 s
+cpu time:  1896 real time:  3821 gc time: 15   (mean ± σ):  1.892 s ± 151.672 ms
+cpu time:  1898 real time:  4149 gc time: 15  real time:
+cpu time:  2002 real time:  4271 gc time: 17   (min … max): 3.603 s …   4.306  s
+cpu time:  2011 real time:  4298 gc time: 16   (median):    3.832 s
+cpu time:  2028 real time:  3704 gc time: 15   (mean ± σ):  3.957 s ± 295.673 ms
+cpu time:  2048 real time:  4306 gc time: 16  gc time:
+                                               (min … max): 14.000 ms …  17.000 ms
+                                               (median):    15.000 ms
+                                               (mean ± σ):  15.444 ms ± 881.917 μs
 # GFL
-cpu time:    9 real time:     9 gc time:  0   cpu time:
-cpu time:    9 real time:     9 gc time:  0    (min … max): 9.000 ms …  13.000 ms
-cpu time:    9 real time:     9 gc time:  0    (median):    9.000 ms
-cpu time:    9 real time:     9 gc time:  0    (mean ± σ):  9.444 ms ±   1.333 ms
-cpu time:    9 real time:     9 gc time:  0   real time:
-cpu time:    9 real time:     9 gc time:  0    (min … max): 9.000 ms …  13.000 ms
-cpu time:    9 real time:     9 gc time:  0    (median):    9.000 ms
-cpu time:    9 real time:     9 gc time:  0    (mean ± σ):  9.444 ms ±   1.333 ms
-cpu time:   13 real time:    13 gc time:  0   gc time:
+cpu time:     9 real time:     9 gc time:  0  cpu time:
+cpu time:     9 real time:     9 gc time:  0   (min … max): 9.000 ms …  13.000 ms
+cpu time:     9 real time:     9 gc time:  0   (median):    9.000 ms
+cpu time:     9 real time:     9 gc time:  0   (mean ± σ):  9.444 ms ±   1.333 ms
+cpu time:     9 real time:     9 gc time:  0  real time:
+cpu time:     9 real time:     9 gc time:  0   (min … max): 9.000 ms …  13.000 ms
+cpu time:     9 real time:     9 gc time:  0   (median):    9.000 ms
+cpu time:     9 real time:     9 gc time:  0   (mean ± σ):  9.444 ms ±   1.333 ms
+cpu time:    13 real time:    13 gc time:  0  gc time:
                                                (min … max): 0.000 s … 0.000 s
                                                (median):    0.000 s
                                                (mean ± σ):  0.000 s ± 0.000 s
 
 ## Scenario 4
 # Maxima
-cpu time: 1217 real time:  2703 gc time: 13  cpu time:
-cpu time: 1232 real time:  2710 gc time: 13   (min … max): 1.217 s …   1.482  s
-cpu time: 1296 real time:  2979 gc time: 14   (median):    1.343 s
-cpu time: 1341 real time:  3050 gc time: 14   (mean ± σ):  1.362 s ± 100.657 ms
-cpu time: 1343 real time:  3059 gc time: 15  real time:
-cpu time: 1429 real time:  3287 gc time: 13   (min … max): 2.703 s …   3.386  s
-cpu time: 1458 real time:  3172 gc time: 14   (median):    3.059 s
-cpu time: 1462 real time:  3386 gc time: 14   (mean ± σ):  3.069 s ± 243.768 ms
-cpu time: 1482 real time:  3282 gc time: 15  gc time:
-                                              (min … max): 13.000 ms …  15.000 ms
-                                              (median):    14.000 ms
-                                              (mean ± σ):  13.889 ms ± 781.736 μs
+cpu time:  1217 real time:  2703 gc time: 13  cpu time:
+cpu time:  1232 real time:  2710 gc time: 13   (min … max): 1.217 s …   1.482  s
+cpu time:  1296 real time:  2979 gc time: 14   (median):    1.343 s
+cpu time:  1341 real time:  3050 gc time: 14   (mean ± σ):  1.362 s ± 100.657 ms
+cpu time:  1343 real time:  3059 gc time: 15  real time:
+cpu time:  1429 real time:  3287 gc time: 13   (min … max): 2.703 s …   3.386  s
+cpu time:  1458 real time:  3172 gc time: 14   (median):    3.059 s
+cpu time:  1462 real time:  3386 gc time: 14   (mean ± σ):  3.069 s ± 243.768 ms
+cpu time:  1482 real time:  3282 gc time: 15  gc time:
+                                               (min … max): 13.000 ms …  15.000 ms
+                                               (median):    14.000 ms
+                                               (mean ± σ):  13.889 ms ± 781.736 μs
 # GFL
-cpu time:    8 real time:     8 gc time:  0  cpu time:
-cpu time:    8 real time:     8 gc time:  0   (min … max): 8.000 ms …  8.000 ms
-cpu time:    8 real time:     8 gc time:  0   (median):    8.000 ms
-cpu time:    8 real time:     8 gc time:  0   (mean ± σ):  8.000 ms ±  0.000  s
-cpu time:    8 real time:     8 gc time:  0  real time:
-cpu time:    8 real time:     8 gc time:  0   (min … max): 8.000 ms …  8.000 ms
-cpu time:    8 real time:     8 gc time:  0   (median):    8.000 ms
-cpu time:    8 real time:     8 gc time:  0   (mean ± σ):  8.000 ms ±  0.000  s
-cpu time:    8 real time:     8 gc time:  0  gc time:
-                                              (min … max): 0.000 s … 0.000 s
-                                              (median):    0.000 s
-                                              (mean ± σ):  0.000 s ± 0.000 s
+cpu time:     8 real time:     8 gc time:  0  cpu time:
+cpu time:     8 real time:     8 gc time:  0   (min … max): 8.000 ms …  8.000 ms
+cpu time:     8 real time:     8 gc time:  0   (median):    8.000 ms
+cpu time:     8 real time:     8 gc time:  0   (mean ± σ):  8.000 ms ±  0.000  s
+cpu time:     8 real time:     8 gc time:  0  real time:
+cpu time:     8 real time:     8 gc time:  0   (min … max): 8.000 ms …  8.000 ms
+cpu time:     8 real time:     8 gc time:  0   (median):    8.000 ms
+cpu time:     8 real time:     8 gc time:  0   (mean ± σ):  8.000 ms ±  0.000  s
+cpu time:     8 real time:     8 gc time:  0  gc time:
+                                               (min … max): 0.000 s … 0.000 s
+                                               (median):    0.000 s
+                                               (mean ± σ):  0.000 s ± 0.000 s
 
 ## Scenario 5
 # Maxima
-cpu time:  617 real time:  1775 gc time:  7  cpu time:
-cpu time:  622 real time:  1672 gc time:  8   (min … max): 617.000 ms … 673.000 ms
-cpu time:  633 real time:  1786 gc time:  8   (median):    656.000 ms
-cpu time:  648 real time:  1931 gc time:  8   (mean ± σ):  648.333 ms ±  19.862 ms
-cpu time:  656 real time:  1835 gc time:  7  real time:
-cpu time:  659 real time:  1866 gc time:  8   (min … max): 1.672 s …  1.944  s
-cpu time:  662 real time:  1880 gc time:  8   (median):    1.858 s
-cpu time:  665 real time:  1858 gc time:  8   (mean ± σ):  1.839 s ± 84.460 ms
-cpu time:  673 real time:  1944 gc time:  7  gc time:
-                                              (min … max): 7.000  ms …   8.000 ms
-                                              (median):    8.000  ms
-                                              (mean ± σ):  7.667  ms ± 500.000 μs
+cpu time:   617 real time:  1775 gc time:  7  cpu time:
+cpu time:   622 real time:  1672 gc time:  8   (min … max): 617.000 ms … 673.000 ms
+cpu time:   633 real time:  1786 gc time:  8   (median):    656.000 ms
+cpu time:   648 real time:  1931 gc time:  8   (mean ± σ):  648.333 ms ±  19.862 ms
+cpu time:   656 real time:  1835 gc time:  7  real time:
+cpu time:   659 real time:  1866 gc time:  8   (min … max): 1.672 s …  1.944  s
+cpu time:   662 real time:  1880 gc time:  8   (median):    1.858 s
+cpu time:   665 real time:  1858 gc time:  8   (mean ± σ):  1.839 s ± 84.460 ms
+cpu time:   673 real time:  1944 gc time:  7  gc time:
+                                               (min … max): 7.000  ms …   8.000 ms
+                                               (median):    8.000  ms
+                                               (mean ± σ):  7.667  ms ± 500.000 μs
 # GFL
 cpu time:     6 real time:     6 gc time:  0  cpu time:
 cpu time:     6 real time:     6 gc time:  0   (min … max): 6.000 ms …  6.000 ms
@@ -149,9 +149,9 @@ cpu time:   546 real time:  1278 gc time:  4   (min … max): 1.213 s …  1.382
 cpu time:   547 real time:  1382 gc time:  5   (median):    1.304 s
 cpu time:   562 real time:  1359 gc time:  5   (mean ± σ):  1.311 s ± 59.139 ms
 cpu time:   589 real time:  1373 gc time:  6  gc time:
-                                                    (min … max): 4.000  ms …   6.000 ms
-                                                    (median):    5.000  ms
-                                                    (mean ± σ):  4.667  ms ± 707.107 μs
+                                               (min … max): 4.000  ms …   6.000 ms
+                                               (median):    5.000  ms
+                                               (mean ± σ):  4.667  ms ± 707.107 μs
 # GFL
 cpu time:     5 real time:     5 gc time:  0  cpu time:
 cpu time:     5 real time:     5 gc time:  0   (min … max): 5.000 ms …   6.000 ms
