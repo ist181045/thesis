@@ -27,15 +27,15 @@ geometric algorithms and exact data structures that allow transparent handling
 of robustness issues, lifting this concern from the user's shoulders thus
 facilitating the design process.
 
-Our solution is inherently correct, a quality that is ensured by supporting it
-on \ac{CGAL}, a library considered to be the \textit{de facto} industry standard
-library for computational geometry.  Consequently, development time is vastly
-reduced, choosing to repurpose existing geometric constructs and functionality
-instead of re-implementing them from scratch, also reducing the potential for
-producing erroneous code.  Additionally, our solution's performance proves to be
-superior when compared to projects that implement some of the same constructs we
-managed to repurpose.  As a side effect, we opened the door to extending more
-functionality in \ac{CGAL}.  These reasons suffice to validate our approach.
+By supporting our solution on top of \ac{CGAL}, we transitively ensure its
+correctness since \ac{CGAL} has decades of research, experience, and maintenance
+behind it.  Consequently, development time is vastly reduced, choosing to
+repurpose existing geometric constructs and functionality instead of
+re-implementing them from scratch, leaving no room for error there.
+Additionally, our solution's performance proves to be superior compared to
+projects that implement some of the same functionality we managed to repurpose.
+As a side effect, we opened the door for extending more functionality from
+\ac{CGAL}.  These reasons suffice to validate our approach.
 
 Finally, we proved the approach employed by our solution is one that creates
 understandable programs that can be reproduced by hand, using a straightedge and
@@ -60,30 +60,28 @@ transparent than desired.  Constructs and functionality should be mapped as
 transparently as possible, fully parameterized, as to provide the user with more
 control and choice over the constructs they are using.  There is potential for
 this as \texttt{CxxWrap.jl} allows the mapping of parametric types.  We have
-leveraged these mechanisms and expanded on our mappings of the 2D Triangulations
-and Voronoi Diagram Adaptor packages from \ac{CGAL} in \texttt{CGAL.jl}.
-Voronoi Diagrams can be generated from other triangulations, not necessarily
-Delaunay Triangulations.  \Ac{CGAL} provides the user with that choice, and so
-does \texttt{CGAL.jl}.  Applying this same approach to other more opaquely
-mapped functionality then adds to potential future work.
+already leveraged these mechanisms and expanded on our mappings of the 2D
+Triangulations and Voronoi Diagram Adaptor packages from \ac{CGAL} in
+\texttt{CGAL.jl}.  More such work should follow for the aforementioned opaquely
+mapped types.
 
 Furthermore, the set of geometric primitives that were implemented could be
 further expanded on.  This could initially be done by attempting to reach parity
 with tools, like \texttt{tkz-euclide}, from which we can draw inspiration; or
 even with more popular \ac{CAD} systems that industry professionals are familiar
 with.  Hence, we would be providing a familiar interface to said professionals.
-One again, now with \ac{CGAL} in tow, we can explore the library further,
-looking for additional algorithms that can support that venture as well.  For
-example, there are packages within \ac{CGAL} that implement 2D and 3D Boolean
-Operations, a set of operations all too familiar to \ac{CAD} system users, that
-could be repurposed.
+Once again, now with \ac{CGAL} in tow, we can explore the library further,
+looking for additional algorithms that can complement this potential interface.
+For example, there are packages within \ac{CGAL} that implement 2D and 3D
+Boolean Operations, a set of operations all too familiar to \ac{CAD} system
+users, that could be repurposed.
 
 To divert focus from \ac{CGAL} for a moment, one should also look into other
-geometry libraries as well.  The world is evolving, and so is software with it.
-We mentioned the Julia package ecosystem is still catching up, but there is
-already a lot of work put into it that makes usage of certain packages
-attractive since we do not have to communicate across languages, avoiding some
-issues we were met with.
+geometry libraries as well.  We mentioned the Julia package ecosystem is still
+catching up, but there is already a lot of work put into certain packages that
+make their usage attractive since, for instance, we do not have to communicate
+across languages, avoiding some issues we were met with, e.g., lack of
+parametrization.
 
 Finally, this work focused exclusively on constrained geometry bound to the
 $\mathbb{R}^2$ Euclidean space, i.e., the 2D plane.  There is still much work to
@@ -96,9 +94,9 @@ A line's bisector in 3D space is a plane, and noncoplanar nor parallel plane
 intersection results in a line.  To obtain the actual circumcenter, one would
 additionally, for example, have to intersect the resulting line with the plane
 the circumscribed triangle sits on.  Among problems like this one, many more
-exist, but much like we just illustrated, solutions also exist.  Once again, for
-starters, one can start by experimenting with the 3D functionality \ac{CGAL}
-provides, some of which is already available in \texttt{CGAL.jl} as well.
+exist, but much like we just illustrated, so do solutions.  To start, one could
+yet again choose to explore \ac{CGAL} for additional 3D constructs and
+functionality.
 
 Going from the 2D plane into 3D space seems simple on paper.  But much like the
 jump from sketching on paper to projecting skyscrapers, the dimensional gap is
