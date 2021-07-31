@@ -21,13 +21,14 @@ computation library.  The latter provides a series of optimized geometric
 algorithms and exact constructs that can transparently handle robustness issues,
 lifting this concern from the user's shoulders.
 
-Our solution is correct, ensured by supporting it on \ac{CGAL}.  Consequently,
-development time is vastly reduced by repurposing existing functionality instead
-of re-implementing it from scratch, also reducing the potential for producing
-erroneous code.  Additionally, our solution's performance proves to be superior
-when compared to projects that implement some of the same constructs we managed
-to repurpose.  As a side effect, we opened the door to extending more
-functionality in \ac{CGAL}.  These reasons suffice to validate our approach.
+Our solution is correct, ensured by supporting it on top of \ac{CGAL}.
+Consequently, development time is vastly reduced by repurposing existing
+functionality instead of re-implementing it from scratch, also reducing the
+potential for producing erroneous code.  Additionally, our solution's
+performance proves to be superior when compared to projects that implement some
+of the same constructs we managed to repurpose.  As a side effect, we opened the
+door for extending more functionality from \ac{CGAL}.  These reasons suffice to
+validate our approach.
 
 Finally, we showed our approach creates programs that are easy to understand and
 reproduce using a straightedge and a compass.  By adopting a constructive
@@ -45,7 +46,8 @@ around \ac{CGAL} is still rather opaque.  Functionality should be transparently
 mapped, providing the user with more control and choice over the constructs they
 are using.  \texttt{CxxWrap.jl} enables the mapping of parametric types,
 something that was done in part for some packages in \texttt{CGAL.jl}.  Adopting
-a similar approach for the opaquely mapped constructs should be considered.
+a similar approach for the still opaquely mapped constructs should be
+considered.
 
 Furthermore, the set of implemented \ac{GC} primitives was quite could be
 further expanded on by, for instance, attempting to reach parity with tools,
