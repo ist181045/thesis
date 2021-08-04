@@ -55,17 +55,15 @@ the line that goes through $C$ and is parallel to $\overleftrightarrow{AB}$, one
 must compute the base point $Q$, trivially $C$, and the directional vector
 $\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.  Let $Q = C$,
 and $\vec{u} = B - A$, such that
-\[
-  P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}.
-\]
+\[ P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}. \]
 
 \Cref{lst:intro.example.parallel.tikz} shows the code used to produce the
 example shown in \cref{fig:intro.example.parallel} using \acs{TikZ} with the
 \texttt{tkz-euclide}\footnote{\url{https://ctan.org/pkg/tkz-euclide}} \LaTeX{}
-package, using \texttt{tkzDefLine}, which takes two points $A,\,B$, with the
-\texttt{parallel} transformation option.  This option takes the point $C$ the
-resulting line goes through.  The result is a point $D = C + \vec{u}$, which can
-be obtained using \texttt{tkzGetPoint} to later draw the line. 
+package, using \texttt{tkzDefLine}, which takes two points, $A$ and $B$, with
+the \texttt{parallel} transformation option.  This option takes the point $C$
+the resulting line goes through.  The result is a point $D = C + \vec{u}$, which
+can be obtained using \texttt{tkzGetPoint} to later draw the line. 
 
 \begin{listing}[htb]
   \inputminted[highlightlines=3]{latex}{tikz/ex-parallel.tikz}
@@ -207,16 +205,16 @@ Otherwise, one can proceed to draw $\odot O_r$.
 
 To draw $\odot O_r$, we must compute both its center and radius.  Its radius $r$
 can be trivially defined as the distance of the center $O$ to any of the
-$\triangle ABC$'s vertices, i.e., $r = \overline{OA} = \overline{OB} =
-\overline{OC}$.  To determine $O$, one must compute the intersection of the
-perpendicular bisectors of the triangle's edges.  Said bisectors are the
-mediators between an edge's vertices, which can be described
+$\triangle ABC$'s vertices, i.e., $r = \left\|O - A\right\| = \left\|O -
+B\right\| = \left\|O - C\right\|$.  To determine $O$, one must compute the
+intersection of the perpendicular bisectors of the triangle's edges.  Said
+bisectors are the mediators between an edge's vertices, which can be described
 by~\cref{eq:line.parametric.2}, where $P$ is the midpoint between the vertices,
 and $\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
-points $P_1, P_2 \in \mathbb{R}$ is given by
+points $P_1,\,P_2 \in \mathbb{R}^2$ is given by
 \begin{equation}\label{eq:midpoint.2}
   M_{P_1P_2} = \frac{P_1 + P_2}{2}%
-             = (\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}).
+             = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right).
 \end{equation}\equations{Midpoint between two points in $\mathbb{R}^2$}
 Further, the scalar product of two vectors $\vec{u}, \vec{v} \in \mathbb{R}^2$
 is given by
@@ -224,9 +222,7 @@ is given by
   \vec{u} \cdot \vec{v} = (u_x, u_y) \cdot (v_x, v_y) = u_x v_x + u_y v_y.
 \end{equation}\equations{Scalar product of vectors in $\mathbb{R}^2$}
 The normal vector $\vec{n}$ is such that, for some vector $\vec{u}$,
-\[
-  \vec{u} \cdot \vec{n} = 0.
-\]
+\[ \vec{u} \cdot \vec{n} = 0. \]
 A vector $\vec{n} \in \mathbb{R}^2$ normal to another vector $\vec{u}$ can be
 easily obtained by swapping the components of $\vec{u}$ while negating one of
 them, a property easily verified by applying \cref{eq:vector.scalar.2}.
@@ -264,12 +260,13 @@ u_y),\,\vec{n} = (-u_y, u_x)$.  From~\eqref{eq:vector.dot.2}, we have
 Computing the edges' midpoints and respective normal vectors, we can then
 describe the mediators.  Let $M_{AB},\,M_{AC},\,M_{BC} \in \mathbb{R}^2$ be the
 midpoints, by \cref{eq:midpoint.2}, of the respective edges, and
-$\vec{u_1},\,\vec{u_2},\,\vec{u_3}$ the edges' normal vectors, such that
+$\vec{u}_1,\,\vec{u}_2,\,\vec{u}_3 \in \mathbb{R}^2$ the edges' normal vectors,
+such that
 \[
   \begin{split}
-    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u_1} \\
-    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u_2} \\
-    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u_3} \\
+    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
+    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
+    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
   \end{split},\,\lambda_i \in \mathbb{R}.
 \]
 This problem can be further simplified by eliminating one of the redundant
@@ -287,17 +284,13 @@ Every variable is known except for $\lambda_1$ and $\lambda_2$, but the equation
 system can be solved in order to assign values to both of them since we have
 exactly two equations that relate them.  Finally, we can define $O$ using one of
 the equations with the respectively found $\lambda$, i.e., using $L_{M_{AB}}$,
-for instance, we have
-\[
-  O = M_{AB} + \lambda_1 \vec{u}.
-\]
+for instance, we have \[ O = M_{AB} + \lambda_1 \vec{u}_1. \]
 
 \Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
 example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the
 \texttt{tkz-euclide} \LaTeX{} package.  To compute the center point of $\odot
-O_r$, one can use \texttt{tkzCircumCenter}, which takes three points
-$A,\,B,\,C$, and generates the result $O$, obtainable using
-\texttt{tkzGetPoint}.
+O_r$, one can use \texttt{tkzCircumCenter}, which takes three points, $A$, $B$,
+and $C$, and generates the result $O$, obtainable using \texttt{tkzGetPoint}.
 
 \begin{listing}[htb]
   \inputminted[highlightlines=3]{latex}{tikz/ex-circumcenter.tikz}
@@ -309,11 +302,11 @@ $A,\,B,\,C$, and generates the result $O$, obtainable using
   \label{lst:intro.example.circumcenter.tikz}
 \end{listing}
 
-\Cref{lst:intro.example.circumcenter.euk} shows the code
-that produces an identical figure using Eukleides.  In Eukleides, one can use
-the \texttt{circle} function, which similarly takes three points $A,\,B,\,C$,
-and generates the circle $\odot O_r$ circumscribed about $\triangle ABC$, while
-$O$ can be obtained using the \texttt{center} function.
+\Cref{lst:intro.example.circumcenter.euk} shows the code that produces an
+identical figure using Eukleides.  In Eukleides, one can use the \texttt{circle}
+function, which similarly takes three points, $A$, $B$, and $C$, and generates
+the circle $\odot O_r$ circumscribed about $\triangle ABC$, while $O$ can be
+obtained using the \texttt{center} function.
 
 \begin{listing}[htb]
   \inputminted[highlightlines=2]{text}{euk/ex-circumcenter.euk}
