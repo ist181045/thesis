@@ -1,6 +1,6 @@
 const lib = joinpath(@__DIR__, "libsqdist") # path to the compiled library
 
-squared_distance(x₁, y₂, z₁, x₂, y₂, z₂) =
+squared_distance(x₁, y₁, z₁, x₂, y₂, z₂) =
     ccall((:squared_distance, lib)    # qualified function name
         ,  Float64                    # return type
         , (Float64, Float64, Float64
