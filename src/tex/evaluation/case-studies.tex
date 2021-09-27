@@ -7,6 +7,8 @@ different case studies, each presenting a parametric geometric shape: a star
 with semicircles, and a Voronoi diagram.  Each case, illustrated in
 \cref{fig:eval.studies.designs}, was inspired by an existing design:
 \begin{enumerate*}[label= (\arabic*)]
+  \item Eero Aarnio's Egg chair,
+  \item Thonet 214 chair seat,
   \item César Pelli's Petronas tower section, and
   \item PTW Architects' Beijing National Aquatics Center.
 \end{enumerate*}
@@ -80,12 +82,13 @@ The \textit{constructive solution} is described below.  It uses two primitives
 from our solution, namely \texttt{intersection} and \texttt{tangent\_circle}.
 
 \begin{enumerate}
-  \item $O_1 = \mathrm{intersection}\left(\overline{V_1 V_3}, \overline{V_2
-  V_n}\right)$
-  \item $C_1 = \mathrm{tangent_{circle}}\left(O_1, \overline{V_1 V_2}\right)$
+  \item $O_1 = \operatorname{intersection}\left(\overline{V_1 V_3},
+  \overline{V_2 V_n}\right)$
+  \item $C_1 = \operatorname{tangent_{circle}}\left(O_1, \overline{V_1
+  V_2}\right)$
   \item $P,r_1 = C_1$
-  \item $I_1 = \mathrm{intersection}\left(\overline{V_1 V_3}, C_1\right)$
-  \item $I_2 = \mathrm{intersection}\left(\overline{V_2 V_n}, C_1\right)$
+  \item $I_1 = \operatorname{intersection}\left(\overline{V_1 V_3}, C_1\right)$
+  \item $I_2 = \operatorname{intersection}\left(\overline{V_2 V_n}, C_1\right)$
 \end{enumerate}
 
 Achieving the equations in the \textit{analytic solution} is not a
@@ -151,7 +154,7 @@ The \textit{constructive solution} computes the circumcenter, directly provided
 by our \primitives{}.
 
 \begin{itemize}
-  \item[] $C = \mathrm{circumcenter}\left(P_1, P_2, P_3\right)$
+  \item[] $C = \operatorname{circumcenter}\left(P_1, P_2, P_3\right)$
 \end{itemize}
 
 The circumcenter is only a sub-problem of the generation of a Voronoi diagram.
