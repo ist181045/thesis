@@ -61,9 +61,9 @@ the quality of \ac{CGAL}.
 Lastly, some of our \ac{GC} primitives employ some computation that can lead to
 robustness loss as well.  Primarily the ones that involve circles, non-linear
 geometric objects, typically require the computation of a square root to work
-with absolute distances.  We to typically avoid those computations, postponing
-them as much as possible until they are absolutely necessary.  As an example, in
-the ``Tangent lines to a circle'' implementation in
+with absolute distances.  We typically avoid those computations, postponing them
+as much as possible until they are absolutely necessary.  As an example, in the
+``Tangent lines to a circle'' implementation in
 \cref{lst:solution.impl.gcps.tanglines2circles}, we first compare squared
 distances before requiring their absolute value.
 
