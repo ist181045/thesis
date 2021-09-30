@@ -17,4 +17,4 @@ different approaches: an analytic approach, naturally used in programming, and a
 constructive approach, the one our solution is based on.  Additionally, we
 explore beneficial side effects of our implementation regarding the repurposing
 of more complex functionality with very little extra effort.  We conclude our
-solution's approach proves more comprehensible and intuitive for practitioners.
+solution's approach proves more comprehensible and familiar for practitioners.
