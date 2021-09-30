@@ -171,8 +171,7 @@ necessary functionality to reproduce the example \ac{CGAL} program in
     from \acs{CGAL} to reproduce the example shown in
     \cref{lst:solution.impl.cgal.pas} in Julia.}%
   \label{lst:solution.impl.jlcgal.jlcxx}
-  \inputminted[fontsize=\small,highlightlines={24,30-34,36-38,40-43,46-49}]%
-    {cpp}{cpp/cgal_julia.cpp}
+  \inputminted[fontsize=\small]{cpp}{cpp/cgal_julia.cpp}
 \end{listing}
 
 We direct our focus to the lines that are highlighted in
@@ -193,7 +192,7 @@ illustrated earlier with simpler examples using \mintinline{julia}{ccall}.
 \Cref{lst:solution.impl.jlcgal.cgal} shows a bare-bones CGAL Julia module.
 
 \begin{listing}[htbp]
-  \inputminted[highlightlines={5,6,13-15}]{julia}{jl/CGAL.jl} 
+  \inputminted{julia}{jl/CGAL.jl} 
   \caption[Bare-bones Julia module wrapping some of CGAL]{
     An example Julia module that mimics \texttt{CGAL.jl}, wrapping the library
     produced from \cref{lst:solution.impl.jlcgal.jlcxx}.  It initializes the
