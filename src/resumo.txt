@@ -20,4 +20,4 @@ abordagem constructiva, em que se baseia a nossa solução.  Adicionalmente,
 exploramos efeitos secundários benéficos da nossa implementação relativamente ao
 reaproveitamento de funcionalidade mais complexa com muito pequeno esforço
 extra.  Concluímos que a abordagem empregue pela nossa solução prova ser mais
-compreensível e intuitiva para praticantes.
+compreensível e familiar para praticantes.
