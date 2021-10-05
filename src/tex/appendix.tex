@@ -6,7 +6,8 @@
   \caption[ConstraintGM benchmark Racket code]{
     Source code from ConstraintGM's benchmarks for thirteen different scenarios
     involving the intersection of differently arranged geometric
-    entities.}\label{lst:appendix.cgm.bench.rkt}
+    entities.}%
+  \label{lst:appendix.cgm.bench.rkt}
   \begin{minipage}{\linewidth}
   \scriptsize Adapted from:
   \url{https://bitbucket.org/FabioPinheiro/geometric-constraints/src/master}
@@ -18,7 +19,8 @@
 \begin{longlisting}
   \caption[Our solution's benchmark Julia code]{
     Benchmark code testing the same scenarios benchmarked by ConstraintGM using
-    our solution.}\label{lst:appendix.cgm.bench.jl}
+    our solution.}%
+  \label{lst:appendix.cgm.bench.jl}
   \inputminted[fontsize=\scriptsize]{julia}{jl/cgm_bench.jl}
 \end{longlisting}
 
@@ -39,7 +41,8 @@
   \caption[ConstraintGM analogous benchmark data]{
     More detailed data from benchmarking our solution by submitting it to a test
     suite analogous to ConstraintGM's.  This is the output produced by
-    \cref{lst:appendix.cgm.bench.jl}.}\label{lst:appendix.cgm.data.jl}
+    \cref{lst:appendix.cgm.bench.jl}.}%
+  \label{lst:appendix.cgm.data.jl}
   \inputminted[
     fontsize=\scriptsize,
     stepnumberfromfirst,
@@ -67,10 +70,9 @@
 \end{longlisting}
 
 \begin{longlisting}
-  \caption[Voronoi Delaunay benchmark data]{
+  \caption[Voronoi Delaunay benchmark data]{\label{lst:appendix.voronoi.data}%
     Detailed benchmark data from several batch point insertion tests using both
-    \acs{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}%
-  \label{lst:appendix.voronoi.data}
+    \acs{CGAL}'s algorithm and \texttt{VoronoiDelaunay.jl}'s algorithm.}
   \inputminted[
     fontsize=\scriptsize,
     stepnumberfromfirst,

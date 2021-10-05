@@ -7,16 +7,16 @@ papers assumes exact computation with real numbers~\cite{CGAL:4.13:23LGK}.
 However, floating-point numbers are represented with fixed precision in
 computers, which leads to inaccurate representations of real number.  Typically,
 comparisons must be performed relying on tolerances, i.e., two floating-point
-numbers $a$ and $b$ are considered \textit{the same} if $|a - b| \le \epsilon$
-for a given $\epsilon$.
+numbers $a$ and $b$ are considered ``the same'' if $|a - b| \le \epsilon$ for a
+given $\epsilon$.
 
 When used without care, fixed-precision arithmetic almost always leads to
 unwanted results due to marginal error accumulation caused by rounding
-(\textit{roundoff}).  To help solve this problem, more robust numerical
-constructs and concepts can be used.  In particular, exact numbers, such as
-rational numbers or arbitrary precision numbers. The latter allow
-arbitrary-precision arithmetic with the drawback that operations are slower,
-however mitigating precision issues.
+(roundoff).  To help solve this problem, more robust numerical constructs and
+concepts can be used.  In particular, exact numbers, such as rational numbers or
+arbitrary precision numbers. The latter allow arbitrary-precision arithmetic
+with the drawback that operations are slower, however mitigating precision
+issues.
 
 Several libraries already strive to implement robust geometric computation.  One
 such example is \ac{CGAL}~\cite{CGAL:5.3:Project}.  Moreover, other libraries,

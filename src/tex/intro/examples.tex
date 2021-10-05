@@ -1,10 +1,10 @@
 % !TEX root = ../../main.tex
-\subsection{\acl{GC} Problem Examples}%
+\subsection{\Acl{GC} Problem Examples}%
 \label{sec:intro.examples}
 
 This section presents two simple examples of geometric models that are defined
 through \acp{GC}, and the respective solutions using algebraic formulation,
-accompanied by programmatic solutions using \acs{TikZ}~\cite{Tantau:2021:TikZ}.
+accompanied by programmatic solutions using \ac{TikZ}~\cite{Tantau:2021:TikZ}.
 Depictions of the models can be seen in \cref{fig:intro.example}.  The first
 problem is that of a parallelism constraint, while the second problem is a
 circumscription constraint.
@@ -29,13 +29,13 @@ circumscription constraint.
 \subsubsection{Parallel lines}%
 \label{sec:intro.examples.parallel}
 
-Let $A,\, B,\, C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
+Let $A, B, C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
 strictly parallel to the line $\overleftrightarrow{AB}$ (see
 \cref{fig:intro.example.parallel}).
 
-A line in $\mathbb{R}^2$ can be described by the parametric equation
+A line $L_Q$ in $\mathbb{R}^2$ can be described by the parametric equation
 \begin{equation}\label{eq:line.parametric.2}
-  P_Q = Q + \lambda\vec{u} \Rightarrow
+  L_Q\!:\; P_Q = Q + \lambda\vec{u} \Rightarrow
   \begin{cases}
     x = x_Q + \lambda u_x \\
     y = y_Q + \lambda u_y
@@ -46,7 +46,7 @@ $\overleftrightarrow{AB}$, one must compute the base point $Q$, trivially $C$,
 and the vector $\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.
 
 \Cref{lst:intro.example.parallel.tikz} shows the code used to produce the
-example shown in \cref{fig:intro.example.parallel} using \acs{TikZ} with the
+example shown in \cref{fig:intro.example.parallel} using \ac{TikZ} with the
 \texttt{tkz-euclide}\footnote{\url{https://ctan.org/pkg/tkz-euclide}} \LaTeX{}
 package.
 
@@ -61,9 +61,9 @@ package.
 \subsubsection{Circumcenter}%
 \label{sec:intro.examples.circumcenter}
 
-Let $A,\,B,\,C,\,O \in \mathbb{R}^2$ be points such that $O$ is the center point
-of a circle of radius $r$, $\odot O_r$, that is circumscribed about the triangle
-$\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
+Let $A, B, C, O \in \mathbb{R}^2$ be points such that $\odot O_r$ is the circle
+centered at $O$ with radius $r \in \mathbb{R}$ which is circumscribed about the
+triangle $\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
 
 To draw $\odot O_r$, we need its center $O$, which results from intersecting the
 perpendicular bisectors of the triangle's edges; and its radius $r$, which is
@@ -73,14 +73,14 @@ and $\vec{u}$ is a vector normal to an edge.  A vector $\vec{n} \in
 \mathbb{R}^2$ normal to another vector $\vec{u} \in \mathbb{R}^2$ can be easily
 obtained by swapping the components of $\vec{u}$, negating one of them.
 
-Let $M_{AB},\, M_{AC},\, M_{BC} \in \mathbb{R}^2$ be the midpoints of the
-respective edges, and $\vec{u}_1,\,\vec{u}_2,\,\vec{u}_3 \in \mathbb{R}^2$ the
-edges' normal vectors, such that
+Let $M_{AB}, M_{AC}, M_{BC} \in \mathbb{R}^2$ be the midpoints of the respective
+edges, and $\vec{u}_1, \vec{u}_2, \vec{u}_3 \in \mathbb{R}^2$ the edges' normal
+vectors, such that
 \[
   \begin{split}
-    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
-    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
-    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
+    L_{M_{AB}}\!:\; P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
+    L_{M_{AC}}\!:\; P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
+    L_{M_{BC}}\!:\; P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
   \end{split},\,\lambda_i \in \mathbb{R}.
 \]
 We can eliminate one of the redundant bisectors, e.g., the mediator of
@@ -97,14 +97,14 @@ system can be solved in order to determine their values.  Finally, we can define
 $O$ using one of the mediator line equations.
 
 \Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
-example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the
+example in \Cref{fig:intro.example.circumcenter} using \ac{TikZ} with the
 \texttt{tkz-euclide} \LaTeX{} package.
 
 \begin{listing}[htb]
   \inputminted{latex}{tikz/ex-circumcenter.tikz}
   \caption[Circumcenter example using TikZ]{
     Circumcenter example from \cref{fig:intro.example.circumcenter} using
-    \acs{TikZ} alongside \texttt{tkz-euclide}.}%
+    \ac{TikZ} alongside \texttt{tkz-euclide}.}%
   \label{lst:intro.example.circumcenter.tikz}
 \end{listing}
 

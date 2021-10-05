@@ -68,7 +68,7 @@ $\overline{I_2 V_2}$ (\cref{fig:eval.studies.star.sol}).
     Analytic and constructive solutions to the star with semicircles problem.}%
 \end{figure}
 
-The \textit{analytic solution} is described below.
+The analytic solution is described below.
 
 \begin{enumerate}
   \item $r_1 = r\frac{\sin^2\frac{\pi}{n}}{\cos\frac{\pi}{n}}$
@@ -78,8 +78,8 @@ The \textit{analytic solution} is described below.
   \item $I_2 = O_1 + \left(r_1, \angle\frac{\pi}{2}\right)$
 \end{enumerate}
 
-The \textit{constructive solution} is described below.  It uses two primitives
-from our solution, namely \texttt{intersection} and \texttt{tangent\_circle}.
+The constructive solution is described below.  It uses two primitives from our
+solution, namely \texttt{intersection} and \texttt{tangent\_circle}.
 
 \begin{enumerate}
   \item $O_1 = \operatorname{intersection}\left(\overline{V_1 V_3},
@@ -125,9 +125,8 @@ point, and from random points with one attractor line.
 \end{figure}
 
 Both the analytic and constructive methods focus on computation of a vertex
-relies on the computation of the \textit{circumcenter} of a triangle, for
-instance, triangle $\triangle P_1 P_2 P_3$
-(\cref{fig:eval.studies.voronoi.sol}).
+relies on the computation of the circumcenter of a triangle, for instance,
+triangle $\triangle P_1 P_2 P_3$ (\cref{fig:eval.studies.voronoi.sol}).
 
 \begin{figure}[htb]
   \centering
@@ -136,9 +135,9 @@ instance, triangle $\triangle P_1 P_2 P_3$
     Analytic and constructive approaches to computing a Voronoi vertex.}%
 \end{figure}
 
-One possible \textit{analytic solution} is based on the \textit{circumradius}
-formula.  The circumcenter $C$ can then be easily computed by a translation from
-$P_1$ following the angle $\alpha$.
+One possible analytic solution is based on the \textit{circumradius} formula.
+The circumcenter $C$ can then be easily computed by a translation from $P_1$
+following the angle $\alpha$.
 
 \begin{enumerate}
   \item $a, b, c = \lVert P_2 - P_1 \rVert, \lVert P_3 - P_1 \rVert, \lVert P_3
@@ -150,8 +149,8 @@ $P_1$ following the angle $\alpha$.
   \item $C = P_1 + \left(r, \angle\alpha\right)$
 \end{enumerate}
 
-The \textit{constructive solution} computes the circumcenter, directly provided
-by our \primitives{}.
+The constructive solution computes the circumcenter, directly provided by our
+\primitives{}.
 
 \begin{itemize}
   \item[] $C = \operatorname{circumcenter}\left(P_1, P_2, P_3\right)$
