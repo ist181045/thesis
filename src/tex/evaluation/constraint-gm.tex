@@ -19,9 +19,9 @@ This approach came at a severe performance cost, the reason being two-fold:
 The considerable performance penalty of this approach is hard to justify in the
 case of simple geometric problems for which there are well-known efficient
 solutions. This lead to an \textit{impromptu} implementation of some \ac{GC}
-problem solutions, creating the \ac{GFL}. As expected, the latter approach
-revealed that contextually specialized solutions had much better performance
-than relying on a generic solver.
+problem solutions in ConstraintGM, creating the \ac{GFL}. As expected, the
+latter approach revealed that contextually specialized solutions had much better
+performance than relying on a generic solver.
 
 It is worth noting that relying on Maxima meant ConstraintGM was intrinsically
 exact and robust since symbolic \ac{GCS} methods, used by Maxima, automatically
@@ -31,7 +31,7 @@ underlying constructs' number type.  If an exact arbitrary precision number type
 is used, exactness and robustness will be preserved, but at a performance cost.
 Relying on inexact number types can eventually lead to erroneous results, but,
 by contrast, offers better performance.  In the end, it is a matter of making a
-compromise and evaluating which fits the case at end the best.
+compromise and evaluating which fits the case at hand the best.
 
 The project's benchmark involve three different \ac{GC} problems focused around
 object intersection, namely
@@ -153,7 +153,7 @@ for the scenarios that preceded this one.
     \end{semilogyaxis}
     \end{tikzpicture}
     \subcaption{Y-bar plot of every approaches' benchmark results.  N.B.: The
-      Y-axis is logarithmic.}\label{fig:eval.cgm.perf.plot}
+      Y-axis follows a logarithmic scale.}\label{fig:eval.cgm.perf.plot}
   \end{subfigure}
   \hfill
   \begin{subfigure}[t]{.22\linewidth}
@@ -177,8 +177,8 @@ for the scenarios that preceded this one.
 
 Analyzing the results further, we can see our solution also outdoes
 ConstraintGM's \ac{GFL} by a significant margin.  This is most likely due to the
-fact that we are relying on \ac{CGAL}, a library implemented in C++.  The latter
-is notoriously known for being a high-performance language, considerably
+fact that we are relying on \ac{CGAL}, a library implemented in C++.  C++ is
+notoriously known for being a high-performance language, considerably
 outperforming Racket in a series of benchmarks.  Nevertheless, despite some
 overhead in the case of Julia, the results are still positive.
 

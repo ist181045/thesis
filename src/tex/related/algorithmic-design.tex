@@ -8,11 +8,11 @@ or even a mixture of both approaches.
 
 Other tools, like JSCAD\footnote{\url{https://openjscad.xyz}} and
 ImplicitCAD\footnote{\url{https://implicitcad.org}}, are standalone \ac{CAD}
-software hosted on the web.  Being cloud-based is advantageous in many fronts:
-it is inherently portable and removes the additional typical installation steps
-required for desktop applications.  Alas, being relatively new, they lack
-features in comparison to the immense feature-set of applications such as
-AutoCAD\@.
+software hosted on the web.  Being cloud-based is advantageous in many fronts.
+For example, this kind of applications are inherently portable.  Additionally,
+we can skip the no longer necessary typical installation process required by
+desktop applications.  Alas, being relatively new, they lack functionality when
+compared to applications such as AutoCAD\@.
 
 \Cref{tab:related.ad.summary} succinctly summarizes a list of \ac{CAD} software
 that supports the usage of a programming language, as well as other \ac{AD}
@@ -139,8 +139,8 @@ most of them capable of generating an even wider variety of geometry through
 node combination, wiring one's outputs to another's inputs, and resorting to
 predefined mutable parameters which can serve as some of the nodes' initial
 inputs.  The workflow itself is the final product: a visual program, usually
-designed to execute a specific task.  Dynamo further allows extension through the
-creation of custom nodes which can be shared as packages.
+designed to execute a specific task.  Dynamo further allows extension through
+the creation of custom nodes which can be shared as packages.
 
 One of the nodes in Dynamo, aptly named code block, allows the usage of a
 \ac{TPL}; a language called
@@ -157,9 +157,9 @@ values accordingly.  By default, code blocks in Dynamo follow an associative
 paradigm.  The user can, however, switch to an imperative paradigm approach
 instead effortlessly if needed.
 
-This \textit{change-propagation} mechanism in DesignScript, consequently present
-in Dynamo, makes Dynamo a great tool for dealing with constraints.  However,
-most users might not fully exercise DesignScript's associative capabilities and
+This change-propagation mechanism in DesignScript, consequently present in
+Dynamo, makes Dynamo a great tool for dealing with constraints.  However, most
+users might not fully exercise DesignScript's associative capabilities and
 instead approach the problem with the mindset of an imperative programming
 paradigm given its overwhelming presence in and adoption by major well-known
 \acp{TPL}.
@@ -171,10 +171,10 @@ Grasshopper is a graphical algorithm editor tightly integrated with
 Rhinoceros3D, destined for designers who are exploring generative algorithms.
 In spite of tight integration with Rhino, a \ac{CAD} application, it is possible
 to use Grasshopper along with
-Archicad\textsuperscript{\textregistered}\footnote{\url{https://graphisoft.com/solutions/archicad}},
-a \ac{BIM} tool, as well as Revit, through
+Archicad\footnote{\url{https://graphisoft.com/solutions/archicad}}, a \ac{BIM}
+tool, as well as Revit, through
 Hummingbird\footnote{\url{https://www.food4rhino.com/en/app/hummingbird}} or
-Lyrebird\footnote{\url{https://www.food4rhino.com/en/app/lyrebird}}.
+Lyrebird.\footnote{\url{https://www.food4rhino.com/en/app/lyrebird}}
 \Cref{fig:related.ad.grasshopper.islamic-pattern} shows a simple example of a
 Grasshopper workflow.
 
@@ -190,7 +190,6 @@ Grasshopper workflow.
     Parakeet.\footnotemark}%
   \label{fig:related.ad.grasshopper.islamic-pattern}
 \end{figure}
-
 \footnotetext{\url{https://www.grasshopper3d.com/photo/islamic-pattern-parakeet}}
 
 It is a closed-source product, designed by David Rutten and developed by McNeel
@@ -200,9 +199,10 @@ Nonetheless, it offers a \ac{TPL} alternative by way of custom programmatic
 components.  Using C\# or VB.NET, the user can create custom code components
 with access to Rhino's \ac{SDK} and
 openNURBS\footnote{\url{https://developer.rhino3d.com/guides/opennurbs/what-is-opennurbs}}
-within Rhino.  Alternatively, through GhPython\footnote{\url{https://www.food4rhino.com/app/ghpython}}, the
-user can also write Python code.  Unlike Dynamo's DesignScript, Python and
-the~.NET languages don't support an associative programming model.
+within Rhino.  Alternatively, through
+GhPython\footnote{\url{https://www.food4rhino.com/app/ghpython}}, the user can
+also write Python code.  Unlike Dynamo's DesignScript, Python and the .NET
+languages don't support an associative programming model.
 
 Functions in Grasshopper are called components and work just like Dynamo's
 nodes; a wide variety of them exist, most of them capable of producing geometry,

@@ -1,15 +1,15 @@
 % !TEX root = ../../main.tex
-\section{\acl{GC} Problem Examples}%
+\section{\Acl{GC} Problem Examples}%
 \label{sec:intro.examples}
 
 This section presents two simple examples of geometric models that are defined
 through the specification of \acp{GC}, and the respective solutions using
 intuitive algebraic formulation, accompanied by programmatic solutions using
-\acs{TikZ}~\cite{Tantau:2021:TikZ} and Eukleides~\cite{Obrecht:2010:EM}.
+\ac{TikZ}~\cite{Tantau:2021:TikZ} and Eukleides~\cite{Obrecht:2010:EM}.
 Depictions of the aforementioned models can be seen in \cref{fig:intro.example}.
 The examples are limited to the two-dimensional Euclidean plane over real
-numbers, $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
-Euclidean space, $\mathbb{R}^3$, exist as well.
+numbers $\mathbb{R}^2$.  Solutions for analogous problems in three-dimensional
+Euclidean space $\mathbb{R}^3$ exist as well.
 
 \begin{figure}[htpb]
   \subcaptionbox{\label{fig:intro.example.parallel}%
@@ -37,13 +37,13 @@ goes through three given non-collinear points.
 \subsection{Parallel lines}%
 \label{sec:intro.examples.parallel}
 
-Let $A,\,B,\,C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
+Let $A, B, C \in \mathbb{R}^2$ such that $C$ is a point in the line which is
 strictly parallel to the line $\overleftrightarrow{AB}$ (see
 \cref{fig:intro.example.parallel}).
 
-A line in $\mathbb{R}^2$ can be described by the parametric equation
+A line $L_Q$ in $\mathbb{R}^2$ can be described by the parametric equation
 \begin{equation}\label{eq:line.parametric.2}
-  P_Q = Q + \lambda\vec{u} \Rightarrow
+  L_Q\!:\; P_Q = Q + \lambda\vec{u} \Rightarrow
   \begin{cases}
     x = x_Q + \lambda u_x \\
     y = y_Q + \lambda u_y
@@ -55,15 +55,16 @@ the line that goes through $C$ and is parallel to $\overleftrightarrow{AB}$, one
 must compute the base point $Q$, trivially $C$, and the directional vector
 $\vec{u}$, which can be obtained from $\overleftrightarrow{AB}$.  Let $Q = C$,
 and $\vec{u} = B - A$, such that
-\[ P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}. \]
+\[ L_C\!:\; P_C = C + \lambda \vec{u},\,\lambda \in \mathbb{R}. \]
 
 \Cref{lst:intro.example.parallel.tikz} shows the code used to produce the
-example shown in \cref{fig:intro.example.parallel} using \acs{TikZ} with the
-\texttt{tkz-euclide}\footnote{\url{https://ctan.org/pkg/tkz-euclide}} \LaTeX{}
-package, using \texttt{tkzDefLine}, which takes two points, $A$ and $B$, with
-the \texttt{parallel} transformation option.  This option takes the point $C$
-the resulting line goes through.  The result is a point $D = C + \vec{u}$, which
-can be obtained using \texttt{tkzGetPoint} to later draw the line. 
+example illustrated in \cref{fig:intro.example.parallel} using \ac{TikZ} with
+the \texttt{tkz-euclide}\footnote{\url{https://ctan.org/pkg/tkz-euclide}}
+\LaTeX{} package, resorting to \texttt{tkzDefLine}, which takes two points, $A$
+and $B$, with the \texttt{parallel} transformation option.  This option takes
+the point $C$ the resulting line goes through.  The result is a point $D = C +
+\vec{u}$, which can be obtained using \texttt{tkzGetPoint} to later draw the
+line. 
 
 \begin{listing}[htb]
   \inputminted{latex}{tikz/ex-parallel.tikz}
@@ -124,9 +125,9 @@ line $CS$
 \subsection{Circumcenter}%
 \label{sec:intro.examples.circumcenter}
 
-Let $A,\,B,\,C,\,O \in \mathbb{R}^2$ be points such that $O$ is the center point
-of a circle of radius $r$, $\odot O_r$, that is circumscribed about the triangle
-$\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
+Let $A, B, C, O \in \mathbb{R}^2$ be points such that $\odot O_r$ is the circle
+centered at $O$ with radius $r \in \mathbb{R}$ which is circumscribed about the
+triangle $\triangle ABC$ (see \cref{fig:intro.example.circumcenter}).
 
 A precondition for this computation is that $\triangle ABC$ is not degenerate,
 i.e., its vertices are non-collinear.  That can be verified by computing the
@@ -204,14 +205,14 @@ Otherwise, one can proceed to draw $\odot O_r$.
 \end{comment}
 
 To draw $\odot O_r$, we must compute both its center and radius.  Its radius $r$
-can be trivially defined as the distance of the center $O$ to any of the
+can be trivially defined as the distance from the center $O$ to any of the
 $\triangle ABC$'s vertices, i.e., $r = \left\|O - A\right\| = \left\|O -
 B\right\| = \left\|O - C\right\|$.  To determine $O$, one must compute the
 intersection of the perpendicular bisectors of the triangle's edges.  Said
 bisectors are the mediators between an edge's vertices, which can be described
 by~\cref{eq:line.parametric.2}, where $P$ is the midpoint between the vertices,
 and $\vec{u}$ is a vector normal to the edge.  The midpoint $M_{P_1P_2}$ of two
-points $P_1,\,P_2 \in \mathbb{R}^2$ is given by
+points $P_1, P_2 \in \mathbb{R}^2$ is given by
 \begin{equation}\label{eq:midpoint.2}
   M_{P_1P_2} = \frac{P_1 + P_2}{2}%
              = \left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right).
@@ -258,15 +259,15 @@ u_y),\,\vec{n} = (-u_y, u_x)$.  From~\eqref{eq:vector.dot.2}, we have
 \end{comment}
 
 Computing the edges' midpoints and respective normal vectors, we can then
-describe the mediators.  Let $M_{AB},\,M_{AC},\,M_{BC} \in \mathbb{R}^2$ be the
+describe the mediators.  Let $M_{AB}, M_{AC}, M_{BC} \in \mathbb{R}^2$ be the
 midpoints, by \cref{eq:midpoint.2}, of the respective edges, and
-$\vec{u}_1,\,\vec{u}_2,\,\vec{u}_3 \in \mathbb{R}^2$ the edges' normal vectors,
+$\vec{u}_1, \vec{u}_2, \vec{u}_3 \in \mathbb{R}^2$ the edges' normal vectors,
 such that
 \[
   \begin{split}
-    P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
-    P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
-    P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
+    L_{M_{AB}}\!:\; P_{M_{AB}} = M_{AB} + \lambda_1 \vec{u}_1 \\
+    L_{M_{AC}}\!:\; P_{M_{AC}} = M_{AC} + \lambda_2 \vec{u}_2 \\
+    L_{M_{BC}}\!:\; P_{M_{BC}} = M_{BC} + \lambda_3 \vec{u}_3 \\
   \end{split},\,\lambda_i \in \mathbb{R}.
 \]
 This problem can be further simplified by eliminating one of the redundant
@@ -287,7 +288,7 @@ the equations with the respectively found $\lambda$, i.e., using $L_{M_{AB}}$,
 for instance, we have \[ O = M_{AB} + \lambda_1 \vec{u}_1. \]
 
 \Cref{lst:intro.example.circumcenter.tikz} shows the code used to produce the
-example in \Cref{fig:intro.example.circumcenter} using \acs{TikZ} with the
+example in \cref{fig:intro.example.circumcenter} using \ac{TikZ} with the
 \texttt{tkz-euclide} \LaTeX{} package.  To compute the center point of $\odot
 O_r$, one can use \texttt{tkzCircumCenter}, which takes three points, $A$, $B$,
 and $C$, and generates the result $O$, obtainable using \texttt{tkzGetPoint}.
@@ -296,8 +297,8 @@ and $C$, and generates the result $O$, obtainable using \texttt{tkzGetPoint}.
   \inputminted{latex}{tikz/ex-circumcenter.tikz}
   \caption[Circumcenter example using TikZ]{
     Circumcenter example from \cref{fig:intro.example.circumcenter} using
-    \acs{TikZ} alongside \texttt{tkz-euclide}.  The highlighted line shows how
-    to obtain the center of $\odot O_r$ via the non-degenerate triangle
+    \ac{TikZ} alongside \texttt{tkz-euclide}.  The highlighted line shows how to
+    obtain the center of $\odot O_r$ via the non-degenerate triangle
     $\triangle ABC$.}%
   \label{lst:intro.example.circumcenter.tikz}
 \end{listing}

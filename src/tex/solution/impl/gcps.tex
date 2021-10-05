@@ -106,9 +106,9 @@ program's output can be seen in \cref{fig:solution.impl.gcps.circumcenter}.
 \label{sec:solution.impl.gcps.tangcirc2line}
 
 Moving on to a set of problems that cannot as directly be solved by \ac{CGAL} is
-that of tangencies.  Generally speaking, there are specific constructs available
-in \ac{CGAL} that solve these problems.  However, we can once again repurpose
-the ones we have and build on top of them.
+that of tangencies.  Generally speaking, there are no specific constructs
+available in \ac{CGAL} that solve these problems.  However, we can once again
+repurpose the ones we have and build on top of them.
 
 This problem involves computing a circle that is tangent to an already existing
 line.  Given the circle's center \texttt{o} and the line \texttt{l} we want the
@@ -127,14 +127,14 @@ The implementation of the problem's solution can be seen in
 \end{listing}
 
 Notice this solution considers we are working with infinite lines, not
-necessarily line \textit{segments} in general.  Were we to apply the same simple
+necessarily line \emph{segments} in general.  Were we to apply the same simple
 approach to a line segment, the circle would end up tangent to the line segment
 as well.  However, the resulting circle could be tangent to one of the segment's
 endpoints instead of tangent to a point along the segment.  In some cases, the
 latter behavior may be preferred, for which adjustments to the solution must be
 made, such as indicating that there is no solution for the given center point.
 
-We did not implement such a scenario regarding line segments, because much like
+We did not implement such a scenario regarding line segments, because, much like
 the other primitives, it was created to satisfy a specific use case's
 requirements.  A potential solution to that specific problem could be obtained
 reusing the \texttt{tangent\_circle} function, however.  We would then need to
@@ -204,11 +204,11 @@ solve a larger problem.
 \end{listing}
 
 \begin{listing}[htbp]
+  \inputminted[firstline=18,lastline=59]{julia}{jl/circ_tangent_lines.jl}
   \caption[Tangent lines between circles]{
     Implementation of the ``Tangent lines between circles'' problem by way of
     composition with the solution of ``Tangent lines to a circle''.}%
   \label{lst:solution.impl.gcps.tanglines2circle}
-  \inputminted[firstline=18,lastline=59]{julia}{jl/circ_tangent_lines.jl}
 \end{listing}
 
 Our implementation returns the results in a deterministic way, facilitating

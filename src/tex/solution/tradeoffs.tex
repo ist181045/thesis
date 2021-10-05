@@ -3,7 +3,7 @@
 \label{sec:solution.tradeoffs}
 
 Since virtually nothing comes without trade-offs and compromises, it is
-paramount we address our implementation's qualities, negative and positive.
+paramount we address our implementation's qualities, both negative and positive.
 
 Relying on a library such as \ac{CGAL} proves to be as great as it can be
 daunting.  As mentioned in \cref{sec:solution.impl.cgal}, \ac{CGAL} is a very
@@ -22,17 +22,17 @@ being \emph{immediately} fixable lest we forget \ac{CGAL} is still an
 open-source project arguably anyone can contribute to.  Alas, said contribution
 deployments are still out of our control.  In hindsight, however, it can be
 considered as just an inconvenience since it is a project that is actively
-maintained by very knowledgeable in the computer graphics and mathematics
+maintained by very knowledgeable people in the computer graphics and mathematics
 fields.
 
 \Ac{CGAL} is also a highly generic library, making heavy use of C++ templates.
 Although its design makes usage an elegant experience, the same cannot be said
-when trying to wrap its constructs to another language, especially a language
+when trying to map its constructs to another language, especially a language
 with a different memory management paradigm which could lead to some nasty
 low-level ordeals.  Luckily, \texttt{CxxWrap.jl} helps us solve most, if not
 all, of those issues.
 
-Regarding our wrapper code,  there is one small problem we still technically did
+Regarding our wrapper code, there is one small problem we still technically did
 not solve.  We are still mapping \ac{CGAL} types in an opaque fashion, fixing
 the kernel on the C++ side.\footnote{There are other projects that attempt to
 make \ac{CGAL} available in other language that resort to this same trick. See
@@ -43,7 +43,7 @@ library compiled with a different kernel.  Despite not entirely solving the
 problem, it offered the user the choice of using exact constructions.  However,
 this alternative became unmaintainable and virtually impossible to successfully
 employ.  In part due to Julia's package pre-compilation, it is no longer viable
-to attempt and use the other library.
+to use this other library.
 
 Ideally, the geometric objects would be parametric, and the kernel (or kernels)
 mapped to Julia as well, but we were met with complications that would make it
@@ -63,7 +63,7 @@ robustness loss as well.  Primarily the ones that involve circles, non-linear
 geometric objects, typically require the computation of a square root to work
 with absolute distances.  We typically avoid those computations, postponing them
 as much as possible until they are absolutely necessary.  As an example, in the
-``Tangent lines to a circle'' implementation in
+``tangent lines to a circle'' implementation in
 \cref{lst:solution.impl.gcps.tanglines2circles}, we first compare squared
 distances before requiring their absolute value.
 

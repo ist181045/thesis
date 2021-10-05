@@ -70,7 +70,7 @@ using \mintinline{julia}{ccall}, as showcased in
 \end{listing}
 
 Though this looks like a good start, the number passing strategy soon shows its
-limitations, particularly, due to the combinatorial explosion problem that may
+limitations, particularly due to the combinatorial explosion problem that may
 arise when a function requires a number $M$ of $N$-dimensional points.  We would
 then have to create a wrapper that takes $N\cdot M$ coordinates,  an approach
 that clearly does not scale.  Fortunately, it is possible to overcome this
@@ -150,7 +150,7 @@ the second one already solves the problem exemplified in a previous chapter in
 upon this approach, not only does it become cumbersome, but it proves
 impractical, given \ac{CGAL}'s complexity.
 
-Fortunately, the Julia community has explored methods of interoperating with
+Fortunately, the Julia community has explored methods for interoperating with
 many other languages, one of them being C++.  That exploration resulted in
 packages like 
 \texttt{CxxWrap.jl}.\footnote{\url{https://github.com/JuliaInterop/CxxWrap.jl}}
@@ -166,33 +166,33 @@ necessary functionality to reproduce the example \ac{CGAL} program in
 \cref{lst:solution.impl.cgal.pas}.
 
 \begin{listing}[htbp]
+  \inputminted[fontsize=\small]{cpp}{cpp/cgal_julia.cpp}
   \caption[Wrapper CxxWrap code for Three points and one segment]{
     C++ wrapper code powered by JlCxx that maps the types and functions needed
     from \acs{CGAL} to reproduce the example shown in
     \cref{lst:solution.impl.cgal.pas} in Julia.}%
   \label{lst:solution.impl.jlcgal.jlcxx}
-  \inputminted[fontsize=\small]{cpp}{cpp/cgal_julia.cpp}
 \end{listing}
 
-We direct our focus to the lines that are highlighted in
-\cref{lst:solution.impl.jlcgal.jlcxx}.  We define a function that is later
-invoked by \texttt{CxxWrap.jl}.  In it, we start registering the required types
-and functions that we need in a declarative fashion,\footnote{Order with which
-types and functions are registered matters.  This means we cannot add a function
-that depends on a type we did not yet register.} reminiscent of the builder
-design pattern~\cite{GOF:1994:DPEROOS}.  Notice the \texttt{JLCXX\_MODULE}
-symbol preceding the function definition.  That symbol takes care of properly
-externalizing the function regardless of the system the library is built
-for.\footnote{Think similar to \mintinline{cpp}{extern "C"}, but slightly more
-robust.}
+We direct our focus to the body of the \texttt{define\_julia\_module} function
+in \cref{lst:solution.impl.jlcgal.jlcxx}.  We define that function so it can be
+invoked later by \texttt{CxxWrap.jl}.  In it, we start registering the required
+types and functions that we need in a declarative fashion,\footnote{Order with
+which types and functions are registered matters.  This means we cannot add a
+function that depends on a type we did not yet register.} reminiscent of the
+builder design pattern~\cite{GOF:1994:DPEROOS}.  Notice the
+\texttt{JLCXX\_MODULE} symbol preceding the function definition.  That symbol
+takes care of properly externalizing the function regardless of the system the
+library is built for.\footnote{Think similar to \mintinline{cpp}{extern "C"},
+but slightly more robust.}
 
 After compiling the wrapper code, we can load it on the Julia side resorting to
-\texttt{CxxWrap.jl}.  This process is reminiscent of and analogous to the ones
-illustrated earlier with simpler examples using \mintinline{julia}{ccall}.
+\texttt{CxxWrap.jl}.  This process is analogous to the ones illustrated earlier
+with simpler examples using \mintinline{julia}{ccall}.
 \Cref{lst:solution.impl.jlcgal.cgal} shows a bare-bones CGAL Julia module.
 
 \begin{listing}[htbp]
-  \inputminted{julia}{jl/CGAL.jl} 
+  \inputminted{julia}{jl/CGAL.jl}
   \caption[Bare-bones Julia module wrapping some of CGAL]{
     An example Julia module that mimics \texttt{CGAL.jl}, wrapping the library
     produced from \cref{lst:solution.impl.jlcgal.jlcxx}.  It initializes the
@@ -208,9 +208,9 @@ available to Julia is
   and
   \item export the mapped functionality.
 \end{enumerate*}
-The rest of the non-highlighted code, both in this example and the previous
-only serves the purpose of obtaining a human-readable representation of the C++
-objects in Julia.
+The surrounding code, both in this example and the previous one only serves the
+purpose of obtaining a human-readable representation of the C++ objects in
+Julia.
 
 Finally, we reach a point where we are able to reproduce the example listed in
 \cref{lst:solution.impl.cgal.pas} in the Julia language, having mapped all the
@@ -227,7 +227,7 @@ example, translated from C++.
 \end{listing}
 
 We illustrated how to repurpose some core functionality on which we can continue
-to incrementally build upon following a similar approach to that shown in
+to incrementally build upon, following a similar approach to that shown in
 \cref{lst:solution.impl.jlcgal.jlcxx}.  Doing so, with relatively low effort, we
 can obtain the primitive objects and functionality on which our \primitives{}
 will be supported.  The following section goes over how we effectively used the

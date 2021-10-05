@@ -34,18 +34,18 @@ relate these objects.  Naturally, \ac{GCS} fits in \ac{CAD} software, having
 been the target of considerable research and development to implement efficient
 approaches and methodologies capable of solving \ac{GC} problems.  So much so
 that it has become standard in major \ac{CAD} software, such as
-AutoCAD\footnote{https://autodesk.com/autocad} from
-Autodesk\textsuperscript\textregistered, which supports the ability to constrain
-objects in a variety of ways, e.g., point coincidence, line perpendicularity,
-and tangencies, among other kinds of constraints.
+AutoCAD\footnote{\url{https://autodesk.com/autocad}} from Autodesk, which
+supports the ability to constrain objects in a variety of ways, e.g., point
+coincidence, line perpendicularity, and tangencies, among other kinds of
+constraints.
 
 However, traditional interactive methods for parametric modeling suffer from the
 disadvantage that they do not scale properly when designing more complex ideas.
 In recent years, a novel approach to design named \ac{AD} has emerged, allowing
 the specification of sketches and models through
 algorithms~\cite{McCormack:2004:GDPDR}, leading to the creation and integration
-of \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL},
-others \acp{TPL}, or even a mixture of both.  The latter overcomes a fundamental
+of \ac{AD} tools into \ac{CAD} software as well.  Some use \acp{VPL}, others use
+\acp{TPL}.  Some even use a mixture of both.  \Acp{TPL} overcome a fundamental
 issue with \acp{VPL} which is the frequently disproportionate complexity between
 the program and the respective resulting model.
 
@@ -78,27 +78,26 @@ by specifying the values for a set of input parameters.
 \end{figure}
 
 The seat's corners are defined by circles whose respective front and rear
-radius' length, \texttt{g-rf}, \texttt{g-rr}, is obtained by computing
-distances, from which the circles' centers, \texttt{GFC} and \texttt{GBC}, can
-be obtained.  The circles are then connected through outer tangent lines,
-\texttt{gsl}, forming the outer frame of the chair's seat.  Some of these
-operations, such as the radius computation, \textit{tangency}, and
-\textit{circumcenter}, depend on operations that query if a point is at a
-certain distance from an object, or if two points are coincident.  Such
-operations must be handled carefully due to numerical robustness issues that may
-arise when performing fixed-precision arithmetic.  As such, on top of the design
-process itself, the user must identify the \acp{GC}, resorting to trigonometry
-analysis, perform tolerance-based comparisons to determine point distance or if
-two points are coincident, among other techniques the user most likely is not
-aware he must rely upon to circumvent these issues, particularly, when we take
-into consideration that most \ac{AD} practitioners are architects and designers
+radius' length, \mbox{\texttt{g-rf}}, \mbox{\texttt{g-rr}}, is determined by
+computing distances, from which the circles' centers, \texttt{GFC} and
+\texttt{GBC}, can be obtained.  The circles are then connected through outer
+tangent lines, \texttt{gsl}, forming the outer frame of the chair's seat.  Some
+of these operations, such as radius, tangency, and circumcenter computation,
+depend on operations that query if a point is at a certain distance from an
+object, or if two points are coincident.  Such operations must be handled
+carefully due to numerical robustness issues that may arise when performing
+fixed-precision arithmetic.  As such, on top of the design process itself, the
+user must identify the \acp{GC}, resorting to trigonometry analysis, perform
+tolerance-based comparisons to determine point distance or if two points
+coincide, among other techniques the user most likely is not aware they must
+rely upon to circumvent these issues, particularly, when we take into
+consideration that most \ac{AD} practitioners are architects and designers
 without an extensive background in \ac{CS}.
 
 To overcome the limitations exposed above, this report proposes the
 implementation of \ac{GC} primitives with specialized efficient solutions for
 different combinations of input objects.  We additionally focus our work around
-\acp{TPL}, further making them more attractive, and easier to both adopt and
-use.
+\acp{TPL}, further making them more attractive and easier to both adopt and use.
 
 \section{Document Structure}%
 \label{sec:intro.structure}
@@ -127,8 +126,8 @@ The present document is structured in \total{chap} different chapters, namely:
     \cref{sec:related.robustness},
     \item an overview of \ac{GC} tools, presenting some of their benefits and
     drawbacks, in \cref{sec:related.constraints}, and
-    \item an overview of algorithmic design tools, similarly comparing them and
-    addressing positive and negative points, in \cref{sec:related.ad}.
+    \item an overview of \ac{AD} tools, similarly comparing them and addressing
+    positive and negative points, in \cref{sec:related.ad}.
   \end{enumerate*}
 
   \item[\nameref{chap:solution}] A solution proposal, followed by how it was
@@ -150,9 +149,9 @@ The present document is structured in \total{chap} different chapters, namely:
   \begin{enumerate*}[label= (\arabic*)]
     \item a performance comparison in \cref{sec:eval.cgm} with a similar project
     with a shared goal,
-    \item an extensive evaluation comparing two different approaches at solving
-    \ac{GC} problems present in four case studies inspired by existing designs,
-    and
+    \item an extensive evaluation comparing two different approaches used to
+    solve \ac{GC} problems present in four case studies inspired by existing
+    designs, and
     \item a performance, correctness, and effort estimation analysis, in
     \cref{sec:eval.voronoi}, comparing an implementation of a complex geometric
     algorithm in the target platform vs.\ a repurposed mature implementation.

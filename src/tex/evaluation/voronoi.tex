@@ -19,13 +19,13 @@ The version from \texttt{VoronoiDelaunay.jl}, however, uses floating point
 filtering~\cite{Springel:2010:GCHSMM}, requiring all point coordinates to be in
 the interval $\left(1, 2\right) \times \left(1, 2\right) \subset \mathbb{R}^2$;
 a restriction \ac{CGAL}'s implementation does not have since it uses a dynamic
-floating point precision approach\footnote{Briefed at
+floating-point precision approach\footnote{Briefed at
 \url{https://www.cs.cmu.edu/~quake/robust.html}}~\cite{Shewchuk:1997:APFPAFRGP}.
-The \textit{limitation} in the former arguably constitutes a minor inconvenience
-since the diagram may be produced in that limited range and then scaled
-afterwards to meet the use case's needs.  But it is worth noting the issue is
-not present in \ac{CGAL}'s implementation.  This is relevant if the input
-coordinates cannot be altered to meet those needs.
+The limitation in the former arguably constitutes a minor inconvenience since
+the diagram may be produced in that limited range and then scaled afterwards to
+meet the use case's needs.  But it is worth noting the issue is not present in
+\ac{CGAL}'s implementation.  This is relevant if the input coordinates cannot be
+altered to meet those needs.
 
 To illustrate how we obtained the 2D Delaunay Triangulation and Voronoi Diagram
 algorithms from \ac{CGAL}, \cref{lst:appendix.voronoi.jlcxx} shows a minimal
@@ -34,7 +34,11 @@ the necessary constructs and functionality available in Julia.  It follows a
 familiar approach, the same used to obtain the core constructs supporting our
 \primitives{} solution.  \Cref{lst:eval.voronoi.jl} shows a bare-bones Julia
 module encapsulating and exposing the mapped functionality to the Julia
-language.
+language.  \texttt{CGAL.jl} contains a version of these mappings that are,
+however, parameterized, and adds methods for querying, insertion, and further
+manipulation.  For the purposes of testing, we used the slimmer \texttt{Voronoi}
+module (\cref{lst:eval.voronoi.jl}).
+
 \begin{listing}[htb]
   \inputminted{julia}{jl/Voronoi.jl}
   \caption[Bare-bones Julia module wrapping CGAL's Delaunay algorithms]{
@@ -43,10 +47,6 @@ language.
     \cref{lst:appendix.voronoi.jlcxx}.}%
   \label{lst:eval.voronoi.jl}
 \end{listing}
-\texttt{CGAL.jl} contains a version of these mappings that are, however,
-parameterized, and adds methods for querying, insertion, and further
-manipulation.  For the purposes of testing, we used the slimmer \texttt{Voronoi}
-module (\cref{lst:eval.voronoi.jl}).
 
 The process for obtaining these bindings is a relatively simple one that
 requires bare minimal C++ knowledge and following reference documentation as if

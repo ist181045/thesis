@@ -12,19 +12,19 @@ Alas, said approaches typically resort to generic \acs{GCS} algorithms, which
 means \ac{GC} solvers, in general, have difficulties identifying specific
 underlying subproblems with efficiently computable and robust solutions.
 
-Nonetheless, the prior analysis of the set of geometric constraints that must be
-dealt with requires background knowledge on numerical robustness to
-mitigate fixed-precision arithmetic issues, such as \textit{roundoff} error
-accumulation.  Moreover, there is the added requirement of researching solutions
-to these specific constraint problems and subsequent implementation of the
-corresponding algorithms.  The user will end up spending more time and effort in
-this process than in the design process itself.
+Nonetheless, the prior analysis of the set of \acp{GC} that must be
+dealt with requires background knowledge on numerical robustness to mitigate
+fixed-precision arithmetic issues, such as roundoff error accumulation.
+Moreover, there is the added requirement of researching solutions to these
+specific constraint problems and subsequent implementation of the corresponding
+algorithms.  The user will end up spending more time and effort in this process
+than in the design process itself.
 
 Thus, in order to overcome these obstacles, an alternative approach is proposed
 in the form of the implementation of \ac{GC} primitives supported by an exact
 geometric computation library.  The latter provides a series of optimized
 geometric algorithms and exact data structures that allow transparent handling
-of robustness issues, lifting this concern from the user's shoulders thus
+of robustness issues, lifting this concern from the user's shoulders, thus
 facilitating the design process.
 
 By supporting our solution on top of \ac{CGAL}, we transitively ensure its

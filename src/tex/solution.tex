@@ -3,19 +3,17 @@
 \label{chap:solution}
 \cleardoublepage{}
 
-\noindent
-Despite strides in enhancing the performance and efficiency of geometric
-constraint solving approaches, briefly discussed in
-\cref{sec:intro.constraints}, the core issue lies in the generality of geometric
-constraint solvers.  Although several approaches employ efficient methods to
-find a solution, they resort to solving potentially well-known problems
-generically when computationally lighter solutions exist.  Instead of delegating
-the problem to a solver, a more efficient approach would be to pinpoint the type
-of \ac{GC} itself, specializing a solution for several applicable entities.
-Take the tangency constraint as an example: positioning two circles tangent to
-each other or a line tangent to an ellipse.  Depending on the inputs, these
-constraints might have particularly efficient solutions for each case, in kind
-making the computation more efficient.
+\noindent Despite strides in enhancing the performance and efficiency of
+\ac{GCS} approaches, briefly discussed in \cref{sec:intro.constraints}, the core
+issue lies in the generality of \ac{GC} solvers.  Although several approaches
+employ efficient methods to find a solution, they resort to solving potentially
+well-known problems generically when computationally lighter solutions exist.
+Instead of delegating the problem to a solver, a more efficient approach would
+be to pinpoint the type of \ac{GC} itself, specializing a solution for several
+applicable entities.  Take the tangency constraint as an example: positioning
+two circles tangent to each other or a line tangent to an ellipse.  Depending on
+the inputs, these constraints might have particularly efficient solutions for
+each case, in kind making the computation more efficient.
 
 Classical numerical methods constitute alluring alternatives to the predominant
 graph-based approaches.  Having been studied for several decades, even if the
@@ -46,21 +44,21 @@ Moreover, by relying on an exact geometry computation library, one of the core
 features of this solution lies in the capability of transparently dealing with
 plenty of the previously addressed robustness issues.  The user can then resort
 to the implemented primitives, and, by composing them, elegantly specify the set
-of geometric constraints necessary to produce the idealized model.  Since the
-available primitives will implement specialized solutions for a finite set of
-shapes that the user can utilize, in whichever combination possible, during the
-design process, the solution will be exempt of a generic solver component,
-potentially boosting performance of design generation.
+of \acp{GC} necessary to produce the idealized model.  Since the available
+primitives will implement specialized solutions for a finite set of shapes that
+the user can utilize, in whichever combination possible, during the design
+process, the solution will be exempt of a generic solver component, potentially
+boosting performance of design generation.
 
 \Cref{fig:solution.arch} shows the typical \ac{AD} workflow and how the proposed
 solution could be integrated with the \ac{AD} tool.  The encapsulated modules in
 the figure represent the underlying computation library as an external
-component, featuring the geometric constraint primitives library and the code
-wrapping the computation library.
+component, featuring the \ac{GC} primitives library and the code wrapping the
+computation library.
 
 \begin{figure}[htb]
   \includegraphics[width=\textwidth]{fig/solution-arch}
-  \caption[Solution architecture within AD workflow]{
+  \caption[Solution architecture within the AD workflow]{
     General overview of the solution's architecture encapsulated within the
     blue colored box beneath a depiction of the typical \ac{AD} workflow.}%
   \label{fig:solution.arch}

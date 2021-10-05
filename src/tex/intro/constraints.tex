@@ -4,17 +4,18 @@
 
 We have briefly seen how parametric operations in \ac{CAD} software have
 evolved.  These operations allow the user to create geometric objects that
-satisfy certain constraints \textit{implicitly} imposed on the objects when the
+satisfy certain constraints \emph{implicitly} imposed on the objects when the
 user selects the operations they want to use along with the respective
 operation's inputs.  Naturally, \ac{GCS} fits well in \ac{CAD} applications.
 \Acp{GC} allow the repositioning and scaling of geometric objects so that they
-satisfy constraints \textit{explicitly} imposed on them by the user.
+satisfy constraints \emph{explicitly} imposed on them by the user.
 
 \acp{CSP} are a well-known subject of research both in mathematics and in the
 \ac{CS} field.  \ac{GCS} is a subclass of \acp{CSP}. More specifically, it is a
 \ac{CSP} in a computational geometry setting.  The abstract problem of \ac{GCS}
 is often described as follows~\cite[pp.~6]{Bettig:2011:GCSPC}:
 
+\newpage
 \begin{quote}
   {\itshape\color{gray}
   Given a set of geometric objects, such as points, lines, and circles; a set of
@@ -24,13 +25,13 @@ is often described as follows~\cite[pp.~6]{Bettig:2011:GCSPC}:
   or report that no such assignment has been found.}
 \end{quote}
 
-One of the important features of a solver is its \textit{competence}, which is
-related to the capability of reporting unsolvability: if in fact no solution for
-the problem at hand exists and the solver is capable of reporting unsolvability
-in that case, the solver is deemed fully competent.  Since constraint solving is
-mostly an exponentially complex problem~\cite{Rossi:2006:Handbook}, partial
-competence suffices as long as decent solutions can be found in affordable time
-and space.
+One attractive property looked for in a solver is its \emph{competence}, which
+is related to the capability of reporting unsolvability: if in fact no solution
+for the problem at hand exists and the solver is capable of reporting
+unsolvability in that case, the solver is deemed fully competent.  Since
+constraint solving is mostly an exponentially complex
+problem~\cite{Rossi:2006:Handbook}, partial competence suffices as long as
+decent solutions can be found in affordable time and space.
 
 There are multiple approaches to constraint solving, but the most relevant ones
 are graph-based, logic-based, algebraic, and theorem prover-based, of which the
@@ -38,11 +39,11 @@ first is the predominant one.  It is important for these approaches that the
 \ac{GC} system does not have too few or too many constraints.  Summarily, a
 system can either be 
 \begin{enumerate*}[label= (\arabic*)]
-  \item under-constrained if the number of solutions is unbound due to lack of
+  \item under-constrained, if the number of solutions is unbound due to lack of
   constraint coverage over the entities involved,
-  \item over-constrained if there are no solutions because of constraint
+  \item over-constrained, if there are no solutions because of constraint
   contradictions, or
-  \item well-constrained if the number of solutions is bound to a finite
+  \item well-constrained, if the number of solutions is bound to a finite
   positive number.
 \end{enumerate*}
 
@@ -102,9 +103,9 @@ specific solution steps are made explicit by applying geometric reasoning.  The
 solver then takes a set of construction steps and assigns coordinate values to
 the geometric entities.
 
-A geometric locus\footnote{In mathematics, a locus is a set of points that
+A geometric locus,\footnote{In mathematics, a locus is a set of points that
 satisfy some condition.  In layman's terms, a location or place.} at which
-constrained elements must be is obtained using first order logic to derive
+constrained elements must be, is obtained using first order logic to derive
 geometric information, applying a set of axioms from Hilbert's
 geometry~\cite{Aldefeld:1988:VGBGRM,Sohrt:1991:IC3DM,Bruderlin:1993:USGRRSGSS}.
 Two different types of constraints are further

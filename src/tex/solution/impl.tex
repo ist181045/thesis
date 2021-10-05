@@ -5,16 +5,16 @@
 This section details implementation choices with regard to the chosen platforms
 for realizing the initially proposed general solution architecture, previously
 illustrated in \cref{fig:solution.arch}. Following a brief analysis, we expand
-specifically on the concrete components corresponding to the ones within
-\cref{fig:solution.arch}'s light blue rectangle.
+specifically on the concrete components corresponding to the ones captured by
+the rectangle in the aforementioned figure.
 
 Examining the \ac{AD} workflow portion of \cref{fig:solution.arch}, there are
 depictions of \ac{CAD}, \ac{BIM}, and analysis tools, of which examples could be
 Rhinoceros3D, Autodesk's Revit, and Radiance, respectively, with no particular
 focus on any of them.  Digging a layer deeper, we find the \ac{AD} tool, which,
-by means made available by the tools above it, produces models specific to those
-tools from a description provided by the user.  The \ac{AD} tool we have chosen
-was
+through means made available by the tools above it, produces models specific to
+those tools from a description provided by the user.  The \ac{AD} tool we have
+chosen was
 Khepri\footnote{\url{https://github.com/aptmcl/Khepri.jl}}~\cite{Leitao:2019:GRUGEAV},
 a text-based tool written in the Julia programming
 language~\cite{Bezanson:2017:JAFANC}.  Khepri is the successor of another
@@ -34,49 +34,48 @@ words, we need to make \ac{CGAL} available to the Julia language.  The Julia
 language already possesses facilities that invoke functionality within libraries
 written in the C~\cite{Kernighan:1988:C} or the
 Fortran~\cite{Backus:1957:Fortran} programming languages, an interfacing
-mechanism is commonly known as \ac{FFI}.  It allows for the repurposing of
+mechanism that is commonly known as \ac{FFI}.  It allows for the repurposing of
 mature software libraries in foreign languages without the need for a complete
 rewrite or adaptation.\footnote{The decision to include such a mechanism at the
 language's core by the language designers makes it so that the language can gain
 traction early, biding time to later explore native implementations.  Arguably,
-it may be one of \textit{the} fundamental features that made the language as
+it may be one of \emph{the} fundamental features that made the language as
 popular as it is and kept it afloat, unlike other similar historical examples
 that might have lacked such a mechanism.}  Despite only addressing libraries
 written in C and Fortran, this mechanism can also in turn be leveraged and built
 upon to interface with other programming languages, e.g., Java, Python, MATLAB,
-and, C++.\footnote{There is an entire GitHub organization with projects
-dedicated to foreign language interoperation at
-\url{https://github.com/JuliaInterop}}
+and C++.\footnote{There is an entire GitHub organization with projects dedicated
+to foreign language interoperation at \url{https://github.com/JuliaInterop}}
 
 Overcoming the language interoperability hurdle, we can now start focusing on
 the implementation of the \primitives{}.  These primitives build on top of the
 functionality available in \ac{CGAL}, some of which is directly inherited from
 it, substantially helping us in the process.  We further enriched the pool with
 a few more functions, illustrating a constructive approach to \ac{GCS}, similar
-and inspired by the approach of \texttt{tkz-euclide}, mentioned in
+to and inspired by the approach followed by \texttt{tkz-euclide}, mentioned in
 \cref{sec:related.constraints.tikz}.  By creating an abstraction over more
 primitive functionality, we aimed to provide an easy to understand and utilize
 set of tools so that users can avoid the error-prone process of reimplementing
 it themselves.  Furthermore, we level the playing field by working at a
 conceptual level which is more familiar to traditional \ac{CAD} software users
 rather than falling back to the more analytic approach programming languages
-naturally offer.
+naturally beg for.
 
-The following sections will elaborate further on the components emphasized in
-the previous paragraphs, adopting a bottom-up-like approach.  We will discuss
-\ac{CGAL} and what constructs and functionality it can provide to aid our goal,
-as well as some added benefits of building on top of a very mature and
-comprehensive library.  That will be followed by a section detailing how it was
-possible to map said functionality to the Julia language, of which the result
-was a Julia package aptly named \texttt{CGAL.jl}\footnote{Packages in the Julia
-ecosystem are conventionally terminated with a \texttt{.jl} suffix, the
-extension used for Julia files.  This is reminiscent of a familiar convention
-followed in the Java ecosystem where libraries and tools are usually prefixed
-with the letter \texttt{J}, e.g., \texttt{JUnit}, \texttt{JMeter},
-\texttt{JDeveloper}, among others.}~\cite{Ventura:2021:CGAL.jl}.  Finally, we
-showcase how we leveraged \texttt{CGAL.jl} to build the aforementioned
-\primitives{}, a set of functionalities that implements specialized yet
-comprehensible constructive approach solutions to \ac{GC} problems.
+The following sections elaborate further on the components emphasized in the
+previous paragraphs, adopting a bottom-up-like approach.  We discuss \ac{CGAL}
+and what constructs and functionality it can provide to aid our goal, as well as
+some added benefits of building on top of a very mature and comprehensive
+library.  That is followed by a section detailing how it was possible to map
+said functionality to the Julia language, of which the result was a Julia
+package aptly named \texttt{CGAL.jl}\footnote{Packages in the Julia ecosystem
+are conventionally terminated with a \texttt{.jl} suffix, the extension used for
+Julia files.  This is reminiscent of a familiar convention followed in the Java
+ecosystem where libraries and tools are usually prefixed with the letter
+\texttt{J}, e.g., \texttt{JUnit}, \texttt{JMeter}, \texttt{JDeveloper}, among
+others.}~\cite{Ventura:2021:CGAL.jl}.  Finally, we showcase how we leveraged
+\texttt{CGAL.jl} to build the aforementioned \primitives{}, a set of functions
+that implements specialized yet comprehensible constructive approach solutions
+to \ac{GC} problems.
 
 \input{tex/solution/impl/cgal}
 \input{tex/solution/impl/jlcgal}

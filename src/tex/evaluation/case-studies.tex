@@ -81,13 +81,13 @@ $r_2 = (2 - \sqrt2)r_1$ and $h = 2r_1 + r_2$, corresponds to the Moss' Egg
 
 In this case, the major problem was to define the side arc $A_3$, which is given
 by the center $O_3$, radius $r_3$, and amplitude $\alpha$
-(\cref{fig:eval.studies.egg.sol.a}). The \textit{analytic solution} is described
-below. The angle $\alpha$ and the radius $r_3$ are devised from the triangle
-$\triangle O_1 O_2 O_3$ (\cref{fig:eval.studies.egg.sol.c}), and the center
-$O_3$ is given by a translation of $O_1$ through the unit vector $\vec{e}_x$,
-parallel to the X-axis, scaled by the factor $r_1 - r_3$.  It is important to
-note that, despite their simplicity, the derivations needed to arrive at the
-following formulas are not obvious.
+(\cref{fig:eval.studies.egg.sol.a}). The analytic solution is described below.
+The angle $\alpha$ and the radius $r_3$ are devised from the triangle $\triangle
+O_1 O_2 O_3$ (\cref{fig:eval.studies.egg.sol.c}), and the center $O_3$ is given
+by a translation of $O_1$ through the unit vector $\vec{e}_x$, parallel to the
+X-axis, scaled by the factor $r_1 - r_3$.  It is important to note that, despite
+their simplicity, the derivations needed to arrive at the following formulas are
+not obvious.
 
 \begin{enumerate}
   \item $\alpha = 2\arctan\frac{r_1 - r_2}{h - r_1 - r_2}$
@@ -95,13 +95,12 @@ following formulas are not obvious.
   \item $O_3 = O_1 + \left(r_1 - r_2\right)\vec{e}_x$
 \end{enumerate}
 
-The \textit{constructive solution} is based on the geometric problem of
-determining the \textit{tangent line to two circles}.  In fact, the side arc
-$A_3$ is tangent to two circles, $C_1$ and $C_2$, and passes through point
-$P_1$.  Two \ac{GC} primitives from our solution were employed in this
-solution, namely \textit{intersection} and \textit{bisector}.  The solution can
-be computed according to the following procedure
-(\cref{fig:eval.studies.egg.sol.c}):
+The constructive solution is based on the geometric problem of determining the
+\textit{tangent line to two circles}.  In fact, the side arc $A_3$ is tangent to
+two circles, $C_1$ and $C_2$, and passes through point $P_1$.  Two \ac{GC}
+primitives from our solution were employed in this solution, namely
+\textit{intersection} and \textit{bisector}.  The solution can be computed
+according to the following procedure (\cref{fig:eval.studies.egg.sol.c}):
 
 \begin{enumerate}
   \item $C_{2}' = \operatorname{circle}\left(P_1, r_2\right)$%
@@ -144,12 +143,12 @@ the circle $C_1$.
   \label{fig:eval.studies.egg.sol}
 \end{figure}
 
-Achieving the equations in the \textit{analytic solution} is not a
-straightforward task for designers, since it involves considerable logical
-reasoning and the use of non-trivial formulas (such as trigonometric half-angle
-identities). It is also unclear how those equations were derived. By contrast,
-in the \textit{constructive solution}, all the steps are clearly externalized,
-which makes it much more comprehensible.
+Achieving the equations in the analytic solution is not a straightforward task
+for designers, since it involves considerable logical reasoning and the use of
+non-trivial formulas (such as trigonometric half-angle identities). It is also
+unclear how those equations were derived. By contrast, in the constructive
+solution, all the steps are clearly externalized, which makes it much more
+comprehensible.
 
 \subsection{Rounded Trapezoid}%
 \label{sec:eval.studies.rtrapezoid}
@@ -189,13 +188,13 @@ $r_2$ respectively (\cref{fig:eval.studies.rtrapezoid.sol}), two solutions can
 be delineated that can accurately reproduce the tangent line $\overline{T_1
 T_2}$.
 
-The \textit{analytic solution} is achieved by calculating the angle $\delta$
-between the line segment $\overline{O_1 O_2}$ and the line perpendicular to the
-tangent line between the two circles passing through $O_1$.  The angle $\theta$
-is given by the slope of $\overline{O_1 O_2}$.  The point $T_1$ is given by a
-translation of $O_1$ through a vector $\left(r_1, \angle\delta + \theta\right)$
-where $r_1$ is its length and $\angle\delta + \theta$ is its polar angle.  A
-similar approach is used to obtain $T_2$.
+The analytic solution is achieved by calculating the angle $\delta$ between the
+line segment $\overline{O_1 O_2}$ and the line perpendicular to the tangent line
+between the two circles passing through $O_1$.  The angle $\theta$ is given by
+the slope of $\overline{O_1 O_2}$.  The point $T_1$ is given by a translation of
+$O_1$ through a vector $\left(r_1, \angle\delta + \theta\right)$ where $r_1$ is
+its length and $\angle\delta + \theta$ is its polar angle.  A similar approach
+is used to obtain $T_2$.
 
 \begin{enumerate}
   \item $\delta = \arccos\frac{r_1 - r_2}{\lVert O_2 - O_1 \rVert}$
@@ -204,7 +203,7 @@ similar approach is used to obtain $T_2$.
   \item $T_2 = O_2 + \left(r_1, \angle\delta + \theta\right)$
 \end{enumerate}
 
-The \textit{constructive solution} follows a sequence of steps that reflects the
+The constructive solution follows a sequence of steps that reflects the
 geometric characteristics of the problem
 (\cref{fig:eval.studies.rtrapezoid.sol}).  Four \ac{GC} primitives were employed
 in this solution, namely \textit{midpoint}, \textit{intersection}, and
@@ -229,21 +228,20 @@ in this solution, namely \textit{midpoint}, \textit{intersection}, and
   \item $T_2 = \operatorname{intersection}\left(P, C_2\right)$
 \end{enumerate}
 
-Despite the adequacy of the \textit{analytic solution} for the design problem at
-hand, it only produces the external tangent needed to solve this specific
-problem, which works well if the circle's center is on the 1\textsuperscript{st}
-and 2\textsuperscript{nd} quadrants: however, in the remaining quadrants, it
-produces an unintended tangent.  In contrast, our \textit{constructive approach}
-is capable of producing a solution independently of how the circles are
-arranged.
+Despite the adequacy of the analytic solution for the design problem at hand, it
+only produces the external tangent needed to solve this specific problem, which
+works well if the circle's center is on the first and second quadrants: however,
+in the remaining quadrants, it produces an unintended tangent.  By contrast, our
+constructive approach is capable of producing a solution independently of how
+the circles are arranged.
 
 The advantage of using well-established functions from \ac{CGAL} is that they
 deal with degenerate cases better than re-implementations of the same
 functionality from scratch.  For instance, in the case of concentric circles,
 the intersection between those circles does not produce an error; instead, it
-produces an empty result.  In the case of the proposed \textit{analytic
-solution}, the distance between the circles' centers is zero, which leads to a
-division-by-zero error.
+produces an empty result.  In the case of the proposed analytic solution, the
+distance between the circles' centers is zero, which leads to a division-by-zero
+error.
 
 Architects and designers are used to manipulating \acp{GC}, such as
 \textit{tangency}, \textit{parallelism}, and \textit{intersection}, and less
@@ -316,12 +314,11 @@ transformation around the center.
   \label{fig:eval.studies.star.sol}
 \end{figure}
 
-The \textit{analytic solution} is described below.  The radius $r_1$ of the
-circle $C_1$ is calculated by step \ref{enum:eval.studies.star.r1}, the radius
-$r_2$ is defined by step \ref{enum:eval.studies.star.r2}, and its center $O_1$
-is given by step \ref{enum:eval.studies.star.O1}.  The intersection points $I_1$
-and $I_2$ are given by a rotation around $O_1$
-(\cref{fig:eval.studies.star.sol}).
+The analytic solution is described below.  The radius $r_1$ of the circle $C_1$
+is calculated by step \ref{enum:eval.studies.star.r1}, the radius $r_2$ is
+defined by step \ref{enum:eval.studies.star.r2}, and its center $O_1$ is given
+by step \ref{enum:eval.studies.star.O1}.  The intersection points $I_1$ and
+$I_2$ are given by a rotation around $O_1$ (\cref{fig:eval.studies.star.sol}).
 
 \begin{enumerate}
   \item $r_1 = r\frac{\sin^2\frac{\pi}{n}}{\cos\frac{\pi}{n}}$%
@@ -334,9 +331,9 @@ and $I_2$ are given by a rotation around $O_1$
   \item $I_2 = O_1 + \left(r_1, \angle\frac{\pi}{2}\right)$
 \end{enumerate}
 
-The \textit{constructive solution} is based on finding the position and size of
-the circle $C_1$ (see \cref{fig:eval.studies.star.sol}).  Two \ac{GC}
-primitives were employed in this solution, namely \textit{intersection}, and
+The constructive solution is based on finding the position and size of the
+circle $C_1$ (see \cref{fig:eval.studies.star.sol}).  Two \ac{GC} primitives
+were employed in this solution, namely \textit{intersection}, and
 \textit{tangent circle to one line}.
 
 \begin{enumerate}
@@ -364,10 +361,10 @@ processors.} Architecture's Melbourne Recital Centre, and Hassell's Alibaba
 Headquarters.
 
 In its simplest version, a Voronoi diagram consists of partitioning a plane into
-regions from a set of points, called \textit{sites}; for every site, each region
-contains every point in the plane closer to that site than to any other site.
-The sites are typically randomly distributed points, although they can follow
-other distributions.  \Cref{fig:eval.studies.voronoi.prob} shows three Voronoi
+regions from a set of points, called sites; for every site, each region contains
+every point in the plane closer to that site than to any other site.  The sites
+are typically randomly distributed points, although they can follow other
+distributions.  \Cref{fig:eval.studies.voronoi.prob} shows three Voronoi
 diagrams generated from entirely randomly distributed points
 (\cref{fig:eval.studies.voronoi.prob.rand}), from random points with one
 attractor point in the bottom-left corner
@@ -399,9 +396,8 @@ based on the distance to it.
 \end{figure}
 
 Both the analytic and constructive methods focus on computation of a vertex
-relies on the computation of the \textit{circumcenter} of a triangle, for
-instance, triangle $\triangle P_1 P_2 P_3$
-(\cref{fig:eval.studies.voronoi.sol}).
+relies on the computation of the circumcenter of a triangle, for instance,
+triangle $\triangle P_1 P_2 P_3$ (\cref{fig:eval.studies.voronoi.sol}).
 
 \begin{figure}[htb]
   \centering
@@ -413,11 +409,11 @@ instance, triangle $\triangle P_1 P_2 P_3$
   \label{fig:eval.studies.voronoi.sol}
 \end{figure}
 
-There are several possible \textit{analytic solution} to compute a triangle's
+There are several possible analytic solution to compute a triangle's
 circumcenter.  One of them is based on the \textit{circumradius} formula (step
 \ref{enum:eval.studies.voronoi.sol.a.circum}), where $a$, $b$, and $c$ are the
-lengths of the triangle's sides (step
-\ref{enum:eval.studies.voronoi.sol.a.tri}) and $A$ is the triangle's area (step
+lengths of the triangle's sides (step \ref{enum:eval.studies.voronoi.sol.a.tri})
+and $A$ is the triangle's area (step
 \ref{enum:eval.studies.voronoi.sol.a.area}).  The circumcenter $C$ can then be
 easily computed by a translation (step
 \ref{enum:eval.studies.voronoi.sol.a.move}) from $P_1$ following the angle
@@ -438,10 +434,10 @@ $\alpha$ (step \ref{enum:eval.studies.voronoi.sol.a.alpha}).
   \label{enum:eval.studies.voronoi.sol.a.move}
 \end{enumerate}
 
-The \textit{constructive solution} computes the circumcenter, given by the
-intersection of the edges' perpendicular bisectors.  In fact, this has been
-exemplified in \cref{chap:intro}.  Two \ac{GC} primitives were employed in this
-solution, namely \textit{bisector} and \textit{intersection}.
+The constructive solution computes the circumcenter, given by the intersection
+of the edges' perpendicular bisectors.  In fact, this has been exemplified in
+\cref{chap:intro}.  Two \ac{GC} primitives were employed in this solution,
+namely \textit{bisector} and \textit{intersection}.
 
 \begin{enumerate}
   \item $B_1 = \operatorname{bisector}\left(\overline{P_1 P_2}\right)$
